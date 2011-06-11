@@ -1,0 +1,14 @@
+" Ruby
+au BufRead,BufNewFile *.rb,*.rbw,*.gem,*.gemspec	set filetype=ruby
+
+" Ruby on Rails
+au BufRead,BufNewFile *.builder,*.rxml,*.rjs		set filetype=ruby
+
+" Rakefile
+au BufRead,BufNewFile [rR]akefile,*.rake		set filetype=ruby
+
+" Rantfile
+au BufRead,BufNewFile [rR]antfile,*.rant		set filetype=ruby
+
+" eRuby
+au BufRead,BufNewFile *.erb,*.rhtml			set filetype=eruby
