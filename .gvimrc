@@ -1,11 +1,9 @@
 scriptencoding utf-8
-" ^^ Please leave the above line at the start of the file.
 
 " Pre-GUI settings
 set columns=84 lines=25       " don't inherit geometry from parent term
 set mousemodel=popup          " right mouse button pops up a menu in the GUI
-"set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*
-set guifont=monospace\ 10 "DejaVu\ Sans\ Mono\ Half\ Width\ 10  "Monospace\ 10
+set guifont=monospace\ 10
 set guioptions-=T
 " Also save gvim's window size and position
 set sessionoptions+=resize,winpos
