@@ -29,7 +29,7 @@ set tabpagemax=100
 set printencoding=utf-8
 set printmbcharset=JIS_X_1990
 set printfont=monospace\ 10
-set printoptions+=number:y
+set printoptions& printoptions+=number:y
 set printmbfont=r:GothicBBB-Medium
 " 12 messages and info
 set shortmess=atToOI    " shortens messages to avoid 'press a key' prompt 
@@ -52,15 +52,16 @@ set fileformats=unix,dos,mac  " support all three, in this order
 set backup
 " 21 command line editing
 set history=1000        " keep 1000 lines of command history
-"set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.pdf  " Files with suffix in suffixes are ignored.
+"set suffixes& suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.pdf  " Files with suffix in suffixes are ignored.
 set wildmode=list:longest,full  " Set completion mode.
 set wildmenu
-"set wildignore+=*.o
+"set wildignore& wildignore+=*.o
 " 26 various
 set virtualedit=block
-set sessionoptions+=resize
-set sessionoptions-=options
-set sessionoptions-=localoptions
+set sessionoptions&
+  \ sessionoptions+=resize
+  \ sessionoptions-=options
+  \ sessionoptions-=localoptions
 " }}}
 
 
@@ -78,6 +79,11 @@ set termencoding=utf-8  " Terminal's encoding.
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp,utf-16le,utf-16
 set ambiwidth=double
 " }}}
+
+
+augroup MyAutoCmds
+    autocmd!
+augroup END
 
 
 " {{{ pathogen.vim
@@ -658,7 +664,7 @@ endif
 
 " {{{ Template insertion
 let template_dir = "~/.vim/template"
-function InsertTemplate()
+function! InsertTemplate()
     if expand("%:t") == "NOTE"
         let tmpl_filename = expand(g:template_dir) . "/NOTE"
         if filereadable(tmpl_filename)
@@ -683,11 +689,11 @@ function InsertTemplate()
         endif
     endif
 endfunction
-function FillTemplatePlaceHolders()
+function! FillTemplatePlaceHolders()
     silent! %s/%HEADERNAME%/\=toupper(tr(expand("%:t"), ".", "_"))/g
 endfunction
 if has("autocmd")
-    autocmd! BufNewFile * call InsertTemplate()
+    autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 endif
 " }}}
 
@@ -722,7 +728,7 @@ noremap : ;
 
 
 " {{{ Functions
-function MakeAllWindowsEqualSize()
+function! MakeAllWindowsEqualSize()
     let g:old_tab_page = tabpagenr()
     let g:num_tab_page = tabpagenr('$')
     tabfirst
@@ -734,11 +740,11 @@ function MakeAllWindowsEqualSize()
         tabnext
     endfor
 endfunction
-function EditHeaderAndSourceFileInNewTab(filename)
+function! EditHeaderAndSourceFileInNewTab(filename)
     execute 'tab vsplit ' . a:filename . '.c'
     execute 'vsplit ' . a:filename . '.h'
 endfunction
-function SearchEOW(word)
+function! SearchEOW(word)
     let browser = "chromium"
     let url = "http://eow.alc.co.jp/" . a:word . "/UTF-8/"
     execute "silent ! " . browser . " " . url . " >/dev/null 2>&1"
@@ -793,42 +799,42 @@ let g:Align_xstrlen = 3
 
 
 " {{{ Markdown
-autocmd BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdown
+autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdown
 " }}}
 
 
 " {{{ C/C++
 " <<< OmniCppComplete >>>
 " Hotkey to generate ctags database for C/C++ supporting OmniCppComplete
-"autocmd FileType c,cpp map <buffer> <C-F12> :!ctags --recurse --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"autocmd MyAutoCmds FileType c,cpp map <buffer> <C-F12> :!ctags --recurse --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " Close preview window automatically.
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+autocmd MyAutoCmds CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd MyAutoCmds InsertLeave * if pumvisible() == 0|pclose|endif
 " }}}
 
 
 " {{{ Ruby
-autocmd FileType ruby,eruby set shiftwidth=2
+autocmd MyAutoCmds FileType ruby,eruby set shiftwidth=2
 " <<< refe.vim >>>
-autocmd FileType ruby,eruby nnoremap <buffer> <silent> K :Refe <cword><CR>
-autocmd FileType ruby,eruby nnoremap <buffer> <silent> <C-K> :Refe<CR>
+autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> K :Refe <cword><CR>
+autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> <C-K> :Refe<CR>
 " }}}
 
 
 " {{{ Java
 " <<< javacomplete plugin: Omni Completion for JAVA >>>
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
-autocmd FileType java inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-autocmd FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
+autocmd MyAutoCmds FileType java setlocal omnifunc=javacomplete#Complete
+autocmd MyAutoCmds FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
+autocmd MyAutoCmds FileType java inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
+autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 " Java ctags database
-"autocmd FileType java map <buffer> <C-F12> :!ctags -R --languages=Java --fields=+iaS --extra=+q .<CR>
+"autocmd MyAutoCmds FileType java map <buffer> <C-F12> :!ctags -R --languages=Java --fields=+iaS --extra=+q .<CR>
 " }}}
 
 
 " {{{ Haskell
 " <<< Haskell mode >>>
-autocmd Bufenter *.hs compiler ghc
+autocmd MyAutoCmds Bufenter *.hs compiler ghc
 let g:haddock_browser = "chromium"
 " }}}
 
@@ -848,13 +854,13 @@ let g:tex_flavor='latex'
 " autocmdで.vimrcに記述しても\lvで起動するdviビューアの指定が反映されない
 " ので、残りの設定は$VIMFILES/ftplugin/tex.vimに記述している
 
-"autocmd FileType tex set indentkeys-=}
+"autocmd MyAutoCmds FileType tex set indentkeys-=}
 
 " Maps
-autocmd FileType tex nnoremap <Leader>cc :silent! call Tex_RunLaTeX()<CR>
-autocmd FileType tex nnoremap <Leader>vv :silent! call Tex_ViewLaTeX()<CR>
-autocmd FileType tex nnoremap <Leader>ss :silent! call Tex_ForwardSearchLaTeX()<CR>
-autocmd FileType tex nnoremap <silent> ,l :execute ":silent !rake"<CR>
+autocmd MyAutoCmds FileType tex nnoremap <Leader>cc :silent! call Tex_RunLaTeX()<CR>
+autocmd MyAutoCmds FileType tex nnoremap <Leader>vv :silent! call Tex_ViewLaTeX()<CR>
+autocmd MyAutoCmds FileType tex nnoremap <Leader>ss :silent! call Tex_ForwardSearchLaTeX()<CR>
+autocmd MyAutoCmds FileType tex nnoremap <silent> ,l :execute ":silent !rake"<CR>
 " 次の行は autocmd 化しない。
 " IMAP_JumpForward のマッピングが事前に行われていない場合、
 " Latex-Suite は <C-j> に対して IMAP_JumpForward のマッピングを行う。
@@ -866,17 +872,15 @@ imap <C-space> <Plug>IMAP_JumpForward
 
 
 " {{{ Context Free
-augroup filetypedetect
-autocmd BufNewFile,BufRead *.cfdg setf cfdg
-augroup END
+autocmd MyAutoCmds BufNewFile,BufRead *.cfdg setf cfdg
 " }}}
 
 
 " {{{ MetaPost
-autocmd FileType mp map <buffer> <Leader>cc :!mpost %<CR><CR>
+autocmd MyAutoCmds FileType mp map <buffer> <Leader>cc :!mpost %<CR><CR>
 " }}}
 
 
 " {{{ Waf
-autocmd BufRead,BufNewFile wscript setfiletype python
+autocmd MyAutoCmds BufRead,BufNewFile wscript setfiletype python
 " }}}
