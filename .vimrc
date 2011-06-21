@@ -715,6 +715,9 @@ map! <C-e> <End>
 map! <C-f> <Right>
 map! <C-b> <Left>
 map <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+nnoremap <C-h> :<C-u>help<Space>
+noremap ; :
+noremap : ;
 " }}}
 
 
@@ -748,6 +751,14 @@ endfunction
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 command! -nargs=1 Eow call SearchEOW("<args>")
 command! -nargs=1 E Eow <args>
+command! ReloadVimrc source $MYVIMRC
+command! -nargs=? -bang Cp932 edit<bang> ++enc=cp932 <args>
+command! -nargs=? -bang Eucjp edit<bang> ++enc=euc-jp <args>
+command! -nargs=? -bang Sjis  edit<bang> ++enc=sjis <args>
+command! -nargs=? -bang Utf8  edit<bang> ++enc=utf-8 <args>
+command! -nargs=? -bang Utf16 edit<bang> ++enc=utf-16 <args>
+command! -nargs=? -bang Jis   edit<bang> ++enc=iso-2022-jp <args>
+
 if has("gui_running")
     command! Enlarge16 set guifont=monospace\ 16
     command! Enlarge32 set guifont=monospace\ 32
