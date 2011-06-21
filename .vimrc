@@ -1,92 +1,377 @@
 scriptencoding utf-8
 
 
-"
-" {{{ Options
-"
+" Options                                                                    {{{
+" ==============================================================================
+
 " 1 important
-set nocompatible        " Use Vim defaults (much better!)
+set nocompatible
+
 " 2 moving around, searching and patterns
 set incsearch
-set ignorecase          " easier to ignore case for searching
+set ignorecase
 set smartcase
 set nowrapscan
+
 " 4 displaying text
-set nowrap              " Don't wrap lines.
-set number              " Show line number
+set nowrap
+set number
 if v:version >= 700
   set numberwidth=4
 endif
+
 " 6 multiple windows
-set hidden              " you can change buffer without saving
-set laststatus=2 " Always show the filename on status line.
+set hidden        " You can change buffer without saving.
+set laststatus=2  " Always show status lines.
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P
 "set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*eskk#statusline')?eskk#statusline():''}%=%l,%c%V%8P
+
 " 7 multiple tab pages
 set showtabline=2
 set tabpagemax=100
+
 " 11 printing
 set printencoding=utf-8
 set printmbcharset=JIS_X_1990
 set printfont=monospace\ 10
 set printoptions& printoptions+=number:y
 set printmbfont=r:GothicBBB-Medium
+
 " 12 messages and info
-set shortmess=atToOI    " shortens messages to avoid 'press a key' prompt 
-set ruler               " Show the cursor position all the time
+set shortmess=atToOI  " Shortens messages to avoid 'press a key' prompt.
+set ruler             " Show the cursor position all the time.
+
 " 14 editing text
-set backspace=indent,eol,start  " Allow backspacing over everything in insert mode
+set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
+
 " 15 tabs and indenting
-set expandtab           " Use white-space instead of tabs.
-set shiftwidth=4        " Set indent width on autoindent.
-set autoindent          " Always set auto-indenting on
-set smartindent         " Smart indenting
+set expandtab     " Use white-space instead of tabs.
+set shiftwidth=4  " Set indent width on autoindent.
+set autoindent    " Always set auto-indenting on.
+set smartindent   " Use smart indenting.
 set smarttab
 set cinoptions=:0,g0
+
 " 16 folding
 set foldlevelstart=99
+
 " 19 reading and writing files
 set modeline
-set fileformats=unix,dos,mac  " support all three, in this order
+set fileformats=unix,dos,mac  " Support all three, in this order.
 set backup
+
 " 21 command line editing
-set history=1000        " keep 1000 lines of command history
+set history=1000  " Keep 1000 lines of command history.
 "set suffixes& suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.pdf  " Files with suffix in suffixes are ignored.
 set wildmode=list:longest,full  " Set completion mode.
 set wildmenu
 "set wildignore& wildignore+=*.o
+
+" 25 multi-byte characters
+set encoding=utf-8      " Encoding used for text inside vim.
+set fileencoding=utf-8  " Default encoding for new files.
+set termencoding=utf-8  " Terminal's encoding.
+" Automatic file encoding recognition.
+" Vim tries the specified encodings in the specified order, and stops when
+" an encoding is successfully applied. Therefore widely matching encodings,
+" like 'euc-jp', should be placed at the end of fileencodings.
+" 'utf-8'が先頭に有っても'cp932'と'euc-jp'のファイルはちゃんとそれと識別される
+" ようだ。しかし'iso-2022-jp'は識別されない。
+" 'iso-2022-jp'が先頭にあると、新規ファイルのデフォルトのエンコーディングが
+" 'iso-2022-jp'になる問題があるので先頭に置くことはできない。
+set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp,utf-16le,utf-16
+set ambiwidth=double
+
 " 26 various
 set virtualedit=block
 set sessionoptions&
   \ sessionoptions+=resize
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
+
 " }}}
 
 
-" {{{ Locale settings
-" 25 multi-byte characters
-set encoding=utf-8      " Encoding used for text inside vim.
-set fileencoding=utf-8  " Default encoding for new files.
-set termencoding=utf-8  " Terminal's encoding.
-" Automatic file encoding recognition.
-" Test is done from first encoding to last one.
-" If test success then test stops. Therefore more special encodings come
-" first. So 'euc-jp' is last position.
-" 'utf-8'が先頭に有ってもcp932とeuc-jpのファイルはちゃんとそれと識別されるようだ。
-" しかし、iso-2022-jpは識別されないので、先頭に置く。
-set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp,utf-16le,utf-16
-set ambiwidth=double
+" Syntax highlighting                                                        {{{
+" ==============================================================================
+
+" Switch syntax highlighting on, when the terminal has colors
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+  colorscheme lucius
+endif
+
 " }}}
 
 
+" Filetype plugin settings                                                   {{{
+" ==============================================================================
+
+" Enable plugin-provided filetype settings, but only if the ftplugin
+" directory exists (which it won't on livecds, for example).
+if isdirectory(expand("$VIMRUNTIME/ftplugin"))
+  filetype plugin on
+  filetype indent on
+endif
+
+" }}}
+
+
+" Extensions                                                                 {{{
+" ==============================================================================
+
+" Autocommand group
 augroup MyAutoCmds
     autocmd!
-augroup END
+augroup end
+
+
+" {{{ Functions
+function! MakeAllWindowsEqualSize()
+    let g:old_tab_page = tabpagenr()
+    let g:num_tab_page = tabpagenr('$')
+    tabfirst
+    for i in range(g:num_tab_page)
+        execute "normal \<C-W>="
+        tabnext
+    endfor
+    for i in range(g:old_tab_page - 1)
+        tabnext
+    endfor
+endfunction
+
+function! EditHeaderAndSourceFileInNewTab(filename)
+    execute 'tab vsplit ' . a:filename . '.c'
+    execute 'vsplit ' . a:filename . '.h'
+endfunction
+
+function! SearchEOW(word)
+    let browser = "chromium"
+    let url = "http://eow.alc.co.jp/" . a:word . "/UTF-8/"
+    execute "silent ! " . browser . " " . url . " >/dev/null 2>&1"
+    redraw!
+endfunction
+" }}}
+
+
+" {{{ Commands
+command! ReloadVimrc source $MYVIMRC
+command! -nargs=? -bang Cp932 edit<bang> ++enc=cp932 <args>
+command! -nargs=? -bang Eucjp edit<bang> ++enc=euc-jp <args>
+command! -nargs=? -bang Sjis  edit<bang> ++enc=sjis <args>
+command! -nargs=? -bang Utf8  edit<bang> ++enc=utf-8 <args>
+command! -nargs=? -bang Utf16 edit<bang> ++enc=utf-16 <args>
+command! -nargs=? -bang Jis   edit<bang> ++enc=iso-2022-jp <args>
+command! -nargs=1 -complete=file Rename file <args>|call delete(expand('#'))
+command! -nargs=1 Eow call SearchEOW("<args>")
+command! -nargs=1 E Eow <args>
+
+if has("gui_running")
+    command! Enlarge16 set guifont=monospace\ 16
+    command! Enlarge32 set guifont=monospace\ 32
+    command! Enlarge64 set guifont=monospace\ 64
+    command! Enlarge128 set guifont=monospace\ 128
+endif
+" }}}
+
+
+" {{{ Mappings
+" normal, visual+select and operator-pending
+noremap ; :
+noremap : ;
+noremap <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+
+" insert and command line
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+noremap! <C-b> <Left>
+noremap! <C-f> <Right>
+noremap! <C-d> <Del>
+
+" normal
+nnoremap <C-h> :<C-u>help<Space>
+nnoremap P Pg;
+nnoremap gc `[v`]
+"nnoremap <C-l> gt
+"nnoremap <C-h> gT
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
+nnoremap <C-k> :redraw!<CR>
+nnoremap <silent> <M-d> :Eow <cword><CR>
+"nnoremap n nzz
+"nnoremap N Nzz
+"nnoremap * *zz
+"nnoremap # #zz
+"nnoremap g* g*zz
+"nnoremap g# g#zz
+" }}}
+
+
+" {{{ Template insertion
+let template_dir = "~/.vim/template"
+function! InsertTemplate()
+    if expand("%:t") == "NOTE"
+        let tmpl_filename = expand(g:template_dir) . "/NOTE"
+        if filereadable(tmpl_filename)
+            execute "silent 0read " . tmpl_filename
+
+            " delete trailing line
+            mark s
+            $delete
+            's
+        endif
+    else
+        let tmpl_filename = expand(g:template_dir) . "/tmpl." . expand("%:e")
+        if filereadable(tmpl_filename)
+            execute "silent 0read " . tmpl_filename
+
+            call FillTemplatePlaceHolders()
+
+            " delete trailing line
+            mark s
+            $delete
+            's
+        endif
+    endif
+endfunction
+
+function! FillTemplatePlaceHolders()
+    silent! %s/%HEADERNAME%/\=toupper(tr(expand("%:t"), ".", "_"))/g
+endfunction
+
+autocmd MyAutoCmds BufNewFile * call InsertTemplate()
+" }}}
 
 
 " {{{ pathogen.vim
 call pathogen#runtime_append_all_bundles()
+" }}}
+
+
+" {{{ skk.vim
+let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
+let skk_auto_save_jisyo = 1
+let skk_show_annnotation = 1
+let skk_use_face = 1
+let skk_keyboard_layout = 'act'
+let skk_control_j_key = '<C-j>'
+" }}}
+
+
+" {{{ gist.vim
+let g:github_user = "yuttie"
+let g:github_token = "892f7d05807089d96554f0825c37e912"
+let g:gist_browser_command ='chromium %URL%'
+" }}}
+
+
+" {{{ neocomplcache.vim
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_underbar_completion = 1
+" }}}
+
+
+" {{{ quickrun
+let g:quickrun_config = {}
+let g:quickrun_config.markdown = {
+\   'exec': ['%c %o %s %a -o /tmp/quickrun.markdown.html',
+\            'chromium /tmp/quickrun.markdown.html'],
+\   'output': '_'}
+" }}}
+
+
+" {{{ Align.vim
+let g:Align_xstrlen = 3
+" }}}
+
+
+" {{{ Markdown
+autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdown
+" }}}
+
+
+" {{{ C/C++
+" <<< OmniCppComplete >>>
+" Hotkey to generate ctags database for C/C++ supporting OmniCppComplete
+"autocmd MyAutoCmds FileType c,cpp map <buffer> <C-F12> :!ctags --recurse --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+" Close preview window automatically.
+autocmd MyAutoCmds CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd MyAutoCmds InsertLeave * if pumvisible() == 0|pclose|endif
+" }}}
+
+
+" {{{ Ruby
+autocmd MyAutoCmds FileType ruby,eruby set shiftwidth=2
+" <<< refe.vim >>>
+autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> K :Refe <cword><CR>
+autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> <C-K> :Refe<CR>
+" }}}
+
+
+" {{{ Java
+" <<< javacomplete plugin: Omni Completion for JAVA >>>
+autocmd MyAutoCmds FileType java setlocal omnifunc=javacomplete#Complete
+autocmd MyAutoCmds FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
+autocmd MyAutoCmds FileType java inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
+autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
+" Java ctags database
+"autocmd MyAutoCmds FileType java map <buffer> <C-F12> :!ctags -R --languages=Java --fields=+iaS --extra=+q .<CR>
+" }}}
+
+
+" {{{ Haskell
+" <<< Haskell mode >>>
+autocmd MyAutoCmds Bufenter *.hs compiler ghc
+let g:haddock_browser = "chromium"
+" }}}
+
+
+" {{{ LaTeX
+" <<< LaTeX-Suite >>>
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+" autocmdで.vimrcに記述しても\lvで起動するdviビューアの指定が反映されない
+" ので、残りの設定は$VIMFILES/ftplugin/tex.vimに記述している
+
+"autocmd MyAutoCmds FileType tex set indentkeys-=}
+
+" Maps
+autocmd MyAutoCmds FileType tex nnoremap <Leader>cc :silent! call Tex_RunLaTeX()<CR>
+autocmd MyAutoCmds FileType tex nnoremap <Leader>vv :silent! call Tex_ViewLaTeX()<CR>
+autocmd MyAutoCmds FileType tex nnoremap <Leader>ss :silent! call Tex_ForwardSearchLaTeX()<CR>
+autocmd MyAutoCmds FileType tex nnoremap <silent> ,l :execute ":silent !rake"<CR>
+" 次の行は autocmd 化しない。
+" IMAP_JumpForward のマッピングが事前に行われていない場合、
+" Latex-Suite は <C-j> に対して IMAP_JumpForward のマッピングを行う。
+" その為、どのファイルが読み込まれた場合でも IMAP_JumpForward が何かしらの
+" キーにマップされているようにする必要がある。
+" 関連URL: http://vim-latex.sourceforge.net/documentation/latex-suite/latex-suite-maps.html
+imap <C-space> <Plug>IMAP_JumpForward
+" }}}
+
+
+" {{{ Context Free
+autocmd MyAutoCmds BufNewFile,BufRead *.cfdg setfiletype cfdg
+" }}}
+
+
+" {{{ MetaPost
+autocmd MyAutoCmds FileType mp map <buffer> <Leader>cc :!mpost %<CR><CR>
+" }}}
+
+
+" {{{ Waf
+autocmd MyAutoCmds BufRead,BufNewFile wscript setfiletype python
 " }}}
 
 
@@ -616,270 +901,7 @@ call pathogen#runtime_append_all_bundles()
 "endfunction
 " }}}
 
-
-" {{{ skk.vim
-let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
-let skk_auto_save_jisyo = 1
-let skk_show_annnotation = 1
-let skk_use_face = 1
-let skk_keyboard_layout = 'act'
-let skk_control_j_key = '<C-j>'
 " }}}
 
 
-" {{{ gist.vim
-let g:github_user = "yuttie"
-let g:github_token = "892f7d05807089d96554f0825c37e912"
-let g:gist_browser_command ='chromium %URL%'
-" }}}
-
-
-" {{{ Syntax highlighting settings
-" Switch syntax highlighting on, when the terminal has colors
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-  colorscheme lucius
-endif
-" }}}
-
-
-" {{{ Terminal
-if has('mouse')
-  set mouse=a
-endif
-" }}}
-
-
-" {{{ Filetype plugin settings
-" Enable plugin-provided filetype settings, but only if the ftplugin
-" directory exists (which it won't on livecds, for example).
-if isdirectory(expand("$VIMRUNTIME/ftplugin"))
-  filetype plugin on
-  filetype indent on
-endif
-" }}}
-
-
-" {{{ Template insertion
-let template_dir = "~/.vim/template"
-function! InsertTemplate()
-    if expand("%:t") == "NOTE"
-        let tmpl_filename = expand(g:template_dir) . "/NOTE"
-        if filereadable(tmpl_filename)
-            execute "silent 0read " . tmpl_filename
-
-            " delete trailing line
-            mark s
-            $delete
-            's
-        endif
-    else
-        let tmpl_filename = expand(g:template_dir) . "/tmpl." . expand("%:e")
-        if filereadable(tmpl_filename)
-            execute "silent 0read " . tmpl_filename
-
-            call FillTemplatePlaceHolders()
-
-            " delete trailing line
-            mark s
-            $delete
-            's
-        endif
-    endif
-endfunction
-function! FillTemplatePlaceHolders()
-    silent! %s/%HEADERNAME%/\=toupper(tr(expand("%:t"), ".", "_"))/g
-endfunction
-if has("autocmd")
-    autocmd MyAutoCmds BufNewFile * call InsertTemplate()
-endif
-" }}}
-
-
-" {{{ Mapping
-nnoremap P Pg;
-"nnoremap n nzz
-"nnoremap N Nzz
-"nnoremap * *zz
-"nnoremap # #zz
-"nnoremap g* g*zz
-"nnoremap g# g#zz
-nnoremap <C-k> :redraw!<CR>
-nnoremap <C-l> gt
-nnoremap <C-h> gT
-nnoremap <C-Tab> gt
-nnoremap <C-S-Tab> gT
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
-map! <C-a> <Home>
-map! <C-d> <Del>
-map! <C-e> <End>
-map! <C-f> <Right>
-map! <C-b> <Left>
-map <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
-nnoremap <C-h> :<C-u>help<Space>
-noremap ; :
-noremap : ;
-" }}}
-
-
-" {{{ Functions
-function! MakeAllWindowsEqualSize()
-    let g:old_tab_page = tabpagenr()
-    let g:num_tab_page = tabpagenr('$')
-    tabfirst
-    for i in range(g:num_tab_page)
-        execute "normal \<C-W>="
-        tabnext
-    endfor
-    for i in range(g:old_tab_page - 1)
-        tabnext
-    endfor
-endfunction
-function! EditHeaderAndSourceFileInNewTab(filename)
-    execute 'tab vsplit ' . a:filename . '.c'
-    execute 'vsplit ' . a:filename . '.h'
-endfunction
-function! SearchEOW(word)
-    let browser = "chromium"
-    let url = "http://eow.alc.co.jp/" . a:word . "/UTF-8/"
-    execute "silent ! " . browser . " " . url . " >/dev/null 2>&1"
-    redraw!
-endfunction
-" }}}
-
-
-" {{{ Commands
-command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-command! -nargs=1 Eow call SearchEOW("<args>")
-command! -nargs=1 E Eow <args>
-command! ReloadVimrc source $MYVIMRC
-command! -nargs=? -bang Cp932 edit<bang> ++enc=cp932 <args>
-command! -nargs=? -bang Eucjp edit<bang> ++enc=euc-jp <args>
-command! -nargs=? -bang Sjis  edit<bang> ++enc=sjis <args>
-command! -nargs=? -bang Utf8  edit<bang> ++enc=utf-8 <args>
-command! -nargs=? -bang Utf16 edit<bang> ++enc=utf-16 <args>
-command! -nargs=? -bang Jis   edit<bang> ++enc=iso-2022-jp <args>
-
-if has("gui_running")
-    command! Enlarge16 set guifont=monospace\ 16
-    command! Enlarge32 set guifont=monospace\ 32
-    command! Enlarge64 set guifont=monospace\ 64
-    command! Enlarge128 set guifont=monospace\ 128
-endif
-" }}}
-map <silent> <M-d> :Eow <cword><CR>
-
-
-"
-" {{{ Plugins
-"
-" {{{ neocomplcache.vim }}}
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-
-
-" {{{ quickrun
-let g:quickrun_config = {}
-let g:quickrun_config.markdown = {
-\   'exec': ['%c %o %s %a -o /tmp/quickrun.markdown.html',
-\            'chromium /tmp/quickrun.markdown.html'],
-\   'output': '_'}
-" }}}
-
-
-" {{{ quickrun
-let g:Align_xstrlen = 3
-" }}}
-
-
-" {{{ Markdown
-autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdown
-" }}}
-
-
-" {{{ C/C++
-" <<< OmniCppComplete >>>
-" Hotkey to generate ctags database for C/C++ supporting OmniCppComplete
-"autocmd MyAutoCmds FileType c,cpp map <buffer> <C-F12> :!ctags --recurse --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-" Close preview window automatically.
-autocmd MyAutoCmds CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd MyAutoCmds InsertLeave * if pumvisible() == 0|pclose|endif
-" }}}
-
-
-" {{{ Ruby
-autocmd MyAutoCmds FileType ruby,eruby set shiftwidth=2
-" <<< refe.vim >>>
-autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> K :Refe <cword><CR>
-autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> <C-K> :Refe<CR>
-" }}}
-
-
-" {{{ Java
-" <<< javacomplete plugin: Omni Completion for JAVA >>>
-autocmd MyAutoCmds FileType java setlocal omnifunc=javacomplete#Complete
-autocmd MyAutoCmds FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
-autocmd MyAutoCmds FileType java inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
-" Java ctags database
-"autocmd MyAutoCmds FileType java map <buffer> <C-F12> :!ctags -R --languages=Java --fields=+iaS --extra=+q .<CR>
-" }}}
-
-
-" {{{ Haskell
-" <<< Haskell mode >>>
-autocmd MyAutoCmds Bufenter *.hs compiler ghc
-let g:haddock_browser = "chromium"
-" }}}
-
-
-" {{{ LaTeX
-" <<< LaTeX-Suite >>>
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-" autocmdで.vimrcに記述しても\lvで起動するdviビューアの指定が反映されない
-" ので、残りの設定は$VIMFILES/ftplugin/tex.vimに記述している
-
-"autocmd MyAutoCmds FileType tex set indentkeys-=}
-
-" Maps
-autocmd MyAutoCmds FileType tex nnoremap <Leader>cc :silent! call Tex_RunLaTeX()<CR>
-autocmd MyAutoCmds FileType tex nnoremap <Leader>vv :silent! call Tex_ViewLaTeX()<CR>
-autocmd MyAutoCmds FileType tex nnoremap <Leader>ss :silent! call Tex_ForwardSearchLaTeX()<CR>
-autocmd MyAutoCmds FileType tex nnoremap <silent> ,l :execute ":silent !rake"<CR>
-" 次の行は autocmd 化しない。
-" IMAP_JumpForward のマッピングが事前に行われていない場合、
-" Latex-Suite は <C-j> に対して IMAP_JumpForward のマッピングを行う。
-" その為、どのファイルが読み込まれた場合でも IMAP_JumpForward が何かしらの
-" キーにマップされているようにする必要がある。
-" 関連URL: http://vim-latex.sourceforge.net/documentation/latex-suite/latex-suite-maps.html
-imap <C-space> <Plug>IMAP_JumpForward
-" }}}
-
-
-" {{{ Context Free
-autocmd MyAutoCmds BufNewFile,BufRead *.cfdg setf cfdg
-" }}}
-
-
-" {{{ MetaPost
-autocmd MyAutoCmds FileType mp map <buffer> <Leader>cc :!mpost %<CR><CR>
-" }}}
-
-
-" {{{ Waf
-autocmd MyAutoCmds BufRead,BufNewFile wscript setfiletype python
-" }}}
+" vim: set foldmethod=marker:
