@@ -44,7 +44,6 @@ set smartindent         " Smart indenting
 set smarttab
 set cinoptions=:0,g0
 " 16 folding
-set foldmethod=syntax
 set foldlevelstart=99
 " 19 reading and writing files
 set modeline
