@@ -766,28 +766,6 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_underbar_completion = 1
 
-" {{{ fuf.vim }}}
-let g:fuf_modesDisable = []
-let g:fuf_abbrevMap = {
-    \   '^vr:' : map(filter(split(&runtimepath, ','), 'v:val !~ "after$"'), 'v:val . ''/**/'''),
-    \   '^m0:' : [ '/mnt/d/0/', '/mnt/j/0/' ],
-    \ }
-let g:fuf_mrufile_maxItem = 300
-let g:fuf_mrucmd_maxItem = 400
-let g:fuf_file_exclude = ''
-nnoremap <silent> FB :FufBuffer<CR>
-nnoremap <silent> FF :FufFile<CR>
-nnoremap <silent> FD :FufDir<CR>
-nnoremap <silent> FR :FufMruFile<CR>
-nnoremap <silent> FC :FufMruCmd<CR>
-nnoremap <silent> FT :FufTag<CR>
-nnoremap <silent> Ft :FufTag!<CR>
-noremap  <silent> g] :FufTagWithCursorWord!<CR>
-nnoremap <silent> FJ :FufJumpList<CR>
-nnoremap <silent> FL :FufLine<CR>
-nnoremap <silent> FH :FufHelp<CR>
-nnoremap <silent> FU :FufRenewCache<CR>
-
 
 " {{{ quickrun
 let g:quickrun_config = {}
