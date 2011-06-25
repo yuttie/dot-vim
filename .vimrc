@@ -302,6 +302,11 @@ autocmd MyAutoCmds InsertLeave * if pumvisible() == 0|pclose|endif
 " }}}
 
 
+" {{{ Shell Scripts
+autocmd MyAutoCmds FileType sh,csh,tcsh,zsh set shiftwidth=2
+" }}}
+
+
 " {{{ Ruby
 autocmd MyAutoCmds FileType ruby,eruby set shiftwidth=2
 " <<< refe.vim >>>
