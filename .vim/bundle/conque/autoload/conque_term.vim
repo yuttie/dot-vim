@@ -578,6 +578,9 @@ function! conque_term#set_buffer_settings(command, vim_startup_commands) "{{{
         setlocal conceallevel=3
         setlocal concealcursor=nic
     endif
+    if g:ConqueTerm_ReadUnfocused
+        set cpoptions+=I       " Don't remove autoindent when moving cursor up and down
+    endif
     setfiletype conque_term    " useful
     sil exe "setlocal syntax=" . g:ConqueTerm_Syntax
 
@@ -588,7 +591,7 @@ endfunction " }}}
 
 " send normal character key press to terminal
 function! conque_term#key_press() "{{{
-    sil exe s:py . ' ' . b:ConqueTerm_Var . ".write_ord(" . char2nr(v:char) . ")"
+    sil exe s:py . ' ' . b:ConqueTerm_Var . ".write_buffered_ord(" . char2nr(v:char) . ")"
     sil let v:char = ''
 endfunction " }}}
 
@@ -697,7 +700,7 @@ function! conque_term#set_mappings(action) "{{{
     " }}}
 
     " map 33 and beyond {{{
-    if exists('##InsertCharPre')
+    if exists('##InsertCharPre') && g:ConqueTerm_InsertCharPre == 1
         if l:action == 'start'
             autocmd InsertCharPre <buffer> call conque_term#key_press()
         else
@@ -927,7 +930,14 @@ function! conque_term#read_all(insert_mode) "{{{
 
     " restart updatetime
     if a:insert_mode
-        call feedkeys("\<C-o>f\e", "n")
+        "call feedkeys("\<C-o>f\e", "n")
+        let p = getpos('.')
+        if p[1] == 1
+          sil exe 'call feedkeys("\<Down>\<Up>", "n")'
+        else
+          sil exe 'call feedkeys("\<Up>\<Down>", "n")'
+        endif
+        call setpos('.', p)
     else
         call feedkeys("f\e", "n")
     endif

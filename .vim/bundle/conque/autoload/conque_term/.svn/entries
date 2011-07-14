@@ -1,14 +1,14 @@
 10
 
 dir
-474
+476
 http://conque.googlecode.com/svn/trunk/autoload/conque_term
 http://conque.googlecode.com/svn
 
 
 
-2011-04-05T05:04:16.111329Z
-467
+2011-07-12T20:33:51.151371Z
+475
 nicoraffo
 
 
@@ -134,10 +134,10 @@ file
 
 
 
-2011-06-12T10:13:01.211283Z
-b61f6ef083d0bd93fe13509d1b6ae92b
-2011-04-05T05:04:16.111329Z
-467
+2011-07-13T18:34:45.917641Z
+1b75517bdd23eab16c5232488f5974b0
+2011-07-12T20:33:51.151371Z
+475
 nicoraffo
 
 
@@ -160,7 +160,7 @@ nicoraffo
 
 
 
-38052
+38549
 
 conque_sole_wrapper.py
 file
