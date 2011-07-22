@@ -268,6 +268,11 @@ let skk_control_j_key = '<C-j>'
 " }}}
 
 
+" {{{ fugitive
+autocmd MyAutoCmds FileType gitcommit set spell
+" }}}
+
+
 " {{{ gist.vim
 let g:github_user = "yuttie"
 let g:github_token = "892f7d05807089d96554f0825c37e912"
