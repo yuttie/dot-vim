@@ -1,6 +1,12 @@
 scriptencoding utf-8
 
 
+" Autocommand group
+augroup MyAutoCmds
+    autocmd!
+augroup end
+
+
 " Options                                                                    {{{
 " ==============================================================================
 
@@ -99,10 +105,10 @@ set sessionoptions&
 " (from http://vim.wikia.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+autocmd MyAutoCmds BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd MyAutoCmds InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd MyAutoCmds InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd MyAutoCmds BufWinLeave * call clearmatches()
 
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
@@ -129,12 +135,6 @@ endif
 
 " Extensions                                                                 {{{
 " ==============================================================================
-
-" Autocommand group
-augroup MyAutoCmds
-    autocmd!
-augroup end
-
 
 " {{{ Functions
 function! MakeAllWindowsEqualSize()
