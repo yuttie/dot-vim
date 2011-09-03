@@ -187,8 +187,6 @@ endif
 
 " {{{ Mappings
 " normal, visual+select and operator-pending
-noremap ; :
-noremap : ;
 noremap <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
 " insert and command line
