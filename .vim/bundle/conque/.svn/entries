@@ -1,14 +1,14 @@
 10
 
 dir
-476
+496
 http://conque.googlecode.com/svn/trunk
 http://conque.googlecode.com/svn
 
 
 
-2011-07-12T20:35:59.315284Z
-476
+2011-09-03T06:46:53.803988Z
+493
 nicoraffo
 has-props
 
@@ -34,40 +34,6 @@ dir
 
 syntax
 dir
-
-patch.diff
-file
-
-
-
-
-2011-06-12T10:13:01.337285Z
-108c897f0c36fe2f147fe8083f532d87
-2011-03-15T03:20:42.671314Z
-457
-nicoraffo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2644
 
 autoload
 dir

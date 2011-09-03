@@ -35,8 +35,11 @@ if exists('g:ConqueTerm_Loaded') || v:version < 700
 endif
 
 " **********************************************************************************************************
-" **** CONFIGURATION ***************************************************************************************
+" **** DEFAULT CONFIGURATION *******************************************************************************
 " **********************************************************************************************************
+
+" DO NOT EDIT CONFIGURATION SETTINGS IN THIS FILE!
+" Define these variables in your local .vimrc to over-ride the default values
 
 " {{{
 
@@ -159,7 +162,7 @@ endif " }}}
 " and include important Conque feature and option descriptions
 " TODO - disabled and unused for now
 if !exists('g:ConqueTerm_StartMessages')
-    let g:ConqueTerm_StartMessages = 0
+    let g:ConqueTerm_StartMessages = 1
 endif " }}}
 
 " Windows character code page {{{
@@ -185,7 +188,7 @@ endif " }}}
 
 let g:ConqueTerm_Loaded = 1
 let g:ConqueTerm_Idx = 0
-let g:ConqueTerm_Version = 210
+let g:ConqueTerm_Version = 230
 
 command! -nargs=+ -complete=shellcmd ConqueTerm call conque_term#open(<q-args>)
 command! -nargs=+ -complete=shellcmd ConqueTermSplit call conque_term#open(<q-args>, ['belowright split'])

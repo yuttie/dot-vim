@@ -1,14 +1,14 @@
 10
 
 dir
-476
+496
 http://conque.googlecode.com/svn/trunk/autoload/conque_term
 http://conque.googlecode.com/svn
 
 
 
-2011-07-12T20:33:51.151371Z
-475
+2011-09-03T06:46:53.803988Z
+493
 nicoraffo
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2011-06-12T10:13:01.210283Z
-ed02491ad3c6c40f1466e8ee9fe781de
-2011-03-25T16:58:52.403492Z
-463
+2011-09-03T11:19:24.369038Z
+714de769332b0c8cc21e4f1e7294ee17
+2011-09-03T06:46:53.803988Z
+493
 nicoraffo
 
 
@@ -58,7 +58,7 @@ nicoraffo
 
 
 
-7714
+7786
 
 conque_win32_util.py
 file
@@ -134,10 +134,10 @@ file
 
 
 
-2011-07-13T18:34:45.917641Z
-1b75517bdd23eab16c5232488f5974b0
-2011-07-12T20:33:51.151371Z
-475
+2011-09-03T11:19:24.370038Z
+70e95b4c14eef36c173da082f8053b87
+2011-09-03T06:46:53.803988Z
+493
 nicoraffo
 
 
@@ -160,7 +160,7 @@ nicoraffo
 
 
 
-38549
+38475
 
 conque_sole_wrapper.py
 file

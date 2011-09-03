@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 44
-/svn/!svn/ver/475/trunk/autoload/conque_term
+/svn/!svn/ver/493/trunk/autoload/conque_term
 END
 conque_screen.py
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/!svn/ver/463/trunk/autoload/conque_term/conque_screen.py
+/svn/!svn/ver/493/trunk/autoload/conque_term/conque_screen.py
 END
 conque_win32_util.py
 K 25
@@ -25,7 +25,7 @@ conque.py
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/svn/!svn/ver/475/trunk/autoload/conque_term/conque.py
+/svn/!svn/ver/493/trunk/autoload/conque_term/conque.py
 END
 conque_sole_wrapper.py
 K 25
