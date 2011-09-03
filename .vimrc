@@ -49,6 +49,7 @@ set ruler             " Show the cursor position all the time.
 
 " 14 editing text
 set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
+set formatoptions& formatoptions+=mM
 
 " 15 tabs and indenting
 set expandtab     " Use white-space instead of tabs.
