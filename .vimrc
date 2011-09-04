@@ -257,6 +257,11 @@ call pathogen#runtime_append_all_bundles()
 " }}}
 
 
+" {{{ vim-easymotion
+let g:EasyMotion_leader_key = '<Leader>m'
+" }}}
+
+
 " {{{ skk.vim
 let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
 let skk_auto_save_jisyo = 1
