@@ -273,6 +273,11 @@ let skk_control_j_key = '<C-j>'
 " }}}
 
 
+" {{{ vim-gnupg
+let g:GPGPreferSymmetric = 1
+" }}}
+
+
 " {{{ fugitive
 autocmd MyAutoCmds FileType gitcommit set spell
 " }}}
