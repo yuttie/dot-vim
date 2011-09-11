@@ -95,6 +95,7 @@ set sessionoptions&
   \ sessionoptions+=resize
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
+set cryptmethod=blowfish
 
 " }}}
 
