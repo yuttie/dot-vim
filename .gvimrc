@@ -4,8 +4,8 @@ scriptencoding utf-8
 set columns=84                " don't inherit geometry from parent term
 set mousemodel=popup          " right mouse button pops up a menu in the GUI
 set guifont=monospace\ 10
-set guioptions-=T
-" Also save gvim's window size and position
+set guioptions&
+  \ guioptions-=T
 
 " Set color scheme
 colorscheme lucius
