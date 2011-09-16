@@ -6,7 +6,6 @@ set mousemodel=popup          " right mouse button pops up a menu in the GUI
 set guifont=monospace\ 10
 set guioptions-=T
 " Also save gvim's window size and position
-set sessionoptions+=resize,winpos
 
 " Set color scheme
 colorscheme lucius
