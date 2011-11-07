@@ -340,6 +340,14 @@ autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> <C-K> :Refe<CR
 " }}}
 
 
+" {{{ Python
+autocmd MyAutoCmds FileType python set tabstop=8
+autocmd MyAutoCmds FileType python set expandtab
+autocmd MyAutoCmds FileType python set softtabstop=4
+autocmd MyAutoCmds FileType python set shiftwidth=4
+" }}}
+
+
 " {{{ Java
 " <<< javacomplete plugin: Omni Completion for JAVA >>>
 autocmd MyAutoCmds FileType java setlocal omnifunc=javacomplete#Complete
