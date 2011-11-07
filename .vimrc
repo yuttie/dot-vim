@@ -135,6 +135,18 @@ endif
 " }}}
 
 
+" Omni-completion
+" ==============================================================================
+if has("autocmd") && exists("+omnifunc")
+    autocmd MyAutoCmds Filetype *
+    \ if &omnifunc == "" |
+    \   setlocal omnifunc=syntaxcomplete#Complete |
+    \ endif
+endif
+
+" }}}
+
+
 " Extensions                                                                 {{{
 " ==============================================================================
 
