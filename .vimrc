@@ -20,7 +20,7 @@ set smartcase
 set nowrapscan
 
 " 4 displaying text
-set nowrap
+set wrap
 set number
 if v:version >= 700
   set numberwidth=4
@@ -212,6 +212,10 @@ noremap! <C-f> <Right>
 noremap! <C-d> <Del>
 
 " normal
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 nnoremap <C-h> :<C-u>help<Space>
 nnoremap P Pg;
 nnoremap gc `[v`]
