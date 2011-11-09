@@ -322,10 +322,10 @@ let g:neocomplcache_enable_underbar_completion = 1
 
 " {{{ quickrun
 let g:quickrun_config = {}
-let g:quickrun_config.markdown = {
-\   'exec': ['%c %o %s %a -o /tmp/quickrun.markdown.html',
-\            'chromium /tmp/quickrun.markdown.html'],
-\   'output': '_'}
+let g:quickrun_config['markdown'] = {
+      \ 'type': 'markdown/pandoc',
+      \ 'cmdopt': '-s',
+      \ 'outputter': 'browser'}
 " }}}
 
 
