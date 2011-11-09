@@ -170,7 +170,7 @@ function! EditHeaderAndSourceFileInNewTab(filename)
 endfunction
 
 function! SearchEOW(word)
-    let browser = "chromium"
+    let browser = "firefox"
     let url = "http://eow.alc.co.jp/" . a:word . "/UTF-8/"
     execute "silent ! " . browser . " " . url . " >/dev/null 2>&1"
     redraw!
@@ -309,7 +309,7 @@ autocmd MyAutoCmds FileType gitcommit set spell
 " {{{ gist.vim
 let g:github_user = "yuttie"
 let g:github_token = "892f7d05807089d96554f0825c37e912"
-let g:gist_browser_command ='chromium %URL%'
+let g:gist_browser_command ='firefox %URL%'
 " }}}
 
 
@@ -384,7 +384,7 @@ autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 " {{{ Haskell
 " <<< Haskell mode >>>
 autocmd MyAutoCmds Bufenter *.hs compiler ghc
-let g:haddock_browser = "chromium"
+let g:haddock_browser = "firefox"
 " }}}
 
 
