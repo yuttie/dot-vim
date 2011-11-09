@@ -280,6 +280,12 @@ let g:EasyMotion_leader_key = '<Leader>m'
 " }}}
 
 
+" {{{ openbrowser.vim
+nmap gw <Plug>(openbrowser-smart-search)
+vmap gw <Plug>(openbrowser-smart-search)
+" }}}
+
+
 " {{{ skk.vim
 let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
 let skk_auto_save_jisyo = 1
