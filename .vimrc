@@ -340,6 +340,10 @@ autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdow
 
 
 " {{{ C/C++
+" <<< C++11 Syntax Support >>>
+" http://www.vim.org/scripts/script.php?script_id=3797
+autocmd MyAutoCmds BufNewFile,BufRead *.cpp set syntax=cpp11
+
 " <<< OmniCppComplete >>>
 " Hotkey to generate ctags database for C/C++ supporting OmniCppComplete
 "autocmd MyAutoCmds FileType c,cpp map <buffer> <C-F12> :!ctags --recurse --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
