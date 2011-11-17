@@ -5,6 +5,8 @@ for d in ~/.vim/bundle/*; do
         (echo -ne "$d\t"; cd $d; git pull)
     elif [ -d "$d/.hg" ]; then
         (echo -ne "$d\t"; cd $d; hg pull --update)
+    elif [ -d "$d/_darcs" ]; then
+        (echo -ne "$d\t"; cd $d; darcs pull -a)
     elif [ -d "$d/.bzr" ]; then
         (echo -ne "$d\t"; cd $d; bzr pull)
     elif [ -d "$d/.svn" ]; then
