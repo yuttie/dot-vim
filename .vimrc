@@ -382,6 +382,7 @@ let g:Align_xstrlen = 3
 
 " {{{ Markdown
 autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdown
+autocmd MyAutoCmds FileType markdown set shiftwidth=4
 " }}}
 
 
