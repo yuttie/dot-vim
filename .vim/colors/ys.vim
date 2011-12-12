@@ -40,8 +40,8 @@ hi Comment			ctermfg=240						cterm=none		guifg=#606060					gui=none			" from lu
 hi Constant			ctermfg=149						cterm=none		guifg=#bad755					gui=none
 hi String			ctermfg=149						cterm=none		guifg=#bad755					gui=none
 hi Number			ctermfg=149						cterm=none		guifg=#bad755					gui=none
-hi Identifier		ctermfg=192						cterm=none		guifg=#cae682					gui=none			" from wombat256.vim
-hi Function			ctermfg=192						cterm=none		guifg=#cae682					gui=none			" from wombat256.vim
+hi Identifier		ctermfg=44						cterm=none		guifg=#87decd					gui=none
+hi Function			ctermfg=44						cterm=none		guifg=#87decd					gui=none
 hi Statement		ctermfg=111						cterm=none		guifg=#8ac6f2					gui=none			" from wombat256.vim
 hi Keyword			ctermfg=111						cterm=none		guifg=#8ac6f2					gui=none			" from wombat256.vim
 hi PreProc			ctermfg=171						cterm=none		guifg=#bc5fd3					gui=none
