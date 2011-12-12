@@ -37,14 +37,14 @@ hi Pmenu			ctermfg=7		ctermbg=238						guifg=#f6f3e8	guibg=#444444						" from w
 hi PmenuSel			ctermfg=0		ctermbg=192						guifg=#000000	guibg=#cae682						" from wombat256.vim
 
 hi Comment			ctermfg=240						cterm=none		guifg=#606060					gui=none			" from lucius.vim
-hi Constant			ctermfg=191						cterm=none		guifg=#c1db65					gui=none
-hi String			ctermfg=191						cterm=none		guifg=#c1db65					gui=none
-hi Number			ctermfg=191						cterm=none		guifg=#c1db65					gui=none
+hi Constant			ctermfg=149						cterm=none		guifg=#bad755					gui=none
+hi String			ctermfg=149						cterm=none		guifg=#bad755					gui=none
+hi Number			ctermfg=149						cterm=none		guifg=#bad755					gui=none
 hi Identifier		ctermfg=192						cterm=none		guifg=#cae682					gui=none			" from wombat256.vim
 hi Function			ctermfg=192						cterm=none		guifg=#cae682					gui=none			" from wombat256.vim
 hi Statement		ctermfg=111						cterm=none		guifg=#8ac6f2					gui=none			" from wombat256.vim
 hi Keyword			ctermfg=111						cterm=none		guifg=#8ac6f2					gui=none			" from wombat256.vim
-hi PreProc			ctermfg=207						cterm=none		guifg=#e46de5					gui=none
+hi PreProc			ctermfg=171						cterm=none		guifg=#bc5fd3					gui=none
 hi Type				ctermfg=167						cterm=none		guifg=#e5786d					gui=none
 hi Special			ctermfg=173						cterm=none		guifg=#db9465					gui=none
 hi Underlined		ctermfg=fg						cterm=underline	guifg=fg						gui=underline		" from lucius.vim
