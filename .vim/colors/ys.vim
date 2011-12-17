@@ -65,9 +65,9 @@ hi SpellCap							ctermbg=226		cterm=undercurl									gui=undercurl		" from luc
 hi SpellRare						ctermbg=214		cterm=undercurl									gui=undercurl		" from lucius.vim
 hi SpellLocal						ctermbg=214		cterm=undercurl									gui=undercurl		" from lucius.vim
 
-hi DiffAdd			ctermfg=fg		ctermbg=22		cterm=none		guifg=#80a090	guibg=#313c36	gui=none			" from lucius.vim
-hi DiffChange		ctermfg=fg		ctermbg=52		cterm=none		guifg=NONE		guibg=#4a343a	gui=none			" from lucius.vim
-hi DiffDelete		ctermfg=fg		ctermbg=58		cterm=none		guifg=#6c6661	guibg=#3c3631	gui=none			" from lucius.vim
+hi DiffAdd			ctermfg=NONE	ctermbg=22		cterm=none		guifg=#80a090	guibg=#313c36	gui=none
+hi DiffChange		ctermfg=NONE	ctermbg=52		cterm=none		guifg=NONE		guibg=#4a343a	gui=none
+hi DiffDelete		ctermfg=NONE	ctermbg=58		cterm=none		guifg=#6c6661	guibg=#3c3631	gui=none
 hi DiffText			ctermfg=203		ctermbg=52		cterm=bold		guifg=#f05060	guibg=#4a343a	gui=bold			" from lucius.vim
 
 hi Directory		ctermfg=151						cterm=none		guifg=#c0e0b0					gui=none			" from lucius.vim
