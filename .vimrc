@@ -319,6 +319,8 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 
+let g:neocomplcache_max_list = 1000
+
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
@@ -361,6 +363,14 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 autocmd MyAutoCmds FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+" }}}
+
+
+" {{{ clang_complete
+let g:neocomplcache_clang_use_library = 1
+let g:neocomplcache_clang_library_path = "/usr/lib64/llvm"
+let g:neocomplcache_clang_user_options =
+    \ '-I /usr/include/boost '
 " }}}
 
 
