@@ -404,13 +404,6 @@ autocmd MyAutoCmds FileType markdown set shiftwidth=4
 " <<< C++11 Syntax Support >>>
 " http://www.vim.org/scripts/script.php?script_id=3797
 autocmd MyAutoCmds BufNewFile,BufRead *.cpp set syntax=cpp11
-
-" <<< OmniCppComplete >>>
-" Hotkey to generate ctags database for C/C++ supporting OmniCppComplete
-"autocmd MyAutoCmds FileType c,cpp map <buffer> <C-F12> :!ctags --recurse --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-" Close preview window automatically.
-autocmd MyAutoCmds CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd MyAutoCmds InsertLeave * if pumvisible() == 0|pclose|endif
 " }}}
 
 
