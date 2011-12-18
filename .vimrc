@@ -370,6 +370,12 @@ let g:quickrun_config['markdown'] = {
       \ 'type': 'markdown/pandoc',
       \ 'cmdopt': '-s',
       \ 'outputter': 'browser'}
+let g:quickrun_config['cpp'] = {
+      \ 'runner': 'vimproc',
+      \ 'exec': '%c %o %s',
+      \ 'command': 'g++',
+      \ 'cmdopt': '-Wall -fsyntax-only -I /usr/include/boost',
+      \ 'outputter': 'quickfix'}
 " }}}
 
 
