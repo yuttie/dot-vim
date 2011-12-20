@@ -436,6 +436,12 @@ let g:quickrun_config['cpp'] = {
 " }}}
 
 
+" {{{ ref
+let g:ref_alc_start_linenumber = 42
+let g:ref_refe_encoding = 'euc-jp'
+" }}}
+
+
 " {{{ Align.vim
 let g:Align_xstrlen = 3
 " }}}
