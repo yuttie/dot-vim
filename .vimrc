@@ -411,9 +411,11 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 " {{{ clang_complete
 let g:neocomplcache_clang_use_library = 1
-let g:neocomplcache_clang_library_path = "/usr/lib64/llvm"
+let g:neocomplcache_clang_library_path = "/usr/lib/llvm"
 let g:neocomplcache_clang_user_options =
-    \ '-I /usr/include/boost '
+    \ '-std=c++11 ' .
+    \ '-I /usr/include/boost ' .
+    \ ''
 " }}}
 
 
