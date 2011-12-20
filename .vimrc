@@ -279,8 +279,7 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-NeoBundle 'http://conque.googlecode.com/svn/trunk/'
-NeoBundle 'http://code.haskell.org/haskellmode-vim/'
+NeoBundle 'http://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
 NeoBundle 'git://github.com/sjl/gundo.vim.git'
 NeoBundle 'git://github.com/tyru/eskk.vim.git'
 NeoBundle 'git://github.com/mattn/gist-vim.git'
@@ -291,7 +290,6 @@ NeoBundle 'git://github.com/tyru/vice.vim'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/hallison/vim-markdown.git'
 NeoBundle 'git://github.com/jceb/vim-orgmode.git'
-NeoBundle 'git://github.com/tpope/vim-pathogen.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
@@ -307,13 +305,16 @@ NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 NeoBundle 'git://github.com/Shougo/clang_complete.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'http://code.haskell.org/haskellmode-vim/', {'directory' : 'haskellmode-vim', 'type' : 'nosync'}
+NeoBundle 'Align'
+NeoBundle 'Cpp11-Syntax-Support'
+NeoBundle 'gtk-vim-syntax'
+NeoBundle 'LaTeX-Box'
+NeoBundle 'pythoncomplete'
+NeoBundle 'renamer.vim'
+NeoBundle 'scratch'
 
 filetype plugin indent on
-" }}}
-
-
-" {{{ pathogen.vim
-call pathogen#runtime_append_all_bundles()
 " }}}
 
 
