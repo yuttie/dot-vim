@@ -428,8 +428,10 @@ let g:quickrun_config['markdown'] = {
 let g:quickrun_config['cpp'] = {
       \ 'runner': 'vimproc',
       \ 'exec': '%c %o %s',
-      \ 'command': 'g++',
-      \ 'cmdopt': '-Wall -fsyntax-only -I /usr/include/boost',
+      \ 'command': 'clang++',
+      \ 'cmdopt': '-std=c++11 -Wall -fsyntax-only ' .
+      \           '-I /usr/include/boost ' .
+      \           '',
       \ 'outputter': 'quickfix'}
 " }}}
 
