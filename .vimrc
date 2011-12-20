@@ -271,6 +271,47 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 " }}}
 
 
+" {{{ neobundle.vim
+filetype plugin indent off
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+
+    call neobundle#rc(expand('~/.vim/bundle'))
+endif
+
+NeoBundle 'http://conque.googlecode.com/svn/trunk/'
+NeoBundle 'http://code.haskell.org/haskellmode-vim/'
+NeoBundle 'git://github.com/sjl/gundo.vim.git'
+NeoBundle 'git://github.com/tyru/eskk.vim.git'
+NeoBundle 'git://github.com/mattn/gist-vim.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'git://github.com/tyru/savemap.vim'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'git://github.com/tyru/vice.vim'
+NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundle 'git://github.com/hallison/vim-markdown.git'
+NeoBundle 'git://github.com/jceb/vim-orgmode.git'
+NeoBundle 'git://github.com/tpope/vim-pathogen.git'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
+NeoBundle 'git://github.com/Shougo/vimproc.git'
+NeoBundle 'git://github.com/Shougo/vimshell.git'
+NeoBundle 'git://github.com/hallettj/jslint.vim.git'
+NeoBundle 'git://github.com/gregsexton/gitv.git'
+NeoBundle 'git://github.com/yuttie/skk.vim.git'
+NeoBundle 'git://github.com/Lokaltog/vim-easymotion.git'
+NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
+NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
+NeoBundle 'git://github.com/mattn/zencoding-vim.git'
+NeoBundle 'git://github.com/Shougo/clang_complete.git'
+NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+
+filetype plugin indent on
+" }}}
+
+
 " {{{ pathogen.vim
 call pathogen#runtime_append_all_bundles()
 " }}}
