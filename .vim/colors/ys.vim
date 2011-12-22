@@ -32,7 +32,7 @@ hi StatusLineNC		ctermfg=243		ctermbg=238		cterm=none		guifg=#857b6f	guibg=#4444
 hi LineNr			ctermfg=243		ctermbg=0		cterm=none		guifg=#857b6f	guibg=#000000	gui=none			" from wombat256.vim
 hi SpecialKey		ctermfg=244		ctermbg=236		cterm=none		guifg=#808080	guibg=#343434	gui=none			" from wombat256.vim
 hi NonText			ctermfg=244		ctermbg=236		cterm=none		guifg=#808080	guibg=#303030	gui=none			" from wombat256.vim
-hi MatchParen		ctermfg=7		ctermbg=243		cterm=bold		guifg=#f6f3e8	guibg=#857b6f	gui=bold			" from wombat256.vim
+hi MatchParen		ctermfg=196		ctermbg=NONE	cterm=bold		guifg=#ff0000	guibg=NONE		gui=bold
 hi Pmenu			ctermfg=7		ctermbg=238						guifg=#f6f3e8	guibg=#444444						" from wombat256.vim
 hi PmenuSel			ctermfg=0		ctermbg=192						guifg=#000000	guibg=#cae682						" from wombat256.vim
 
