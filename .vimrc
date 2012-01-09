@@ -445,7 +445,7 @@ let g:neocomplcache_clang_use_library = 1
 let g:neocomplcache_clang_library_path = "/usr/lib/llvm"
 let g:neocomplcache_clang_user_options =
     \ '-std=c++11 ' .
-    \ '-I /usr/include/boost ' .
+    \ '-I /usr/include/eigen3 ' .
     \ ''
 " }}}
 
@@ -461,7 +461,7 @@ let g:quickrun_config['cpp'] = {
       \ 'exec': '%c %o %s',
       \ 'command': 'clang++',
       \ 'cmdopt': '-std=c++11 -Wall -fsyntax-only ' .
-      \           '-I /usr/include/boost ' .
+      \           '-I /usr/include/eigen3 ' .
       \           '',
       \ 'outputter': 'quickfix'}
 " }}}
