@@ -468,6 +468,11 @@ let g:quickrun_config['cpp'] = {
 " }}}
 
 
+" {{{ echodoc
+let g:echodoc_enable_at_startup = 1
+" }}}
+
+
 " {{{ ref
 let g:ref_alc_start_linenumber = 42
 let g:ref_refe_encoding = 'euc-jp'
