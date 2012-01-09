@@ -93,7 +93,6 @@ set ambiwidth=double
 " 26 various
 set virtualedit=block
 set sessionoptions&
-  \ sessionoptions+=resize
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
 set cryptmethod=blowfish
