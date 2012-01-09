@@ -216,6 +216,7 @@ nnoremap gc `[v`]
 nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
 nnoremap <C-k> :redraw!<CR>
+nnoremap <silent> K :call ref#jump('normal','alc')<CR>
 "nnoremap n nzz
 "nnoremap N Nzz
 "nnoremap * *zz
