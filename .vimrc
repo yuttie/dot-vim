@@ -117,7 +117,7 @@ autocmd MyAutoCmds BufWinLeave * call clearmatches()
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  colorscheme lucius
+  colorscheme ys
 endif
 
 " }}}
