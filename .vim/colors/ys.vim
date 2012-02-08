@@ -13,7 +13,7 @@ endif
 let colors_name = "ys"
 
 
-hi Normal			ctermfg=253		ctermbg=234						guifg=#e0e0e0	guibg=#202020						" from lucius.vim
+hi Normal			ctermfg=15		ctermbg=236						guifg=#ffffff	guibg=#333333						" from lucius.vim
 hi Cursor			ctermfg=none	ctermbg=241		cterm=none		guifg=NONE		guibg=#656565	gui=none			" from wombat256.vim
 hi CursorIM			ctermfg=bg		ctermbg=116						guifg=bg		guibg=#96cdcd						" from lucius.vim
 hi CursorLine		ctermfg=NONE	ctermbg=236		cterm=none		guifg=NONE		guibg=#404448	gui=none			" from lucius.vim
@@ -36,7 +36,7 @@ hi MatchParen		ctermfg=196		ctermbg=NONE	cterm=bold		guifg=#ff0000	guibg=NONE		g
 hi Pmenu			ctermfg=7		ctermbg=238						guifg=#f6f3e8	guibg=#444444						" from wombat256.vim
 hi PmenuSel			ctermfg=0		ctermbg=192						guifg=#000000	guibg=#cae682						" from wombat256.vim
 
-hi Comment			ctermfg=240						cterm=none		guifg=#606060					gui=none			" from lucius.vim
+hi Comment			ctermfg=244						cterm=none		guifg=#7f7f7f					gui=none			" from lucius.vim
 hi Constant			ctermfg=149						cterm=none		guifg=#bad755					gui=none
 hi String			ctermfg=149						cterm=none		guifg=#bad755					gui=none
 hi Number			ctermfg=149						cterm=none		guifg=#bad755					gui=none
