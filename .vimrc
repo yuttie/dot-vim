@@ -461,7 +461,7 @@ let g:neocomplcache_clang_user_options =
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = {
       \ 'type': 'markdown/pandoc',
-      \ 'cmdopt': '-s',
+      \ 'cmdopt': '--standalone --mathjax',
       \ 'outputter': 'browser'}
 let g:quickrun_config['cpp'] = {
       \ 'runner': 'vimproc',
