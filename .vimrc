@@ -500,6 +500,7 @@ autocmd MyAutoCmds FileType markdown set shiftwidth=4
 " <<< C++11 Syntax Support >>>
 " http://www.vim.org/scripts/script.php?script_id=3797
 autocmd MyAutoCmds BufNewFile,BufRead *.cpp set syntax=cpp11
+autocmd MyAutoCmds BufNewFile,BufRead *.cpp set matchpairs+=<:>
 " }}}
 
 
