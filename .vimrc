@@ -214,7 +214,7 @@ nnoremap <C-h>  :<C-u>help<Space>
 nnoremap <C-k>  :redraw!<CR>
 nnoremap <C-Tab>    gt
 nnoremap <C-S-Tab>  gT
-nnoremap <silent>K  :call ref#jump('normal','alc')<CR>
+nnoremap <silent>E  :call ref#jump('normal','alc')<CR>
 " }}}
 
 
