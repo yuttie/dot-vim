@@ -92,7 +92,6 @@ set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp,utf-16le,utf-16
 set ambiwidth=double
 
 " 26 various
-set virtualedit=block
 set sessionoptions&
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
