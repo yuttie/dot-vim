@@ -504,9 +504,6 @@ autocmd MyAutoCmds FileType sh,csh,tcsh,zsh set shiftwidth=2
 
 " {{{ Ruby
 autocmd MyAutoCmds FileType ruby,eruby set shiftwidth=2
-" <<< refe.vim >>>
-autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> K :Refe <cword><CR>
-autocmd MyAutoCmds FileType ruby,eruby nnoremap <buffer> <silent> <C-K> :Refe<CR>
 " }}}
 
 
