@@ -204,25 +204,17 @@ noremap! <C-f> <Right>
 noremap! <C-d> <Del>
 
 " normal
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-nnoremap <C-h> :<C-u>help<Space>
-nnoremap P Pg;
-nnoremap gc `[v`]
-"nnoremap <C-l> gt
-"nnoremap <C-h> gT
-nnoremap <C-Tab> gt
-nnoremap <C-S-Tab> gT
-nnoremap <C-k> :redraw!<CR>
-nnoremap <silent> K :call ref#jump('normal','alc')<CR>
-"nnoremap n nzz
-"nnoremap N Nzz
-"nnoremap * *zz
-"nnoremap # #zz
-"nnoremap g* g*zz
-"nnoremap g# g#zz
+nnoremap j   gj
+nnoremap k   gk
+nnoremap gj  j
+nnoremap gk  k
+nnoremap P   Pg;
+nnoremap gc  `[v`]
+nnoremap <C-h>  :<C-u>help<Space>
+nnoremap <C-k>  :redraw!<CR>
+nnoremap <C-Tab>    gt
+nnoremap <C-S-Tab>  gT
+nnoremap <silent>K  :call ref#jump('normal','alc')<CR>
 " }}}
 
 
