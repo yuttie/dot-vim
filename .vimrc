@@ -348,8 +348,8 @@ let g:gist_browser_command ='firefox %URL%'
 
 " {{{ unite.vim
 " The prefix key.
-nnoremap [unite]  <Nop>
-nmap     f        [unite]
+nnoremap [unite]   <Nop>
+nmap     <Space>u  [unite]
 
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
