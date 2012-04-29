@@ -348,22 +348,22 @@ let g:gist_browser_command ='firefox %URL%'
 
 " {{{ unite.vim
 " The prefix key.
-nnoremap    [unite]   <Nop>
-nmap    f [unite]
+nnoremap [unite]  <Nop>
+nmap     f        [unite]
 
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
-nnoremap  [unite]f  :<C-u>Unite source<CR>
+nnoremap          [unite]f  :<C-u>Unite source<CR>
 
 autocmd MyAutoCmds FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
 
-  nmap <buffer> <ESC>      <Plug>(unite_exit)
-  imap <buffer> jj      <Plug>(unite_insert_leave)
-  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  nmap <buffer> <ESC>  <Plug>(unite_exit)
+  imap <buffer> jj     <Plug>(unite_insert_leave)
+  "imap <buffer> <C-w>  <Plug>(unite_delete_backward_path)
 
   " <C-l>: manual neocomplcache completion.
   inoremap <buffer> <C-l>  <C-x><C-u><C-p><Down>
