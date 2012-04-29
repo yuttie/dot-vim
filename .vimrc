@@ -313,7 +313,11 @@ filetype plugin indent on
 
 
 " {{{ vim-easymotion
-let g:EasyMotion_leader_key = '<Leader>m'
+" The prefix key.
+nnoremap [EM]      <Nop>
+nmap     <Space>e  [EM]
+
+let g:EasyMotion_leader_key = '[EM]'
 " }}}
 
 
