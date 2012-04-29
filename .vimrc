@@ -355,11 +355,23 @@ let g:gist_browser_command ='firefox %URL%'
 nnoremap [unite]   <Nop>
 nmap     <Space>u  [unite]
 
-nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files<CR>
+nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir  buffer file_mru bookmark file -buffer-name=files -prompt=%\ <CR>
+nnoremap <silent> [unite]f  :<C-u>Unite find        -buffer-name=files<CR>
+nnoremap <silent> [unite]g  :<C-u>Unite grep        -buffer-name=files<CR>
+nnoremap <silent> [unite]l  :<C-u>Unite locate      -buffer-name=files<CR>
+nnoremap <silent> [unite]x  :<C-u>Unite launcher    -start-insert<CR>
+nnoremap <silent> [unite]h  :<C-u>Unite ref/hoogle  -start-insert<CR>
+nnoremap <silent> [unite]m  :<C-u>Unite ref/man     -start-insert<CR>
+nnoremap <silent> [unite]p  :<C-u>Unite ref/pydoc   -start-insert<CR>
+nnoremap <silent> [unite]r  :<C-u>Unite ref/refe    -start-insert<CR>
+nnoremap <silent> [unite]R  :<C-u>Unite register    -buffer-name=register<CR>
+nnoremap <silent> [unite]/  :<C-u>Unite line        -buffer-name=search -start-insert -no-quit<CR>
+nnoremap <silent> [unite]y  :<C-u>Unite history/yank<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
-nnoremap          [unite]f  :<C-u>Unite source<CR>
+nnoremap <silent> [unite]C  :<C-u>Unite colorscheme -auto-preview<CR>
+nnoremap <silent> [unite]H  :<C-u>Unite help        -start-insert<CR>
+nnoremap          [unite]s  :<C-u>Unite source      -start-insert<CR>
 
 autocmd MyAutoCmds FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
@@ -377,6 +389,7 @@ function! s:unite_my_settings()"{{{
 endfunction"}}}
 
 let g:unite_source_file_mru_limit = 200
+let g:unite_source_history_yank_enable = 1
 let g:unite_cursor_line_highlight = 'TabLineSel'
 let g:unite_abbr_highlight = 'TabLine'
 
