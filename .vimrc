@@ -350,7 +350,6 @@ autocmd MyAutoCmds FileType gitcommit set spell
 " {{{ gist.vim
 let g:github_user = "yuttie"
 let g:github_token = "892f7d05807089d96554f0825c37e912"
-let g:gist_browser_command ='firefox %URL%'
 " }}}
 
 
@@ -550,7 +549,7 @@ autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 " {{{ Haskell
 " <<< Haskell mode >>>
 autocmd MyAutoCmds Bufenter *.hs compiler ghc
-let g:haddock_browser = "firefox"
+let g:haddock_browser = "xdg-open"
 " }}}
 
 
