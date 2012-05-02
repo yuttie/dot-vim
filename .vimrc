@@ -293,6 +293,7 @@ NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
 NeoBundle 'git://github.com/ujihisa/unite-locate.git'
 NeoBundle 'git://github.com/eagletmt/ghcmod-vim.git'
 NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
+NeoBundle 'git://github.com/yuttie/darkfruit.git'
 NeoBundle 'git://github.com/yuttie/skk.vim.git'
 NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 NeoBundle 'http://code.haskell.org/haskellmode-vim/', {'directory' : 'haskellmode-vim', 'type' : 'nosync'}
