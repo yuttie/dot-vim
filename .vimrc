@@ -296,6 +296,7 @@ NeoBundle 'git://github.com/eagletmt/ghcmod-vim.git'
 NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
 NeoBundle 'git://github.com/yuttie/darkfruit.git'
 NeoBundle 'git://github.com/yuttie/skk.vim.git'
+NeoBundle 'git://github.com/yuttie/timeline.vim.git'
 NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 NeoBundle 'http://code.haskell.org/haskellmode-vim/', {'directory' : 'haskellmode-vim', 'type' : 'nosync'}
 NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
@@ -313,6 +314,11 @@ filetype plugin indent on
 
 " {{{ vim-powerline
 let g:Powerline_symbols = 'fancy'
+" }}}
+
+
+" {{{ timeline
+let g:timeline_base_dir = expand("~/Research/Timeline")
 " }}}
 
 
