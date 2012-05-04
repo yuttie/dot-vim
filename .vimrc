@@ -7,6 +7,64 @@ augroup MyAutoCmds
 augroup end
 
 
+" {{{ neobundle.vim
+filetype plugin indent off
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+
+    call neobundle#rc(expand('~/.vim/bundle'))
+endif
+
+NeoBundle 'git://github.com/Lokaltog/vim-easymotion.git'
+NeoBundle 'git://github.com/Shougo/echodoc.git'
+NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache-clang.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'git://github.com/Shougo/unite-help.git'
+NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'git://github.com/Shougo/vimproc.git'
+NeoBundle 'git://github.com/Shougo/vimshell.git'
+NeoBundle 'git://github.com/Shougo/vinarise.git'
+NeoBundle 'git://github.com/gregsexton/gitv.git'
+NeoBundle 'git://github.com/hallettj/jslint.vim.git'
+"NeoBundle 'git://github.com/hallison/vim-markdown.git'
+NeoBundle 'git://github.com/jceb/vim-orgmode.git'
+NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
+NeoBundle 'git://github.com/mattn/gist-vim.git'
+NeoBundle 'git://github.com/mattn/zencoding-vim.git'
+NeoBundle 'git://github.com/sjl/gundo.vim.git'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundle 'git://github.com/tpope/vim-markdown.git'
+NeoBundle 'git://github.com/tpope/vim-surround.git'
+NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
+NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
+NeoBundle 'git://github.com/ujihisa/ref-hoogle.git'
+NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
+NeoBundle 'git://github.com/ujihisa/unite-locate.git'
+NeoBundle 'git://github.com/eagletmt/ghcmod-vim.git'
+NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
+NeoBundle 'git://github.com/yuttie/darkfruit.git'
+NeoBundle 'git://github.com/yuttie/skk.vim.git'
+NeoBundle 'git://github.com/yuttie/timeline.vim.git'
+NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
+NeoBundle 'http://code.haskell.org/haskellmode-vim/', {'directory' : 'haskellmode-vim', 'type' : 'nosync'}
+NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
+NeoBundle 'Align'
+NeoBundle 'Cpp11-Syntax-Support'
+NeoBundle 'gtk-vim-syntax'
+NeoBundle 'LaTeX-Box'
+NeoBundle 'pythoncomplete'
+NeoBundle 'renamer.vim'
+NeoBundle 'scratch'
+
+filetype plugin indent on
+" }}}
+
+
 " Options                                                                    {{{
 " ==============================================================================
 
@@ -250,64 +308,6 @@ function! FillTemplatePlaceHolders()
 endfunction
 
 autocmd MyAutoCmds BufNewFile * call InsertTemplate()
-" }}}
-
-
-" {{{ neobundle.vim
-filetype plugin indent off
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-
-    call neobundle#rc(expand('~/.vim/bundle'))
-endif
-
-NeoBundle 'git://github.com/Lokaltog/vim-easymotion.git'
-NeoBundle 'git://github.com/Shougo/echodoc.git'
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache-clang.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-NeoBundle 'git://github.com/Shougo/unite-help.git'
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
-NeoBundle 'git://github.com/Shougo/vimproc.git'
-NeoBundle 'git://github.com/Shougo/vimshell.git'
-NeoBundle 'git://github.com/Shougo/vinarise.git'
-NeoBundle 'git://github.com/gregsexton/gitv.git'
-NeoBundle 'git://github.com/hallettj/jslint.vim.git'
-"NeoBundle 'git://github.com/hallison/vim-markdown.git'
-NeoBundle 'git://github.com/jceb/vim-orgmode.git'
-NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
-NeoBundle 'git://github.com/mattn/gist-vim.git'
-NeoBundle 'git://github.com/mattn/zencoding-vim.git'
-NeoBundle 'git://github.com/sjl/gundo.vim.git'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'git://github.com/thinca/vim-ref.git'
-NeoBundle 'git://github.com/tpope/vim-fugitive.git'
-NeoBundle 'git://github.com/tpope/vim-markdown.git'
-NeoBundle 'git://github.com/tpope/vim-surround.git'
-NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
-NeoBundle 'git://github.com/tyru/open-browser.vim.git'
-NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
-NeoBundle 'git://github.com/ujihisa/ref-hoogle.git'
-NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
-NeoBundle 'git://github.com/ujihisa/unite-locate.git'
-NeoBundle 'git://github.com/eagletmt/ghcmod-vim.git'
-NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
-NeoBundle 'git://github.com/yuttie/darkfruit.git'
-NeoBundle 'git://github.com/yuttie/skk.vim.git'
-NeoBundle 'git://github.com/yuttie/timeline.vim.git'
-NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
-NeoBundle 'http://code.haskell.org/haskellmode-vim/', {'directory' : 'haskellmode-vim', 'type' : 'nosync'}
-NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
-NeoBundle 'Align'
-NeoBundle 'Cpp11-Syntax-Support'
-NeoBundle 'gtk-vim-syntax'
-NeoBundle 'LaTeX-Box'
-NeoBundle 'pythoncomplete'
-NeoBundle 'renamer.vim'
-NeoBundle 'scratch'
-
-filetype plugin indent on
 " }}}
 
 
