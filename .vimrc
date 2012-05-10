@@ -39,6 +39,7 @@ NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/tpope/vim-markdown.git'
 NeoBundle 'git://github.com/tpope/vim-surround.git'
+NeoBundle 'git://github.com/tsukkee/unite-tag.git'
 NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
@@ -376,6 +377,7 @@ nnoremap <silent> [unite]m  :<C-u>Unite ref/man     -start-insert<CR>
 nnoremap <silent> [unite]p  :<C-u>Unite ref/pydoc   -start-insert<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite ref/refe    -start-insert<CR>
 nnoremap <silent> [unite]R  :<C-u>Unite register    -buffer-name=register<CR>
+nnoremap <silent> [unite]t  :<C-u>Unite tag         -start-insert<CR>
 nnoremap <silent> [unite]/  :<C-u>Unite line        -buffer-name=search -start-insert -no-quit<CR>
 nnoremap <silent> [unite]y  :<C-u>Unite history/yank<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
