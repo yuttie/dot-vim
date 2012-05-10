@@ -270,7 +270,6 @@ nnoremap <C-k>  :redraw!<CR>
 nnoremap <ESC><ESC>  :nohlsearch<CR>
 nnoremap <C-Tab>    gt
 nnoremap <C-S-Tab>  gT
-nnoremap <silent>E  :call ref#jump('normal','alc')<CR>
 " }}}
 
 
