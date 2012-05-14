@@ -561,6 +561,12 @@ autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 
 
 " {{{ Haskell
+" The prefix key.
+nnoremap [haskell]   <Nop>
+nmap     <Space>h  [haskell]
+
+nnoremap <silent> [haskell]t  :GhcModType<CR>
+nnoremap <silent> [haskell]c  :GhcModTypeClear<CR>
 " }}}
 
 
