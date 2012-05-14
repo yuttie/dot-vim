@@ -267,7 +267,6 @@ nnoremap gk  k
 nnoremap P   Pg;
 nnoremap gc  `[v`]
 nnoremap <C-h>  :<C-u>help<Space>
-nnoremap <C-k>  :redraw!<CR>
 nnoremap <ESC><ESC>  :nohlsearch<CR>
 nnoremap <C-Tab>    gt
 nnoremap <C-S-Tab>  gT
