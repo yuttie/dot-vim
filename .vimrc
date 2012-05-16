@@ -273,6 +273,11 @@ nnoremap <C-S-Tab>  gT
 " }}}
 
 
+" {{{ quickfix
+autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwindow
+" }}}
+
+
 " {{{ Template insertion
 let template_dir = "~/.vim/template"
 function! InsertTemplate()
