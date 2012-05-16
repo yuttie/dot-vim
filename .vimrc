@@ -570,34 +570,6 @@ nnoremap <silent> [haskell]c  :GhcModTypeClear<CR>
 
 
 " {{{ LaTeX
-" <<< LaTeX-Suite >>>
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-" autocmdで.vimrcに記述しても\lvで起動するdviビューアの指定が反映されない
-" ので、残りの設定は$VIMFILES/ftplugin/tex.vimに記述している
-
-"autocmd MyAutoCmds FileType tex set indentkeys-=}
-
-" Maps
-autocmd MyAutoCmds FileType tex nnoremap <Leader>cc :silent! call Tex_RunLaTeX()<CR>
-autocmd MyAutoCmds FileType tex nnoremap <Leader>vv :silent! call Tex_ViewLaTeX()<CR>
-autocmd MyAutoCmds FileType tex nnoremap <Leader>ss :silent! call Tex_ForwardSearchLaTeX()<CR>
-autocmd MyAutoCmds FileType tex nnoremap <silent> ,l :execute ":silent !rake"<CR>
-" 次の行は autocmd 化しない。
-" IMAP_JumpForward のマッピングが事前に行われていない場合、
-" Latex-Suite は <C-j> に対して IMAP_JumpForward のマッピングを行う。
-" その為、どのファイルが読み込まれた場合でも IMAP_JumpForward が何かしらの
-" キーにマップされているようにする必要がある。
-" 関連URL: http://vim-latex.sourceforge.net/documentation/latex-suite/latex-suite-maps.html
-imap <C-space> <Plug>IMAP_JumpForward
 " }}}
 
 
