@@ -560,6 +560,18 @@ autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 
 
 " {{{ Haskell
+autocmd MyAutoCmds FileType haskell setlocal makeprg=ghc\ --make\ %
+" errorformat from haskellmode-vim
+" http://code.haskell.org/haskellmode-vim/compiler/ghc.vim
+autocmd MyAutoCmds FileType haskell setlocal errorformat=
+                                                        \%-Z\ %#,
+                                                        \%W%f:%l:%c:\ Warning:\ %m,
+                                                        \%E%f:%l:%c:\ %m,
+                                                        \%E%>%f:%l:%c:,
+                                                        \%+C\ \ %#%m,
+                                                        \%W%>%f:%l:%c:,
+                                                        \%+C\ \ %#%tarning:\ %m,
+
 " The prefix key.
 autocmd MyAutoCmds FileType haskell nnoremap [haskell]   <Nop>
 autocmd MyAutoCmds FileType haskell nmap     <Space>h  [haskell]
