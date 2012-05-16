@@ -578,6 +578,8 @@ autocmd MyAutoCmds FileType haskell nmap     <Space>h  [haskell]
 
 autocmd MyAutoCmds FileType haskell nnoremap <silent> [haskell]t  :GhcModType<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <silent> [haskell]c  :GhcModTypeClear<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <silent> [haskell]c  :GhcModCheckAsync<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <silent> [haskell]b  :make<CR>
 " }}}
 
 
