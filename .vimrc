@@ -573,13 +573,13 @@ autocmd MyAutoCmds FileType haskell setlocal errorformat=
                                                         \%+C\ \ %#%tarning:\ %m,
 
 " The prefix key.
-autocmd MyAutoCmds FileType haskell nnoremap [haskell]   <Nop>
-autocmd MyAutoCmds FileType haskell nmap     <Space>h  [haskell]
+autocmd MyAutoCmds FileType haskell nnoremap <buffer> [haskell]   <Nop>
+autocmd MyAutoCmds FileType haskell nmap     <buffer> <Space>h  [haskell]
 
-autocmd MyAutoCmds FileType haskell nnoremap <silent> [haskell]t  :GhcModType<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <silent> <ESC><ESC>  :nohlsearch \| :GhcModTypeClear<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <silent> [haskell]c  :GhcModCheckAsync<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <silent> [haskell]b  :make<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]t  :GhcModType<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <ESC><ESC>  :nohlsearch \| :GhcModTypeClear<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]c  :GhcModCheckAsync<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]b  :make<CR>
 " }}}
 
 
