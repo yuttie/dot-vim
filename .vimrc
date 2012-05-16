@@ -473,7 +473,7 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 " }}}
 
 
-" {{{ clang_complete
+" {{{ neocomplcache-clang
 let g:neocomplcache_clang_use_library = 1
 let g:neocomplcache_clang_library_path = "/usr/lib/llvm"
 let g:neocomplcache_clang_user_options =
