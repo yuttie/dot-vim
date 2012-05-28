@@ -163,7 +163,7 @@ set cryptmethod=blowfish
 
 " Show trailing whitespaces
 " (from http://vim.wikia.com/wiki/Highlight_unwanted_spaces)
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd MyAutoCmds ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd MyAutoCmds BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd MyAutoCmds InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd MyAutoCmds InsertLeave * match ExtraWhitespace /\s\+$/
