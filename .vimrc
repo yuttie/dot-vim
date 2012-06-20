@@ -54,7 +54,6 @@ NeoBundle 'git://github.com/yuttie/timeline.vim.git'
 NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
 NeoBundle 'Align'
-NeoBundle 'Cpp11-Syntax-Support'
 NeoBundle 'gtk-vim-syntax'
 NeoBundle 'LaTeX-Box'
 NeoBundle 'pythoncomplete'
@@ -533,9 +532,6 @@ autocmd MyAutoCmds FileType markdown set shiftwidth=4
 
 
 " {{{ C/C++
-" <<< C++11 Syntax Support >>>
-" http://www.vim.org/scripts/script.php?script_id=3797
-autocmd MyAutoCmds BufNewFile,BufRead *.cpp set syntax=cpp11
 autocmd MyAutoCmds BufNewFile,BufRead *.cpp set matchpairs+=<:>
 " }}}
 
