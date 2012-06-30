@@ -259,11 +259,13 @@ endif
 noremap <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
 " insert and command line
-noremap! <C-a> <Home>
-noremap! <C-e> <End>
-noremap! <C-b> <Left>
-noremap! <C-f> <Right>
-noremap! <C-d> <Del>
+noremap! <C-a>   <Home>
+noremap! <C-e>   <End>
+noremap! <C-b>   <Left>
+noremap! <C-f>   <Right>
+noremap! <C-d>   <Del>
+noremap! <M-f>   <S-Right>
+noremap! <M-b>   <S-Left>
 
 " normal
 nnoremap j   gj
@@ -276,6 +278,10 @@ nnoremap <C-h>  :<C-u>help<Space>
 nnoremap <silent> <ESC><ESC>  :nohlsearch<CR>
 nnoremap <C-Tab>    gt
 nnoremap <C-S-Tab>  gT
+
+" command-line
+cnoremap <C-p>  <Up>
+cnoremap <C-n>  <Down>
 " }}}
 
 
