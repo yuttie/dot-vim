@@ -257,6 +257,9 @@ endif
 
 
 " {{{ Mappings
+nnoremap [Space]   <Nop>
+nmap     <Space>  [Space]
+
 " normal, visual+select and operator-pending
 noremap <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
@@ -346,7 +349,7 @@ let g:timeline_base_dir = expand("~/Research/Timeline")
 " {{{ vim-easymotion
 " The prefix key.
 nnoremap [EM]      <Nop>
-nmap     <Space>e  [EM]
+nmap     [Space]e  [EM]
 
 let g:EasyMotion_leader_key = '[EM]'
 " }}}
@@ -392,7 +395,7 @@ let g:vimfiler_as_default_explorer = 1
 " {{{ unite.vim
 " The prefix key.
 nnoremap [unite]   <Nop>
-nmap     <Space>u  [unite]
+nmap     [Space]u  [unite]
 
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files<CR>
 nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir  buffer file_mru bookmark file -buffer-name=files -prompt=%\ <CR>
@@ -532,7 +535,7 @@ let g:vimshell_scrollback_limit = 5000
 
 " The prefix key.
 nnoremap [vimshell]   <Nop>
-nmap     <Space>s  [vimshell]
+nmap     [Space]s  [vimshell]
 
 nnoremap <silent> [vimshell]  :VimShell<CR>
 " }}}
@@ -626,7 +629,7 @@ autocmd MyAutoCmds FileType haskell setlocal errorformat=
 
 " The prefix key.
 autocmd MyAutoCmds FileType haskell nnoremap <buffer> [haskell]   <Nop>
-autocmd MyAutoCmds FileType haskell nmap     <buffer> <Space>h  [haskell]
+autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
 
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]t  :GhcModType<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <ESC><ESC>  :nohlsearch \| :GhcModTypeClear<CR>
