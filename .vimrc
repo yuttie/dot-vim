@@ -259,12 +259,14 @@ endif
 " normal, visual+select and operator-pending
 noremap <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
+" insert
+inoremap <C-d>   <Del>
+
 " insert and command line
 noremap! <C-a>   <Home>
 noremap! <C-e>   <End>
 noremap! <C-b>   <Left>
 noremap! <C-f>   <Right>
-noremap! <C-d>   <Del>
 noremap! <M-f>   <S-Right>
 noremap! <M-b>   <S-Left>
 
