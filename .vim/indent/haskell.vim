@@ -9,8 +9,8 @@ setlocal indentkeys=!^F,o,O
 
 setlocal expandtab
 setlocal tabstop<
-setlocal softtabstop=2
-setlocal shiftwidth=2
+setlocal softtabstop=4
+setlocal shiftwidth=4
 
 let b:undo_indent = 'setlocal '.join([
 \   'autoindent<',
