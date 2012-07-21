@@ -1,9 +1,7 @@
 #include <iostream>
 
 
-using namespace std;
-
-
-int main(int argc, const char *argv[]) {
+int main(int argc, char* argv[]) {
+    using namespace std;
     return 0;
 }
