@@ -132,7 +132,7 @@ set backup
 " 21 command line editing
 set history=1000  " Keep 1000 lines of command history.
 "set suffixes& suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.pdf  " Files with suffix in suffixes are ignored.
-set wildmode=list:longest,full  " Set completion mode.
+set wildmode=full  " Set completion mode.
 set wildmenu
 "set wildignore& wildignore+=*.o
 
