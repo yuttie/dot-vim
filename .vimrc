@@ -23,6 +23,7 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache-snippets-complete.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/Shougo/unite-help.git'
+NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
@@ -513,6 +514,24 @@ let g:neocomplcache_clang_user_options =
     \ '-std=c++11 ' .
     \ '-I /usr/include/eigen3 ' .
     \ ''
+" }}}
+
+
+" {{{ vimshell
+if has('win32') || has('win64')
+    let g:vimshell_user_prompt = '$USERNAME . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
+else
+    let g:vimshell_user_prompt = '$USER . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
+endif
+let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
+let g:vimshell_max_command_history = 100000
+let g:vimshell_scrollback_limit = 5000
+
+" The prefix key.
+nnoremap [vimshell]   <Nop>
+nmap     <Space>s  [vimshell]
+
+nnoremap <silent> [vimshell]  :VimShell<CR>
 " }}}
 
 
