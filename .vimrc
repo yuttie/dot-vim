@@ -292,6 +292,7 @@ cnoremap <C-n>  <Down>
 
 " close a help window by `q'
 autocmd MyAutoCmds BufWinEnter * if &buftype ==# 'help' | nnoremap <buffer><silent> q  :q<CR> | endif
+autocmd MyAutoCmds BufWinEnter * if &filetype ==# 'ref-man' | nnoremap <buffer><silent> q  :q<CR> | endif
 " }}}
 
 
