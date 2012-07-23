@@ -415,6 +415,7 @@ nnoremap <silent> [unite]y  :<C-u>Unite history/yank<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]C  :<C-u>Unite colorscheme -auto-preview<CR>
 nnoremap <silent> [unite]H  :<C-u>Unite help        -start-insert<CR>
+nnoremap <silent> [unite]S  :<C-u>Unite session     -start-insert<CR>
 nnoremap          [unite]s  :<C-u>Unite source      -start-insert<CR>
 
 autocmd MyAutoCmds FileType unite call s:unite_my_settings()
