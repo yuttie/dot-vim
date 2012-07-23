@@ -398,8 +398,8 @@ let g:vimfiler_as_default_explorer = 1
 nnoremap [unite]   <Nop>
 nmap     [Space]u  [unite]
 
-nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files<CR>
-nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir  buffer file_mru bookmark file -buffer-name=files -prompt=%\ <CR>
+nnoremap <silent> [unite]e  :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files<CR>
+nnoremap <silent> [unite]E  :<C-u>UniteWithBufferDir  buffer file_mru bookmark file -buffer-name=files -prompt=%\ <CR>
 nnoremap <silent> [unite]f  :<C-u>Unite find        -buffer-name=files<CR>
 nnoremap <silent> [unite]g  :<C-u>Unite grep        -buffer-name=files<CR>
 nnoremap <silent> [unite]l  :<C-u>Unite locate      -buffer-name=files<CR>
