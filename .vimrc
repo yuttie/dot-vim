@@ -298,6 +298,9 @@ autocmd MyAutoCmds BufWinEnter * if &filetype ==# 'ref-man' | nnoremap <buffer><
 
 " {{{ quickfix
 autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwindow
+nnoremap <silent> [Space]cc  :cc<CR>
+nnoremap <silent> [Space]cn  :cn<CR>
+nnoremap <silent> [Space]cp  :cp<CR>
 " }}}
 
 
