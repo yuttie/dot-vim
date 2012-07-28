@@ -393,6 +393,12 @@ let g:github_token = "892f7d05807089d96554f0825c37e912"
 
 " {{{ vimfiler
 let g:vimfiler_as_default_explorer = 1
+
+" The prefix key.
+nnoremap [vimfiler]   <Nop>
+nmap     [Space]f  [vimfiler]
+
+nnoremap <silent> [vimfiler]  :VimFiler<CR>
 " }}}
 
 
