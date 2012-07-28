@@ -50,6 +50,7 @@ NeoBundle 'git://github.com/ujihisa/ref-hoogle.git'
 NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
 NeoBundle 'git://github.com/ujihisa/unite-locate.git'
 NeoBundle 'git://github.com/eagletmt/ghcmod-vim.git'
+NeoBundle 'git://github.com/eagletmt/unite-haddock.git'
 NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
 NeoBundle 'git://github.com/vim-jp/cpp-vim.git'
 NeoBundle 'git://github.com/yuttie/darkfruit.git'
@@ -645,6 +646,7 @@ autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]t  :GhcModType<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <ESC><ESC>  :nohlsearch \| :GhcModTypeClear<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]c  :GhcModCheckAsync<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]d  :<C-u>Unite haddock -start-insert<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
 " }}}
 
