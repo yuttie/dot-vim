@@ -260,6 +260,8 @@ endif
 " {{{ Mappings
 nnoremap [Space]   <Nop>
 nmap     <Space>  [Space]
+vnoremap [Space]   <Nop>
+vmap     <Space>  [Space]
 
 " normal, visual+select and operator-pending
 noremap <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
@@ -581,8 +583,29 @@ let g:ref_refe_encoding = 'euc-jp'
 " }}}
 
 
-" {{{ Align.vim
+" {{{ Align
 let g:Align_xstrlen = 3
+
+" The prefix key.
+vnoremap [align]   <Nop>
+vmap     [Space]a  [align]
+
+vnoremap          [align]a   :Align! 
+vnoremap <silent> [align],   :Align! Ip0P1=l ,\zs<CR>
+vnoremap <silent> [align];   :Align! Ip0P1=l ;\zs<CR>
+vnoremap <silent> [align]:   :Align! Ip0P1=l :\zs<CR>
+vnoremap <silent> [align]=   :Align! Ip1P1=l =<CR>
+vnoremap <silent> [align]>   :Align! Ip1P1=l -><CR>
+vnoremap <silent> [align]<   :Align! Ip1P1=l <-<CR>
+vnoremap <silent> [align]\|  :Align! Ip1P1=l \|<CR>
+vnoremap <silent> [align]&   :Align! Ip1P1=l \\\@<!& \\\\<CR>
+vmap     <silent> [align]C  <Plug>AM_aocom
+vmap     <silent> [align]c  <Plug>AM_acom
+vmap     <silent> [align]d  <Plug>AM_adec
+vmap     <silent> [align]n  <Plug>AM_aunum
+vmap     <silent> [align]q  <Plug>AM_tsq
+vmap     <silent> [align]s  <Plug>AM_tsp
+vmap     <silent> [align]t  <Plug>AM_Htd
 " }}}
 
 
