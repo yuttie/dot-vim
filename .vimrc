@@ -556,6 +556,7 @@ nnoremap <silent> [vimshell]  :VimShell<CR>
 
 
 " {{{ quickrun
+let g:quickrun_no_default_key_mappings = 1
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = {
       \ 'type': 'markdown/pandoc',
@@ -569,6 +570,12 @@ let g:quickrun_config['cpp'] = {
       \           '-I /usr/include/eigen3 ' .
       \           '',
       \ 'outputter': 'quickfix'}
+
+" The prefix key.
+nnoremap [quickrun]   <Nop>
+nmap     [Space]r  [quickrun]
+
+nmap <silent> [quickrun]  <Plug>(quickrun)
 " }}}
 
 
