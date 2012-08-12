@@ -38,7 +38,10 @@ function! GetHaskellIndent()
     return -1
   elseif (col('.') - 1) == matchend(getline('.'), '\v^\s*')
     " by autoindent
-    if getline(plnum) =~# '\v(<of>|\=|-\>|<do>|<where>)\s*$'
+    if getline(plnum) =~# '\v^\s*<where>\s*$'
+      " 先行する行が where のみからなる場合
+      return indent(plnum) + &l:shiftwidth / 2
+    elseif getline(plnum) =~# '\v(<of>|\=|-\>|<do>|<where>)\s*$'
       " 先行する行が特定のキーワードで終了している場合
       return indent(plnum) + &l:shiftwidth
     elseif getline(plnum) =~# '\v^\s*(<class>|<instance>)'
