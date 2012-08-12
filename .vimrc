@@ -62,7 +62,6 @@ NeoBundle 'Align'
 NeoBundle 'gtk-vim-syntax'
 NeoBundle 'LaTeX-Box'
 NeoBundle 'pythoncomplete'
-NeoBundle 'renamer.vim'
 NeoBundle 'scratch'
 
 filetype plugin indent on
