@@ -304,6 +304,7 @@ autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwindow
 nnoremap <silent> [Space]cc  :cc<CR>
 nnoremap <silent> [Space]cn  :cn<CR>
 nnoremap <silent> [Space]cp  :cp<CR>
+nnoremap <silent> [Space]cq  :cclose<CR>
 " }}}
 
 
