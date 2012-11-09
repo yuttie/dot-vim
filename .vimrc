@@ -27,7 +27,8 @@ NeoBundle 'git://github.com/Shougo/unite-help.git'
 NeoBundle 'git://github.com/Shougo/unite-session.git'
 NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
-NeoBundle 'git://github.com/Shougo/vimproc.git'
+NeoBundle 'git://github.com/Shougo/vimproc.git', {
+    \ 'build' : { 'unix' : 'make -f make_unix.mak' } }
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/gregsexton/gitv.git'
