@@ -687,10 +687,14 @@ autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
 
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <ESC><ESC>  :nohlsearch \| :GhcModTypeClear<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]c  :GhcModCheckAsync<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]d  :<C-u>Unite haddock -start-insert<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]s  :<C-u>Unite hoogle -start-insert<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]t  :GhcModType<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]a  :<C-u>Unite haddock -start-insert<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]A  :<C-u>UniteWithCursorWord haddock<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]i  :<C-u>Unite haskellimport -start-insert<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]I  :<C-u>UniteWithCursorWord haskellimport<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]o  :<C-u>Unite hoogle -start-insert<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]O  :<C-u>UniteWithCursorWord hoogle<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
 " }}}
 
 
