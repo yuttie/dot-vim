@@ -468,6 +468,11 @@ let g:unite_source_file_mru_filename_format = ''
 " }}}
 
 
+" {{{ unite-haddock
+let g:unite_source_haddock_browser = 'google-chrome'
+" }}}
+
+
 " {{{ neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
