@@ -425,7 +425,6 @@ nnoremap <silent> [unite]f  :<C-u>Unite find        -buffer-name=files<CR>
 nnoremap <silent> [unite]g  :<C-u>Unite grep        -buffer-name=files<CR>
 nnoremap <silent> [unite]l  :<C-u>Unite locate      -buffer-name=files<CR>
 nnoremap <silent> [unite]x  :<C-u>Unite launcher    -start-insert<CR>
-nnoremap <silent> [unite]h  :<C-u>Unite ref/hoogle  -start-insert<CR>
 nnoremap <silent> [unite]m  :<C-u>Unite ref/man     -start-insert<CR>
 nnoremap <silent> [unite]p  :<C-u>Unite ref/pydoc   -start-insert<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite ref/refe    -start-insert<CR>
