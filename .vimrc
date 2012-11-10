@@ -292,7 +292,6 @@ nnoremap gj  j
 nnoremap gk  k
 nnoremap P   Pg;
 nnoremap gc  `[v`]
-nnoremap <C-h>  :<C-u>help<Space>
 nnoremap <silent> <ESC><ESC>  :nohlsearch<CR>
 nnoremap <C-Tab>    gt
 nnoremap <C-S-Tab>  gT
