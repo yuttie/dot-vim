@@ -368,7 +368,7 @@ let g:timeline_base_dir = expand("~/Research/Timeline")
 " {{{ vim-easymotion
 " The prefix key.
 nnoremap [EM]      <Nop>
-nmap     [Space]e  [EM]
+nmap     [Space]m  [EM]
 
 let g:EasyMotion_leader_key = '[EM]'
 " }}}
