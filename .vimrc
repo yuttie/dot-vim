@@ -47,12 +47,15 @@ NeoBundle 'git://github.com/tpope/vim-markdown.git'
 NeoBundle 'git://github.com/tpope/vim-surround.git'
 NeoBundle 'git://github.com/tsukkee/unite-tag.git'
 NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
+NeoBundle 'git://github.com/sgur/unite-git_grep.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
 NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
+NeoBundle 'git://github.com/ujihisa/unite-haskellimport.git'
 NeoBundle 'git://github.com/ujihisa/unite-locate.git'
 NeoBundle 'git://github.com/eagletmt/ghcmod-vim.git'
 NeoBundle 'git://github.com/eagletmt/unite-haddock.git'
+NeoBundle 'git://github.com/sgur/unite-qf.git'
 NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
 NeoBundle 'git://github.com/vim-jp/cpp-vim.git'
 NeoBundle 'git://github.com/yuttie/darkfruit.git'
@@ -442,6 +445,7 @@ nnoremap <silent> [unite]y  :<C-u>Unite history/yank<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]C  :<C-u>Unite colorscheme -auto-preview<CR>
 nnoremap <silent> [unite]H  :<C-u>Unite help        -start-insert<CR>
+nnoremap <silent> [unite]q  :<C-u>Unite qf          -auto-preview<CR>
 nnoremap <silent> [unite]S  :<C-u>Unite session     -start-insert<CR>
 nnoremap          [unite]s  :<C-u>Unite source      -start-insert<CR>
 
