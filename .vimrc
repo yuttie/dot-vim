@@ -289,6 +289,7 @@ noremap! <M-f>   <S-Right>
 noremap! <M-b>   <S-Left>
 
 " normal
+nnoremap -   :
 nnoremap j   gj
 nnoremap k   gk
 nnoremap gj  j
