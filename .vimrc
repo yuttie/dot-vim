@@ -393,6 +393,14 @@ let g:GPGPreferSymmetric = 1
 
 " {{{ fugitive
 autocmd MyAutoCmds FileType gitcommit set spell
+
+" The prefix key.
+nnoremap [fugitive]   <Nop>
+nmap     [Space]g  [fugitive]
+
+nnoremap <silent> [fugitive]c  :Gcommit -v<CR>
+nnoremap <silent> [fugitive]d  :Gdiff<CR>
+nnoremap <silent> [fugitive]s  :Gstatus<CR>
 " }}}
 
 
