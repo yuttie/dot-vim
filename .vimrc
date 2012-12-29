@@ -537,11 +537,14 @@ let g:neocomplcache_enable_prefetch = 1
 " }}}
 
 
-" {{{ neocomplcache-snippets-complete
-let g:neocomplcache_snippets_dir='~/.vim/snippets'
+" {{{ neosnippet
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+imap <C-k>  <Plug>(neosnippet_expand_or_jump)
+smap <C-k>  <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>  <Plug>(neosnippet_expand_target)
+xmap <C-l>  <Plug>(neosnippet_start_unite_snippet_target)
 
 " For snippet_complete marker.
 if has('conceal')
