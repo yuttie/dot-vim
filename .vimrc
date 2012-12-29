@@ -523,6 +523,9 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 autocmd MyAutoCmds FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+" Workaround (http://vinarian.blogspot.jp/2012/02/neocomplcache-ver7.html)
+let g:neocomplcache_enable_prefetch = 1
 " }}}
 
 
