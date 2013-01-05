@@ -541,6 +541,12 @@ autocmd MyAutoCmds FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
+" text mode filetypes
+let g:neocomplcache_text_mode_filetypes = {
+    \ 'tex': 1,
+    \ 'plaintex': 1,
+    \ }
+
 " Workaround (http://vinarian.blogspot.jp/2012/02/neocomplcache-ver7.html)
 let g:neocomplcache_enable_prefetch = 1
 " }}}
