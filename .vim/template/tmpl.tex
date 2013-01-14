@@ -1,18 +1,32 @@
 \documentclass[a4paper]{article}
+%\documentclass[a4j]{jsarticle}  % for pLaTeX
+%\documentclass[a4j]{ltjsarticle}  % for LuaLaTeX
 
 % Packages
 \usepackage{latexsym}
 \usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+%\usepackage{longtable}  % must be ahead of hyperref (http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?hyperref#sf5e3f3f)
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{pxjahyper}  % for pLaTeX + hyperref + dvipdfmx
+%\usepackage[pdftex,pdfencoding=auto]{hyperref}  % for LuaLaTeX
+%\usepackage{algorithm}  % must be behind hyperref
+%\usepackage{fancybox}
+
+% Font
 %\usepackage{pxfonts}
 %\usepackage{mathpazo}
 %\usepackage{mathpple}
 %\usepackage{txfonts}
 %\usepackage{mathptmx}
-%\usepackage{otf}
-\usepackage{graphicx}
-\usepackage{color}
-%\usepackage{fancybox}
-\graphicspath{{image/}}
+%\usepackage[bold,expert]{otf}
+%\usepackage[bold,expert,hiraginon]{luatexja-preset}  % for LuaLaTeX
+%\usepackage{luatexja-otf}  % for LuaLaTeX
+
+
+% Path
+%\graphicspath{{image/}}
 
 
 % Layout Settings
@@ -36,7 +50,7 @@
 
 
 % Bibliography Style
-\bibliographystyle{plain}
+%\bibliographystyle{plain}
 
 
 % Mathmatical Functions
@@ -60,7 +74,7 @@
 % Document Properties
 \title{TITLE}
 \author{Yuta Taniguchi}
-%\date{平成23年9月25日}
+%\date{平成25年1月14日}
 
 
 \begin{document}
