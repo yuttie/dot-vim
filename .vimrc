@@ -487,7 +487,7 @@ let g:unite_source_file_mru_filename_format = ''
 
 
 " {{{ unite-haddock
-let g:unite_source_haddock_browser = 'google-chrome'
+let g:unite_source_haddock_browser = 'firefox'
 " }}}
 
 
