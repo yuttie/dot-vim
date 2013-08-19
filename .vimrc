@@ -35,7 +35,7 @@ NeoBundle 'git://github.com/gregsexton/gitv.git'
 NeoBundle 'git://github.com/hallettj/jslint.vim.git'
 NeoBundle 'git://github.com/jceb/vim-orgmode.git'
 NeoBundle 'git://github.com/jceb/vim-hier.git'
-NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
+NeoBundle 'git://github.com/bling/vim-airline.git'
 NeoBundle 'git://github.com/mattn/gist-vim.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 NeoBundle 'git://github.com/pbrisbin/html-template-syntax.git'
@@ -360,8 +360,9 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 " }}}
 
 
-" {{{ vim-powerline
-let g:Powerline_symbols = 'fancy'
+" {{{ vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "powerlineish"
 " }}}
 
 
