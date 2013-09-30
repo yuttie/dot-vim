@@ -726,6 +726,7 @@ autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]I  :<C-u>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]o  :<C-u>Unite hoogle -start-insert<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]O  :<C-u>UniteWithCursorWord hoogle<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
+autocmd MyAutoCmds FileType haskell set conceallevel=0
 " }}}
 
 
