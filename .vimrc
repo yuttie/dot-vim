@@ -16,6 +16,9 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle'))
 
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neobundle.vim'
@@ -77,11 +80,7 @@ NeoBundle 'scratch'
 filetype plugin indent on
 
 " Check installation.
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-endif
+NeoBundleCheck
 " }}}
 
 
