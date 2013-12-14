@@ -359,8 +359,11 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 
 
 " {{{ vim-airline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 0
 let g:airline_theme = "powerlineish"
+let g:airline#extensions#whitespace#enabled = 0
 " }}}
 
 
