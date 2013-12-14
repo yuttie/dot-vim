@@ -359,7 +359,7 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 
 
 " {{{ vim-airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_theme = "powerlineish"
 " }}}
 
