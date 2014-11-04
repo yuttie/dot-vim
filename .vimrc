@@ -8,13 +8,18 @@ augroup end
 
 
 " {{{ neobundle.vim
-set nocompatible
-filetype off
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
+    set nocompatible  " Be iMproved
+
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -76,9 +81,13 @@ NeoBundle 'LaTeX-Box'
 NeoBundle 'pythoncomplete'
 NeoBundle 'scratch'
 
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
 
-" Check installation.
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
 " }}}
 
