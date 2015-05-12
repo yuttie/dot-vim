@@ -81,12 +81,13 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'sgur/unite-qf'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-jp/cpp-vim'
-NeoBundle 'yuttie/darkfruit'
+NeoBundle 'yuttie/steady-theme-vim'
 NeoBundle 'yuttie/skk.vim'
 NeoBundle 'yuttie/timeline.vim'
 NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
 NeoBundle 'Align'
+NeoBundle 'colorsupport.vim'
 NeoBundle 'gtk-vim-syntax'
 NeoBundle 'LaTeX-Box'
 NeoBundle 'pythoncomplete'
@@ -217,7 +218,7 @@ autocmd MyAutoCmds Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  colorscheme darkfruit
+  colorscheme steady-dark
 endif
 
 " }}}

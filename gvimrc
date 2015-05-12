@@ -9,7 +9,7 @@ set guioptions&
   \ guioptions-=T
 
 " Set color scheme
-colorscheme darkfruit
+colorscheme steady-dark
 
 " IME Settings
 if has('multi_byte_ime') || has('xim')
