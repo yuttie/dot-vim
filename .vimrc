@@ -470,20 +470,16 @@ nnoremap <silent> [unite]S  :<C-u>Unite session     -start-insert<CR>
 nnoremap          [unite]s  :<C-u>Unite source      -start-insert<CR>
 
 autocmd MyAutoCmds FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()"{{{
-  " Overwrite settings.
-
+function! s:unite_my_settings()
   nmap <buffer> <ESC>  <Plug>(unite_exit)
   imap <buffer> jj     <Plug>(unite_insert_leave)
-  "imap <buffer> <C-w>  <Plug>(unite_delete_backward_path)
+  imap <buffer> <C-w>  <Plug>(unite_delete_backward_path)
 
   " <C-l>: manual neocomplcache completion.
   inoremap <buffer> <C-l>  <C-x><C-u><C-p><Down>
+endfunction
 
-  " Start insert.
-  "let g:unite_enable_start_insert = 1
-endfunction"}}}
-
+let g:unite_enable_start_insert = 1
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_history_yank_enable = 1
 let g:unite_cursor_line_highlight = 'TabLineSel'
