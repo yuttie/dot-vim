@@ -1,7 +1,8 @@
 scriptencoding utf-8
 
 " Pre-GUI settings
-set guifont=monospace\ 9
+set linespace=-2
+set guifont=monospace\ 8
 set columns=84                " don't inherit geometry from parent term
 set mousemodel=popup          " right mouse button pops up a menu in the GUI
 set guioptions&
