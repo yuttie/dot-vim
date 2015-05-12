@@ -38,6 +38,7 @@ NeoBundle 'Shougo/vimproc', {
     \ 'build' : { 'unix' : 'make -f make_unix.mak' } }
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vinarise'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'hallettj/jslint.vim'
 NeoBundle 'jceb/vim-orgmode'
