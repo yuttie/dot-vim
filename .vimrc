@@ -183,6 +183,7 @@ set sessionoptions&
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
 set cryptmethod=blowfish
+set cursorline
 
 " }}}
 
