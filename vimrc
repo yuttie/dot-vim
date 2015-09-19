@@ -225,7 +225,7 @@ autocmd MyAutoCmds Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  colorscheme steady-dark
+  colorscheme hybrid
 endif
 
 " }}}
