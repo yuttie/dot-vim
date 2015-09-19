@@ -126,6 +126,7 @@ set incsearch
 set ignorecase
 set smartcase
 set nowrapscan
+set regexpengine=1  " Use the old regexp engine because the default NFA engine is slow for Haskell's syntax highlighting.
 
 " 4 displaying text
 set wrap
