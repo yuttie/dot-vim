@@ -648,6 +648,16 @@ nnoremap <silent> [vimshell]  :VimShell<CR>
 " {{{ quickrun
 let g:quickrun_no_default_key_mappings = 1
 let g:quickrun_config = {}
+let g:quickrun_config['markdown/pandoc'] = {
+\   'cmdopt': '--standalone --katex',
+\   'outputter': 'browser'
+\}
+let g:quickrun_config['cpp/clang++'] = {
+\   'cmdopt': '-std=c++11'
+\}
+let g:quickrun_config['cpp/g++'] = {
+\   'cmdopt': '-std=c++11'
+\}
 
 " The prefix key.
 nnoremap [quickrun]   <Nop>
