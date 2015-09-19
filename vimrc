@@ -92,6 +92,7 @@ NeoBundle 'gtk-vim-syntax'
 NeoBundle 'LaTeX-Box'
 NeoBundle 'pythoncomplete'
 NeoBundle 'scratch'
+NeoBundle 'Yggdroot/indentLine'
 
 call neobundle#end()
 
@@ -386,6 +387,15 @@ let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 0
 let g:airline_theme = "powerlineish"
 let g:airline#extensions#whitespace#enabled = 0
+" }}}
+
+
+" {{{ indentLine
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_color_tty_light = 4
+let g:indentLine_color_dark = 2
+let g:indentLine_char = '¦'
 " }}}
 
 
