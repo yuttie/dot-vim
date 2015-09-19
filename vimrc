@@ -94,6 +94,11 @@ NeoBundle 'LaTeX-Box'
 NeoBundle 'pythoncomplete'
 NeoBundle 'scratch'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle '29decibel/codeschool-vim-theme'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'jpo/vim-railscasts-theme'
 
 call neobundle#end()
 
