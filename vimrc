@@ -41,7 +41,6 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'hallettj/jslint.vim'
 NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
 NeoBundle 'jceb/vim-hier'
-NeoBundle 'jceb/vim-hier'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'kana/vim-textobj-indent'
