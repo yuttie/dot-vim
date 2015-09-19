@@ -30,6 +30,7 @@ NeoBundle 'Align'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'colorsupport.vim'
 NeoBundle 'dag/vim2hs'
+NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
@@ -39,6 +40,7 @@ NeoBundle 'gtk-vim-syntax'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'hallettj/jslint.vim'
 NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
+NeoBundle 'jceb/vim-hier'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'jpo/vim-railscasts-theme'
@@ -50,6 +52,8 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'pythoncomplete'
 NeoBundle 'rust-lang/rust.vim'
@@ -66,15 +70,6 @@ NeoBundle 'Shougo/unite-help'
 NeoBundle 'Shougo/unite-session'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vim-vcs'
 NeoBundle 'Shougo/vinarise'
@@ -99,6 +94,16 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'yuttie/skk.vim'
 NeoBundle 'yuttie/steady-theme-vim'
 NeoBundle 'yuttie/timeline.vim'
+
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 call neobundle#end()
 
