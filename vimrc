@@ -403,7 +403,7 @@ let g:airline#extensions#whitespace#enabled = 0
 
 " {{{ indentLine
 let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_color_gui = '#505760'
 let g:indentLine_color_tty_light = 4
 let g:indentLine_color_dark = 2
 let g:indentLine_char = '¦'
