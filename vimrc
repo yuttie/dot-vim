@@ -648,18 +648,6 @@ nnoremap <silent> [vimshell]  :VimShell<CR>
 " {{{ quickrun
 let g:quickrun_no_default_key_mappings = 1
 let g:quickrun_config = {}
-let g:quickrun_config['markdown'] = {
-      \ 'type': 'markdown/pandoc',
-      \ 'cmdopt': '--standalone --mathjax',
-      \ 'outputter': 'browser'}
-let g:quickrun_config['cpp'] = {
-      \ 'runner': 'vimproc',
-      \ 'exec': '%c %o %s',
-      \ 'command': 'clang++',
-      \ 'cmdopt': '-std=c++11 -Wall -fsyntax-only ' .
-      \           '-I /usr/include/eigen3 ' .
-      \           '',
-      \ 'outputter': 'quickfix'}
 
 " The prefix key.
 nnoremap [quickrun]   <Nop>
