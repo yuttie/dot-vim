@@ -8,6 +8,7 @@ set guioptions&
   \ guioptions-=T
 
 " Set color scheme
+set background=dark
 colorscheme hybrid
 
 " IME Settings
