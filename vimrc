@@ -740,7 +740,10 @@ autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]I  :<C-u>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]o  :<C-u>Unite hoogle -start-insert<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]O  :<C-u>UniteWithCursorWord hoogle<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
-autocmd MyAutoCmds FileType haskell set conceallevel=0
+autocmd MyAutoCmds FileType haskell setlocal conceallevel=0
+
+" Use the old regexp engine because the new NFA engine is slow for Haskell's syntax highlighting.
+autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
 " }}}
 
 
