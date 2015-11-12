@@ -491,6 +491,16 @@ let g:unite_source_file_mru_filename_format = ''
 " }}}
 
 
+" {{{ nerdcommenter
+nnoremap [nerd-commenter] <Nop>
+xnoremap [nerd-commenter] <Nop>
+nmap     [Space]/         [nerd-commenter]
+xmap     [Space]/         [nerd-commenter]
+nmap     [nerd-commenter] <plug>NERDCommenterToggle
+xmap     [nerd-commenter] <plug>NERDCommenterToggle
+" }}}
+
+
 " {{{ unite-haddock
 let g:unite_source_haddock_browser = 'firefox'
 " }}}
