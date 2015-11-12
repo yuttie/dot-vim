@@ -1,119 +1,84 @@
 scriptencoding utf-8
 
 
-" Autocommand group
-augroup MyAutoCmds
-    autocmd!
-augroup end
+" {{{ Plugins
+" Execute the following command line first:
+"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/bundle/')
 
+Plug '29decibel/codeschool-vim-theme'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'dag/vim2hs'
+Plug 'dannyob/quickfixstatus'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/unite-haddock'
+Plug 'godlygeek/tabular'
+Plug 'gregsexton/gitv'
+Plug 'gtk-vim-syntax'
+Plug 'h1mesuke/unite-outline'
+Plug 'hallettj/jslint.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'jceb/vim-hier'
+Plug 'jceb/vim-orgmode'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'junegunn/vim-easy-align'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-user'
+Plug 'LaTeX-Box'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'mattn/emmet-vim'
+Plug 'mattn/gist-vim'
+Plug 'mbbill/undotree'
+Plug 'nanotech/jellybeans.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'osyo-manga/shabadou.vim'
+Plug 'osyo-manga/vim-watchdogs'
+Plug 'pbrisbin/html-template-syntax'
+Plug 'pythoncomplete'
+Plug 'Raimondi/delimitMate'
+Plug 'rust-lang/rust.vim'
+Plug 'scratch'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'sgur/unite-git_grep'
+Plug 'sgur/unite-qf'
+Plug 'Shougo/echodoc'
+Plug 'Shougo/neobundle.vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/unite-help'
+Plug 'Shougo/unite-session'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimshell'
+Plug 'Shougo/vim-vcs'
+Plug 'Shougo/vinarise'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'thinca/vim-fontzoom'
+Plug 'thinca/vim-quickrun'
+Plug 'thinca/vim-ref'
+Plug 'tomasr/molokai'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-surround'
+Plug 'tsukkee/unite-tag'
+Plug 'tyru/open-browser.vim'
+Plug 'ujihisa/neco-ghc'
+Plug 'ujihisa/neco-look'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'ujihisa/unite-haskellimport'
+Plug 'ujihisa/unite-locate'
+Plug 'vim-ruby/vim-ruby'
+Plug 'w0ng/vim-hybrid'
+Plug 'Yggdroot/indentLine'
+Plug 'yuttie/steady-theme-vim'
+Plug 'yuttie/timeline.vim'
 
-" {{{ neobundle.vim
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
-
-if has('vim_starting')
-    set nocompatible  " Be iMproved
-
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle '29decibel/codeschool-vim-theme'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'Align'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'colorsupport.vim'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'dannyob/quickfixstatus'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/unite-haddock'
-NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'gtk-vim-syntax'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'hallettj/jslint.vim'
-NeoBundle 'https://conque.googlecode.com/svn/trunk/', {'directory' : 'conque'}
-NeoBundle 'jceb/vim-hier'
-NeoBundle 'jceb/vim-orgmode'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'LaTeX-Box'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
-NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'pbrisbin/html-template-syntax'
-NeoBundle 'pythoncomplete'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'scratch'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'sgur/unite-git_grep'
-NeoBundle 'sgur/unite-qf'
-NeoBundle 'Shougo/echodoc'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite-help'
-NeoBundle 'Shougo/unite-session'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vim-vcs'
-NeoBundle 'Shougo/vinarise'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'thinca/vim-fontzoom'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'ujihisa/neco-look'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-haskellimport'
-NeoBundle 'ujihisa/unite-locate'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'yuttie/skk.vim'
-NeoBundle 'yuttie/steady-theme-vim'
-NeoBundle 'yuttie/timeline.vim'
-
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+call plug#end()
 " }}}
 
 
@@ -210,6 +175,12 @@ set cryptmethod=blowfish
 set cursorline
 
 " }}}
+
+
+" Autocommand group
+augroup MyAutoCmds
+    autocmd!
+augroup end
 
 
 " Syntax highlighting                                                        {{{
