@@ -379,6 +379,16 @@ let g:EasyMotion_leader_key = '[EM]'
 " }}}
 
 
+" {{{ vim-easy-align
+nnoremap [easy-align]  <Nop>
+xnoremap [easy-align]  <Nop>
+nmap     [Space]a      [easy-align]
+xmap     [Space]a      [easy-align]
+nmap     [easy-align]  <Plug>(EasyAlign)
+xmap     [easy-align]  <Plug>(EasyAlign)
+" }}}
+
+
 " {{{ openbrowser.vim
 nmap gw <Plug>(openbrowser-smart-search)
 vmap gw <Plug>(openbrowser-smart-search)
@@ -644,32 +654,6 @@ let g:echodoc_enable_at_startup = 1
 " {{{ vim-ref
 let g:ref_alc_start_linenumber = 42
 let g:ref_refe_encoding = 'euc-jp'
-" }}}
-
-
-" {{{ Align
-let g:Align_xstrlen = 3
-
-" The prefix key.
-vnoremap [align]   <Nop>
-vmap     [Space]a  [align]
-
-vnoremap          [align]a   :Align! 
-vnoremap <silent> [align],   :Align! Ip0P1=l ,\zs<CR>
-vnoremap <silent> [align];   :Align! Ip0P1=l ;\zs<CR>
-vnoremap <silent> [align]:   :Align! Ip0P1=l :\zs<CR>
-vnoremap <silent> [align]=   :Align! Ip1P1=l =<CR>
-vnoremap <silent> [align]>   :Align! Ip1P1=l -><CR>
-vnoremap <silent> [align]<   :Align! Ip1P1=l <-<CR>
-vnoremap <silent> [align]\|  :Align! Ip1P1=l \|<CR>
-vnoremap <silent> [align]&   :Align! Ip1P1=l \\\@<!& \\\\<CR>
-vmap     <silent> [align]C  <Plug>AM_aocom
-vmap     <silent> [align]c  <Plug>AM_acom
-vmap     <silent> [align]d  <Plug>AM_adec
-vmap     <silent> [align]n  <Plug>AM_aunum
-vmap     <silent> [align]q  <Plug>AM_tsq
-vmap     <silent> [align]s  <Plug>AM_tsp
-vmap     <silent> [align]t  <Plug>AM_Htd
 " }}}
 
 
