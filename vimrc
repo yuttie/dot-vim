@@ -82,9 +82,8 @@ call plug#end()
 " }}}
 
 
-" Options                                                                    {{{
-" ==============================================================================
-
+" {{{ Options
+"
 " 1 important
 set nocompatible
 
@@ -93,24 +92,17 @@ set incsearch
 set ignorecase
 set smartcase
 set nowrapscan
-set regexpengine=1  " Use the old regexp engine because the default NFA engine is slow for Haskell's syntax highlighting.
 
 " 4 displaying text
-set wrap
 set number
-if v:version >= 700
-  set numberwidth=4
-endif
 
 " 6 multiple windows
 set hidden        " You can change buffer without saving.
 set laststatus=2  " Always show status lines.
 set showcmd
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P
-"set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*eskk#statusline')?eskk#statusline():''}%=%l,%c%V%8P
 
 " 7 multiple tab pages
-set showtabline=2
 set tabpagemax=100
 
 " 11 printing
@@ -138,15 +130,14 @@ set smarttab
 set cinoptions=:0,g0
 
 " 16 folding
-set foldlevelstart=99
+set foldlevelstart=1
 
 " 19 reading and writing files
 set modeline
-set fileformats=unix,dos,mac  " Support all three, in this order.
+set fileformats=unix,dos
 set backup
 
 " 21 command line editing
-set history=1000  " Keep 1000 lines of command history.
 "set suffixes& suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.pdf  " Files with suffix in suffixes are ignored.
 set wildmode=full  " Set completion mode.
 set wildmenu
@@ -171,7 +162,6 @@ set ambiwidth=double
 set sessionoptions&
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
-set cryptmethod=blowfish
 set cursorline
 
 " }}}
