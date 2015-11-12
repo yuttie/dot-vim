@@ -279,44 +279,35 @@ endif
 " }}}
 
 
+" {{{ Prefix key
+nnoremap [Space] <Nop>
+xnoremap [Space] <Nop>
+nmap     <Space> [Space]
+xmap     <Space> [Space]
+" }}}
+
+
 " {{{ Mappings
-nnoremap [Space]   <Nop>
-nmap     <Space>  [Space]
-vnoremap [Space]   <Nop>
-vmap     <Space>  [Space]
-
-" normal, visual+select and operator-pending
-noremap <C-F12> :!ctags --recurse --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
-
 " insert
-inoremap <C-d>   <Del>
+inoremap <C-d> <Del>
 
 " insert and command line
-noremap! <C-a>   <Home>
-noremap! <C-e>   <End>
-noremap! <C-b>   <Left>
-noremap! <C-f>   <Right>
-noremap! <M-f>   <S-Right>
-noremap! <M-b>   <S-Left>
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+noremap! <C-b> <Left>
+noremap! <C-f> <Right>
+noremap! <M-f> <S-Right>
+noremap! <M-b> <S-Left>
 
 " normal
-nnoremap -   :
-nnoremap j   gj
-nnoremap k   gk
-nnoremap gj  j
-nnoremap gk  k
 nnoremap P   Pg;
 nnoremap gc  `[v`]
-nnoremap <silent> <ESC><ESC>  :nohlsearch<CR>
-nnoremap <C-Tab>    gt
-nnoremap <C-S-Tab>  gT
-
-" command-line
-cnoremap <C-p>  <Up>
-cnoremap <C-n>  <Down>
+nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
+nnoremap <C-Tab>   gt
+nnoremap <C-S-Tab> gT
 
 " close a help window by `q'
-autocmd MyAutoCmds BufWinEnter * if &buftype ==# 'help' | nnoremap <buffer><silent> q  :q<CR> | endif
+autocmd MyAutoCmds BufWinEnter * if &buftype  ==# 'help'    | nnoremap <buffer><silent> q  :q<CR> | endif
 autocmd MyAutoCmds BufWinEnter * if &filetype ==# 'ref-man' | nnoremap <buffer><silent> q  :q<CR> | endif
 " }}}
 
