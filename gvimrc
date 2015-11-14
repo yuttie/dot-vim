@@ -5,7 +5,14 @@ set guifont=monospace\ 7
 set columns=84                " don't inherit geometry from parent term
 set mousemodel=popup          " right mouse button pops up a menu in the GUI
 set guioptions&
+  \ guioptions-=m
   \ guioptions-=T
+  \ guioptions-=e
+  \ guioptions-=r
+  \ guioptions-=R
+  \ guioptions-=l
+  \ guioptions-=L
+  \ guioptions-=b
 
 " Set color scheme
 set background=dark
