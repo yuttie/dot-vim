@@ -457,6 +457,7 @@ nnoremap <silent> [unite]q  :<C-u>Unite qf            -auto-preview<CR>
 
 " Like ctrlp.vim settings.
 call unite#custom#profile('default', 'context', {
+\   'start_insert': 1,
 \   'direction': 'botright',
 \ })
 
