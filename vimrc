@@ -13,6 +13,7 @@ Plug 'dag/vim2hs'
 Plug 'dannyob/quickfixstatus'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/unite-haddock'
+Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv'
 Plug 'gtk-vim-syntax'
@@ -26,7 +27,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
 Plug 'LaTeX-Box'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/gist-vim'
 Plug 'mbbill/undotree'
@@ -372,10 +372,9 @@ let g:timeline_base_dir = expand("~/Research/Timeline")
 
 " {{{ vim-easymotion
 " The prefix key.
-nnoremap [EM]      <Nop>
-nmap     [Space]m  [EM]
-
-let g:EasyMotion_leader_key = '[EM]'
+nnoremap [easymotion] <Nop>
+nmap     [Space]m     [easymotion]
+nmap [easymotion] <Plug>(easymotion-bd-w)
 " }}}
 
 
