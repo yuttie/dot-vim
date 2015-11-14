@@ -470,21 +470,6 @@ function! s:unite_my_settings()
   imap <buffer>       <TAB> <Plug>(unite_select_next_line)
   imap <buffer>       <C-w> <Plug>(unite_delete_backward_path)
 endfunction
-
-let g:unite_enable_start_insert = 1
-let g:unite_source_file_mru_limit = 200
-let g:unite_source_history_yank_enable = 1
-let g:unite_cursor_line_highlight = 'TabLineSel'
-let g:unite_abbr_highlight = 'TabLine'
-
-" For optimize.
-let g:unite_source_file_mru_filename_format = ''
-
-" For unite-session.
-" Save session automatically.
-"let g:unite_source_session_enable_auto_save = 1
-" Load session automatically.
-"autocmd MyAutoCmds VimEnter * UniteSessionLoad
 " }}}
 
 
