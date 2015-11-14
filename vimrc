@@ -40,7 +40,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'scratch'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
-Plug 'sgur/unite-git_grep'
 Plug 'sgur/unite-qf'
 Plug 'Shougo/echodoc'
 Plug 'Shougo/neobundle.vim'
@@ -443,34 +442,32 @@ nnoremap <silent> [vimfiler]  :VimFiler<CR>
 nnoremap [unite]   <Nop>
 nmap     [Space]u  [unite]
 
-nnoremap <silent> [unite]e  :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files<CR>
-nnoremap <silent> [unite]E  :<C-u>UniteWithBufferDir  buffer file_mru bookmark file -buffer-name=files -prompt=%\ <CR>
-nnoremap <silent> [unite]f  :<C-u>Unite find        -buffer-name=files<CR>
-nnoremap <silent> [unite]g  :<C-u>Unite grep        -buffer-name=files<CR>
-nnoremap <silent> [unite]l  :<C-u>Unite locate      -buffer-name=files<CR>
-nnoremap <silent> [unite]x  :<C-u>Unite launcher    -start-insert<CR>
-nnoremap <silent> [unite]m  :<C-u>Unite ref/man     -start-insert<CR>
-nnoremap <silent> [unite]p  :<C-u>Unite ref/pydoc   -start-insert<CR>
-nnoremap <silent> [unite]r  :<C-u>Unite ref/refe    -start-insert<CR>
-nnoremap <silent> [unite]R  :<C-u>Unite register    -buffer-name=register<CR>
-nnoremap <silent> [unite]t  :<C-u>Unite tag         -start-insert<CR>
-nnoremap <silent> [unite]/  :<C-u>Unite line        -buffer-name=search -start-insert -no-quit<CR>
-nnoremap <silent> [unite]y  :<C-u>Unite history/yank<CR>
-nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]C  :<C-u>Unite colorscheme -auto-preview<CR>
-nnoremap <silent> [unite]H  :<C-u>Unite help        -start-insert<CR>
-nnoremap <silent> [unite]q  :<C-u>Unite qf          -auto-preview<CR>
-nnoremap <silent> [unite]S  :<C-u>Unite session     -start-insert<CR>
-nnoremap          [unite]s  :<C-u>Unite source      -start-insert<CR>
+nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+nnoremap <silent> [unite]F  :<C-u>UniteWithBufferDir  -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+nnoremap <silent> [unite]g  :<C-u>Unite file_rec/git  -start-insert<CR>
+nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]G  :<C-u>Unite grep/git      -start-insert<CR>
+nnoremap          [unite]u  :<C-u>Unite source        -start-insert<CR>
+nnoremap <silent> [unite]r  :<C-u>Unite register      -buffer-name=register<CR>
+nnoremap <silent> [unite]h  :<C-u>Unite help          -start-insert<CR>
+nnoremap <silent> [unite]s  :<C-u>Unite line          -buffer-name=search -start-insert -no-quit<CR>
+nnoremap <silent> [unite]c  :<C-u>Unite colorscheme   -auto-preview<CR>
+nnoremap <silent> [unite]q  :<C-u>Unite qf            -auto-preview<CR>
+
+" Like ctrlp.vim settings.
+call unite#custom#profile('default', 'context', {
+\   'direction': 'botright',
+\ })
 
 autocmd MyAutoCmds FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-  nmap <buffer> <ESC>  <Plug>(unite_exit)
-  imap <buffer> jj     <Plug>(unite_insert_leave)
-  imap <buffer> <C-w>  <Plug>(unite_delete_backward_path)
-
-  " <C-l>: manual neocomplcache completion.
-  inoremap <buffer> <C-l>  <C-x><C-u><C-p><Down>
+  nmap <buffer>       <ESC> <Plug>(unite_exit)
+  imap <buffer>       qq    <Plug>(unite_exit)
+  imap <buffer>       jj    <Plug>(unite_insert_leave)
+  imap <buffer>       kk    <Plug>(unite_insert_leave)
+  imap <buffer><expr> j     unite#smart_map('j', '')
+  imap <buffer>       <TAB> <Plug>(unite_select_next_line)
+  imap <buffer>       <C-w> <Plug>(unite_delete_backward_path)
 endfunction
 
 let g:unite_enable_start_insert = 1
