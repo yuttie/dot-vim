@@ -458,6 +458,7 @@ nnoremap <silent> [unite]q  :<C-u>Unite qf            -buffer-name=quickfix    -
 " Like ctrlp.vim settings.
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 1,
+\   'prompt_direction': 'top',
 \   'direction': 'botright',
 \ })
 
