@@ -76,7 +76,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0ng/vim-hybrid'
 Plug 'Yggdroot/indentLine'
 Plug 'yuttie/steady-theme-vim'
-Plug 'yuttie/timeline.vim'
 
 call plug#end()
 " }}}
