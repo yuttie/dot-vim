@@ -6,6 +6,7 @@ scriptencoding utf-8
 "   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/bundle/')
 
+Plug '2072/PHP-Indenting-for-VIm'
 Plug '29decibel/codeschool-vim-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
@@ -56,6 +57,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/vim-vcs'
 Plug 'Shougo/vinarise'
+Plug 'StanAngeloff/php.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-fontzoom'
 Plug 'thinca/vim-quickrun'
@@ -736,7 +738,12 @@ autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
 " }}}
 
 
-" {{{ LaTeX
+" {{{ PHP
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+autocmd MyAutoCmds FileType php call PhpSyntaxOverride()
 " }}}
 
 
