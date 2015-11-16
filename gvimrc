@@ -13,6 +13,7 @@ set guioptions&
   \ guioptions-=l
   \ guioptions-=L
   \ guioptions-=b
+  \ guioptions+=c
 
 " Set color scheme
 set background=dark
