@@ -78,6 +78,7 @@ Plug 'ujihisa/unite-locate'
 Plug 'vim-ruby/vim-ruby'
 Plug 'w0ng/vim-hybrid'
 Plug 'Yggdroot/indentLine'
+Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'yuttie/steady-theme-vim'
 
 call plug#end()
@@ -365,6 +366,12 @@ let g:indentLine_color_gui = '#505760'
 let g:indentLine_color_tty_light = 4
 let g:indentLine_color_dark = 2
 let g:indentLine_char = '¦'
+" }}}
+
+
+" {{{ accelerated-smooth-scroll
+let g:ac_smooth_scroll_du_sleep_time_msec = 5
+let g:ac_smooth_scroll_fb_sleep_time_msec = 3
 " }}}
 
 
