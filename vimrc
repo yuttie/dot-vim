@@ -23,6 +23,7 @@ Plug 'jamessan/vim-gnupg'
 Plug 'jceb/vim-hier'
 Plug 'jceb/vim-orgmode'
 Plug 'jpo/vim-railscasts-theme'
+Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
@@ -661,8 +662,9 @@ let g:syntastic_check_on_wq = 0
 
 
 " {{{ Markdown
-autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdown
-autocmd MyAutoCmds FileType markdown set shiftwidth=4
+autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} setlocal filetype=ghmarkdown
+autocmd MyAutoCmds FileType markdown   set shiftwidth=4
+autocmd MyAutoCmds FileType ghmarkdown set shiftwidth=4
 " }}}
 
 
