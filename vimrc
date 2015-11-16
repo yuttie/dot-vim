@@ -97,6 +97,7 @@ set nowrapscan
 
 " 4 displaying text
 set number
+set scrolloff=3
 
 " 6 multiple windows
 set hidden        " You can change buffer without saving.
