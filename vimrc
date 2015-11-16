@@ -549,12 +549,13 @@ autocmd MyAutoCmds FileType html,markdown setlocal omnifunc=htmlcomplete#Complet
 autocmd MyAutoCmds FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd MyAutoCmds FileType python        setlocal omnifunc=pythoncomplete#Complete
 autocmd MyAutoCmds FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd MyAutoCmds FileType php           setlocal omnifunc=phpcomplete#CompletePHP
+autocmd MyAutoCmds FileType ruby          setlocal omnifunc=rubycomplete#Complete
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-autocmd MyAutoCmds FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.php  = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 let g:neocomplete#sources#omni#input_patterns.c    = '[^.[:digit:] *\t]\%(\.\|->\)'
