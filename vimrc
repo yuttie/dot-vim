@@ -410,13 +410,24 @@ let g:GPGPreferSymmetric = 1
 " {{{ fugitive
 autocmd MyAutoCmds FileType gitcommit set spell
 
-" The prefix key.
-nnoremap [fugitive]   <Nop>
-nmap     [Space]g  [fugitive]
+nnoremap [git]    <Nop>
+nmap     [Space]g [git]
 
-nnoremap <silent> [fugitive]c  :Gcommit -v<CR>
-nnoremap <silent> [fugitive]d  :Gdiff<CR>
-nnoremap <silent> [fugitive]s  :Gstatus<CR>
+nnoremap <silent> [git]c  :Gcommit -v<CR>
+nnoremap <silent> [git]d  :Gdiff<CR>
+nnoremap <silent> [git]s  :Gstatus<CR>
+" }}}
+
+
+" {{{ gitgutter
+let g:gitgutter_map_keys = 0
+let g:gitgutter_max_signs = 5000
+
+nmap [git]n <Plug>GitGutterNextHunk
+nmap [git]p <Plug>GitGutterPrevHunk
+nmap [git]a <Plug>GitGutterStageHunk
+nmap [git]u <Plug>GitGutterRevertHunk
+nmap [git]v <Plug>GitGutterPreviewHunk
 " }}}
 
 
