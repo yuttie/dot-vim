@@ -368,11 +368,6 @@ let g:indentLine_char = '¦'
 " }}}
 
 
-" {{{ timeline
-let g:timeline_base_dir = expand("~/Research/Timeline")
-" }}}
-
-
 " {{{ vim-easymotion
 " The prefix key.
 nnoremap [easymotion] <Nop>
