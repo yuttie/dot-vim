@@ -666,6 +666,11 @@ let g:syntastic_check_on_wq = 0
 " }}}
 
 
+" {{{ Vim
+autocmd MyAutoCmds FileType vim setlocal keywordprg=:help
+" }}}
+
+
 " {{{ Markdown
 autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} setlocal filetype=ghmarkdown
 autocmd MyAutoCmds FileType markdown   set shiftwidth=4
