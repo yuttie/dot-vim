@@ -708,19 +708,9 @@ autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 
 
 " {{{ Haskell
-autocmd MyAutoCmds FileType haskell setlocal makeprg=ghc\ --make\ %
-" errorformat from haskellmode-vim
-" http://code.haskell.org/haskellmode-vim/compiler/ghc.vim
-autocmd MyAutoCmds FileType haskell setlocal errorformat=
-                                                        \%-Z\ %#,
-                                                        \%W%f:%l:%c:\ Warning:\ %m,
-                                                        \%E%f:%l:%c:\ %m,
-                                                        \%E%>%f:%l:%c:,
-                                                        \%+C\ \ %#%m,
-                                                        \%W%>%f:%l:%c:,
-                                                        \%+C\ \ %#%tarning:\ %m,
+let g:haskell_conceal              = 0
+let g:haskell_conceal_enumerations = 0
 
-" The prefix key.
 autocmd MyAutoCmds FileType haskell nnoremap <buffer> [haskell]   <Nop>
 autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
 
@@ -734,7 +724,6 @@ autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]I  :<C-u>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]o  :<C-u>Unite hoogle -start-insert<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]O  :<C-u>UniteWithCursorWord hoogle<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
-autocmd MyAutoCmds FileType haskell setlocal conceallevel=0
 
 " Use the old regexp engine because the new NFA engine is slow for Haskell's syntax highlighting.
 autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
