@@ -17,7 +17,7 @@ set guioptions&
 
 " Set color scheme
 set background=dark
-colorscheme hybrid
+colorscheme hydrangea
 
 " IME Settings
 if has('multi_byte_ime') || has('xim')

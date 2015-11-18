@@ -79,7 +79,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0ng/vim-hybrid'
 Plug 'Yggdroot/indentLine'
 Plug 'yonchu/accelerated-smooth-scroll'
-Plug 'yuttie/steady-theme-vim'
+Plug 'yuttie/hydrangea-theme', { 'branch': 'new-color-set-and-vim-colorscheme' }
 
 call plug#end()
 " }}}
@@ -198,7 +198,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=dark
-  colorscheme hybrid
+  colorscheme hydrangea
 endif
 
 " }}}
