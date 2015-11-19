@@ -66,6 +66,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/vim-vcs'
 Plug 'Shougo/vinarise'
+Plug 'skammer/vim-css-color'
 Plug 'StanAngeloff/php.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-fontzoom'
