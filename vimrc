@@ -45,7 +45,11 @@ Plug 'scrooloose/syntastic'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'sgur/unite-qf'
 Plug 'Shougo/echodoc'
-Plug 'Shougo/neocomplete.vim'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim'
+else
+    Plug 'Shougo/neocomplete.vim'
+endif
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
