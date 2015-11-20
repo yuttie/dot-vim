@@ -4,7 +4,12 @@ scriptencoding utf-8
 " {{{ Plugins
 " Execute the following command line first:
 "   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-call plug#begin('~/.vim/bundle/')
+if has('nvim')
+    let s:my_plugin_dir = '~/.config/nvim/bundle/'
+else
+    let s:my_plugin_dir = '~/.vim/bundle/'
+endif
+call plug#begin(s:my_plugin_dir)
 
 Plug '2072/PHP-Indenting-for-VIm'
 Plug '29decibel/codeschool-vim-theme'
