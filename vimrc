@@ -66,11 +66,6 @@ Plug 'scrooloose/syntastic'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'sgur/unite-qf'
 Plug 'Shougo/echodoc'
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim'
-else
-    Plug 'Shougo/neocomplete.vim'
-endif
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -105,6 +100,11 @@ Plug 'w0ng/vim-hybrid'
 Plug 'Yggdroot/indentLine'
 Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'yuttie/hydrangea-theme', { 'branch': 'new-color-set-and-vim-colorscheme' }
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim'
+else
+    Plug 'Shougo/neocomplete.vim'
+endif
 
 call plug#end()
 " }}}
