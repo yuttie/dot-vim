@@ -684,6 +684,7 @@ let g:syntastic_check_on_wq = 0
 
 " {{{ Vim
 autocmd MyAutoCmds FileType vim setlocal keywordprg=:help
+autocmd MyAutoCmds FileType vim setlocal shiftwidth=2
 " }}}
 
 
