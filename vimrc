@@ -33,6 +33,7 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
+Plug 'lambdalisue/vim-gita', { 'on': ['Gita'] }
 Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/gist-vim'
