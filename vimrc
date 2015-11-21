@@ -14,7 +14,6 @@ call plug#begin(s:my_plugin_dir)
 Plug '2072/PHP-Indenting-for-VIm'
 Plug '29decibel/codeschool-vim-theme'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
 Plug 'dag/vim2hs'
 Plug 'dannyob/quickfixstatus'
 Plug 'eagletmt/ghcmod-vim'
@@ -25,6 +24,7 @@ Plug 'gregsexton/gitv'
 Plug 'gtk-vim-syntax'
 Plug 'h1mesuke/unite-outline'
 Plug 'hallettj/jslint.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'jceb/vim-hier'
 Plug 'jceb/vim-orgmode'
@@ -363,12 +363,45 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 " }}}
 
 
-" {{{ vim-airline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_powerline_fonts = 0
-let g:airline_theme = "powerlineish"
-let g:airline#extensions#whitespace#enabled = 0
+" {{{ lightline.vim
+set ambiwidth=single
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'tabline': {
+      \   'left': [
+      \     [ 'tabs' ],
+      \   ],
+      \   'right': [
+      \     [ 'close' ],
+      \     [ 'git_branch', 'git_traffic', 'git_status', 'cwd' ],
+      \   ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'component_function': {
+      \   'git_branch':  'g:lightline.my.git_branch',
+      \   'git_traffic': 'g:lightline.my.git_traffic',
+      \   'git_status':  'g:lightline.my.git_status',
+      \ },
+      \ 'separator':    { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
+let g:lightline.my = {}
+function! g:lightline.my.git_branch()
+  return winwidth(0) > 70 ? gita#statusline#format('%{ |}ln/%lb') : ''
+endfunction
+function! g:lightline.my.git_traffic()
+  return winwidth(0) > 70 ? gita#statusline#format('%{￬| }ic%{￪| }og') : ''
+endfunction
+function! g:lightline.my.git_status()
+  return winwidth(0) > 70 ? gita#statusline#preset('status') : ''
+endfunction
+augroup reload_vimrc
+  autocmd!
+  autocmd reload_vimrc bufwritepost $MYVIMRC nested source $MYVIMRC
+augroup END
 " }}}
 
 
