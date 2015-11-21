@@ -126,6 +126,7 @@ set showcmd
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P
 
 " 7 multiple tab pages
+set showtabline=2
 set tabpagemax=100
 
 " 11 printing
