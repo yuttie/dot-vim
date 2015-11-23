@@ -99,7 +99,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0ng/vim-hybrid'
 Plug 'Yggdroot/indentLine'
 Plug 'yonchu/accelerated-smooth-scroll'
-Plug 'yuttie/hydrangea-theme', { 'branch': 'new-color-set-and-vim-colorscheme' }
+Plug 'yuttie/hydrangea-theme'
 if has('nvim')
     Plug 'Shougo/deoplete.nvim'
 else
