@@ -560,6 +560,13 @@ let g:unite_source_haddock_browser = 'firefox'
 " }}}
 
 
+" {{{ deoplete.nvim
+if has('nvim')
+  DeopleteEnable
+endif
+" }}}
+
+
 " {{{ neocomplete.vim
 if !has('nvim')
   let g:acp_enableAtStartup = 0                           " Disable AutoComplPop.
