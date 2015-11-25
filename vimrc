@@ -414,10 +414,6 @@ endfunction
 function! g:lightline.my.git_status()
   return winwidth(0) > 70 ? gita#statusline#preset('status') : ''
 endfunction
-augroup reload_vimrc
-  autocmd!
-  autocmd reload_vimrc bufwritepost $MYVIMRC nested source $MYVIMRC
-augroup END
 " }}}
 
 
