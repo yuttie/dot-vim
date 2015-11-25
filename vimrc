@@ -560,7 +560,7 @@ let g:unite_source_haddock_browser = 'firefox'
 
 " {{{ deoplete.nvim
 if has('nvim')
-  DeopleteEnable
+  let g:deoplete#enable_at_startup = 1
 endif
 " }}}
 
