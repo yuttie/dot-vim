@@ -174,7 +174,9 @@ set wildmenu
 "set wildignore& wildignore+=*.o
 
 " 25 multi-byte characters
-set encoding=utf-8      " Encoding used for text inside vim.
+if has('vim_starting')
+  set encoding=utf-8      " Encoding used for text inside vim.
+endif
 set fileencoding=utf-8  " Default encoding for new files.
 set termencoding=utf-8  " Terminal's encoding.
 " Automatic file encoding recognition.
