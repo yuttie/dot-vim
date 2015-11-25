@@ -381,7 +381,7 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 set ambiwidth=single
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'hydrangea',
       \ 'tabline': {
       \   'left': [
       \     [ 'tabs' ],
