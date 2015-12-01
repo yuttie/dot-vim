@@ -384,6 +384,12 @@ set ambiwidth=single
 set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'hydrangea',
+      \ 'inactive': {
+      \   'left': [
+      \     [ 'mode', 'paste' ],
+      \     [ 'readonly', 'filename', 'modified' ],
+      \   ],
+      \ },
       \ 'tabline': {
       \   'left': [
       \     [ 'tabs' ],
