@@ -218,7 +218,7 @@ autocmd MyAutoCmds BufWinLeave * call clearmatches()
 
 " Highlight TODO, FIXME, NOTE, etc.
 " (from http://stackoverflow.com/questions/6577579/task-tags-in-vim)
-autocmd MyAutoCmds Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|XXX\|BUG\|HACK\)')
+autocmd MyAutoCmds Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|BUG\|HACK\)')
 autocmd MyAutoCmds Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
 
 " Switch syntax highlighting on, when the terminal has colors
