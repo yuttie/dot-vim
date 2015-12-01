@@ -194,7 +194,6 @@ set ambiwidth=double
 set sessionoptions&
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
-set cursorline
 
 " }}}
 
