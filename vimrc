@@ -51,6 +51,7 @@ Plug 'mbbill/undotree'
 Plug 'nanotech/jellybeans.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'nono/jquery.vim'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'osyo-manga/shabadou.vim'
 Plug 'othree/yajs.vim'
@@ -420,6 +421,18 @@ endfunction
 function! g:lightline.my.git_status()
   return winwidth(0) > 70 ? gita#statusline#preset('status') : ''
 endfunction
+" }}}
+
+
+" {{{ vim-better-whitespace
+let g:better_whitespace_filetypes_blacklist = [
+      \ 'diff',
+      \ 'gitcommit',
+      \ 'unite',
+      \ 'qf',
+      \ 'help',
+      \ 'gita-blame-navi',
+      \ ]
 " }}}
 
 
