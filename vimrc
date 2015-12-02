@@ -43,6 +43,7 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
 Plug 'kannokanno/previm'
 Plug 'lambdalisue/vim-gita'
+Plug 'lambdalisue/vim-unified-diff'
 Plug 'lervag/vimtex'
 Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim'
@@ -569,6 +570,11 @@ nmap     [Space]/         [nerd-commenter]
 xmap     [Space]/         [nerd-commenter]
 nmap     [nerd-commenter] <plug>NERDCommenterToggle
 xmap     [nerd-commenter] <plug>NERDCommenterToggle
+" }}}
+
+
+" {{{ lambdalisue/vim-unified-diff
+set diffexpr=unified_diff#diffexpr()
 " }}}
 
 
