@@ -209,14 +209,6 @@ augroup end
 " Syntax highlighting                                                        {{{
 " ==============================================================================
 
-" Show trailing whitespaces
-" (from http://vim.wikia.com/wiki/Highlight_unwanted_spaces)
-autocmd MyAutoCmds ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd MyAutoCmds BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd MyAutoCmds InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd MyAutoCmds InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd MyAutoCmds BufWinLeave * call clearmatches()
-
 " Highlight TODO, FIXME, NOTE, etc.
 " (from http://stackoverflow.com/questions/6577579/task-tags-in-vim)
 autocmd MyAutoCmds Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|BUG\|HACK\)')
