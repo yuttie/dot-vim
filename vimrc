@@ -523,17 +523,22 @@ nnoremap <silent> [vimfiler]  :VimFiler<CR>
 nnoremap [unite]   <Nop>
 nmap     [Space]u  [unite]
 
-nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files       buffer bookmark file_rec/async<CR>
-nnoremap <silent> [unite]F  :<C-u>UniteWithBufferDir  -buffer-name=files       buffer bookmark file_rec/async<CR>
-nnoremap <silent> [unite]g  :<C-u>Unite file_rec/git  -buffer-name=git-files                                 <CR>
-nnoremap <silent> [unite]b  :<C-u>Unite buffer        -buffer-name=buffer                                    <CR>
-nnoremap <silent> [unite]G  :<C-u>Unite grep/git      -buffer-name=git-grep                                  <CR>
-nnoremap          [unite]u  :<C-u>Unite source        -buffer-name=source                                    <CR>
-nnoremap <silent> [unite]r  :<C-u>Unite register      -buffer-name=register                                  <CR>
-nnoremap <silent> [unite]h  :<C-u>Unite help          -buffer-name=help                                      <CR>
-nnoremap <silent> [unite]s  :<C-u>Unite line          -buffer-name=search      -no-quit                      <CR>
-nnoremap <silent> [unite]c  :<C-u>Unite colorscheme   -buffer-name=colorscheme -auto-preview                 <CR>
-nnoremap <silent> [unite]q  :<C-u>Unite qf            -buffer-name=quickfix    -auto-preview                 <CR>
+if has('nvim')
+  nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files       buffer bookmark file_rec/neovim<CR>
+  nnoremap <silent> [unite]F  :<C-u>UniteWithBufferDir  -buffer-name=files       buffer bookmark file_rec/neovim<CR>
+else
+  nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files       buffer bookmark file_rec/async<CR>
+  nnoremap <silent> [unite]F  :<C-u>UniteWithBufferDir  -buffer-name=files       buffer bookmark file_rec/async<CR>
+endif
+nnoremap <silent> [unite]g  :<C-u>Unite file_rec/git  -buffer-name=git-files                <CR>
+nnoremap <silent> [unite]b  :<C-u>Unite buffer        -buffer-name=buffer                   <CR>
+nnoremap <silent> [unite]G  :<C-u>Unite grep/git      -buffer-name=git-grep                 <CR>
+nnoremap          [unite]u  :<C-u>Unite source        -buffer-name=source                   <CR>
+nnoremap <silent> [unite]r  :<C-u>Unite register      -buffer-name=register                 <CR>
+nnoremap <silent> [unite]h  :<C-u>Unite help          -buffer-name=help                     <CR>
+nnoremap <silent> [unite]s  :<C-u>Unite line          -buffer-name=search      -no-quit     <CR>
+nnoremap <silent> [unite]c  :<C-u>Unite colorscheme   -buffer-name=colorscheme -auto-preview<CR>
+nnoremap <silent> [unite]q  :<C-u>Unite qf            -buffer-name=quickfix    -auto-preview<CR>
 
 " Like ctrlp.vim settings.
 call unite#custom#profile('default', 'context', {
