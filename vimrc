@@ -552,12 +552,13 @@ endfunction
 
 
 " {{{ vim-commentary
-nnoremap [vim-commentary] <Nop>
-xnoremap [vim-commentary] <Nop>
-nmap     [Space]c         [vim-commentary]
-xmap     [Space]c         [vim-commentary]
-nmap     [vim-commentary] <plug>Commentary
-xmap     [vim-commentary] <plug>Commentary
+nnoremap [vim-commentary]  <Nop>
+xnoremap [vim-commentary]  <Nop>
+nmap     [Space]c          [vim-commentary]
+xmap     [Space]c          [vim-commentary]
+nmap     [vim-commentary]c <plug>CommentaryLine
+nmap     [vim-commentary]  <plug>Commentary
+xmap     [vim-commentary]  <plug>Commentary
 " }}}
 
 
