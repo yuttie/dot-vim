@@ -63,7 +63,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'rhysd/clever-f.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'scratch'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'sgur/unite-qf'
 Plug 'shawncplus/phpcomplete.vim'
@@ -85,6 +84,7 @@ Plug 'thinca/vim-fontzoom'
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
 Plug 'tomasr/molokai'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
@@ -560,13 +560,13 @@ endfunction
 " }}}
 
 
-" {{{ nerdcommenter
-nnoremap [nerd-commenter] <Nop>
-xnoremap [nerd-commenter] <Nop>
-nmap     [Space]/         [nerd-commenter]
-xmap     [Space]/         [nerd-commenter]
-nmap     [nerd-commenter] <plug>NERDCommenterToggle
-xmap     [nerd-commenter] <plug>NERDCommenterToggle
+" {{{ vim-commentary
+nnoremap [vim-commentary] <Nop>
+xnoremap [vim-commentary] <Nop>
+nmap     [Space]/         [vim-commentary]
+xmap     [Space]/         [vim-commentary]
+nmap     [vim-commentary] <plug>Commentary
+xmap     [vim-commentary] <plug>Commentary
 " }}}
 
 
