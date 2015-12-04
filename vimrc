@@ -328,15 +328,6 @@ autocmd MyAutoCmds BufWinEnter * if &filetype ==# 'ref-man' | nnoremap <buffer><
 " }}}
 
 
-" {{{ quickfix
-autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwindow
-nnoremap <silent> [Space]cc  :cc<CR>
-nnoremap <silent> [Space]cn  :cn<CR>
-nnoremap <silent> [Space]cp  :cp<CR>
-nnoremap <silent> [Space]cq  :cclose<CR>
-" }}}
-
-
 " {{{ Template insertion
 let template_dir = "~/.vim/template"
 function! InsertTemplate()
@@ -563,8 +554,8 @@ endfunction
 " {{{ vim-commentary
 nnoremap [vim-commentary] <Nop>
 xnoremap [vim-commentary] <Nop>
-nmap     [Space]/         [vim-commentary]
-xmap     [Space]/         [vim-commentary]
+nmap     [Space]c         [vim-commentary]
+xmap     [Space]c         [vim-commentary]
 nmap     [vim-commentary] <plug>Commentary
 xmap     [vim-commentary] <plug>Commentary
 " }}}
@@ -743,6 +734,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+nnoremap <silent> <M-r> :ll<CR>
+nnoremap <silent> <M-n> :lnext<CR>
+nnoremap <silent> <M-p> :lprevious<CR>
+nnoremap <silent> <M-c> :lclose<CR>
+nnoremap <silent> <M-v> :lwindow<CR>
 " }}}
 
 
