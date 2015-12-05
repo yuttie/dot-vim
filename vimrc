@@ -79,6 +79,7 @@ Plug 'Shougo/vimshell'
 Plug 'Shougo/vim-vcs'
 Plug 'Shougo/vinarise'
 Plug 'StanAngeloff/php.vim'
+Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-fontzoom'
 Plug 'thinca/vim-quickrun'
@@ -436,10 +437,16 @@ let g:ac_smooth_scroll_fb_sleep_time_msec = 3
 
 
 " {{{ vim-easymotion
-" The prefix key.
 nnoremap [easymotion] <Nop>
 nmap     [Space]m     [easymotion]
-nmap [easymotion] <Plug>(easymotion-bd-w)
+nmap     [easymotion] <Plug>(easymotion-bd-w)
+" }}}
+
+
+" {{{ vim-choosewin
+nnoremap [choosewin] <Nop>
+nmap     [Space]w    [choosewin]
+nmap     [choosewin] <Plug>(choosewin)
 " }}}
 
 
