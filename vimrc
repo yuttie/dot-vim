@@ -450,6 +450,15 @@ nmap     [easymotion] <Plug>(easymotion-bd-w)
 nnoremap [choosewin] <Nop>
 nmap     [Space]w    [choosewin]
 nmap     [choosewin] <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
+let g:choosewin_color_overlay = {
+      \ 'gui': ['#484e55', '#484e55'],
+      \ 'cterm': [239, 239]
+      \ }
+let g:choosewin_color_overlay_current = {
+      \ 'gui': ['#e4c374', '#e4c374'],
+      \ 'cterm': [179, 179]
+      \ }
 " }}}
 
 
