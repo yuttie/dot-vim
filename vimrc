@@ -433,6 +433,12 @@ let g:indentLine_char = '¦'
 " }}}
 
 
+" {{{ delimitMate
+let delimitMate_expand_cr = 1
+let delimitMate_jump_expansion = 1
+" }}}
+
+
 " {{{ accelerated-smooth-scroll
 let g:ac_smooth_scroll_du_sleep_time_msec = 5
 let g:ac_smooth_scroll_fb_sleep_time_msec = 3
