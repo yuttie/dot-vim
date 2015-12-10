@@ -325,6 +325,7 @@ nnoremap gc  `[v`]
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 nnoremap <C-Tab>   gt
 nnoremap <C-S-Tab> gT
+nnoremap gs :w<CR>
 
 " close a help window by `q'
 autocmd MyAutoCmds BufWinEnter * if &buftype  ==# 'help'    | nnoremap <buffer><silent> q  :q<CR> | endif
