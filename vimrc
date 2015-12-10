@@ -584,6 +584,8 @@ xmap     [Space]c          [vim-commentary]
 nmap     [vim-commentary]c <plug>CommentaryLine
 nmap     [vim-commentary]  <plug>Commentary
 xmap     [vim-commentary]  <plug>Commentary
+
+autocmd FileType php setlocal commentstring=//\ %s
 " }}}
 
 
