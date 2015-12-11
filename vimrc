@@ -842,6 +842,12 @@ autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
 " }}}
 
 
+" {{{ Web
+autocmd MyAutoCmds FileType html setlocal shiftwidth=2
+autocmd MyAutoCmds FileType css  setlocal shiftwidth=2
+" }}}
+
+
 " {{{ PHP
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
