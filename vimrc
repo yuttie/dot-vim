@@ -635,12 +635,8 @@ if !has('nvim')
 
   " Recommended key-mappings.
   " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return neocomplete#close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-  endfunction
+  " This was modified so that it can work nicely with delimitMate
+  imap     <expr><CR>   pumvisible() ? neocomplete#close_popup() . "\<CR>" : '<Plug>delimitMateCR'
   " <TAB>: completion.
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
   " <C-h>, <BS>: close popup and delete backword char.
