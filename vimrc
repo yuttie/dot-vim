@@ -63,6 +63,7 @@ Plug 'pythoncomplete'
 Plug 'Raimondi/delimitMate'
 Plug 'rhysd/clever-f.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scratch'
 Plug 'scrooloose/syntastic'
 Plug 'sgur/unite-qf'
@@ -107,6 +108,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'
 Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'yuttie/hydrangea-theme'
+
 if has('nvim')
     Plug 'Shougo/deoplete.nvim'
 else
