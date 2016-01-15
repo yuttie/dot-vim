@@ -324,6 +324,10 @@ noremap! <M-f> <S-Right>
 noremap! <M-b> <S-Left>
 
 " normal
+nnoremap j   gj
+nnoremap k   gk
+nnoremap gj  j
+nnoremap gk  k
 nnoremap P   Pg;
 nnoremap gc  `[v`]
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
