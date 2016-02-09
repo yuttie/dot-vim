@@ -476,9 +476,9 @@ let g:ac_smooth_scroll_fb_sleep_time_msec = 3
 
 
 " {{{ incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+map /     <Plug>(incsearch-forward)
+map ?     <Plug>(incsearch-backward)
+map <C-m> <Plug>(incsearch-stay)
 " }}}
 
 
