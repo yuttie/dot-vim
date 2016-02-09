@@ -482,9 +482,11 @@ map g/ <Plug>(incsearch-stay)
 
 
 " {{{ vim-easymotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
 nnoremap [easymotion] <Nop>
 nmap     [Space]m     [easymotion]
-nmap     [easymotion] <Plug>(easymotion-bd-w)
+nmap     [easymotion] <Plug>(easymotion-prefix)
 " }}}
 
 
