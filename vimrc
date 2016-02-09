@@ -353,7 +353,7 @@ nnoremap gc  `[v`]
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 nnoremap <C-Tab>   gt
 nnoremap <C-S-Tab> gT
-nnoremap gs :w<CR>
+nnoremap <C-s> :w<CR>
 nnoremap <C-i> <C-g>
 
 " close a help window by `q'
