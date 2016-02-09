@@ -354,6 +354,7 @@ nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 nnoremap <C-Tab>   gt
 nnoremap <C-S-Tab> gT
 nnoremap gs :w<CR>
+nnoremap <C-i> <C-g>
 
 " close a help window by `q'
 autocmd MyAutoCmds BufWinEnter * if &buftype  ==# 'help'    | nnoremap <buffer><silent> q  :q<CR> | endif
@@ -540,12 +541,12 @@ let g:GPGPreferSymmetric = 1
 " {{{ fugitive
 autocmd MyAutoCmds FileType gitcommit set spell
 
-nnoremap [git]    <Nop>
-nmap     [Space]g [git]
+nnoremap [git]  <Nop>
+nmap     <C-g>  [git]
 
-nnoremap <silent> [git]c  :Gcommit -v<CR>
-nnoremap <silent> [git]d  :Gdiff<CR>
-nnoremap <silent> [git]s  :Gstatus<CR>
+nnoremap <silent> [git]<C-g>  :Gcommit -v<CR>
+nnoremap <silent> [git]<C-d>  :Gdiff<CR>
+nnoremap <silent> [git]<C-s>  :Gstatus<CR>
 " }}}
 
 
@@ -553,11 +554,11 @@ nnoremap <silent> [git]s  :Gstatus<CR>
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 5000
 
-nmap [git]n <Plug>GitGutterNextHunk
-nmap [git]p <Plug>GitGutterPrevHunk
-nmap [git]a <Plug>GitGutterStageHunk
-nmap [git]u <Plug>GitGutterRevertHunk
-nmap [git]v <Plug>GitGutterPreviewHunk
+nmap [git]<C-n> <Plug>GitGutterNextHunk
+nmap [git]<C-p> <Plug>GitGutterPrevHunk
+nmap [git]<C-a> <Plug>GitGutterStageHunk
+nmap [git]<C-u> <Plug>GitGutterRevertHunk
+nmap [git]<C-v> <Plug>GitGutterPreviewHunk
 " }}}
 
 
