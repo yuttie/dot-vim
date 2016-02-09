@@ -19,6 +19,7 @@ Plug 'benekastah/neomake'
 Plug 'dannyob/quickfixstatus'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
 Plug 'edsono/vim-matchit'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
@@ -470,6 +471,13 @@ let delimitMate_jump_expansion = 0
 " {{{ accelerated-smooth-scroll
 let g:ac_smooth_scroll_du_sleep_time_msec = 5
 let g:ac_smooth_scroll_fb_sleep_time_msec = 3
+" }}}
+
+
+" {{{ incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 " }}}
 
 
