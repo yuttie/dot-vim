@@ -116,6 +116,9 @@ Plug 'pbrisbin/html-template-syntax'
 
 " Other filetype-specific plugins
 Plug 'dahu/vim-asciidoc'
+Plug 'dahu/vimple'          | Plug 'dahu/vim-asciidoc'
+Plug 'dahu/Asif'            | Plug 'dahu/vim-asciidoc'
+Plug 'Raimondi/VimRegStyle' | Plug 'dahu/vim-asciidoc'
 Plug 'gtk-vim-syntax'
 Plug 'guns/vim-sexp'
 Plug 'jceb/vim-orgmode'
