@@ -546,7 +546,6 @@ nmap     <C-g>  [git]
 
 nnoremap <silent> [git]<C-g>  :Gcommit -v<CR>
 nnoremap <silent> [git]<C-d>  :Gdiff<CR>
-nnoremap <silent> [git]<C-s>  :Gstatus<CR>
 " }}}
 
 
@@ -556,8 +555,8 @@ let g:gitgutter_max_signs = 5000
 
 nmap [git]<C-n> <Plug>GitGutterNextHunk
 nmap [git]<C-p> <Plug>GitGutterPrevHunk
-nmap [git]<C-a> <Plug>GitGutterStageHunk
-nmap [git]<C-u> <Plug>GitGutterRevertHunk
+nmap [git]<C-s> <Plug>GitGutterStageHunk
+nmap [git]<C-r> <Plug>GitGutterRevertHunk
 nmap [git]<C-v> <Plug>GitGutterPreviewHunk
 " }}}
 
