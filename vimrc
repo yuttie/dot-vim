@@ -3,7 +3,7 @@ scriptencoding utf-8
 
 " {{{ Plugins
 " Execute the following command line first:
-"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 if has('nvim')
     let s:my_plugin_dir = '~/.config/nvim/bundle/'
 else
