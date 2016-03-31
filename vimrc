@@ -11,6 +11,9 @@ else
 endif
 call plug#begin(s:my_plugin_dir)
 
+" Prevent default plugins from being loaded
+let g:loaded_matchparen = 1
+
 " Plugins
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'AndrewRadev/linediff.vim'
@@ -23,6 +26,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'edsono/vim-matchit'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-parenmatch'
 Plug 'jamessan/vim-gnupg'
 Plug 'jceb/vim-hier'
 Plug 'junegunn/vim-easy-align'
