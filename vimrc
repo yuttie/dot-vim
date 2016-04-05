@@ -108,6 +108,10 @@ Plug '2072/PHP-Indenting-for-VIm'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'StanAngeloff/php.vim'
 
+" Rust
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
+
 " Web
 Plug 'csscomb/vim-csscomb'
 Plug 'ervandew/sgmlendtag'
@@ -133,7 +137,6 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pythoncomplete'
-Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'def-lkb/ocp-indent-vim'
@@ -884,6 +887,11 @@ autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<
 
 " Use the old regexp engine because the new NFA engine is slow for Haskell's syntax highlighting.
 autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
+" }}}
+
+
+" {{{ Rust
+let $RUST_SRC_PATH = expand("~/rust/src/")
 " }}}
 
 
