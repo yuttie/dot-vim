@@ -137,6 +137,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'def-lkb/ocp-indent-vim'
+Plug 'cespare/vim-toml'
 
 " Themes
 Plug '29decibel/codeschool-vim-theme'
