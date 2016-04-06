@@ -875,6 +875,12 @@ autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 " }}}
 
 
+" {{{ JSON
+autocmd MyAutoCmds BufRead,BufNewFile *.json setfiletype json
+autocmd MyAutoCmds FileType json command! JSONPrettify %!python -m json.tool
+" }}}
+
+
 " {{{ Haskell
 let g:haskell_conceal              = 0
 let g:haskell_conceal_enumerations = 0
