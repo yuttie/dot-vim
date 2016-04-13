@@ -141,6 +141,7 @@ Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'def-lkb/ocp-indent-vim'
 Plug 'cespare/vim-toml'
+Plug 'elzr/vim-json'
 
 " Themes
 Plug '29decibel/codeschool-vim-theme'
@@ -876,6 +877,8 @@ autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 " {{{ JSON
 autocmd MyAutoCmds BufRead,BufNewFile *.json setfiletype json
 autocmd MyAutoCmds FileType json command! JSONPrettify %!python -m json.tool
+
+let g:vim_json_syntax_conceal = 0
 " }}}
 
 
