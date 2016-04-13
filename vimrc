@@ -99,8 +99,8 @@ Plug 'tpope/vim-fugitive'
 " Haskell
 Plug 'dag/vim2hs'
 Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
 Plug 'eagletmt/unite-haddock'
-Plug 'ujihisa/neco-ghc'
 Plug 'ujihisa/unite-haskellimport'
 
 " PHP
