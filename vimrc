@@ -241,6 +241,10 @@ set sessionoptions&
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
 
+" Persistent undo
+set undodir=.
+set undofile
+
 " }}}
 
 
