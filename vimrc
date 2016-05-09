@@ -727,7 +727,11 @@ endif
 
 
 " {{{ neosnippet
-let g:neosnippet#snippets_directory='~/.vim/snippets'
+if has('nvim')
+    let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+else
+    let g:neosnippet#snippets_directory='~/.vim/snippets'
+endif
 
 " Plugin key-mappings.
 imap <C-k>  <Plug>(neosnippet_expand_or_jump)
