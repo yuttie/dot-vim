@@ -484,8 +484,14 @@ let delimitMate_jump_expansion = 0
 
 
 " {{{ accelerated-smooth-scroll
+let g:ac_smooth_scroll_no_default_key_mappings = 1
 let g:ac_smooth_scroll_du_sleep_time_msec = 5
 let g:ac_smooth_scroll_fb_sleep_time_msec = 3
+
+nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
+nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
+nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
+nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " }}}
 
 
