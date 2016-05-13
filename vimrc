@@ -139,6 +139,7 @@ Plug 'def-lkb/ocp-indent-vim'
 Plug 'cespare/vim-toml'
 Plug 'elzr/vim-json'
 Plug 'vim-jp/syntax-vim-ex'
+Plug 'JuliaLang/julia-vim'
 
 " Themes
 Plug '29decibel/codeschool-vim-theme'
