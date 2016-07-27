@@ -41,7 +41,7 @@ Plug 'mattn/gist-vim'
 Plug 'mbbill/undotree'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/shabadou.vim'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/clever-f.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scratch'
@@ -662,8 +662,10 @@ if has('nvim')
   inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
   inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
   " <CR>: close popup and save indent.
-  " This was modified so that it can work nicely with delimitMate
-  imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() . "\<CR>" : '<Plug>delimitMateCR'
+  inoremap <silent> <CR> <C-r>=<SID>my_deoplete_cr_function()<CR>
+  function! s:my_deoplete_cr_function() abort
+    return deoplete#mappings#close_popup() . "\<CR>"
+  endfunction
 endif
 " }}}
 
@@ -696,8 +698,12 @@ if !has('nvim')
 
   " Recommended key-mappings.
   " <CR>: close popup and save indent.
-  " This was modified so that it can work nicely with delimitMate
-  imap     <expr><CR>   pumvisible() ? neocomplete#close_popup() . "\<CR>" : '<Plug>delimitMateCR'
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
+  endfunction
   " <TAB>: completion.
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
   " <C-h>, <BS>: close popup and delete backword char.
