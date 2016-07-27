@@ -239,6 +239,9 @@ set sessionoptions&
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
 
+" Disable mouse
+set mouse=
+
 " }}}
 
 
