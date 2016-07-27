@@ -31,6 +31,7 @@ Plug 'itchyny/vim-parenmatch'
 Plug 'jamessan/vim-gnupg'
 Plug 'jceb/vim-hier'
 Plug 'junegunn/vim-easy-align'
+Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
 Plug 'kannokanno/previm'
@@ -62,11 +63,11 @@ Plug 'thinca/vim-fontzoom'
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
 Plug 'thinca/vim-visualstar'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
+Plug 'tyru/caw.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'
 Plug 'yonchu/accelerated-smooth-scroll'
@@ -632,14 +633,13 @@ endfunction
 " }}}
 
 
-" {{{ vim-commentary
-nnoremap [vim-commentary]  <Nop>
-xnoremap [vim-commentary]  <Nop>
-nmap     [Space]c          [vim-commentary]
-xmap     [Space]c          [vim-commentary]
-nmap     [vim-commentary]c <plug>CommentaryLine
-nmap     [vim-commentary]  <plug>Commentary
-xmap     [vim-commentary]  <plug>Commentary
+" {{{ caw.vim
+nnoremap [caw]     <Nop>
+xnoremap [caw]     <Nop>
+nmap     [Space]c  [caw]
+xmap     [Space]c  [caw]
+nmap     [caw]     <Plug>(caw:prefix)
+xmap     [caw]     <Plug>(caw:prefix)
 
 autocmd FileType php setlocal commentstring=//\ %s
 " }}}
