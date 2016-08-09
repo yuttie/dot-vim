@@ -369,6 +369,31 @@ nnoremap <C-S-Tab> gT
 nnoremap <C-s> :w<CR>
 nnoremap <C-i> <C-g>
 
+nnoremap [help] <Nop>
+nmap     [Space]h [help]
+nnoremap <silent> [help]h :<C-u>Unite help -buffer-name=help <CR>
+
+nnoremap [file] <Nop>
+nmap     [Space]f [file]
+nnoremap <silent> [file]ed :e $MYVIMRC<CR>
+nnoremap <silent> [file]eR :source $MYVIMRC<CR>
+nnoremap <silent> [file]j  :VimFiler<CR>
+if has('nvim')
+  nnoremap <silent> [file]f :<C-u>UniteWithCurrentDir -buffer-name=files buffer bookmark file_rec/neovim<CR>
+  nnoremap <silent> [file]F :<C-u>UniteWithBufferDir  -buffer-name=files buffer bookmark file_rec/neovim<CR>
+else
+  nnoremap <silent> [file]f :<C-u>UniteWithCurrentDir -buffer-name=files buffer bookmark file_rec/async<CR>
+  nnoremap <silent> [file]F :<C-u>UniteWithBufferDir  -buffer-name=files buffer bookmark file_rec/async<CR>
+endif
+
+nnoremap [buffer] <Nop>
+nmap     [Space]b [buffer]
+nnoremap <silent> [buffer]b :<C-u>Unite buffer -buffer-name=buffer <CR>
+
+nnoremap [project] <Nop>
+nmap     [Space]p [project]
+nnoremap <silent> [project]f :<C-u>Unite file_rec/git -buffer-name=git-files <CR>
+
 " close a help window by `q'
 autocmd MyAutoCmds BufWinEnter * if &buftype  ==# 'help'    | nnoremap <buffer><silent> q  :q<CR> | endif
 autocmd MyAutoCmds BufWinEnter * if &filetype ==# 'ref-man' | nnoremap <buffer><silent> q  :q<CR> | endif
@@ -582,12 +607,6 @@ nmap [git]<C-v> <Plug>GitGutterPreviewHunk
 
 " {{{ vimfiler
 let g:vimfiler_as_default_explorer = 1
-
-" The prefix key.
-nnoremap [vimfiler]   <Nop>
-nmap     [Space]f  [vimfiler]
-
-nnoremap <silent> [vimfiler]  :VimFiler<CR>
 " }}}
 
 
