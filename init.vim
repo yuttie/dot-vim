@@ -258,6 +258,11 @@ augroup end
 " Syntax highlighting                                                        {{{
 " ==============================================================================
 
+" Enable true color support
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
   syntax on
