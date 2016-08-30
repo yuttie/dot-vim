@@ -76,7 +76,10 @@ Plug 'yonchu/accelerated-smooth-scroll'
 " Completion (neocomplete/deoplete)
 Plug 'ujihisa/neco-look'
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim'
+    function! DoRemoteUpdate(arg)
+      UpdateRemotePlugins
+    endfunction
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate') }
 else
     Plug 'Shougo/neocomplete.vim'
 endif
