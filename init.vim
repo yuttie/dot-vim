@@ -406,6 +406,13 @@ nnoremap [project] <Nop>
 nmap     [Space]p [project]
 nnoremap <silent> [project]f :<C-u>Unite file_rec/git -buffer-name=git-files <CR>
 
+nnoremap [error] <Nop>
+nmap     [Space]e [error]
+nnoremap <silent> [error]l :lwindow<CR>
+nnoremap <silent> [error]c :lclose<CR>
+nnoremap <silent> [error]n :lnext<CR>
+nnoremap <silent> [error]p :lprevious<CR>
+
 " close a help window by `q'
 autocmd MyAutoCmds BufWinEnter * if &buftype  ==# 'help'    | nnoremap <buffer><silent> q  :q<CR> | endif
 autocmd MyAutoCmds BufWinEnter * if &filetype ==# 'ref-man' | nnoremap <buffer><silent> q  :q<CR> | endif
@@ -861,12 +868,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-nnoremap <silent> <M-r> :ll<CR>
-nnoremap <silent> <M-n> :lnext<CR>
-nnoremap <silent> <M-p> :lprevious<CR>
-nnoremap <silent> <M-c> :lclose<CR>
-nnoremap <silent> <M-v> :lwindow<CR>
 " }}}
 
 
