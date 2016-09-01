@@ -125,7 +125,6 @@ Plug 'jiangmiao/simple-javascript-indenter'
 Plug 'mattn/emmet-vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/html-template-syntax'
 
 " Other filetype-specific plugins
