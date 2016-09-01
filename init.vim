@@ -358,6 +358,7 @@ xmap     <Space> [Space]
 " {{{ Mappings
 " insert
 inoremap <C-d> <Del>
+inoremap jj <Esc>
 
 " insert and command line
 noremap! <C-a> <Home>
@@ -374,12 +375,37 @@ nnoremap gj  j
 nnoremap gk  k
 nnoremap P   Pg;
 nnoremap gc  `[v`]
+
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 nnoremap <C-Tab>   gt
 nnoremap <C-S-Tab> gT
 nnoremap <C-s> :w<CR>
 nnoremap <C-i> <C-g>
 
+" visual
+vnoremap v $h
+
+" command
+cmap w!! w !sudo tee > /dev/null %
+
+" Space-prefixed bindings
 nnoremap [help] <Nop>
 nmap     [Space]h [help]
 nnoremap <silent> [help]h :<C-u>Unite help -buffer-name=help <CR>
@@ -411,6 +437,13 @@ nnoremap <silent> [error]l :lwindow<CR>
 nnoremap <silent> [error]c :lclose<CR>
 nnoremap <silent> [error]n :lnext<CR>
 nnoremap <silent> [error]p :lprevious<CR>
+
+nnoremap [toggle] <Nop>
+nmap     [Space]t [toggle]
+nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
+nnoremap <silent> [toggle]l :setl list!<CR>:setl list?<CR>
+nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
+nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
 
 " close a help window by `q'
 autocmd MyAutoCmds BufWinEnter * if &buftype  ==# 'help'    | nnoremap <buffer><silent> q  :q<CR> | endif
