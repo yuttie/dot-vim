@@ -112,6 +112,12 @@ Plug '2072/PHP-Indenting-for-VIm'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'StanAngeloff/php.vim'
 
+" Python
+if has('nvim')
+  Plug 'zchee/deoplete-jedi'
+endif
+Plug 'pythoncomplete'
+
 " Rust
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
@@ -135,7 +141,6 @@ Plug 'jceb/vim-orgmode'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'pythoncomplete'
 Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'def-lkb/ocp-indent-vim'
