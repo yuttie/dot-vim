@@ -638,7 +638,7 @@ autocmd MyAutoCmds FileType gitcommit set spell
 nnoremap [git]  <Nop>
 nmap     <C-g>  [git]
 
-nnoremap <silent> [git]<C-g>  :Gcommit -v<CR>
+nnoremap <silent> [git]c      :Gcommit -v<CR>
 nnoremap <silent> [git]<C-d>  :Gdiff<CR>
 " }}}
 
