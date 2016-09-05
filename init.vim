@@ -565,6 +565,12 @@ let g:indentLine_char = '¦'
 " }}}
 
 
+" {{{ vim-expand-region
+vmap + <Plug>(expand_region_expand)
+vmap - <Plug>(expand_region_shrink)
+" }}}
+
+
 " {{{ delimitMate
 let delimitMate_expand_cr = 1
 let delimitMate_jump_expansion = 0
