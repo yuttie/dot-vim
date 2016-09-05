@@ -445,6 +445,20 @@ nnoremap <silent> [toggle]l :setl list!<CR>:setl list?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
 
+nmap     [Space];  <Plug>(caw:hatpos:toggle:operator)
+xmap     [Space];  <Plug>(caw:hatpos:toggle:operator)
+nmap     [Space];; <Plug>(caw:hatpos:toggle)
+
+nnoremap [comment] <Nop>
+nmap     [Space]c [comment]
+xmap     [Space]c [comment]
+nmap     [comment]l <Plug>(caw:hatpos:toggle)
+xmap     [comment]l <Plug>(caw:hatpos:toggle)
+nmap     [comment]y yy<Plug>(caw:hatpos:comment)p
+xmap     [comment]y ygv<Plug>(caw:hatpos:comment)g;p
+nmap     [comment]o <Plug>(caw:jump:comment-next)
+nmap     [comment]O <Plug>(caw:jump:comment-prev)
+
 " close a help window by `q'
 autocmd MyAutoCmds FileType help,ref-pydoc nnoremap <buffer><silent> q :close<CR>
 " }}}
@@ -703,13 +717,6 @@ endfunction
 
 
 " {{{ caw.vim
-nnoremap [caw]     <Nop>
-xnoremap [caw]     <Nop>
-nmap     [Space]c  [caw]
-xmap     [Space]c  [caw]
-nmap     [caw]     <Plug>(caw:prefix)
-xmap     [caw]     <Plug>(caw:prefix)
-
 autocmd FileType php setlocal commentstring=//\ %s
 " }}}
 
