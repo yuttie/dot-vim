@@ -947,6 +947,11 @@ autocmd MyAutoCmds FileType ruby,eruby set shiftwidth=2
 " }}}
 
 
+" {{{ deoplete-jedi
+let deoplete#sources#jedi#show_docstring = 1
+" }}}
+
+
 " {{{ Python
 autocmd MyAutoCmds FileType python set tabstop=8
 autocmd MyAutoCmds FileType python set expandtab
