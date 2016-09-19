@@ -272,8 +272,8 @@ endif
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  set background=dark
-  colorscheme hydrangea
+  set background=light
+  colorscheme PaperColor
 endif
 
 " }}}
@@ -513,7 +513,7 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 set ambiwidth=single
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'hydrangea',
+      \ 'colorscheme': 'PaperColor',
       \ 'inactive': {
       \   'left': [
       \     [ 'mode', 'paste' ],
