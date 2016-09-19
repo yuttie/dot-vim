@@ -16,8 +16,8 @@ set guioptions&
   \ guioptions+=c
 
 " Set color scheme
-set background=dark
-colorscheme hydrangea
+set background=light
+colorscheme PaperColor
 
 " IME Settings
 if has('multi_byte_ime') || has('xim')
