@@ -248,6 +248,7 @@ set ambiwidth=double
 set sessionoptions&
   \ sessionoptions-=options
   \ sessionoptions-=localoptions
+set lazyredraw
 
 " Disable mouse
 set mouse=
