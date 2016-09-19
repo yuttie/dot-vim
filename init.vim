@@ -173,6 +173,7 @@ set incsearch
 set ignorecase
 set smartcase
 set nowrapscan
+set cursorline
 
 " 4 displaying text
 set number
