@@ -534,6 +534,8 @@ let g:lightline = {
       \   'readonly': '%{&readonly?"":""}',
       \ },
       \ 'component_function': {
+      \   'filetype':    'g:lightline.my.filetype',
+      \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
       \   'git_traffic': 'g:lightline.my.git_traffic',
       \   'git_status':  'g:lightline.my.git_status',
@@ -542,6 +544,12 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
 let g:lightline.my = {}
+function! g:lightline.my.filetype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+function! g:lightline.my.fileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 function! g:lightline.my.git_branch()
   return winwidth(0) > 70 ? gita#statusline#format('%{ |}ln/%lb') : ''
 endfunction
