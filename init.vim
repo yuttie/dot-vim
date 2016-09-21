@@ -270,6 +270,11 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+" Change the cursor sahpe
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+endif
+
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
   syntax on
