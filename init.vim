@@ -439,6 +439,11 @@ nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
 nnoremap <silent> [file]R  :Rename
 
+nnoremap [search] <Nop>
+nmap     [Space]s [search]
+nnoremap <silent> [search]s  :<C-u>Denite line<CR>
+nnoremap <silent> [search]gg :<C-u>Denite grep<CR>
+
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
 nnoremap <silent> [buffer]b :<C-u>Unite buffer -buffer-name=buffer <CR>
