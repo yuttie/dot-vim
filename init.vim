@@ -585,7 +585,7 @@ let g:better_whitespace_filetypes_blacklist = [
 
 " {{{ indentLine
 let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#505760'
+let g:indentLine_color_gui = '#bcbcbc'
 let g:indentLine_color_tty_light = 4
 let g:indentLine_color_dark = 2
 let g:indentLine_char = '¦'
