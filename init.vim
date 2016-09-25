@@ -471,12 +471,17 @@ xmap     [comment]y ygv<Plug>(caw:hatpos:comment)g;p
 nmap     [comment]o <Plug>(caw:jump:comment-next)
 nmap     [comment]O <Plug>(caw:jump:comment-prev)
 
-nmap     [Space]y       <Plug>(easymotion-overwin-line)
-xmap     [Space]y       <Plug>(easymotion-bd-jk)
-omap     [Space]y       <Plug>(easymotion-bd-jk)
-nmap     [Space]<Space> <Plug>(easymotion-overwin-w)
-xmap     [Space]<Space> <Plug>(easymotion-bd-w)
-omap     [Space]<Space> <Plug>(easymotion-bd-w)
+nmap     [Space]jj      <Plug>(easymotion-overwin-f)
+xmap     [Space]jj      <Plug>(easymotion-bd-f)
+omap     [Space]jj      <Plug>(easymotion-bd-f)
+
+nmap     [Space]jw      <Plug>(easymotion-overwin-w)
+xmap     [Space]jw      <Plug>(easymotion-bd-w)
+omap     [Space]jw      <Plug>(easymotion-bd-w)
+
+nmap     [Space]jl      <Plug>(easymotion-overwin-line)
+xmap     [Space]jl      <Plug>(easymotion-bd-jk)
+omap     [Space]jl      <Plug>(easymotion-bd-jk)
 
 " close a help window by `q'
 autocmd MyAutoCmds FileType help,ref-pydoc nnoremap <buffer><silent> q :close<CR>
