@@ -422,7 +422,10 @@ cmap w!! w !sudo tee > /dev/null %
 " Space-prefixed bindings
 nnoremap [help] <Nop>
 nmap     [Space]h [help]
-nnoremap <silent> [help]h :<C-u>Unite help -buffer-name=help <CR>
+nnoremap <silent> [help]h :<C-u>Unite help -buffer-name=help<CR>
+nnoremap <silent> [help]dm :<C-u>Unite mapping<CR>
+nnoremap <silent> [help]dc :<C-u>Unite command<CR>
+nnoremap <silent> [help]df :<C-u>Unite function<CR>
 
 nnoremap [file] <Nop>
 nmap     [Space]f [file]
