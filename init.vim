@@ -94,6 +94,7 @@ Plug 'Shougo/unite.vim'
 Plug 'tsukkee/unite-tag'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'ujihisa/unite-locate'
+Plug 'Shougo/denite.nvim', { 'do': function('DoRemoteUpdate') }
 
 " Git
 Plug 'airblade/vim-gitgutter'
