@@ -429,16 +429,15 @@ nnoremap <silent> [help]df :<C-u>Unite function<CR>
 
 nnoremap [file] <Nop>
 nmap     [Space]f [file]
-nnoremap <silent> [file]ed :e $MYVIMRC<CR>
-nnoremap <silent> [file]eR :source $MYVIMRC<CR>
+nnoremap <silent> [file]vd :e $MYVIMRC<CR>
+nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :VimFiler<CR>
-if has('nvim')
-  nnoremap <silent> [file]f :<C-u>UniteWithCurrentDir -buffer-name=files buffer bookmark file_rec/neovim<CR>
-  nnoremap <silent> [file]F :<C-u>UniteWithBufferDir  -buffer-name=files buffer bookmark file_rec/neovim<CR>
-else
-  nnoremap <silent> [file]f :<C-u>UniteWithCurrentDir -buffer-name=files buffer bookmark file_rec/async<CR>
-  nnoremap <silent> [file]F :<C-u>UniteWithBufferDir  -buffer-name=files buffer bookmark file_rec/async<CR>
-endif
+nnoremap <silent> [file]f  :<C-u>Denite file_rec<CR>
+nnoremap <silent> [file]r  :<C-u>Denite file_mru<CR>
+nnoremap <silent> [file]s  :w<CR>
+nnoremap <silent> [file]S  :wa<CR>
+nnoremap <silent> [file]t  :NERDTree<CR>
+nnoremap <silent> [file]R  :Rename
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
