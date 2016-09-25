@@ -437,6 +437,7 @@ nnoremap <silent> [file]r  :<C-u>Denite file_mru<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
+nnoremap <silent> [file]T  :VimFilerExplore<CR>
 nnoremap <silent> [file]R  :Rename
 
 nnoremap [search] <Nop>
