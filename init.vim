@@ -716,6 +716,9 @@ nmap [git]<C-v> <Plug>GitGutterPreviewHunk
 
 " {{{ vimfiler
 let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_explorer_columns = 'devicons'
+let g:vimfiler_tree_opened_icon = '▼'
+let g:vimfiler_tree_closed_icon = '►'
 " }}}
 
 
