@@ -360,8 +360,10 @@ endif
 " {{{ Prefix key
 nnoremap [Space] <Nop>
 xnoremap [Space] <Nop>
+onoremap [Space] <Nop>
 nmap     <Space> [Space]
 xmap     <Space> [Space]
+omap     <Space> [Space]
 " }}}
 
 
