@@ -5,9 +5,9 @@ scriptencoding utf-8
 " Execute the following command line first:
 "   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 if has('nvim')
-    let s:my_plugin_dir = '~/.config/nvim/bundle/'
+  let s:my_plugin_dir = '~/.config/nvim/bundle/'
 else
-    let s:my_plugin_dir = '~/.vim/bundle/'
+  let s:my_plugin_dir = '~/.vim/bundle/'
 endif
 call plug#begin(s:my_plugin_dir)
 
@@ -77,12 +77,12 @@ Plug 'yonchu/accelerated-smooth-scroll'
 " Completion (neocomplete/deoplete)
 Plug 'ujihisa/neco-look'
 if has('nvim')
-    function! DoRemoteUpdate(arg)
-      UpdateRemotePlugins
-    endfunction
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate') }
+  function! DoRemoteUpdate(arg)
+    UpdateRemotePlugins
+  endfunction
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate') }
 else
-    Plug 'Shougo/neocomplete.vim'
+  Plug 'Shougo/neocomplete.vim'
 endif
 
 " Interactive filter (unite)
@@ -265,7 +265,7 @@ set mouse=
 
 " Autocommand group
 augroup MyAutoCmds
-    autocmd!
+  autocmd!
 augroup end
 
 
@@ -309,7 +309,7 @@ endif
 " Omni-completion
 " ==============================================================================
 if has("autocmd") && exists("+omnifunc")
-    autocmd MyAutoCmds Filetype *
+  autocmd MyAutoCmds Filetype *
     \ if &omnifunc == "" |
     \   setlocal omnifunc=syntaxcomplete#Complete |
     \ endif
@@ -323,21 +323,21 @@ endif
 
 " {{{ Functions
 function! MakeAllWindowsEqualSize()
-    let g:old_tab_page = tabpagenr()
-    let g:num_tab_page = tabpagenr('$')
-    tabfirst
-    for i in range(g:num_tab_page)
-        execute "normal \<C-W>="
-        tabnext
-    endfor
-    for i in range(g:old_tab_page - 1)
-        tabnext
-    endfor
+  let g:old_tab_page = tabpagenr()
+  let g:num_tab_page = tabpagenr('$')
+  tabfirst
+  for i in range(g:num_tab_page)
+    execute "normal \<C-W>="
+    tabnext
+  endfor
+  for i in range(g:old_tab_page - 1)
+    tabnext
+  endfor
 endfunction
 
 function! EditHeaderAndSourceFileInNewTab(filename)
-    execute 'tab vsplit ' . a:filename . '.c'
-    execute 'vsplit ' . a:filename . '.h'
+  execute 'tab vsplit ' . a:filename . '.c'
+  execute 'vsplit ' . a:filename . '.h'
 endfunction
 " }}}
 
@@ -355,10 +355,10 @@ command! -nargs=1 -complete=file Rename saveas <args> | call delete(expand('#'))
 command! Hitest source $VIMRUNTIME/syntax/hitest.vim
 
 if has("gui_running")
-    command! Enlarge16 set guifont=monospace\ 16
-    command! Enlarge32 set guifont=monospace\ 32
-    command! Enlarge64 set guifont=monospace\ 64
-    command! Enlarge128 set guifont=monospace\ 128
+  command! Enlarge16 set guifont=monospace\ 16
+  command! Enlarge32 set guifont=monospace\ 32
+  command! Enlarge64 set guifont=monospace\ 64
+  command! Enlarge128 set guifont=monospace\ 128
 endif
 " }}}
 
@@ -505,33 +505,33 @@ autocmd MyAutoCmds FileType help,ref-pydoc nnoremap <buffer><silent> q :close<CR
 " {{{ Template insertion
 let template_dir = "~/.vim/template"
 function! InsertTemplate()
-    if expand("%:t") == "NOTE"
-        let tmpl_filename = expand(g:template_dir) . "/NOTE"
-        if filereadable(tmpl_filename)
-            execute "silent 0read " . tmpl_filename
+  if expand("%:t") == "NOTE"
+    let tmpl_filename = expand(g:template_dir) . "/NOTE"
+    if filereadable(tmpl_filename)
+      execute "silent 0read " . tmpl_filename
 
-            " delete trailing line
-            mark s
-            $delete
-            's
-        endif
-    else
-        let tmpl_filename = expand(g:template_dir) . "/tmpl." . expand("%:e")
-        if filereadable(tmpl_filename)
-            execute "silent 0read " . tmpl_filename
-
-            call FillTemplatePlaceHolders()
-
-            " delete trailing line
-            mark s
-            $delete
-            's
-        endif
+      " delete trailing line
+      mark s
+      $delete
+      's
     endif
+  else
+    let tmpl_filename = expand(g:template_dir) . "/tmpl." . expand("%:e")
+    if filereadable(tmpl_filename)
+      execute "silent 0read " . tmpl_filename
+
+      call FillTemplatePlaceHolders()
+
+      " delete trailing line
+      mark s
+      $delete
+      's
+    endif
+  endif
 endfunction
 
 function! FillTemplatePlaceHolders()
-    silent! %s/%HEADERNAME%/\=toupper(tr(expand("%:t"), ".", "_"))/g
+  silent! %s/%HEADERNAME%/\=toupper(tr(expand("%:t"), ".", "_"))/g
 endfunction
 
 autocmd MyAutoCmds BufNewFile * call InsertTemplate()
@@ -750,10 +750,10 @@ nnoremap <silent> [unite]q  :<C-u>Unite qf            -buffer-name=quickfix    -
 
 " Like ctrlp.vim settings.
 call unite#custom#profile('default', 'context', {
-\   'start_insert': 1,
-\   'prompt_direction': 'top',
-\   'direction': 'botright',
-\ })
+  \   'start_insert': 1,
+  \   'prompt_direction': 'top',
+  \   'direction': 'botright',
+  \ })
 
 autocmd MyAutoCmds FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
@@ -810,13 +810,13 @@ if !has('nvim')
 
   " Define dictionary.
   let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell/command-history'
-      \ }
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell/command-history'
+    \ }
 
   " Define keyword.
   if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
+    let g:neocomplete#keyword_patterns = {}
   endif
   let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -868,9 +868,9 @@ endif
 
 " {{{ neosnippet
 if has('nvim')
-    let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+  let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 else
-    let g:neosnippet#snippets_directory='~/.vim/snippets'
+  let g:neosnippet#snippets_directory='~/.vim/snippets'
 endif
 
 " Plugin key-mappings.
@@ -891,18 +891,18 @@ if !has('nvim')
   let g:neocomplcache_clang_use_library = 1
   let g:neocomplcache_clang_library_path = "/usr/lib/llvm"
   let g:neocomplcache_clang_user_options =
-      \ '-std=c++11 ' .
-      \ '-I /usr/include/eigen3 ' .
-      \ ''
+    \ '-std=c++11 ' .
+    \ '-I /usr/include/eigen3 ' .
+    \ ''
 endif
 " }}}
 
 
 " {{{ vimshell
 if has('win32') || has('win64')
-    let g:vimshell_user_prompt = '$USERNAME . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
+  let g:vimshell_user_prompt = '$USERNAME . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
 else
-    let g:vimshell_user_prompt = '$USER . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
+  let g:vimshell_user_prompt = '$USER . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
 endif
 let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
 let g:vimshell_max_command_history = 100000
@@ -920,15 +920,15 @@ nnoremap <silent> [vimshell]  :VimShell<CR>
 let g:quickrun_no_default_key_mappings = 1
 let g:quickrun_config = {}
 let g:quickrun_config['markdown/pandoc'] = {
-\   'cmdopt': '--standalone --katex',
-\   'outputter': 'browser'
-\}
+  \   'cmdopt': '--standalone --katex',
+  \   'outputter': 'browser'
+  \}
 let g:quickrun_config['cpp/clang++'] = {
-\   'cmdopt': '-std=c++11'
-\}
+  \   'cmdopt': '-std=c++11'
+  \}
 let g:quickrun_config['cpp/g++'] = {
-\   'cmdopt': '-std=c++11'
-\}
+  \   'cmdopt': '-std=c++11'
+  \}
 
 " The prefix key.
 nnoremap [quickrun]   <Nop>
@@ -1057,8 +1057,8 @@ autocmd MyAutoCmds FileType css  setlocal shiftwidth=2
 
 " {{{ PHP
 function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
 endfunction
 autocmd MyAutoCmds FileType php call PhpSyntaxOverride()
 " }}}
