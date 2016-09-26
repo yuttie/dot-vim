@@ -943,7 +943,7 @@ set cmdheight=2
 " Explicitly enable echodoc.
 " This is a fix to use the plugin with vim-plug which loads the plugin before
 " we let g:echodoc_enable_at_startup = 1 here.
-call echodoc#enable()  
+call echodoc#enable()
 " }}}
 
 
