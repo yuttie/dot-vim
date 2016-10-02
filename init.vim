@@ -556,10 +556,16 @@ set ambiwidth=single
 set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'PaperColor',
+      \ 'active': {
+      \   'left': [
+      \     [ 'mode', 'paste' ],
+      \     [ 'readonly', 'relativepath', 'modified' ],
+      \   ],
+      \ },
       \ 'inactive': {
       \   'left': [
       \     [ 'mode', 'paste' ],
-      \     [ 'readonly', 'filename', 'modified' ],
+      \     [ 'readonly', 'relativepath', 'modified' ],
       \   ],
       \ },
       \ 'tabline': {
