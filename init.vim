@@ -126,6 +126,7 @@ if has('nvim')
   Plug 'zchee/deoplete-jedi'
 endif
 Plug 'pythoncomplete'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Rust
 Plug 'racer-rust/vim-racer'
