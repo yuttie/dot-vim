@@ -73,6 +73,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'
 Plug 'yonchu/accelerated-smooth-scroll'
+Plug 'yuttie/comfortable-motion.vim'
 
 " UI enhancements
 " Completion (neocomplete/deoplete)
