@@ -149,10 +149,10 @@ Plug 'fatih/vim-go'
 Plug 'gtk-vim-syntax'
 Plug 'guns/vim-sexp'
 Plug 'jceb/vim-orgmode'
-Plug 'jtratner/vim-flavored-markdown'
 Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-markdown'
+Plug 'rhysd/vim-gfm-syntax'
 Plug 'vim-ruby/vim-ruby'
 Plug 'def-lkb/ocp-indent-vim'
 Plug 'cespare/vim-toml'
@@ -987,9 +987,8 @@ autocmd MyAutoCmds FileType vim setlocal shiftwidth=2
 
 
 " {{{ Markdown
-autocmd MyAutoCmds BufNewFile,BufRead *.{md,mkd,mkdn,mark*} setlocal filetype=ghmarkdown
 autocmd MyAutoCmds FileType markdown   set shiftwidth=4
-autocmd MyAutoCmds FileType ghmarkdown set shiftwidth=4
+let g:markdown_fenced_languages = ['cpp', 'ruby', 'json']
 " }}}
 
 
