@@ -898,9 +898,9 @@ smap <C-k>  <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>  <Plug>(neosnippet_expand_target)
 xmap <C-l>  <Plug>(neosnippet_start_unite_snippet_target)
 
-" For snippet_complete marker.
+" Don't use conceal
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=0
 endif
 " }}}
 
