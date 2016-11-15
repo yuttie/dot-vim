@@ -438,8 +438,7 @@ nnoremap <silent> [help]df :<C-u>Unite function<CR>
 
 nnoremap [Plug] <Nop>
 nmap     [Space]P [Plug]
-nnoremap <silent> [Plug]P :PlugUpdate<CR>
-nnoremap <silent> [Plug]u :PlugUpgrade<CR>
+nnoremap <silent> [Plug]P :PlugUpgrade \| PlugUpdate<CR>
 nnoremap <silent> [Plug]i :PlugInstall<CR>
 nnoremap <silent> [Plug]c :PlugClean<CR>
 nnoremap <silent> [Plug]s :PlugStatus<CR>
