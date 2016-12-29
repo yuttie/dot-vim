@@ -169,7 +169,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'ryanoasis/vim-devicons'    " This must be loaded after its supported plugins
 Plug 'tomasr/molokai'
 Plug 'w0ng/vim-hybrid'
-Plug 'yuttie/hydrangea-theme'
+Plug 'yuttie/hydrangea-theme', { 'branch': 'v4' }
 
 call plug#end()
 " }}}
@@ -293,8 +293,8 @@ endif
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  set background=light
-  colorscheme PaperColor
+  set background=dark
+  colorscheme hydrangea
 endif
 
 " }}}
