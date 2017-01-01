@@ -34,6 +34,7 @@ Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-cursorword'
+Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/vim-parenmatch'
 Plug 'jamessan/vim-gnupg'
 Plug 'jiangmiao/auto-pairs'
@@ -553,7 +554,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
-      \     [ 'readonly', 'relativepath', 'modified' ],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
       \   ],
       \ },
       \ 'inactive': {
@@ -577,6 +578,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'filetype':    'g:lightline.my.filetype',
       \   'fileformat':  'g:lightline.my.fileformat',
+      \   'git_branch':  'g:lightline.my.git_branch',
       \ },
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
@@ -587,6 +589,13 @@ function! g:lightline.my.filetype()
 endfunction
 function! g:lightline.my.fileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+function! g:lightline.my.git_branch()
+  if gitbranch#name() == ''
+    return ''
+  else
+    return winwidth(0) > 70 ? '' . gitbranch#name() : ''
+  endif
 endfunction
 " }}}
 
