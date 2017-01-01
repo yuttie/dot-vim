@@ -1,6 +1,11 @@
 scriptencoding utf-8
 
 
+" {{{ $PATH
+let $PATH = expand('~/.cargo/bin') . ':' . $PATH
+" }}}
+
+
 " {{{ Plugins
 " Execute the following command line first:
 "   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
