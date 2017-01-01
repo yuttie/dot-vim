@@ -32,7 +32,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/matchit.zip'
 Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
-Plug 'hewes/unite-gtags'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/vim-parenmatch'
@@ -93,15 +92,7 @@ else
   Plug 'Shougo/neocomplete.vim'
 endif
 
-" Interactive filter (unite)
-Plug 'h1mesuke/unite-outline'
-Plug 'sgur/unite-qf'
-Plug 'Shougo/unite-help'
-Plug 'Shougo/unite-session'
-Plug 'Shougo/unite.vim'
-Plug 'tsukkee/unite-tag'
-Plug 'ujihisa/unite-colorscheme'
-Plug 'ujihisa/unite-locate'
+" Interactive filter
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': function('DoRemoteUpdate') }
 else
@@ -118,8 +109,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'dag/vim2hs'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
-Plug 'eagletmt/unite-haddock'
-Plug 'ujihisa/unite-haskellimport'
 
 " PHP
 Plug '2072/PHP-Indenting-for-VIm'
@@ -438,10 +427,8 @@ cmap w!! w !sudo tee > /dev/null %
 " Space-prefixed bindings
 nnoremap [help] <Nop>
 nmap     [Space]h [help]
-nnoremap <silent> [help]h :<C-u>Unite help -buffer-name=help<CR>
-nnoremap <silent> [help]dm :<C-u>Unite mapping<CR>
-nnoremap <silent> [help]dc :<C-u>Unite command<CR>
-nnoremap <silent> [help]df :<C-u>Unite function<CR>
+nnoremap <silent> [help]h  :<C-u>Denite help<CR>
+nnoremap <silent> [help]dC :<C-u>Denite colorscheme<CR>
 
 nnoremap [Plug] <Nop>
 nmap     [Space]P [Plug]
@@ -470,11 +457,11 @@ nnoremap <silent> [search]gg :<C-u>Denite grep<CR>
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]b :<C-u>Unite buffer -buffer-name=buffer <CR>
+nnoremap <silent> [buffer]b :<C-u>Denite buffer<CR>
 
 nnoremap [project] <Nop>
 nmap     [Space]p [project]
-nnoremap <silent> [project]f :<C-u>Unite file_rec/git -buffer-name=git-files <CR>
+nnoremap <silent> [project]f :<C-u>DeniteProjectDir file_rec/git<CR>
 
 nnoremap [error] <Nop>
 nmap     [Space]e [error]
@@ -620,7 +607,6 @@ endfunction
 let g:better_whitespace_filetypes_blacklist = [
       \ 'diff',
       \ 'gitcommit',
-      \ 'unite',
       \ 'qf',
       \ 'help',
       \ 'gita-blame-navi',
@@ -752,45 +738,12 @@ let g:vimfiler_tree_closed_icon = '►'
 " }}}
 
 
-" {{{ unite.vim
-" The prefix key.
-nnoremap [unite]   <Nop>
-nmap     [Space]u  [unite]
-
-if has('nvim')
-  nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files       buffer bookmark file_rec/neovim<CR>
-  nnoremap <silent> [unite]F  :<C-u>UniteWithBufferDir  -buffer-name=files       buffer bookmark file_rec/neovim<CR>
-else
-  nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files       buffer bookmark file_rec/async<CR>
-  nnoremap <silent> [unite]F  :<C-u>UniteWithBufferDir  -buffer-name=files       buffer bookmark file_rec/async<CR>
-endif
-nnoremap <silent> [unite]g  :<C-u>Unite file_rec/git  -buffer-name=git-files                <CR>
-nnoremap <silent> [unite]b  :<C-u>Unite buffer        -buffer-name=buffer                   <CR>
-nnoremap <silent> [unite]G  :<C-u>Unite grep/git      -buffer-name=git-grep                 <CR>
-nnoremap          [unite]u  :<C-u>Unite source        -buffer-name=source                   <CR>
-nnoremap <silent> [unite]r  :<C-u>Unite register      -buffer-name=register                 <CR>
-nnoremap <silent> [unite]h  :<C-u>Unite help          -buffer-name=help                     <CR>
-nnoremap <silent> [unite]s  :<C-u>Unite line          -buffer-name=search      -no-quit     <CR>
-nnoremap <silent> [unite]c  :<C-u>Unite colorscheme   -buffer-name=colorscheme -auto-preview<CR>
-nnoremap <silent> [unite]q  :<C-u>Unite qf            -buffer-name=quickfix    -auto-preview<CR>
-
-" Like ctrlp.vim settings.
-call unite#custom#profile('default', 'context', {
-  \   'start_insert': 1,
-  \   'prompt_direction': 'top',
-  \   'direction': 'botright',
-  \ })
-
-autocmd MyAutoCmds FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  nmap <buffer>       <ESC> <Plug>(unite_exit)
-  imap <buffer>       qq    <Plug>(unite_exit)
-  imap <buffer>       jj    <Plug>(unite_insert_leave)
-  imap <buffer>       kk    <Plug>(unite_insert_leave)
-  imap <buffer><expr> j     unite#smart_map('j', '')
-  imap <buffer>       <TAB> <Plug>(unite_select_next_line)
-  imap <buffer>       <C-w> <Plug>(unite_delete_backward_path)
-endfunction
+" {{{ denite.nvim
+call denite#custom#var("file_rec", "command",
+\ ["rg", "--files"])
+call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+call denite#custom#var('file_rec/git', 'command',
+\ ['git', 'ls-files', '-co', '--exclude-standard'])
 " }}}
 
 
@@ -801,11 +754,6 @@ autocmd FileType php setlocal commentstring=//\ %s
 
 " {{{ lambdalisue/vim-unified-diff
 set diffexpr=unified_diff#diffexpr()
-" }}}
-
-
-" {{{ unite-haddock
-let g:unite_source_haddock_browser = 'firefox'
 " }}}
 
 
@@ -903,7 +851,6 @@ endif
 imap <C-k>  <Plug>(neosnippet_expand_or_jump)
 smap <C-k>  <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>  <Plug>(neosnippet_expand_target)
-xmap <C-l>  <Plug>(neosnippet_start_unite_snippet_target)
 
 " Don't use conceal
 if has('conceal')
@@ -1057,12 +1004,6 @@ autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <ESC><ESC>  :nohlsearch \| :GhcModTypeClear<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]c  :GhcModCheckAsync<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]t  :GhcModType<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]a  :<C-u>Unite haddock -start-insert<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]A  :<C-u>UniteWithCursorWord haddock<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]i  :<C-u>Unite haskellimport -start-insert<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]I  :<C-u>UniteWithCursorWord haskellimport<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]o  :<C-u>Unite hoogle -start-insert<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]O  :<C-u>UniteWithCursorWord hoogle<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
 
 " Use the old regexp engine because the new NFA engine is slow for Haskell's syntax highlighting.
