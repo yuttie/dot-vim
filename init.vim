@@ -866,7 +866,7 @@ let g:vimshell_scrollback_limit = 5000
 
 " The prefix key.
 nnoremap [vimshell]   <Nop>
-nmap     [Space]s  [vimshell]
+nmap     [Space]S  [vimshell]
 
 nnoremap <silent> [vimshell]  :VimShell<CR>
 " }}}
