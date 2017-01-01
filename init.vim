@@ -102,7 +102,7 @@ endif
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'gregsexton/gitv'
-Plug 'lambdalisue/vim-gita'
+Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-fugitive'
 
 " Haskell
@@ -568,7 +568,7 @@ let g:lightline = {
       \   ],
       \   'right': [
       \     [ 'close' ],
-      \     [ 'git_branch', 'git_traffic', 'git_status', 'cwd' ],
+      \     [ 'cwd' ],
       \   ]
       \ },
       \ 'component': {
@@ -577,9 +577,6 @@ let g:lightline = {
       \ 'component_function': {
       \   'filetype':    'g:lightline.my.filetype',
       \   'fileformat':  'g:lightline.my.fileformat',
-      \   'git_branch':  'g:lightline.my.git_branch',
-      \   'git_traffic': 'g:lightline.my.git_traffic',
-      \   'git_status':  'g:lightline.my.git_status',
       \ },
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
@@ -591,15 +588,6 @@ endfunction
 function! g:lightline.my.fileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
-function! g:lightline.my.git_branch()
-  return winwidth(0) > 70 ? gita#statusline#format('%{ |}ln/%lb') : ''
-endfunction
-function! g:lightline.my.git_traffic()
-  return winwidth(0) > 70 ? gita#statusline#format('%{￬| }ic%{￪| }og') : ''
-endfunction
-function! g:lightline.my.git_status()
-  return winwidth(0) > 70 ? gita#statusline#preset('status') : ''
-endfunction
 " }}}
 
 
@@ -609,7 +597,6 @@ let g:better_whitespace_filetypes_blacklist = [
       \ 'gitcommit',
       \ 'qf',
       \ 'help',
-      \ 'gita-blame-navi',
       \ ]
 " }}}
 
@@ -707,21 +694,17 @@ let g:GPGPreferSymmetric = 1
 " }}}
 
 
-" {{{ fugitive
+" {{{ Git
 autocmd MyAutoCmds FileType gitcommit set spell
+
+let g:gitgutter_map_keys = 0
+let g:gitgutter_max_signs = 5000
 
 nnoremap [git]  <Nop>
 nmap     <C-g>  [git]
 
-nnoremap <silent> [git]c      :Gcommit -v<CR>
+nnoremap <silent> [git]c      :Gina commit -v<CR>
 nnoremap <silent> [git]<C-d>  :Gdiff<CR>
-" }}}
-
-
-" {{{ gitgutter
-let g:gitgutter_map_keys = 0
-let g:gitgutter_max_signs = 5000
-
 nmap [git]<C-n> <Plug>GitGutterNextHunk
 nmap [git]<C-p> <Plug>GitGutterPrevHunk
 nmap [git]<C-s> <Plug>GitGutterStageHunk
