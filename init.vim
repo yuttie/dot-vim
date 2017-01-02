@@ -505,6 +505,10 @@ nmap     [Space]jl      <Plug>(easymotion-overwin-line)
 xmap     [Space]jl      <Plug>(easymotion-bd-jk)
 omap     [Space]jl      <Plug>(easymotion-bd-jk)
 
+nnoremap [quit] <Nop>
+nmap     [Space]q [quit]
+nnoremap <silent> [quit]q :confirm qall<CR>
+
 " close a help window by `q'
 autocmd MyAutoCmds FileType help,ref-pydoc nnoremap <buffer><silent> q :close<CR>
 " }}}
