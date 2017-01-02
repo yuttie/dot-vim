@@ -736,10 +736,25 @@ let g:vimfiler_tree_closed_icon = '►'
 
 " {{{ denite.nvim
 call denite#custom#var("file_rec", "command",
-\ ["rg", "--files"])
+\ ['rg', '--files', '--glob', '!.git'])
 call denite#custom#alias('source', 'file_rec/git', 'file_rec')
 call denite#custom#var('file_rec/git', 'command',
 \ ['git', 'ls-files', '-co', '--exclude-standard'])
+
+call denite#custom#map(
+\ 'insert',
+\ '<C-n>',
+\ '<denite:move_to_next_line>',
+\ 'noremap'
+\)
+call denite#custom#map(
+\ 'insert',
+\ '<C-p>',
+\ '<denite:move_to_previous_line>',
+\ 'noremap'
+\)
+
+call denite#custom#option('default', 'prompt', '>')
 " }}}
 
 
