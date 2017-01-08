@@ -215,6 +215,7 @@ set completeopt=menuone
 " 15 tabs and indenting
 set expandtab     " Use white-space instead of tabs.
 set shiftwidth=4  " Set indent width on autoindent.
+set shiftround
 set autoindent    " Always set auto-indenting on.
 set smartindent   " Use smart indenting.
 set smarttab
