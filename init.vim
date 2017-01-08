@@ -1023,7 +1023,7 @@ autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
 
 
 " {{{ Rust
-let $RUST_SRC_PATH = expand("~/rust/src/")
+let $RUST_SRC_PATH = expand("~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
 " }}}
 
 
