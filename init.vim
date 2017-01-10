@@ -177,6 +177,7 @@ set nocompatible
 
 " 2 moving around, searching and patterns
 set incsearch
+set inccommand=nosplit
 set ignorecase
 set smartcase
 set nowrapscan
