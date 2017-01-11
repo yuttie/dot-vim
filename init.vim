@@ -632,6 +632,19 @@ let g:indentLine_char = '¦'
 " }}}
 
 
+" {{{ comfortable-motion.vim
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+
+nnoremap <silent> <C-f>      :call comfortable_motion#flick(200)<CR>
+nnoremap <silent> <C-b>      :call comfortable_motion#flick(-200)<CR>
+nnoremap <silent> <PageDown> :call comfortable_motion#flick(200)<CR>
+nnoremap <silent> <PageUp>   :call comfortable_motion#flick(-200)<CR>
+nnoremap <silent> <MouseDown> :call comfortable_motion#flick(200)<CR>
+nnoremap <silent> <MouseUp>   :call comfortable_motion#flick(-200)<CR>
+" }}}
+
+
 " {{{ vim-expand-region
 vmap + <Plug>(expand_region_expand)
 vmap - <Plug>(expand_region_shrink)
