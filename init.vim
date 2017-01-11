@@ -495,17 +495,24 @@ xmap     [comment]y ygv<Plug>(caw:hatpos:comment)g;p
 nmap     [comment]o <Plug>(caw:jump:comment-next)
 nmap     [comment]O <Plug>(caw:jump:comment-prev)
 
-nmap     [Space]jj      <Plug>(easymotion-overwin-f)
-xmap     [Space]jj      <Plug>(easymotion-bd-f)
-omap     [Space]jj      <Plug>(easymotion-bd-f)
+nnoremap [jump] <Nop>
+nmap     [Space]j [jump]
+xmap     [Space]j [jump]
+omap     [Space]j [jump]
 
-nmap     [Space]jw      <Plug>(easymotion-overwin-w)
-xmap     [Space]jw      <Plug>(easymotion-bd-w)
-omap     [Space]jw      <Plug>(easymotion-bd-w)
+nmap     [jump]j      <Plug>(easymotion-overwin-f)
+xmap     [jump]j      <Plug>(easymotion-bd-f)
+omap     [jump]j      <Plug>(easymotion-bd-f)
 
-nmap     [Space]jl      <Plug>(easymotion-overwin-line)
-xmap     [Space]jl      <Plug>(easymotion-bd-jk)
-omap     [Space]jl      <Plug>(easymotion-bd-jk)
+nmap     [jump]w      <Plug>(easymotion-overwin-w)
+xmap     [jump]w      <Plug>(easymotion-bd-w)
+omap     [jump]w      <Plug>(easymotion-bd-w)
+
+nmap     [jump]l      <Plug>(easymotion-overwin-line)
+xmap     [jump]l      <Plug>(easymotion-bd-jk)
+omap     [jump]l      <Plug>(easymotion-bd-jk)
+
+nmap     [jump]i      :Denite outline<CR>
 
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
