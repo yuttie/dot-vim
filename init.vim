@@ -640,8 +640,10 @@ nnoremap <silent> <C-f>      :call comfortable_motion#flick(200)<CR>
 nnoremap <silent> <C-b>      :call comfortable_motion#flick(-200)<CR>
 nnoremap <silent> <PageDown> :call comfortable_motion#flick(200)<CR>
 nnoremap <silent> <PageUp>   :call comfortable_motion#flick(-200)<CR>
-nnoremap <silent> <MouseDown> :call comfortable_motion#flick(200)<CR>
-nnoremap <silent> <MouseUp>   :call comfortable_motion#flick(-200)<CR>
+
+set mouse=nv
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " }}}
 
 
