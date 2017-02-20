@@ -272,6 +272,12 @@ augroup MyAutoCmds
 augroup end
 
 
+" Prefer POSIX compatible shell
+if &shell =~# 'fish$'
+  set shell=sh
+endif
+
+
 " Syntax highlighting                                                        {{{
 " ==============================================================================
 
