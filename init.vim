@@ -109,7 +109,7 @@ Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-fugitive'
 
 " Haskell
-Plug 'dag/vim2hs'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
 
