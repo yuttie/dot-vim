@@ -1038,6 +1038,8 @@ let g:vim_json_syntax_conceal = 0
 let g:haskell_conceal              = 0
 let g:haskell_conceal_enumerations = 0
 
+autocmd MyAutoCmds FileType haskell setlocal omnifunc=necoghc#omnifunc
+
 autocmd MyAutoCmds FileType haskell nnoremap <buffer> [haskell]   <Nop>
 autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
 
