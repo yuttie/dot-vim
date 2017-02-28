@@ -141,6 +141,13 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/yajs.vim'
 Plug 'pbrisbin/html-template-syntax'
 
+" Markdown
+" Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
+" or
+Plug 'tpope/vim-markdown'
+Plug 'tyru/markdown-codehl-onthefly.vim'
+
 " Other filetype-specific plugins
 Plug 'fatih/vim-go'
 Plug 'gtk-vim-syntax'
@@ -148,9 +155,7 @@ Plug 'guns/vim-sexp'
 Plug 'jceb/vim-orgmode'
 Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'tpope/vim-markdown'
 Plug 'rhysd/vim-gfm-syntax'
-Plug 'tyru/markdown-codehl-onthefly.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'def-lkb/ocp-indent-vim'
 Plug 'cespare/vim-toml'
