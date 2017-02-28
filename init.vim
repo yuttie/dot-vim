@@ -184,7 +184,9 @@ set nocompatible
 
 " 2 moving around, searching and patterns
 set incsearch
-set inccommand=nosplit
+if has('nvim')
+  set inccommand=nosplit
+endif
 set ignorecase
 set smartcase
 set nowrapscan
