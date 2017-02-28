@@ -56,7 +56,6 @@ Plug 'osyo-manga/shabadou.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'scratch'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'Shougo/echodoc'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet'
@@ -78,6 +77,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tyru/caw.vim'
 Plug 'tyru/open-browser.vim'
+Plug 'w0rp/ale'
 Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'
 Plug 'yonchu/accelerated-smooth-scroll'
@@ -966,14 +966,6 @@ call echodoc#enable()
 " {{{ vim-ref
 let g:ref_alc_start_linenumber = 42
 let g:ref_refe_encoding = 'euc-jp'
-" }}}
-
-
-" {{{ Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 " }}}
 
 
