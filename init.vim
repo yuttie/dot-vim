@@ -23,7 +23,6 @@ let g:loaded_matchparen = 1
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'AndrewRadev/sideways.vim'
-Plug 'benekastah/neomake'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'chriskempson/base16-vim'
 Plug 'dag/vim-fish'
