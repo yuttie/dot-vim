@@ -1067,11 +1067,11 @@ autocmd MyAutoCmds FileType css  setlocal shiftwidth=2
 
 
 " {{{ PHP
-function! PhpSyntaxOverride()
+function! s:PhpOverrideSyntaxHighlight()
   hi! def link phpDocTags  phpDefine
   hi! def link phpDocParam phpType
 endfunction
-autocmd MyAutoCmds FileType php call PhpSyntaxOverride()
+autocmd MyAutoCmds FileType php call s:PhpOverrideSyntaxHighlight()
 " }}}
 
 
