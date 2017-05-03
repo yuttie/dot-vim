@@ -53,7 +53,7 @@ Plug 'mopp/layoutplugin.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/shabadou.vim'
 Plug 'rhysd/clever-f.vim'
-Plug 'scratch'
+Plug 'vim-scripts/scratch'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/echodoc'
 Plug 'Shougo/neomru.vim'
@@ -121,7 +121,7 @@ Plug 'StanAngeloff/php.vim'
 if has('nvim')
   Plug 'zchee/deoplete-jedi'
 endif
-Plug 'pythoncomplete'
+Plug 'vim-scripts/pythoncomplete'
 Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Rust
@@ -149,7 +149,7 @@ Plug 'tyru/markdown-codehl-onthefly.vim'
 
 " Other filetype-specific plugins
 Plug 'fatih/vim-go'
-Plug 'gtk-vim-syntax'
+Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'guns/vim-sexp'
 Plug 'jceb/vim-orgmode'
 Plug 'lervag/vimtex'
