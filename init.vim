@@ -745,7 +745,7 @@ let g:GPGPreferSymmetric = 1
 
 
 " {{{ Git
-autocmd MyAutoCmds FileType gitcommit set spell
+autocmd MyAutoCmds FileType gitcommit setlocal spell
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 5000
@@ -981,24 +981,24 @@ autocmd MyAutoCmds FileType vim setlocal shiftwidth=2
 
 
 " {{{ Markdown
-autocmd MyAutoCmds FileType markdown   set shiftwidth=4
+autocmd MyAutoCmds FileType markdown   setlocal shiftwidth=4
 let g:markdown_fenced_languages = ['cpp', 'ruby', 'json']
 let g:markdown_syntax_conceal = 0
 " }}}
 
 
 " {{{ C/C++
-autocmd MyAutoCmds BufNewFile,BufRead *.cpp set matchpairs+=<:>
+autocmd MyAutoCmds BufNewFile,BufRead *.cpp setlocal matchpairs+=<:>
 " }}}
 
 
 " {{{ Shell Scripts
-autocmd MyAutoCmds FileType sh,csh,tcsh,zsh set shiftwidth=2
+autocmd MyAutoCmds FileType sh,csh,tcsh,zsh setlocal shiftwidth=2
 " }}}
 
 
 " {{{ Ruby
-autocmd MyAutoCmds FileType ruby,eruby set shiftwidth=2
+autocmd MyAutoCmds FileType ruby,eruby setlocal shiftwidth=2
 " }}}
 
 
@@ -1008,10 +1008,10 @@ let deoplete#sources#jedi#show_docstring = 1
 
 
 " {{{ Python
-autocmd MyAutoCmds FileType python set tabstop=8
-autocmd MyAutoCmds FileType python set expandtab
-autocmd MyAutoCmds FileType python set softtabstop=4
-autocmd MyAutoCmds FileType python set shiftwidth=4
+autocmd MyAutoCmds FileType python setlocal tabstop=8
+autocmd MyAutoCmds FileType python setlocal expandtab
+autocmd MyAutoCmds FileType python setlocal softtabstop=4
+autocmd MyAutoCmds FileType python setlocal shiftwidth=4
 " }}}
 
 
