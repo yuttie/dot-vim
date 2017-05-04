@@ -1072,6 +1072,14 @@ function! s:PhpOverrideSyntaxHighlight()
   hi! def link phpDocParam phpType
 endfunction
 autocmd MyAutoCmds FileType php call s:PhpOverrideSyntaxHighlight()
+
+function! s:PHPFix()
+  set nocursorline
+  let b:cursorword = 0
+  autocmd InsertEnter <buffer> DisableWhitespace
+  autocmd InsertLeave <buffer> EnableWhitespace
+endfunction
+autocmd MyAutoCmds FileType php call s:PHPFix()
 " }}}
 
 
