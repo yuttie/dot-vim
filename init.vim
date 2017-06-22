@@ -1061,8 +1061,9 @@ let g:racer_experimental_completer = 1
 
 
 " {{{ Web
-autocmd MyAutoCmds FileType html setlocal shiftwidth=2
-autocmd MyAutoCmds FileType css  setlocal shiftwidth=2
+autocmd MyAutoCmds FileType javascript setlocal shiftwidth=2
+autocmd MyAutoCmds FileType html       setlocal shiftwidth=2
+autocmd MyAutoCmds FileType css        setlocal shiftwidth=2
 " }}}
 
 
