@@ -130,7 +130,9 @@ Plug 'rust-lang/rust.vim'
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
-Plug 'mhartington/nvim-typescript'
+if has('nvim')
+  Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
+endif
 
 " Web
 Plug 'csscomb/vim-csscomb'
