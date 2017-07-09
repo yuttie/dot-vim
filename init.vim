@@ -128,6 +128,10 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/nvim-typescript'
+
 " Web
 Plug 'csscomb/vim-csscomb'
 Plug 'ervandew/sgmlendtag'
