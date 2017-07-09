@@ -137,11 +137,9 @@ Plug 'csscomb/vim-csscomb'
 Plug 'ervandew/sgmlendtag'
 Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'jiangmiao/simple-javascript-indenter'
+Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim'
 Plug 'othree/csscomplete.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'othree/yajs.vim'
 Plug 'pbrisbin/html-template-syntax'
 
 " Markdown
