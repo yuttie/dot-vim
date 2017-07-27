@@ -23,43 +23,32 @@ let g:loaded_matchparen = 1
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'AndrewRadev/sideways.vim'
-Plug 'carlitux/deoplete-ternjs'
-Plug 'chriskempson/base16-vim'
-Plug 'dag/vim-fish'
 Plug 'dannyob/quickfixstatus'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/matchit.zip'
 Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/vim-parenmatch'
-Plug 'jamessan/vim-gnupg'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jreybert/vimagit'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
-Plug 'kannokanno/previm'
 Plug 'Konfekt/FastFold'
 Plug 'lambdalisue/vim-unified-diff'
 Plug 'lilydjwg/colorizer'
-Plug 'mattn/gist-vim'
 Plug 'mbbill/undotree'
-Plug 'mopp/layoutplugin.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'osyo-manga/shabadou.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'vim-scripts/scratch'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/echodoc'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/vimfiler'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/vim-vcs'
@@ -68,7 +57,6 @@ Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-fontzoom'
-Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-projectionist'
@@ -101,11 +89,18 @@ else
   Plug 'Shougo/denite.nvim'
 endif
 
+" fish shell
+Plug 'dag/vim-fish'
+
 " Git
+Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
 Plug 'gregsexton/gitv'
 Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-fugitive'
+
+" GitHub
+Plug 'mattn/gist-vim'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
@@ -124,6 +119,9 @@ endif
 Plug 'vim-scripts/pythoncomplete'
 Plug 'Glench/Vim-Jinja2-Syntax'
 
+" Ruby
+Plug 'vim-ruby/vim-ruby'
+
 " Rust
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
@@ -134,39 +132,50 @@ if has('nvim')
   Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
 endif
 
-" Web
+" Vim
+Plug 'mopp/layoutplugin.vim'
+Plug 'vim-jp/syntax-vim-ex'
+
+" Web/CSS
 Plug 'csscomb/vim-csscomb'
-Plug 'ervandew/sgmlendtag'
-Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'mattn/emmet-vim'
 Plug 'othree/csscomplete.vim'
+Plug 'cakebaker/scss-syntax.vim'
+
+" Web/JavaScript
+Plug 'carlitux/deoplete-ternjs'
+Plug 'pangloss/vim-javascript'
+
+" Web/HTML
+Plug 'mattn/emmet-vim'
+Plug 'ervandew/sgmlendtag'
 Plug 'pbrisbin/html-template-syntax'
 
 " Markdown
 " Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 " or
+Plug 'rhysd/vim-gfm-syntax'
+Plug 'kannokanno/previm'
 Plug 'tpope/vim-markdown'
 Plug 'tyru/markdown-codehl-onthefly.vim'
 
 " Other filetype-specific plugins
+Plug 'jamessan/vim-gnupg'
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'guns/vim-sexp'
 Plug 'jceb/vim-orgmode'
 Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'rhysd/vim-gfm-syntax'
-Plug 'vim-ruby/vim-ruby'
 Plug 'def-lkb/ocp-indent-vim'
 Plug 'cespare/vim-toml'
 Plug 'elzr/vim-json'
-Plug 'vim-jp/syntax-vim-ex'
 Plug 'JuliaLang/julia-vim'
 
 " Themes
+Plug 'itchyny/lightline.vim'
+Plug 'chriskempson/base16-vim'
 Plug '29decibel/codeschool-vim-theme'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'nanotech/jellybeans.vim'
