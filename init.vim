@@ -1067,8 +1067,6 @@ autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
 
 
 " {{{ vim-racer
-let $RUST_SRC_PATH = expand("~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
-let g:racer_cmd = expand("~/.cargo/bin")
 let g:racer_experimental_completer = 1
 " }}}
 
