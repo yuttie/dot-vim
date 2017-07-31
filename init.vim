@@ -1066,6 +1066,11 @@ autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
 " }}}
 
 
+" {{{ ALE
+let g:ale_rust_cargo_use_check = 1
+" }}}
+
+
 " {{{ vim-racer
 let g:racer_experimental_completer = 1
 " }}}
