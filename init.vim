@@ -700,12 +700,6 @@ vmap - <Plug>(expand_region_shrink)
 " }}}
 
 
-" {{{ delimitMate
-let delimitMate_expand_cr = 1
-let delimitMate_jump_expansion = 0
-" }}}
-
-
 " {{{ accelerated-smooth-scroll
 let g:ac_smooth_scroll_no_default_key_mappings = 1
 let g:ac_smooth_scroll_du_sleep_time_msec = 5
@@ -766,19 +760,9 @@ xmap     [easy-align]  <Plug>(EasyAlign)
 " }}}
 
 
-" {{{ openbrowser.vim
+" {{{ open-browser.vim
 nmap gw <Plug>(openbrowser-smart-search)
 vmap gw <Plug>(openbrowser-smart-search)
-" }}}
-
-
-" {{{ skk.vim
-let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
-let skk_auto_save_jisyo = 1
-let skk_show_annnotation = 1
-let skk_use_face = 1
-let skk_keyboard_layout = 'act'
-let skk_control_j_key = '<C-j>'
 " }}}
 
 
@@ -972,28 +956,6 @@ nnoremap [vimshell]   <Nop>
 nmap     [Space]S  [vimshell]
 
 nnoremap <silent> [vimshell]  :VimShell<CR>
-" }}}
-
-
-" {{{ quickrun
-let g:quickrun_no_default_key_mappings = 1
-let g:quickrun_config = {}
-let g:quickrun_config['markdown/pandoc'] = {
-  \   'cmdopt': '--standalone --katex',
-  \   'outputter': 'browser'
-  \}
-let g:quickrun_config['cpp/clang++'] = {
-  \   'cmdopt': '-std=c++11'
-  \}
-let g:quickrun_config['cpp/g++'] = {
-  \   'cmdopt': '-std=c++11'
-  \}
-
-" The prefix key.
-nnoremap [quickrun]   <Nop>
-nmap     [Space]r  [quickrun]
-
-nmap <silent> [quickrun]  <Plug>(quickrun)
 " }}}
 
 
