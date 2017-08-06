@@ -62,7 +62,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/vim-operator-surround'  " depends on 'kana/vim-operator-user'
 " Plug 'vim-scripts/scratch'
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'Shougo/echodoc'
+Plug 'Shougo/echodoc'
 " Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -997,13 +997,13 @@ nmap <silent> [quickrun]  <Plug>(quickrun)
 " }}}
 
 
-" " {{{ echodoc
-" set cmdheight=2
-" " Explicitly enable echodoc.
-" " This is a fix to use the plugin with vim-plug which loads the plugin before
-" " we let g:echodoc_enable_at_startup = 1 here.
-" call echodoc#enable()
-" " }}}
+" {{{ echodoc
+set cmdheight=2
+" Explicitly enable echodoc.
+" This is a fix to use the plugin with vim-plug which loads the plugin before
+" we let g:echodoc_enable_at_startup = 1 here.
+call echodoc#enable()
+" }}}
 
 
 " {{{ vim-ref
