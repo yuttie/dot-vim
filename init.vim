@@ -53,7 +53,7 @@ Plug 'rhysd/vim-operator-surround'  " depends on 'kana/vim-operator-user'
 " Plug 'Shougo/vimshell'
 " Plug 'Shougo/vim-vcs'
 " Plug 'Shougo/vinarise'
-" Plug 't9md/vim-choosewin'
+Plug 't9md/vim-choosewin'
 " Plug 'terryma/vim-expand-region'
 " Plug 'terryma/vim-multiple-cursors'
 " Plug 'thinca/vim-fontzoom'
@@ -542,6 +542,8 @@ nmap     [jump]w  <Plug>(easymotion-overwin-w)
 map      [jump]L  <Plug>(easymotion-bd-jk)
 nmap     [jump]L  <Plug>(easymotion-overwin-line)
 
+nmap     [jump]W <Plug>(choosewin)
+
 nmap     [jump]i  :Denite outline<CR>
 
 nnoremap [quit] <Nop>
@@ -726,9 +728,6 @@ map T <Plug>(easymotion-T)
 
 
 " {{{ vim-choosewin
-nnoremap [choosewin] <Nop>
-nmap     [Space]w    [choosewin]
-nmap     [choosewin] <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 let g:choosewin_color_overlay = {
       \ 'gui': ['#484e55', '#484e55'],
