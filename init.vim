@@ -699,8 +699,7 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 
 " {{{ incsearch.vim
 map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map \\ <Plug>(incsearch-stay)
+map ?  <Plug>(incsearch-stay)
 " }}}
 
 
