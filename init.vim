@@ -1082,6 +1082,10 @@ let g:ale_rust_cargo_use_check = 1
 
 " {{{ vim-racer
 let g:racer_experimental_completer = 1
+autocmd MyAutoCmds FileType rust nmap gd <Plug>(rust-def)
+autocmd MyAutoCmds FileType rust nmap gs <Plug>(rust-def-split)
+autocmd MyAutoCmds FileType rust nmap gx <Plug>(rust-def-vertical)
+autocmd MyAutoCmds FileType rust nmap gD <Plug>(rust-doc)
 " }}}
 
 
