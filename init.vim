@@ -20,59 +20,58 @@ call plug#begin(s:my_plugin_dir)
 let g:loaded_matchparen = 1
 
 " Plugins
-Plug 'AndrewRadev/inline_edit.vim'
-Plug 'AndrewRadev/linediff.vim'
-Plug 'AndrewRadev/sideways.vim'
-Plug 'dannyob/quickfixstatus'
-Plug 'dhruvasagar/vim-table-mode'
+" Plug 'AndrewRadev/inline_edit.vim'
+" Plug 'AndrewRadev/linediff.vim'
+" Plug 'AndrewRadev/sideways.vim'
+" Plug 'dannyob/quickfixstatus'
+" Plug 'dhruvasagar/vim-table-mode'
 Plug 'easymotion/vim-easymotion'
-Plug 'vim-scripts/matchit.zip'
-Plug 'godlygeek/tabular'
+" Plug 'vim-scripts/matchit.zip'
+" Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
-Plug 'itchyny/vim-cursorword'
-Plug 'itchyny/vim-gitbranch'
-Plug 'itchyny/vim-parenmatch'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/vim-easy-align'
-Plug 'kana/vim-operator-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-user'
-Plug 'Konfekt/FastFold'
-Plug 'lambdalisue/vim-unified-diff'
-Plug 'lilydjwg/colorizer'
-Plug 'mbbill/undotree'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'rhysd/clever-f.vim'
-Plug 'vim-scripts/scratch'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/echodoc'
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/vimshell'
-Plug 'Shougo/vim-vcs'
-Plug 'Shougo/vinarise'
-Plug 't9md/vim-choosewin'
-Plug 'terryma/vim-expand-region'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'thinca/vim-fontzoom'
-Plug 'thinca/vim-ref'
-Plug 'thinca/vim-visualstar'
-Plug 'tpope/vim-projectionist'
+" Plug 'itchyny/vim-cursorword'
+" Plug 'itchyny/vim-parenmatch'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'kana/vim-operator-user'
+" Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-user'
+" Plug 'Konfekt/FastFold'
+" Plug 'lambdalisue/vim-unified-diff'
+" Plug 'lilydjwg/colorizer'
+" Plug 'mbbill/undotree'
+" Plug 'ntpeters/vim-better-whitespace'
+" Plug 'rhysd/clever-f.vim'
+" Plug 'vim-scripts/scratch'
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'Shougo/echodoc'
+" Plug 'Shougo/neomru.vim'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimshell'
+" Plug 'Shougo/vim-vcs'
+" Plug 'Shougo/vinarise'
+" Plug 't9md/vim-choosewin'
+" Plug 'terryma/vim-expand-region'
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'thinca/vim-fontzoom'
+" Plug 'thinca/vim-ref'
+" Plug 'thinca/vim-visualstar'
+" Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 Plug 'tyru/caw.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'w0rp/ale'
-Plug 'wesQ3/vim-windowswap'
-Plug 'Yggdroot/indentLine'
-Plug 'yonchu/accelerated-smooth-scroll'
+" Plug 'tyru/open-browser.vim'
+" Plug 'w0rp/ale'
+" Plug 'wesQ3/vim-windowswap'
+" Plug 'Yggdroot/indentLine'
+" Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'yuttie/comfortable-motion.vim'
 
 " UI enhancements
 " Completion (neocomplete/deoplete)
-Plug 'ujihisa/neco-look'
+" Plug 'ujihisa/neco-look'
 if has('nvim')
   function! DoRemoteUpdate(arg)
     UpdateRemotePlugins
@@ -90,99 +89,100 @@ else
 endif
 
 " fish shell
-Plug 'dag/vim-fish'
+" Plug 'dag/vim-fish'
 
 " Git
-Plug 'jreybert/vimagit'
+" Plug 'jreybert/vimagit'
+Plug 'itchyny/vim-gitbranch'
 Plug 'airblade/vim-gitgutter'
-Plug 'gregsexton/gitv'
+" Plug 'gregsexton/gitv'
 Plug 'lambdalisue/gina.vim'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " GitHub
-Plug 'mattn/gist-vim'
+" Plug 'mattn/gist-vim'
 
 " Haskell
-Plug 'neovimhaskell/haskell-vim'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'eagletmt/ghcmod-vim'
+" Plug 'eagletmt/neco-ghc'
 
 " PHP
-Plug '2072/PHP-Indenting-for-VIm'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'StanAngeloff/php.vim'
+" Plug '2072/PHP-Indenting-for-VIm'
+" Plug 'shawncplus/phpcomplete.vim'
+" Plug 'StanAngeloff/php.vim'
 
 " Python
 if has('nvim')
   Plug 'zchee/deoplete-jedi'
 endif
-Plug 'vim-scripts/pythoncomplete'
-Plug 'Glench/Vim-Jinja2-Syntax'
+" Plug 'vim-scripts/pythoncomplete'
+" Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Ruby
-Plug 'vim-ruby/vim-ruby'
+" Plug 'vim-ruby/vim-ruby'
 
 " Rust
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 
 " TypeScript
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 if has('nvim')
-  Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
+  " Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
 endif
 
 " Vim
-Plug 'mopp/layoutplugin.vim'
+" Plug 'mopp/layoutplugin.vim'
 Plug 'vim-jp/syntax-vim-ex'
 
 " Web/CSS
-Plug 'csscomb/vim-csscomb'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/csscomplete.vim'
-Plug 'cakebaker/scss-syntax.vim'
+" Plug 'csscomb/vim-csscomb'
+" Plug 'hail2u/vim-css3-syntax'
+" Plug 'othree/csscomplete.vim'
+" Plug 'cakebaker/scss-syntax.vim'
 
 " Web/JavaScript
-Plug 'carlitux/deoplete-ternjs'
-Plug 'pangloss/vim-javascript'
+" Plug 'carlitux/deoplete-ternjs'
+" Plug 'pangloss/vim-javascript'
 
 " Web/HTML
-Plug 'mattn/emmet-vim'
-Plug 'ervandew/sgmlendtag'
-Plug 'pbrisbin/html-template-syntax'
+" Plug 'mattn/emmet-vim'
+" Plug 'ervandew/sgmlendtag'
+" Plug 'pbrisbin/html-template-syntax'
 
 " Markdown
 " Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 " or
-Plug 'rhysd/vim-gfm-syntax'
-Plug 'kannokanno/previm'
-Plug 'tpope/vim-markdown'
-Plug 'tyru/markdown-codehl-onthefly.vim'
+" Plug 'rhysd/vim-gfm-syntax'
+" Plug 'kannokanno/previm'
+" Plug 'tpope/vim-markdown'
+" Plug 'tyru/markdown-codehl-onthefly.vim'
 
 " Other filetype-specific plugins
-Plug 'jamessan/vim-gnupg'
-Plug 'fatih/vim-go'
-Plug 'vim-scripts/gtk-vim-syntax'
-Plug 'guns/vim-sexp'
-Plug 'jceb/vim-orgmode'
-Plug 'lervag/vimtex'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'def-lkb/ocp-indent-vim'
-Plug 'cespare/vim-toml'
-Plug 'elzr/vim-json'
-Plug 'JuliaLang/julia-vim'
+" Plug 'jamessan/vim-gnupg'
+" Plug 'fatih/vim-go'
+" Plug 'vim-scripts/gtk-vim-syntax'
+" Plug 'guns/vim-sexp'
+" Plug 'jceb/vim-orgmode'
+" Plug 'lervag/vimtex'
+" Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'def-lkb/ocp-indent-vim'
+" Plug 'cespare/vim-toml'
+" Plug 'elzr/vim-json'
+" Plug 'JuliaLang/julia-vim'
 
 " Themes
 Plug 'itchyny/lightline.vim'
-Plug 'chriskempson/base16-vim'
-Plug '29decibel/codeschool-vim-theme'
-Plug 'jpo/vim-railscasts-theme'
-Plug 'nanotech/jellybeans.vim'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'chriskempson/base16-vim'
+" Plug '29decibel/codeschool-vim-theme'
+" Plug 'jpo/vim-railscasts-theme'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'NLKNguyen/papercolor-theme'
 Plug 'ryanoasis/vim-devicons'    " This must be loaded after its supported plugins
-Plug 'tomasr/molokai'
-Plug 'w0ng/vim-hybrid'
+" Plug 'tomasr/molokai'
+" Plug 'w0ng/vim-hybrid'
 Plug 'yuttie/hydrangea-theme', { 'branch': 'v4' }
 
 call plug#end()
@@ -978,13 +978,13 @@ nmap <silent> [quickrun]  <Plug>(quickrun)
 " }}}
 
 
-" {{{ echodoc
-set cmdheight=2
-" Explicitly enable echodoc.
-" This is a fix to use the plugin with vim-plug which loads the plugin before
-" we let g:echodoc_enable_at_startup = 1 here.
-call echodoc#enable()
-" }}}
+" " {{{ echodoc
+" set cmdheight=2
+" " Explicitly enable echodoc.
+" " This is a fix to use the plugin with vim-plug which loads the plugin before
+" " we let g:echodoc_enable_at_startup = 1 here.
+" call echodoc#enable()
+" " }}}
 
 
 " {{{ vim-ref
