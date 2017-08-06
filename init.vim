@@ -37,7 +37,7 @@ Plug 'kana/vim-operator-user'
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-user'
 " Plug 'Konfekt/FastFold'
-" Plug 'lambdalisue/vim-unified-diff'
+Plug 'lambdalisue/vim-unified-diff'
 " Plug 'lilydjwg/colorizer'
 " Plug 'mbbill/undotree'
 " Plug 'ntpeters/vim-better-whitespace'
@@ -824,11 +824,6 @@ call denite#custom#option('default', 'prompt', '>')
 
 " {{{ caw.vim
 autocmd FileType php setlocal commentstring=//\ %s
-" }}}
-
-
-" {{{ lambdalisue/vim-unified-diff
-set diffexpr=unified_diff#diffexpr()
 " }}}
 
 
