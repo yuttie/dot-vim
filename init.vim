@@ -25,7 +25,24 @@ Plug 'AndrewRadev/linediff.vim'
 " Plug 'AndrewRadev/sideways.vim'
 " Plug 'dannyob/quickfixstatus'
 " Plug 'dhruvasagar/vim-table-mode'
-Plug 'easymotion/vim-easymotion'  " optionally depends on 'tpope/vim-repeat'
+Plug 'easymotion/vim-easymotion',
+  \ { 'on': [
+  \   '<Plug>(easymotion-f)',
+  \   '<Plug>(easymotion-F)',
+  \   '<Plug>(easymotion-t)',
+  \   '<Plug>(easymotion-T)',
+  \   '<Plug>(easymotion-linebackward)',
+  \   '<Plug>(easymotion-j)',
+  \   '<Plug>(easymotion-k)',
+  \   '<Plug>(easymotion-lineforward)',
+  \   '<Plug>(easymotion-bd-f)',
+  \   '<Plug>(easymotion-overwin-f)',
+  \   '<Plug>(easymotion-bd-w)',
+  \   '<Plug>(easymotion-overwin-w)',
+  \   '<Plug>(easymotion-bd-jk)',
+  \   '<Plug>(easymotion-overwin-line)',
+  \ ] }
+  \ " optionally depends on 'tpope/vim-repeat'
 " Plug 'vim-scripts/matchit.zip'
 " Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
