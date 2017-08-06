@@ -533,17 +533,12 @@ nnoremap <silent> [toggle]p :set paste!<CR>:set paste?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
 
-nmap     [Space];  <Plug>(caw:hatpos:toggle:operator)
-xmap     [Space];  <Plug>(caw:hatpos:toggle:operator)
-nmap     [Space];; <Plug>(caw:hatpos:toggle)
-
 nnoremap [comment] <Nop>
 nmap     [Space]c [comment]
 xmap     [Space]c [comment]
-nmap     [comment]l <Plug>(caw:hatpos:toggle)
-xmap     [comment]l <Plug>(caw:hatpos:toggle)
-nmap     [comment]y yy<Plug>(caw:hatpos:comment)p
-xmap     [comment]y ygv<Plug>(caw:hatpos:comment)g;p
+nmap     [comment]  <Plug>(caw:hatpos:toggle:operator)
+xmap     [comment]  <Plug>(caw:hatpos:toggle:operator)
+nmap     [comment]c <Plug>(caw:hatpos:toggle)
 nmap     [comment]o <Plug>(caw:jump:comment-next)
 nmap     [comment]O <Plug>(caw:jump:comment-prev)
 
