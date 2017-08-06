@@ -523,23 +523,25 @@ nmap     [comment]o <Plug>(caw:jump:comment-next)
 nmap     [comment]O <Plug>(caw:jump:comment-prev)
 
 nnoremap [jump] <Nop>
-nmap     [Space]j [jump]
-xmap     [Space]j [jump]
-omap     [Space]j [jump]
+nmap     [Space]<Space> [jump]
+xmap     [Space]<Space> [jump]
+omap     [Space]<Space> [jump]
 
-nmap     [jump]j      <Plug>(easymotion-overwin-f)
-xmap     [jump]j      <Plug>(easymotion-bd-f)
-omap     [jump]j      <Plug>(easymotion-bd-f)
+map      [jump]h  <Plug>(easymotion-linebackward)
+map      [jump]j  <Plug>(easymotion-j)
+map      [jump]k  <Plug>(easymotion-k)
+map      [jump]l  <Plug>(easymotion-lineforward)
 
-nmap     [jump]w      <Plug>(easymotion-overwin-w)
-xmap     [jump]w      <Plug>(easymotion-bd-w)
-omap     [jump]w      <Plug>(easymotion-bd-w)
+map      [jump]c  <Plug>(easymotion-bd-f)
+nmap     [jump]c  <Plug>(easymotion-overwin-f)
 
-nmap     [jump]l      <Plug>(easymotion-overwin-line)
-xmap     [jump]l      <Plug>(easymotion-bd-jk)
-omap     [jump]l      <Plug>(easymotion-bd-jk)
+map      [jump]w  <Plug>(easymotion-bd-w)
+nmap     [jump]w  <Plug>(easymotion-overwin-w)
 
-nmap     [jump]i      :Denite outline<CR>
+map      [jump]L  <Plug>(easymotion-bd-jk)
+nmap     [jump]L  <Plug>(easymotion-overwin-line)
+
+nmap     [jump]i  :Denite outline<CR>
 
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
@@ -706,6 +708,11 @@ map ?  <Plug>(incsearch-stay)
 " {{{ vim-easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
+
+map f <Plug>(easymotion-f)
+map F <Plug>(easymotion-F)
+map t <Plug>(easymotion-t)
+map T <Plug>(easymotion-T)
 " }}}
 
 
