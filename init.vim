@@ -33,7 +33,7 @@ Plug 'haya14busa/incsearch.vim'
 " Plug 'itchyny/vim-parenmatch'
 " Plug 'jiangmiao/auto-pairs'
 " Plug 'junegunn/vim-easy-align'
-" Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-user'
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-user'
 " Plug 'Konfekt/FastFold'
@@ -42,6 +42,7 @@ Plug 'haya14busa/incsearch.vim'
 " Plug 'mbbill/undotree'
 " Plug 'ntpeters/vim-better-whitespace'
 " Plug 'rhysd/clever-f.vim'
+Plug 'rhysd/vim-operator-surround'  " depends on 'kana/vim-operator-user'
 " Plug 'vim-scripts/scratch'
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Plug 'Shougo/echodoc'
@@ -702,6 +703,13 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " {{{ incsearch.vim
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-stay)
+" }}}
+
+
+" {{{ vim-operator-surround
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sc <Plug>(operator-surround-replace)
 " }}}
 
 
