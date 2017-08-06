@@ -294,7 +294,7 @@ augroup end
 
 " Prefer POSIX compatible shell
 if &shell =~# 'fish$'
-  set shell=sh
+  set shell=bash
 endif
 
 
