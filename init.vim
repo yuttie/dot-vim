@@ -716,6 +716,7 @@ map <silent>sc <Plug>(operator-surround-replace)
 " {{{ vim-easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_keys = "yfpg.cidasonetuh"
 
 map f <Plug>(easymotion-f)
 map F <Plug>(easymotion-F)
