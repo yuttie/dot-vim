@@ -473,9 +473,6 @@ nnoremap <C-S-Tab> gT
 nnoremap <C-s> :w<CR>
 nnoremap <C-i> <C-g>
 
-" visual
-vnoremap v $h
-
 " command
 cmap w!! w !sudo tee > /dev/null %
 
