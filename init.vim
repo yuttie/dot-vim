@@ -97,7 +97,7 @@ endif
 Plug 'itchyny/vim-gitbranch'
 Plug 'airblade/vim-gitgutter'
 " Plug 'gregsexton/gitv'
-" Plug 'lambdalisue/gina.vim'
+Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-fugitive'
 
 " GitHub
