@@ -90,7 +90,7 @@ Plug 'tyru/caw.vim',
 Plug 'tyru/open-browser.vim'
 Plug 'w0rp/ale'
 " Plug 'wesQ3/vim-windowswap'
-" Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 " Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'yuttie/comfortable-motion.vim'
 
@@ -676,7 +676,7 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#3c4453'
 let g:indentLine_color_tty_light = 4
 let g:indentLine_color_dark = 2
-let g:indentLine_char = '¦'
+let g:indentLine_char = '⎸'
 " }}}
 
 
