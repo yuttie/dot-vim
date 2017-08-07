@@ -61,7 +61,7 @@ Plug 'haya14busa/incsearch.vim',
   \ ] }
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/vim-parenmatch'
-Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs', { 'on': [] }
 Plug 'junegunn/vim-easy-align',
   \ { 'on': [
   \   '<Plug>(EasyAlign)',
@@ -87,10 +87,10 @@ Plug 'rhysd/vim-operator-surround',
   \ " depends on 'kana/vim-operator-user'
 " Plug 'vim-scripts/scratch'
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/echodoc'
+Plug 'Shougo/echodoc', { 'on': [] }
 " Plug 'Shougo/neomru.vim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet', { 'on': [] }
+Plug 'Shougo/neosnippet-snippets', { 'on': [] }
 " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Shougo/vimshell'
 " Plug 'Shougo/vim-vcs'
@@ -136,9 +136,9 @@ if has('nvim')
   function! DoRemoteUpdate(arg)
     UpdateRemotePlugins
   endfunction
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate') }
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate'), 'on': [] }
 else
-  Plug 'Shougo/neocomplete.vim'
+  Plug 'Shougo/neocomplete.vim', { 'on': [] }
 endif
 
 " Interactive filter
@@ -280,6 +280,31 @@ Plug 'ryanoasis/vim-devicons'    " This must be loaded after its supported plugi
 Plug 'yuttie/hydrangea-theme', { 'branch': 'v4' }
 
 call plug#end()
+
+" Load some plugins when entering insert mode for the first time
+function! s:my_lazy_load_on_first_insert()
+  call plug#load(
+    \   'auto-pairs',
+    \   'echodoc',
+    \   'neosnippet',
+    \   'neosnippet-snippets',
+    \ )
+
+  if has('nvim')
+    call plug#load('deoplete.nvim')
+  else
+    call plug#load('neocomplete.vim')
+  endif
+
+  " Enable echodoc here because the InsertEnter event already occurred
+  call echodoc#enable()
+endfunction
+
+augroup my_lazy_load_on_first_insert
+  autocmd!
+  autocmd InsertEnter * call s:my_lazy_load_on_first_insert()
+    \ | autocmd! my_lazy_load_on_first_insert
+augroup END
 " }}}
 
 
@@ -1030,10 +1055,7 @@ nnoremap <silent> [vimshell]  :VimShell<CR>
 
 " {{{ echodoc
 set cmdheight=2
-" Explicitly enable echodoc.
-" This is a fix to use the plugin with vim-plug which loads the plugin before
-" we let g:echodoc_enable_at_startup = 1 here.
-call echodoc#enable()
+let g:echodoc#enable_at_startup = 1
 " }}}
 
 
