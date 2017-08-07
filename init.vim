@@ -99,7 +99,11 @@ Plug 't9md/vim-choosewin',
   \ { 'on': [
   \   '<Plug>(choosewin)',
   \ ] }
-Plug 'terryma/vim-expand-region'
+Plug 'terryma/vim-expand-region',
+  \ { 'on': [
+  \   '<Plug>(expand_region_expand)',
+  \   '<Plug>(expand_region_shrink)',
+  \ ] }
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'thinca/vim-fontzoom'
 " Plug 'thinca/vim-ref'
