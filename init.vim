@@ -62,7 +62,10 @@ Plug 'haya14busa/incsearch.vim',
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/vim-parenmatch'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align',
+  \ { 'on': [
+  \   '<Plug>(EasyAlign)',
+  \ ] }
 Plug 'kana/vim-operator-user'
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-user'
