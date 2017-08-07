@@ -296,6 +296,9 @@ function! s:my_lazy_load_on_first_insert()
     call plug#load('neocomplete.vim')
   endif
 
+  " Initialize auto-pairs
+  call AutoPairsTryInit()
+
   " Enable echodoc here because the InsertEnter event already occurred
   call echodoc#enable()
 endfunction
