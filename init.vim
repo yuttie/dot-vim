@@ -21,7 +21,16 @@ let g:loaded_matchparen = 1
 
 " Plugins
 " Plug 'AndrewRadev/inline_edit.vim'
-Plug 'AndrewRadev/linediff.vim'
+Plug 'AndrewRadev/linediff.vim',
+  \ { 'on': [
+  \   'Linediff',
+  \   'LinediffReset',
+  \   'LinediffAdd',
+  \   'LinediffShow',
+  \   'LinediffLast',
+  \   'LinediffMerge',
+  \   'LinediffPick',
+  \ ] }
 " Plug 'AndrewRadev/sideways.vim'
 " Plug 'dannyob/quickfixstatus'
 " Plug 'dhruvasagar/vim-table-mode'
