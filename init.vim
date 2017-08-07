@@ -119,7 +119,10 @@ Plug 'tyru/caw.vim',
   \   '<Plug>(caw:jump:comment-next)',
   \   '<Plug>(caw:jump:comment-prev)',
   \ ] }
-Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser.vim',
+  \ { 'on': [
+  \   '<Plug>(openbrowser-smart-search)',
+  \ ] }
 Plug 'w0rp/ale'
 " Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'
