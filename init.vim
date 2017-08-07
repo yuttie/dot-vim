@@ -160,7 +160,38 @@ Plug 'lambdalisue/gina.vim',
   \ { 'on': [
   \   'Gina',
   \ ] }
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive',
+  \ { 'on': [
+  \   'Git',
+  \   'Gcd',
+  \   'Glcd',
+  \   'Gstatus',
+  \   'Gcommit',
+  \   'Gmerge',
+  \   'Gpull',
+  \   'Gpush',
+  \   'Gfetch',
+  \   'Ggrep',
+  \   'Glgrep',
+  \   'Glog',
+  \   'Gllog',
+  \   'Gedit',
+  \   'Gsplit',
+  \   'Gvsplit',
+  \   'Gtabedit',
+  \   'Gpedit',
+  \   'Gread',
+  \   'Gwrite',
+  \   'Gwq',
+  \   'Gdiff',
+  \   'Gsdiff',
+  \   'Gvdiff',
+  \   'Gmove',
+  \   'Gdelete',
+  \   'Gremove',
+  \   'Gblame',
+  \   'Gbrowse',
+  \ ] }
 
 " GitHub
 " Plug 'mattn/gist-vim'
