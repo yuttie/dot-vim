@@ -54,7 +54,11 @@ Plug 'easymotion/vim-easymotion',
   \ " optionally depends on 'tpope/vim-repeat'
 " Plug 'vim-scripts/matchit.zip'
 " Plug 'godlygeek/tabular'
-Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch.vim',
+  \ { 'on': [
+  \   '<Plug>(incsearch-forward)',
+  \   '<Plug>(incsearch-stay)',
+  \ ] }
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/vim-parenmatch'
 Plug 'jiangmiao/auto-pairs'
