@@ -208,7 +208,7 @@ Plug 'tpope/vim-fugitive',
 
 " Python
 if has('nvim')
-  Plug 'zchee/deoplete-jedi'
+  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 endif
 " Plug 'vim-scripts/pythoncomplete'
 " Plug 'Glench/Vim-Jinja2-Syntax'
@@ -217,8 +217,8 @@ endif
 " Plug 'vim-ruby/vim-ruby'
 
 " Rust
-Plug 'racer-rust/vim-racer'
-Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " TypeScript
 " Plug 'leafgarland/typescript-vim'
@@ -228,7 +228,7 @@ endif
 
 " Vim
 " Plug 'mopp/layoutplugin.vim'
-Plug 'vim-jp/syntax-vim-ex'
+Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
 
 " Web/CSS
 " Plug 'csscomb/vim-csscomb'
