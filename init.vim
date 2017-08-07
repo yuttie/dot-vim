@@ -78,7 +78,13 @@ Plug 'mbbill/undotree',
   \ ] }
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'rhysd/clever-f.vim'
-Plug 'rhysd/vim-operator-surround'  " depends on 'kana/vim-operator-user'
+Plug 'rhysd/vim-operator-surround',
+  \ { 'on': [
+  \   '<Plug>(operator-surround-append)',
+  \   '<Plug>(operator-surround-delete)',
+  \   '<Plug>(operator-surround-replace)',
+  \ ] }
+  \ " depends on 'kana/vim-operator-user'
 " Plug 'vim-scripts/scratch'
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/echodoc'
