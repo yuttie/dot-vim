@@ -780,7 +780,7 @@ let g:gitgutter_max_signs = 5000
 nnoremap [git]  <Nop>
 nmap     <C-g>  [git]
 
-nnoremap <silent> [git]c      :split +Gina\ commit\ -v<CR>
+nnoremap <silent> [git]c      :Gina commit -v --opener="topleft vsplit"<CR>
 nnoremap <silent> [git]<C-d>  :Gdiff<CR>
 nmap [git]<C-n> <Plug>GitGutterNextHunk
 nmap [git]<C-p> <Plug>GitGutterPrevHunk
