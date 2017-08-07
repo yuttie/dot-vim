@@ -72,7 +72,10 @@ Plug 'kana/vim-operator-user'
 Plug 'Konfekt/FastFold'
 Plug 'lambdalisue/vim-unified-diff'
 Plug 'lilydjwg/colorizer'
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree',
+  \ { 'on': [
+  \   'UndotreeToggle',
+  \ ] }
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'rhysd/clever-f.vim'
 Plug 'rhysd/vim-operator-surround'  " depends on 'kana/vim-operator-user'
