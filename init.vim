@@ -36,10 +36,10 @@ Plug 'AndrewRadev/linediff.vim',
 " Plug 'dhruvasagar/vim-table-mode'
 Plug 'easymotion/vim-easymotion',
   \ { 'on': [
-  \   '<Plug>(easymotion-f)',
-  \   '<Plug>(easymotion-F)',
-  \   '<Plug>(easymotion-t)',
-  \   '<Plug>(easymotion-T)',
+  \   '<Plug>(easymotion-fl)',
+  \   '<Plug>(easymotion-Fl)',
+  \   '<Plug>(easymotion-tl)',
+  \   '<Plug>(easymotion-Tl)',
   \   '<Plug>(easymotion-linebackward)',
   \   '<Plug>(easymotion-j)',
   \   '<Plug>(easymotion-k)',
@@ -824,10 +824,10 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = "yfpg.cidasonetuh"
 
-nmap f <Plug>(easymotion-f)
-nmap F <Plug>(easymotion-F)
-nmap t <Plug>(easymotion-t)
-nmap T <Plug>(easymotion-T)
+nmap f <Plug>(easymotion-fl)
+nmap F <Plug>(easymotion-Fl)
+nmap t <Plug>(easymotion-tl)
+nmap T <Plug>(easymotion-Tl)
 " }}}
 
 
