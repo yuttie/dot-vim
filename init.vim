@@ -95,7 +95,10 @@ Plug 'Shougo/neosnippet-snippets'
 " Plug 'Shougo/vimshell'
 " Plug 'Shougo/vim-vcs'
 " Plug 'Shougo/vinarise'
-Plug 't9md/vim-choosewin'
+Plug 't9md/vim-choosewin',
+  \ { 'on': [
+  \   '<Plug>(choosewin)',
+  \ ] }
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'thinca/vim-fontzoom'
