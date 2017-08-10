@@ -785,9 +785,10 @@ map ?  <Plug>(incsearch-stay)
 
 
 " {{{ vim-operator-surround
-map <silent>sa <Plug>(operator-surround-append)
+map <silent>si <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
 map <silent>sc <Plug>(operator-surround-replace)
+noremap ss s
 " }}}
 
 
