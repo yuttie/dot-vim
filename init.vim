@@ -590,6 +590,8 @@ nnoremap <silent> [error]l :lwindow<CR>
 nnoremap <silent> [error]c :lclose<CR>
 nnoremap <silent> [error]n :lnext<CR>
 nnoremap <silent> [error]p :lprevious<CR>
+nnoremap <silent> [error]N <Plug>(ale_next_wrap)
+nnoremap <silent> [error]P <Plug>(ale_previous_wrap)
 
 nnoremap [toggle] <Nop>
 nmap     [Space]t [toggle]
@@ -684,7 +686,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified', 'ale' ],
       \   ],
       \ },
       \ 'inactive': {
@@ -709,6 +711,7 @@ let g:lightline = {
       \   'filetype':    'g:lightline.my.filetype',
       \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
+      \   'ale':         'ALEGetStatusLine',
       \ },
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
@@ -1122,6 +1125,12 @@ autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
 
 " {{{ ALE
 let g:ale_rust_cargo_use_check = 1
+let g:ale_sign_error = '!!'
+let g:ale_sign_warning = '??'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
+let g:ale_open_list = 1
 " }}}
 
 
