@@ -223,6 +223,9 @@ Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
 " Plug 'tpope/vim-markdown'
 " Plug 'tyru/markdown-codehl-onthefly.vim'
 
+" reStructuredText
+Plug 'Rykka/riv.vim', { 'for': 'rst' }
+
 " Other filetype-specific plugins
 " Plug 'jamessan/vim-gnupg'
 " Plug 'fatih/vim-go'
