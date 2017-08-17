@@ -249,7 +249,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'    " This must be loaded after its supported plugins
 " Plug 'tomasr/molokai'
 " Plug 'w0ng/vim-hybrid'
-Plug 'yuttie/hydrangea-theme', { 'branch': 'v4' }
+Plug 'yuttie/hydrangea-vim'
 
 call plug#end()
 
