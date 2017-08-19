@@ -732,6 +732,43 @@ let g:lightline = {
 
 let g:lightline.my = {}
 
+function! g:lightline.my.relativepath_level(level)
+  let relpath = expand('%')
+  return a:level >= 3 ? relpath
+    \  : a:level == 2 ? pathshorten(relpath)
+    \  : expand('%:t')
+endfunction
+
+function! g:lightline.my.filetype_level(level)
+  let relpath = expand('%')
+  if empty(&filetype)
+    let filetype = 'no ft'
+    let icon = ''
+  else
+    let filetype = &filetype
+    let icon = WebDevIconsGetFileTypeSymbol()
+  endif
+  return a:level >= 2 ? filetype . ' ' . icon
+    \  : a:level == 1 ? icon
+    \  : ''
+endfunction
+
+function! g:lightline.my.fileformat_level(level)
+  return a:level >= 2 ? &fileformat . ' ' . WebDevIconsGetFileFormatSymbol()
+    \  : a:level == 1 ? WebDevIconsGetFileFormatSymbol()
+    \  : ''
+endfunction
+
+function! g:lightline.my.git_branch_level(level)
+  let branch = gitbranch#name()
+  if empty(branch)
+    return ''
+  else
+    return a:level >= 1 ? '' . branch
+      \  : ''
+  endif
+endfunction
+
 function! g:lightline.my.relativepath()
   " Compute the already occupied space
   let padding_len = 2
@@ -760,25 +797,21 @@ function! g:lightline.my.relativepath()
   " Return an appropriate string
   let relpath = expand('%')
   let available = winwidth(0) - occupied
-  return strlen(relpath)              <= available ? relpath
-    \  : strlen(pathshorten(relpath)) <= available ? pathshorten(relpath)
-    \  : expand('%:t')
+  return strlen(g:lightline.my.relativepath_level(3)) <= available ? g:lightline.my.relativepath_level(3)
+    \  : strlen(g:lightline.my.relativepath_level(2)) <= available ? g:lightline.my.relativepath_level(2)
+    \  : g:lightline.my.relativepath_level(1)
 endfunction
 
 function! g:lightline.my.filetype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  return winwidth(0) > 70 ? g:lightline.my.filetype_level(2) : g:lightline.my.filetype_level(0)
 endfunction
 
 function! g:lightline.my.fileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  return winwidth(0) > 70 ? g:lightline.my.fileformat_level(2) : g:lightline.my.fileformat_level(0)
 endfunction
 
 function! g:lightline.my.git_branch()
-  if gitbranch#name() == ''
-    return ''
-  else
-    return winwidth(0) > 70 ? '' . gitbranch#name() : ''
-  endif
+  return winwidth(0) > 70 ? g:lightline.my.git_branch_level(2) : g:lightline.my.git_branch_level(0)
 endfunction
 " }}}
 
