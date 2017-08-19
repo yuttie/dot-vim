@@ -264,6 +264,13 @@ function! s:my_lazy_load_on_first_insert()
 
   if has('nvim')
     call plug#load('deoplete.nvim')
+  call deoplete#custom#set('_', 'converters', [
+    \   'converter_auto_paren',
+    \   'converter_remove_overlap',
+    \   'converter_truncate_abbr',
+    \   'converter_truncate_menu'
+    \ ])
+  call deoplete#custom#set('_', 'min_pattern_length', 1)
   else
     call plug#load('neocomplete.vim')
   endif
@@ -1031,8 +1038,6 @@ if has('nvim')
   let g:deoplete#auto_complete_delay = 0
   let g:deoplete#auto_refresh_delay = 100
   let g:deoplete#max_list = 10000
-  call deoplete#custom#set('_', 'converters', ['converter_auto_paren', 'converter_remove_overlap', 'converter_truncate_abbr', 'converter_truncate_menu'])
-  call deoplete#custom#set('_', 'min_pattern_length', 1)
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr> <C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
   inoremap <expr> <BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
