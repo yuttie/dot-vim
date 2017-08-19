@@ -20,66 +20,125 @@ call plug#begin(s:my_plugin_dir)
 let g:loaded_matchparen = 1
 
 " Plugins
-Plug 'AndrewRadev/inline_edit.vim'
-Plug 'AndrewRadev/linediff.vim'
-Plug 'AndrewRadev/sideways.vim'
-Plug 'dannyob/quickfixstatus'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'easymotion/vim-easymotion'
-Plug 'vim-scripts/matchit.zip'
-Plug 'godlygeek/tabular'
-Plug 'haya14busa/incsearch.vim'
+" Plug 'AndrewRadev/inline_edit.vim'
+Plug 'AndrewRadev/linediff.vim',
+  \ { 'on': [
+  \   'Linediff',
+  \   'LinediffReset',
+  \   'LinediffAdd',
+  \   'LinediffShow',
+  \   'LinediffLast',
+  \   'LinediffMerge',
+  \   'LinediffPick',
+  \ ] }
+" Plug 'AndrewRadev/sideways.vim'
+" Plug 'dannyob/quickfixstatus'
+" Plug 'dhruvasagar/vim-table-mode'
+Plug 'easymotion/vim-easymotion',
+  \ { 'on': [
+  \   '<Plug>(easymotion-fl)',
+  \   '<Plug>(easymotion-Fl)',
+  \   '<Plug>(easymotion-tl)',
+  \   '<Plug>(easymotion-Tl)',
+  \   '<Plug>(easymotion-linebackward)',
+  \   '<Plug>(easymotion-j)',
+  \   '<Plug>(easymotion-k)',
+  \   '<Plug>(easymotion-lineforward)',
+  \   '<Plug>(easymotion-bd-f)',
+  \   '<Plug>(easymotion-overwin-f)',
+  \   '<Plug>(easymotion-bd-w)',
+  \   '<Plug>(easymotion-overwin-w)',
+  \   '<Plug>(easymotion-bd-jk)',
+  \   '<Plug>(easymotion-overwin-line)',
+  \ ] }
+  \ " optionally depends on 'tpope/vim-repeat'
+" Plug 'vim-scripts/matchit.zip'
+" Plug 'godlygeek/tabular'
+Plug 'haya14busa/incsearch.vim',
+  \ { 'on': [
+  \   '<Plug>(incsearch-forward)',
+  \   '<Plug>(incsearch-stay)',
+  \ ] }
 Plug 'itchyny/vim-cursorword'
-Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/vim-parenmatch'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/vim-easy-align'
+Plug 'jiangmiao/auto-pairs', { 'on': [] }
+Plug 'junegunn/vim-easy-align',
+  \ { 'on': [
+  \   '<Plug>(EasyAlign)',
+  \ ] }
 Plug 'kana/vim-operator-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-user'
+" Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-user'
 Plug 'Konfekt/FastFold'
 Plug 'lambdalisue/vim-unified-diff'
 Plug 'lilydjwg/colorizer'
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree',
+  \ { 'on': [
+  \   'UndotreeToggle',
+  \ ] }
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'rhysd/clever-f.vim'
-Plug 'vim-scripts/scratch'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/echodoc'
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/vimshell'
-Plug 'Shougo/vim-vcs'
-Plug 'Shougo/vinarise'
-Plug 't9md/vim-choosewin'
-Plug 'terryma/vim-expand-region'
+" Plug 'rhysd/clever-f.vim'
+Plug 'rhysd/vim-operator-surround',
+  \ { 'on': [
+  \   '<Plug>(operator-surround-append)',
+  \   '<Plug>(operator-surround-delete)',
+  \   '<Plug>(operator-surround-replace)',
+  \ ] }
+  \ " depends on 'kana/vim-operator-user'
+" Plug 'vim-scripts/scratch'
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Shougo/echodoc', { 'on': [] }
+" Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neosnippet', { 'on': [] }
+Plug 'Shougo/neosnippet-snippets', { 'on': [] }
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimshell'
+" Plug 'Shougo/vim-vcs'
+" Plug 'Shougo/vinarise'
+Plug 't9md/vim-choosewin',
+  \ { 'on': [
+  \   '<Plug>(choosewin)',
+  \ ] }
+Plug 'terryma/vim-expand-region',
+  \ { 'on': [
+  \   '<Plug>(expand_region_expand)',
+  \   '<Plug>(expand_region_shrink)',
+  \ ] }
 Plug 'terryma/vim-multiple-cursors'
-Plug 'thinca/vim-fontzoom'
-Plug 'thinca/vim-ref'
-Plug 'thinca/vim-visualstar'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tyru/caw.vim'
-Plug 'tyru/open-browser.vim'
+" Plug 'thinca/vim-fontzoom'
+" Plug 'thinca/vim-ref'
+" Plug 'thinca/vim-visualstar'
+" Plug 'tpope/vim-projectionist'
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-surround'
+Plug 'tyru/caw.vim',
+  \ { 'on': [
+  \   '<Plug>(caw:hatpos:toggle:operator)',
+  \   '<Plug>(caw:hatpos:toggle)',
+  \   '<Plug>(caw:hatpos:comment)',
+  \   '<Plug>(caw:jump:comment-next)',
+  \   '<Plug>(caw:jump:comment-prev)',
+  \ ] }
+Plug 'tyru/open-browser.vim',
+  \ { 'on': [
+  \   '<Plug>(openbrowser-smart-search)',
+  \ ] }
 Plug 'w0rp/ale'
-Plug 'wesQ3/vim-windowswap'
+" Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'
-Plug 'yonchu/accelerated-smooth-scroll'
+" Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'yuttie/comfortable-motion.vim'
 
 " UI enhancements
 " Completion (neocomplete/deoplete)
-Plug 'ujihisa/neco-look'
+" Plug 'ujihisa/neco-look'
 if has('nvim')
   function! DoRemoteUpdate(arg)
     UpdateRemotePlugins
   endfunction
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate') }
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate'), 'on': [] }
 else
-  Plug 'Shougo/neocomplete.vim'
+  Plug 'Shougo/neocomplete.vim', { 'on': [] }
 endif
 
 " Interactive filter
@@ -90,102 +149,134 @@ else
 endif
 
 " fish shell
-Plug 'dag/vim-fish'
+" Plug 'dag/vim-fish'
 
 " Git
-Plug 'jreybert/vimagit'
+" Plug 'jreybert/vimagit'
+Plug 'itchyny/vim-gitbranch'
 Plug 'airblade/vim-gitgutter'
-Plug 'gregsexton/gitv'
-Plug 'lambdalisue/gina.vim'
+" Plug 'gregsexton/gitv'
+Plug 'lambdalisue/gina.vim',
+  \ { 'on': [
+  \   'Gina',
+  \ ] }
 Plug 'tpope/vim-fugitive'
 
 " GitHub
-Plug 'mattn/gist-vim'
+" Plug 'mattn/gist-vim'
 
 " Haskell
-Plug 'neovimhaskell/haskell-vim'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'eagletmt/ghcmod-vim'
+" Plug 'eagletmt/neco-ghc'
 
 " PHP
-Plug '2072/PHP-Indenting-for-VIm'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'StanAngeloff/php.vim'
+" Plug '2072/PHP-Indenting-for-VIm'
+" Plug 'shawncplus/phpcomplete.vim'
+" Plug 'StanAngeloff/php.vim'
 
 " Python
 if has('nvim')
-  Plug 'zchee/deoplete-jedi'
+  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 endif
-Plug 'vim-scripts/pythoncomplete'
-Plug 'Glench/Vim-Jinja2-Syntax'
+" Plug 'vim-scripts/pythoncomplete'
+" Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Ruby
-Plug 'vim-ruby/vim-ruby'
+" Plug 'vim-ruby/vim-ruby'
 
 " Rust
-Plug 'racer-rust/vim-racer'
-Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " TypeScript
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 if has('nvim')
-  Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
+  " Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
 endif
 
 " Vim
-Plug 'mopp/layoutplugin.vim'
-Plug 'vim-jp/syntax-vim-ex'
+" Plug 'mopp/layoutplugin.vim'
+Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
 
 " Web/CSS
-Plug 'csscomb/vim-csscomb'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/csscomplete.vim'
-Plug 'cakebaker/scss-syntax.vim'
+" Plug 'csscomb/vim-csscomb'
+" Plug 'hail2u/vim-css3-syntax'
+" Plug 'othree/csscomplete.vim'
+" Plug 'cakebaker/scss-syntax.vim'
 
 " Web/JavaScript
-Plug 'carlitux/deoplete-ternjs'
-Plug 'pangloss/vim-javascript'
+" Plug 'carlitux/deoplete-ternjs'
+" Plug 'pangloss/vim-javascript'
 
 " Web/HTML
-Plug 'mattn/emmet-vim'
-Plug 'ervandew/sgmlendtag'
-Plug 'pbrisbin/html-template-syntax'
+" Plug 'mattn/emmet-vim'
+" Plug 'ervandew/sgmlendtag'
+" Plug 'pbrisbin/html-template-syntax'
 
 " Markdown
 " Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 " or
-Plug 'rhysd/vim-gfm-syntax'
-Plug 'kannokanno/previm'
-Plug 'tpope/vim-markdown'
-Plug 'tyru/markdown-codehl-onthefly.vim'
+" Plug 'rhysd/vim-gfm-syntax'
+" Plug 'kannokanno/previm'
+" Plug 'tpope/vim-markdown'
+" Plug 'tyru/markdown-codehl-onthefly.vim'
 
 " Other filetype-specific plugins
-Plug 'jamessan/vim-gnupg'
-Plug 'fatih/vim-go'
-Plug 'vim-scripts/gtk-vim-syntax'
-Plug 'guns/vim-sexp'
-Plug 'jceb/vim-orgmode'
-Plug 'lervag/vimtex'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'def-lkb/ocp-indent-vim'
-Plug 'cespare/vim-toml'
-Plug 'elzr/vim-json'
-Plug 'JuliaLang/julia-vim'
+" Plug 'jamessan/vim-gnupg'
+" Plug 'fatih/vim-go'
+" Plug 'vim-scripts/gtk-vim-syntax'
+" Plug 'guns/vim-sexp'
+" Plug 'jceb/vim-orgmode'
+" Plug 'lervag/vimtex'
+" Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'def-lkb/ocp-indent-vim'
+" Plug 'cespare/vim-toml'
+" Plug 'elzr/vim-json'
+" Plug 'JuliaLang/julia-vim'
 
 " Themes
 Plug 'itchyny/lightline.vim'
-Plug 'chriskempson/base16-vim'
-Plug '29decibel/codeschool-vim-theme'
-Plug 'jpo/vim-railscasts-theme'
-Plug 'nanotech/jellybeans.vim'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'chriskempson/base16-vim'
+" Plug '29decibel/codeschool-vim-theme'
+" Plug 'jpo/vim-railscasts-theme'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'NLKNguyen/papercolor-theme'
 Plug 'ryanoasis/vim-devicons'    " This must be loaded after its supported plugins
-Plug 'tomasr/molokai'
-Plug 'w0ng/vim-hybrid'
+" Plug 'tomasr/molokai'
+" Plug 'w0ng/vim-hybrid'
 Plug 'yuttie/hydrangea-theme', { 'branch': 'v4' }
 
 call plug#end()
+
+" Load some plugins when entering insert mode for the first time
+function! s:my_lazy_load_on_first_insert()
+  call plug#load(
+    \   'auto-pairs',
+    \   'echodoc',
+    \   'neosnippet',
+    \   'neosnippet-snippets',
+    \ )
+
+  if has('nvim')
+    call plug#load('deoplete.nvim')
+  else
+    call plug#load('neocomplete.vim')
+  endif
+
+  " Initialize auto-pairs
+  call AutoPairsTryInit()
+
+  " Enable echodoc here because the InsertEnter event already occurred
+  call echodoc#enable()
+endfunction
+
+augroup my_lazy_load_on_first_insert
+  autocmd!
+  autocmd InsertEnter * call s:my_lazy_load_on_first_insert()
+    \ | autocmd! my_lazy_load_on_first_insert
+augroup END
 " }}}
 
 
@@ -294,7 +385,7 @@ augroup end
 
 " Prefer POSIX compatible shell
 if &shell =~# 'fish$'
-  set shell=sh
+  set shell=bash
 endif
 
 
@@ -448,9 +539,6 @@ nnoremap <C-S-Tab> gT
 nnoremap <C-s> :w<CR>
 nnoremap <C-i> <C-g>
 
-" visual
-vnoremap v $h
-
 " command
 cmap w!! w !sudo tee > /dev/null %
 
@@ -508,38 +596,37 @@ nnoremap <silent> [toggle]p :set paste!<CR>:set paste?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
 
-nmap     [Space];  <Plug>(caw:hatpos:toggle:operator)
-xmap     [Space];  <Plug>(caw:hatpos:toggle:operator)
-nmap     [Space];; <Plug>(caw:hatpos:toggle)
-
 nnoremap [comment] <Nop>
 nmap     [Space]c [comment]
 xmap     [Space]c [comment]
-nmap     [comment]l <Plug>(caw:hatpos:toggle)
-xmap     [comment]l <Plug>(caw:hatpos:toggle)
-nmap     [comment]y yy<Plug>(caw:hatpos:comment)p
-xmap     [comment]y ygv<Plug>(caw:hatpos:comment)g;p
+nmap     [comment]  <Plug>(caw:hatpos:toggle:operator)
+xmap     [comment]  <Plug>(caw:hatpos:toggle:operator)
+nmap     [comment]c <Plug>(caw:hatpos:toggle)
 nmap     [comment]o <Plug>(caw:jump:comment-next)
 nmap     [comment]O <Plug>(caw:jump:comment-prev)
 
 nnoremap [jump] <Nop>
-nmap     [Space]j [jump]
-xmap     [Space]j [jump]
-omap     [Space]j [jump]
+nmap     [Space]<Space> [jump]
+xmap     [Space]<Space> [jump]
+omap     [Space]<Space> [jump]
 
-nmap     [jump]j      <Plug>(easymotion-overwin-f)
-xmap     [jump]j      <Plug>(easymotion-bd-f)
-omap     [jump]j      <Plug>(easymotion-bd-f)
+map      [jump]h  <Plug>(easymotion-linebackward)
+map      [jump]j  <Plug>(easymotion-j)
+map      [jump]k  <Plug>(easymotion-k)
+map      [jump]l  <Plug>(easymotion-lineforward)
 
-nmap     [jump]w      <Plug>(easymotion-overwin-w)
-xmap     [jump]w      <Plug>(easymotion-bd-w)
-omap     [jump]w      <Plug>(easymotion-bd-w)
+map      [jump]c  <Plug>(easymotion-bd-f)
+nmap     [jump]c  <Plug>(easymotion-overwin-f)
 
-nmap     [jump]l      <Plug>(easymotion-overwin-line)
-xmap     [jump]l      <Plug>(easymotion-bd-jk)
-omap     [jump]l      <Plug>(easymotion-bd-jk)
+map      [jump]w  <Plug>(easymotion-bd-w)
+nmap     [jump]w  <Plug>(easymotion-overwin-w)
 
-nmap     [jump]i      :Denite outline<CR>
+map      [jump]L  <Plug>(easymotion-bd-jk)
+nmap     [jump]L  <Plug>(easymotion-overwin-line)
+
+nmap     [jump]W <Plug>(choosewin)
+
+nmap     [jump]i  :Denite outline<CR>
 
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
@@ -655,7 +742,7 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#3c4453'
 let g:indentLine_color_tty_light = 4
 let g:indentLine_color_dark = 2
-let g:indentLine_char = '¦'
+let g:indentLine_char = '⎸'
 " }}}
 
 
@@ -679,12 +766,6 @@ vmap - <Plug>(expand_region_shrink)
 " }}}
 
 
-" {{{ delimitMate
-let delimitMate_expand_cr = 1
-let delimitMate_jump_expansion = 0
-" }}}
-
-
 " {{{ accelerated-smooth-scroll
 let g:ac_smooth_scroll_no_default_key_mappings = 1
 let g:ac_smooth_scroll_du_sleep_time_msec = 5
@@ -699,21 +780,31 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 
 " {{{ incsearch.vim
 map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map \\ <Plug>(incsearch-stay)
+map ?  <Plug>(incsearch-stay)
+" }}}
+
+
+" {{{ vim-operator-surround
+map <silent>si <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sc <Plug>(operator-surround-replace)
+noremap ss s
 " }}}
 
 
 " {{{ vim-easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_keys = "yfpg.cidasonetuh"
+
+nmap f <Plug>(easymotion-fl)
+nmap F <Plug>(easymotion-Fl)
+nmap t <Plug>(easymotion-tl)
+nmap T <Plug>(easymotion-Tl)
 " }}}
 
 
 " {{{ vim-choosewin
-nnoremap [choosewin] <Nop>
-nmap     [Space]w    [choosewin]
-nmap     [choosewin] <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 let g:choosewin_color_overlay = {
       \ 'gui': ['#484e55', '#484e55'],
@@ -736,19 +827,9 @@ xmap     [easy-align]  <Plug>(EasyAlign)
 " }}}
 
 
-" {{{ openbrowser.vim
+" {{{ open-browser.vim
 nmap gw <Plug>(openbrowser-smart-search)
 vmap gw <Plug>(openbrowser-smart-search)
-" }}}
-
-
-" {{{ skk.vim
-let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
-let skk_auto_save_jisyo = 1
-let skk_show_annnotation = 1
-let skk_use_face = 1
-let skk_keyboard_layout = 'act'
-let skk_control_j_key = '<C-j>'
 " }}}
 
 
@@ -766,8 +847,8 @@ let g:gitgutter_max_signs = 5000
 nnoremap [git]  <Nop>
 nmap     <C-g>  [git]
 
-nnoremap <silent> [git]c      :split +Gina\ commit\ -v<CR>
-nnoremap <silent> [git]<C-d>  :Gdiff<CR>
+nnoremap <silent> [git]c      :Gina commit -v --opener="topleft vsplit"<CR>ggO
+nnoremap <silent> [git]<C-d>  :Gvdiff<CR>
 nmap [git]<C-n> <Plug>GitGutterNextHunk
 nmap [git]<C-p> <Plug>GitGutterPrevHunk
 nmap [git]<C-s> <Plug>GitGutterStageHunk
@@ -810,11 +891,6 @@ call denite#custom#option('default', 'prompt', '>')
 
 " {{{ caw.vim
 autocmd FileType php setlocal commentstring=//\ %s
-" }}}
-
-
-" {{{ lambdalisue/vim-unified-diff
-set diffexpr=unified_diff#diffexpr()
 " }}}
 
 
@@ -950,34 +1026,9 @@ nnoremap <silent> [vimshell]  :VimShell<CR>
 " }}}
 
 
-" {{{ quickrun
-let g:quickrun_no_default_key_mappings = 1
-let g:quickrun_config = {}
-let g:quickrun_config['markdown/pandoc'] = {
-  \   'cmdopt': '--standalone --katex',
-  \   'outputter': 'browser'
-  \}
-let g:quickrun_config['cpp/clang++'] = {
-  \   'cmdopt': '-std=c++11'
-  \}
-let g:quickrun_config['cpp/g++'] = {
-  \   'cmdopt': '-std=c++11'
-  \}
-
-" The prefix key.
-nnoremap [quickrun]   <Nop>
-nmap     [Space]r  [quickrun]
-
-nmap <silent> [quickrun]  <Plug>(quickrun)
-" }}}
-
-
 " {{{ echodoc
 set cmdheight=2
-" Explicitly enable echodoc.
-" This is a fix to use the plugin with vim-plug which loads the plugin before
-" we let g:echodoc_enable_at_startup = 1 here.
-call echodoc#enable()
+let g:echodoc#enable_at_startup = 1
 " }}}
 
 
@@ -1073,6 +1124,10 @@ let g:ale_rust_cargo_use_check = 1
 
 " {{{ vim-racer
 let g:racer_experimental_completer = 1
+autocmd MyAutoCmds FileType rust nmap gd <Plug>(rust-def)
+autocmd MyAutoCmds FileType rust nmap gs <Plug>(rust-def-split)
+autocmd MyAutoCmds FileType rust nmap gx <Plug>(rust-def-vertical)
+autocmd MyAutoCmds FileType rust nmap gD <Plug>(rust-doc)
 " }}}
 
 
