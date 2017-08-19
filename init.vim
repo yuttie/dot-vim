@@ -732,6 +732,74 @@ let g:lightline = {
 
 let g:lightline.my = {}
 
+function! g:lightline.my.layout_init()
+  let g:lightline.my.layout_levels = {
+    \   'relativepath': 3,
+    \   'filetype': 2,
+    \   'fileformat': 2,
+    \   'git_branch': 1,
+    \ }
+endfunction
+call g:lightline.my.layout_init()
+
+function! g:lightline.my.layout()
+  let possible_fixes = [
+    \   'let g:lightline.my.layout_levels.relativepath = 2',
+    \   'let g:lightline.my.layout_levels.relativepath = 1',
+    \   'let g:lightline.my.layout_levels.fileformat = 1',
+    \   'let g:lightline.my.layout_levels.filetype = 1',
+    \   'let g:lightline.my.layout_levels.git_branch = 0',
+    \ ]
+  let padding_len = 2
+  let sep_len = 1
+  let available = winwidth(0)
+
+  " Optimize the layout
+  call g:lightline.my.layout_init()
+  while 1
+    " Compute the already occupied space
+    let left_rendered = [
+      \   lightline#mode(),
+      \   &paste?"PASTE":"",
+      \   g:lightline.my.git_branch(),
+      \   g:lightline.my.relativepath(),
+      \   &modified ? '+' : '',
+      \   ALEGetStatusLine(),
+      \ ]
+    let right_rendered = [
+      \   g:lightline.my.fileformat(),
+      \   &fenc!=#""?&fenc:&enc,
+      \   g:lightline.my.filetype(),
+      \   '100%',
+      \   '1000:100',
+      \ ]
+    let occupied = 0
+    for component in left_rendered + right_rendered
+      if !empty(component)
+        let occupied += strlen(component) + padding_len + sep_len
+      endif
+    endfor
+
+    " Evaluate the current layout
+    if occupied <= available
+      " Fine
+      break
+    else
+      " Overflow
+      if len(possible_fixes) == 0
+        " No fix available
+        break
+      else
+        " Try to fix
+        let app = possible_fixes[0]
+        call remove(possible_fixes, 0)
+        exec app
+      endif
+    end
+  endwhile
+endfunction
+autocmd MyAutoCmds VimResized * call g:lightline.my.layout()
+
 function! g:lightline.my.relativepath_level(level)
   let relpath = expand('%')
   return a:level >= 3 ? relpath
@@ -770,48 +838,19 @@ function! g:lightline.my.git_branch_level(level)
 endfunction
 
 function! g:lightline.my.relativepath()
-  " Compute the already occupied space
-  let padding_len = 2
-  let sep_len = 1
-  let left_rendered = [
-    \   lightline#mode(),
-    \   &paste?"PASTE":"",
-    \   g:lightline.my.git_branch(),
-    \   &modified ? '+' : '',
-    \   ALEGetStatusLine(),
-    \ ]
-  let right_rendered = [
-    \   g:lightline.my.fileformat(),
-    \   &fenc!=#""?&fenc:&enc,
-    \   g:lightline.my.filetype(),
-    \   '100%',
-    \   '1000:100',
-    \ ]
-  let occupied = 0
-  for component in left_rendered + right_rendered
-    if !empty(component)
-      let occupied += strlen(component) + padding_len + sep_len
-    endif
-  endfor
-
-  " Return an appropriate string
-  let relpath = expand('%')
-  let available = winwidth(0) - occupied
-  return strlen(g:lightline.my.relativepath_level(3)) <= available ? g:lightline.my.relativepath_level(3)
-    \  : strlen(g:lightline.my.relativepath_level(2)) <= available ? g:lightline.my.relativepath_level(2)
-    \  : g:lightline.my.relativepath_level(1)
+  return g:lightline.my.relativepath_level(g:lightline.my.layout_levels.relativepath)
 endfunction
 
 function! g:lightline.my.filetype()
-  return winwidth(0) > 70 ? g:lightline.my.filetype_level(2) : g:lightline.my.filetype_level(0)
+  return g:lightline.my.filetype_level(g:lightline.my.layout_levels.filetype)
 endfunction
 
 function! g:lightline.my.fileformat()
-  return winwidth(0) > 70 ? g:lightline.my.fileformat_level(2) : g:lightline.my.fileformat_level(0)
+  return g:lightline.my.fileformat_level(g:lightline.my.layout_levels.fileformat)
 endfunction
 
 function! g:lightline.my.git_branch()
-  return winwidth(0) > 70 ? g:lightline.my.git_branch_level(2) : g:lightline.my.git_branch_level(0)
+  return g:lightline.my.git_branch_level(g:lightline.my.layout_levels.git_branch)
 endfunction
 " }}}
 
