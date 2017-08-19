@@ -501,7 +501,7 @@ omap     <Space> [Space]
 " {{{ Mappings
 " insert
 inoremap <C-d> <Del>
-inoremap wj <Esc>
+inoremap ww <Esc>
 
 " insert and command line
 noremap! <C-a> <Home>
