@@ -545,6 +545,9 @@ nnoremap <C-i> <C-g>
 " command
 cmap w!! w !sudo tee > /dev/null %
 
+" terminal
+tnoremap <ESC> <C-\><C-n>
+
 " Space-prefixed bindings
 nnoremap [help] <Nop>
 nmap     [Space]h [help]
