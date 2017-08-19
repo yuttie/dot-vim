@@ -536,7 +536,7 @@ nnoremap <S-Right> <C-w><<CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
 
-nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap <C-Tab>   gt
 nnoremap <C-S-Tab> gT
 nnoremap <C-s> :w<CR>
@@ -546,7 +546,7 @@ nnoremap <C-i> <C-g>
 cmap w!! w !sudo tee > /dev/null %
 
 " terminal
-tnoremap <ESC> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
 " Space-prefixed bindings
 nnoremap [help] <Nop>
@@ -1247,7 +1247,7 @@ autocmd MyAutoCmds FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd MyAutoCmds FileType haskell nnoremap <buffer> [haskell]   <Nop>
 autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
 
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <ESC><ESC>  :nohlsearch \| :GhcModTypeClear<CR>
+autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <Esc><Esc>  :nohlsearch \| :GhcModTypeClear<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]c  :GhcModCheckAsync<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]t  :GhcModType<CR>
 autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
