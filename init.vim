@@ -683,6 +683,7 @@ autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 " {{{ lightline.vim
 set ambiwidth=single
 set noshowmode
+
 let g:lightline = {
       \ 'colorscheme': 'hydrangea',
       \ 'active': {
@@ -728,7 +729,9 @@ let g:lightline = {
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
+
 let g:lightline.my = {}
+
 function! g:lightline.my.relativepath()
   " Compute the already occupied space
   let padding_len = 2
@@ -761,12 +764,15 @@ function! g:lightline.my.relativepath()
     \  : strlen(pathshorten(relpath)) <= available ? pathshorten(relpath)
     \  : expand('%:t')
 endfunction
+
 function! g:lightline.my.filetype()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
+
 function! g:lightline.my.fileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
+
 function! g:lightline.my.git_branch()
   if gitbranch#name() == ''
     return ''
