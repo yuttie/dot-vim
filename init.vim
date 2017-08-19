@@ -690,11 +690,20 @@ let g:lightline = {
       \     [ 'mode', 'paste' ],
       \     [ 'git_branch', 'readonly', 'relativepath', 'modified', 'ale' ],
       \   ],
+      \   'right': [
+      \     [ 'lineinfo' ],
+      \     [ 'percent' ],
+      \     [ 'fileformat', 'fileencoding', 'filetype' ],
+      \   ],
       \ },
       \ 'inactive': {
       \   'left': [
-      \     [ 'mode', 'paste' ],
-      \     [ 'readonly', 'relativepath', 'modified' ],
+      \     [],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \   ],
+      \   'right': [
+      \     [ 'lineinfo' ],
+      \     [ 'percent' ],
       \   ],
       \ },
       \ 'tabline': {
@@ -710,6 +719,7 @@ let g:lightline = {
       \   'readonly': '%{&readonly?"":""}',
       \ },
       \ 'component_function': {
+      \   'relativepath': 'g:lightline.my.relativepath',
       \   'filetype':    'g:lightline.my.filetype',
       \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
@@ -719,6 +729,38 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
 let g:lightline.my = {}
+function! g:lightline.my.relativepath()
+  " Compute the already occupied space
+  let padding_len = 2
+  let sep_len = 1
+  let left_rendered = [
+    \   lightline#mode(),
+    \   &paste?"PASTE":"",
+    \   g:lightline.my.git_branch(),
+    \   &modified ? '+' : '',
+    \   ALEGetStatusLine(),
+    \ ]
+  let right_rendered = [
+    \   g:lightline.my.fileformat(),
+    \   &fenc!=#""?&fenc:&enc,
+    \   g:lightline.my.filetype(),
+    \   '100%',
+    \   '1000:100',
+    \ ]
+  let occupied = 0
+  for component in left_rendered + right_rendered
+    if !empty(component)
+      let occupied += strlen(component) + padding_len + sep_len
+    endif
+  endfor
+
+  " Return an appropriate string
+  let relpath = expand('%')
+  let available = winwidth(0) - occupied
+  return strlen(relpath)              <= available ? relpath
+    \  : strlen(pathshorten(relpath)) <= available ? pathshorten(relpath)
+    \  : expand('%:t')
+endfunction
 function! g:lightline.my.filetype()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
