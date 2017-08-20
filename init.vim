@@ -149,7 +149,7 @@ else
 endif
 
 " fish shell
-" Plug 'dag/vim-fish'
+Plug 'dag/vim-fish', { 'for': 'fish' }
 
 " Git
 " Plug 'jreybert/vimagit'
@@ -1179,6 +1179,11 @@ let g:echodoc#enable_at_startup = 1
 " {{{ vim-ref
 let g:ref_alc_start_linenumber = 42
 let g:ref_refe_encoding = 'euc-jp'
+" }}}
+
+
+" {{{ fish
+autocmd MyAutoCmds FileType fish setlocal foldmethod=expr
 " }}}
 
 
