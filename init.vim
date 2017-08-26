@@ -88,7 +88,7 @@ Plug 'rhysd/vim-operator-surround',
 " Plug 'vim-scripts/scratch'
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/echodoc', { 'on': [] }
-" Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet', { 'on': [] }
 Plug 'Shougo/neosnippet-snippets', { 'on': [] }
 " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
