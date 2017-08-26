@@ -648,7 +648,7 @@ nmap     [jump]L  <Plug>(easymotion-overwin-line)
 
 nmap     [jump]W <Plug>(choosewin)
 
-nmap     [jump]i  :Denite outline<CR>
+nmap     [jump]o  :<C-u>Denite outline<CR>
 
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
