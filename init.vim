@@ -815,7 +815,7 @@ function! g:lightline.my.layout()
     end
   endwhile
 endfunction
-autocmd MyAutoCmds VimResized * call g:lightline.my.layout()
+autocmd MyAutoCmds WinEnter,FileType,EncodingChanged,VimResized * call g:lightline.my.layout()
 
 function! g:lightline.my.relativepath_level(level)
   let relpath = expand('%')
