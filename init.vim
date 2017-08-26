@@ -985,6 +985,7 @@ let g:GPGPreferSymmetric = 1
 
 " {{{ Git
 autocmd MyAutoCmds FileType gitcommit setlocal spell
+autocmd MyAutoCmds FileType gina-commit setlocal spell
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 5000
