@@ -748,6 +748,7 @@ let g:lightline = {
 let g:lightline.my = {}
 
 function! g:lightline.my.layout_init()
+  let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', 'OK']
   let g:lightline.my.layout_levels = {
     \   'relativepath': 3,
     \   'filetype': 2,
@@ -759,6 +760,7 @@ call g:lightline.my.layout_init()
 
 function! g:lightline.my.layout()
   let possible_fixes = [
+    \   "let g:ale_statusline_format = ['E:%d', 'W:%d', '']",
     \   'let g:lightline.my.layout_levels.relativepath = 2',
     \   'let g:lightline.my.layout_levels.relativepath = 1',
     \   'let g:lightline.my.layout_levels.fileformat = 1',
