@@ -759,6 +759,14 @@ endfunction
 call g:lightline.my.layout_init()
 
 function! g:lightline.my.layout()
+  " Test if light line is ready or not
+  try
+    call lightline#mode()
+  catch
+    " Not ready yet
+    return
+  endtry
+
   let possible_fixes = [
     \   "let g:ale_statusline_format = ['E:%d', 'W:%d', '']",
     \   'let g:lightline.my.layout_levels.relativepath = 2',
