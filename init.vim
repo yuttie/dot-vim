@@ -560,8 +560,10 @@ tnoremap <Esc> <C-\><C-n>
 " Space-prefixed bindings
 nnoremap [help] <Nop>
 nmap     [Space]h [help]
-nnoremap <silent> [help]h  :<C-u>Denite help<CR>
-nnoremap <silent> [help]dC :<C-u>Denite colorscheme<CR>
+nnoremap <silent> [help]h  :<C-u>Helptags<CR>
+nnoremap <silent> [help]dc :<C-u>Commands<CR>
+nnoremap <silent> [help]dm :<C-u>Maps<CR>
+nnoremap <silent> [help]dC :<C-u>Colors<CR>
 
 nnoremap [Plug] <Nop>
 nmap     [Space]P [Plug]
@@ -575,7 +577,7 @@ nmap     [Space]f [file]
 nnoremap <silent> [file]vd :e $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :VimFiler<CR>
-nnoremap <silent> [file]f  :<C-u>Denite file_rec<CR>
+nnoremap <silent> [file]f  :<C-u>Files<CR>
 nnoremap <silent> [file]r  :<C-u>Denite file_mru<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
@@ -585,18 +587,19 @@ nnoremap <silent> [file]R  :Rename
 
 nnoremap [search] <Nop>
 nmap     [Space]s [search]
-nnoremap <silent> [search]s  :<C-u>Denite line<CR>
-nnoremap <silent> [search]gg :<C-u>Denite grep<CR>
+nnoremap <silent> [search]s  :<C-u>BLines<CR>
+nnoremap <silent> [search]gg :<C-u>Grep<CR>
+nnoremap <silent> [search]gr :<C-u>Rg<CR>
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]b :<C-u>Denite buffer<CR>
+nnoremap <silent> [buffer]b :<C-u>Buffers<CR>
 nnoremap <silent> [buffer]n :bn<CR>
 nnoremap <silent> [buffer]p :bp<CR>
 
 nnoremap [project] <Nop>
 nmap     [Space]p [project]
-nnoremap <silent> [project]f :<C-u>DeniteProjectDir file_rec/git<CR>
+nnoremap <silent> [project]f :<C-u>GFiles<CR>
 
 nnoremap [error] <Nop>
 nmap     [Space]e [error]
@@ -1030,7 +1033,43 @@ call denite#custom#option('default', 'prompt', '>')
 
 
 " {{{ fzf.vim
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+let $FZF_DEFAULT_COMMAND = 'rg --files --glob !.git'
+let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+  \   'bg':      ['bg', 'Normal'],
+  \   'hl':      ['fg', 'Comment'],
+  \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \   'hl+':     ['fg', 'Statement'],
+  \   'info':    ['fg', 'PreProc'],
+  \   'prompt':  ['fg', 'Conditional'],
+  \   'pointer': ['fg', 'Exception'],
+  \   'marker':  ['fg', 'Keyword'],
+  \   'spinner': ['fg', 'Label'],
+  \   'header':  ['fg', 'Comment'] }
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 guifg=#1e222c guibg=#91b5ff
+  highlight fzf2 guifg=#91b5ff guibg=#2a303b
+  setlocal statusline=%#fzf1#\ fzf\ %#fzf2#
+endfunction
+
+autocmd MyAutoCmds FileType fzf tnoremap <silent><buffer> <Esc> <C-\><C-n>:q<CR>
+autocmd MyAutoCmds User FzfStatusLine call <SID>fzf_statusline()
+
+command! -bang -nargs=* Grep
+  \ call fzf#vim#grep('grep --line-number --recursive '.shellescape(<q-args>), 0, <bang>0)
+
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 " }}}
 
 
