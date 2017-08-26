@@ -147,6 +147,8 @@ if has('nvim')
 else
   Plug 'Shougo/denite.nvim'
 endif
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 " fish shell
 Plug 'dag/vim-fish', { 'for': 'fish' }
@@ -1024,6 +1026,11 @@ call denite#custom#map(
 \)
 
 call denite#custom#option('default', 'prompt', '>')
+" }}}
+
+
+" {{{ fzf.vim
+let $FZF_DEFAULT_COMMAND = 'rg --files'
 " }}}
 
 
