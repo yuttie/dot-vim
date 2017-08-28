@@ -613,7 +613,7 @@ nnoremap <silent> [error]P <Plug>(ale_previous_wrap)
 nnoremap [toggle] <Nop>
 nmap     [Space]t [toggle]
 nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
-nnoremap <silent> [toggle]i :setl list!<CR>:setl list?<CR>
+nnoremap <silent> [toggle]w :setl list!<CR>:setl list?<CR>
 nnoremap <silent> [toggle]l :ALEToggle<CR>:echo g:ale_enabled ? 'ALE enabled' : 'ALE disabled'<CR>
 nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 " 'paste' is OBSOLETE
