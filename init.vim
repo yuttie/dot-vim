@@ -92,7 +92,6 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet', { 'on': [] }
 Plug 'Shougo/neosnippet-snippets', { 'on': [] }
 " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'Shougo/vimshell'
 " Plug 'Shougo/vim-vcs'
 " Plug 'Shougo/vinarise'
 Plug 't9md/vim-choosewin',
@@ -1124,7 +1123,6 @@ if !has('nvim')
   " Define dictionary.
   let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell/command-history'
     \ }
 
   " Define keyword.
@@ -1210,24 +1208,6 @@ if !has('nvim')
     \ '-I /usr/include/eigen3 ' .
     \ ''
 endif
-" }}}
-
-
-" {{{ vimshell
-if has('win32') || has('win64')
-  let g:vimshell_user_prompt = '$USERNAME . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
-else
-  let g:vimshell_user_prompt = '$USER . "@" . hostname() . " " . fnamemodify(getcwd(), ":~")'
-endif
-let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-let g:vimshell_max_command_history = 100000
-let g:vimshell_scrollback_limit = 5000
-
-" The prefix key.
-nnoremap [vimshell]   <Nop>
-nmap     [Space]S  [vimshell]
-
-nnoremap <silent> [vimshell]  :VimShell<CR>
 " }}}
 
 
