@@ -172,7 +172,7 @@ Plug 'tpope/vim-fugitive'
 " Plug 'eagletmt/neco-ghc'
 
 " PHP
-" Plug '2072/PHP-Indenting-for-VIm'
+Plug '2072/PHP-Indenting-for-VIm'
 " Plug 'shawncplus/phpcomplete.vim'
 " Plug 'StanAngeloff/php.vim'
 
