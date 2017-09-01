@@ -149,6 +149,9 @@ endif
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
+"
+" Plugins for Languages
+"
 " fish shell
 Plug 'dag/vim-fish', { 'for': 'fish' }
 
