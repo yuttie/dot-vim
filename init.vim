@@ -245,7 +245,7 @@ Plug 'Rykka/riv.vim', { 'for': 'rst' }
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'def-lkb/ocp-indent-vim'
 " Plug 'cespare/vim-toml'
-" Plug 'elzr/vim-json'
+Plug 'elzr/vim-json'  " syntax, indent, ftplugin
 " Plug 'JuliaLang/julia-vim'
 
 " Themes
