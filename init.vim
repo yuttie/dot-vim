@@ -174,6 +174,9 @@ Plug 'tpope/vim-fugitive'
 " Plug 'eagletmt/ghcmod-vim'
 " Plug 'eagletmt/neco-ghc'
 
+" i3
+Plug 'PotatoesMaster/i3-vim-syntax'  " syntax, ftplugin
+
 " PHP
 Plug '2072/PHP-Indenting-for-VIm'
 " Plug 'shawncplus/phpcomplete.vim'
