@@ -219,7 +219,7 @@ Plug 'othree/javascript-libraries-syntax.vim'  " syntax
 
 " Web/HTML
 Plug 'othree/html5.vim'  " syntax, indent, ftplugin
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'php'] }
 " Plug 'ervandew/sgmlendtag'
 " Plug 'pbrisbin/html-template-syntax'
 
