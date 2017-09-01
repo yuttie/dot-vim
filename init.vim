@@ -178,9 +178,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'PotatoesMaster/i3-vim-syntax'  " syntax, ftplugin
 
 " PHP
-Plug '2072/PHP-Indenting-for-VIm'
-" Plug 'shawncplus/phpcomplete.vim'
-" Plug 'StanAngeloff/php.vim'
+Plug '2072/PHP-Indenting-for-VIm'  " indent
+" Plug 'shawncplus/phpcomplete.vim'  " This includes syntax file and conflicts with StanAngeloff/php.vim
+Plug 'StanAngeloff/php.vim'  " syntax
 
 " Python
 if has('nvim')
