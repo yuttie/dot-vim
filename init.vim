@@ -208,16 +208,18 @@ Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
 
 " Web/CSS
 " Plug 'csscomb/vim-csscomb'
-" Plug 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax'  " syntax
 " Plug 'othree/csscomplete.vim'
-" Plug 'cakebaker/scss-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim'  " syntax, ftplugin
 
 " Web/JavaScript
 " Plug 'carlitux/deoplete-ternjs'
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'  " syntax, indent, compiler, ftplugin
+Plug 'othree/javascript-libraries-syntax.vim'  " syntax
 
 " Web/HTML
-" Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'  " syntax, indent, ftplugin
+Plug 'mattn/emmet-vim'
 " Plug 'ervandew/sgmlendtag'
 " Plug 'pbrisbin/html-template-syntax'
 
