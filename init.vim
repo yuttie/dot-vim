@@ -224,8 +224,8 @@ Plug 'mattn/emmet-vim'
 " Plug 'pbrisbin/html-template-syntax'
 
 " Markdown
-" Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'  " syntax, indent, ftplugin
 " or
 " Plug 'rhysd/vim-gfm-syntax'
 " Plug 'kannokanno/previm'
