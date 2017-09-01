@@ -153,7 +153,7 @@ Plug 'junegunn/fzf.vim'
 " Plugins for Languages
 "
 " fish shell
-Plug 'dag/vim-fish', { 'for': 'fish' }
+Plug 'dag/vim-fish'
 
 " Git
 " Plug 'jreybert/vimagit'
@@ -184,7 +184,7 @@ Plug 'StanAngeloff/php.vim'  " syntax
 
 " Python
 if has('nvim')
-  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+  Plug 'zchee/deoplete-jedi'
 endif
 " Plug 'vim-scripts/pythoncomplete'
 " Plug 'Glench/Vim-Jinja2-Syntax'
@@ -193,8 +193,8 @@ endif
 " Plug 'vim-ruby/vim-ruby'
 
 " Rust
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'  " syntax, indent, ftplugin, compiler, plugin
 
 " TypeScript
 " Plug 'leafgarland/typescript-vim'
@@ -204,7 +204,7 @@ endif
 
 " Vim
 " Plug 'mopp/layoutplugin.vim'
-Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
+Plug 'vim-jp/syntax-vim-ex'  " syntax
 
 " Web/CSS
 " Plug 'csscomb/vim-csscomb'
