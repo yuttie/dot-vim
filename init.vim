@@ -110,14 +110,7 @@ Plug 'terryma/vim-multiple-cursors'
 " Plug 'tpope/vim-projectionist'
 " Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-surround'
-Plug 'tyru/caw.vim',
-  \ { 'on': [
-  \   '<Plug>(caw:hatpos:toggle:operator)',
-  \   '<Plug>(caw:hatpos:toggle)',
-  \   '<Plug>(caw:hatpos:comment)',
-  \   '<Plug>(caw:jump:comment-next)',
-  \   '<Plug>(caw:jump:comment-prev)',
-  \ ] }
+Plug 'tyru/caw.vim'  " Doesn't work well with lazy loading
 Plug 'tyru/open-browser.vim',
   \ { 'on': [
   \   '<Plug>(openbrowser-smart-search)',
