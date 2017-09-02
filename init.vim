@@ -217,7 +217,13 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'php'] }
 " Plug 'pbrisbin/html-template-syntax'
 
 " Markdown
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular',
+  \ { 'on': [
+  \   'AddTabularPattern',
+  \   'AddTabularPipeline',
+  \   'Tabularize',
+  \   'GTabularize',
+  \ ] }
 Plug 'plasticboy/vim-markdown'  " syntax, indent, ftplugin
 " or
 " Plug 'rhysd/vim-gfm-syntax'
