@@ -708,22 +708,23 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified', 'ale' ],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \     [ 'ale' ],
       \   ],
       \   'right': [
-      \     [ 'lineinfo' ],
-      \     [ 'percent' ],
-      \     [ 'fileformat', 'fileencoding', 'filetype' ],
+      \     [ 'fulllineinfo' ],
+      \     [ 'filetype' ],
+      \     [ 'fileformat', 'fileencoding' ],
       \   ],
       \ },
       \ 'inactive': {
       \   'left': [
-      \     [],
+      \     [ 'mode' ],
       \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
       \   ],
       \   'right': [
-      \     [ 'lineinfo' ],
-      \     [ 'percent' ],
+      \     [ 'fulllineinfo' ],
+      \     [ 'filetype' ],
       \   ],
       \ },
       \ 'tabline': {
@@ -737,6 +738,7 @@ let g:lightline = {
       \ },
       \ 'component': {
       \   'readonly': '%{&readonly?"":""}',
+      \   'fulllineinfo': '%3p%% %3l %2v',
       \ },
       \ 'component_function': {
       \   'relativepath': 'g:lightline.my.relativepath',
