@@ -744,6 +744,7 @@ let g:lightline = {
       \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
       \   'ale':         'ALEGetStatusLine',
+      \   'cwd':         'getcwd',
       \ },
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
