@@ -77,7 +77,10 @@ if dein#load_state(s:my_plugin_dir)
     \ ] })
   call dein#add('itchyny/vim-cursorword')
   call dein#add('itchyny/vim-parenmatch')
-  call dein#add('jiangmiao/auto-pairs', { 'on_i': 1 })
+  call dein#add('jiangmiao/auto-pairs',
+    \ { 'on_i': 1,
+    \   'hook_post_source': 'call AutoPairsTryInit()',
+    \ })
   call dein#add('junegunn/vim-easy-align',
     \ { 'on_map': [
     \   '<Plug>(EasyAlign)',
@@ -104,7 +107,10 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'vim-scripts/scratch'
   " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   call dein#add('Shougo/context_filetype.vim')
-  call dein#add('Shougo/echodoc', { 'on_i': 1 })
+  call dein#add('Shougo/echodoc',
+    \ { 'on_i': 1,
+    \   'hook_source': 'let g:echodoc#enable_at_startup = 1',
+    \ })
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet', { 'on_i': 1 })
   call dein#add('Shougo/neosnippet-snippets', { 'on_i': 1 })
@@ -146,6 +152,14 @@ if dein#load_state(s:my_plugin_dir)
     call dein#add('Shougo/deoplete.nvim',
       \ { 'on_i': 1,
       \   'depends': 'context_filetype.vim',
+      \   'hook_source':
+      \     "call deoplete#custom#set('_', 'converters', [
+      \        'converter_auto_paren',
+      \        'converter_remove_overlap',
+      \        'converter_truncate_abbr',
+      \        'converter_truncate_menu'
+      \      ]) |
+      \      call deoplete#custom#set('_', 'min_pattern_length', 1)"
       \ })
   else
     call dein#add('Shougo/neocomplete.vim', { 'on_i': 1 })
@@ -296,41 +310,6 @@ syntax enable
 "endif
 
 "End dein Scripts-------------------------
-
-" Load some plugins when entering insert mode for the first time
-function! s:my_lazy_load_on_first_insert()
-  call plug#load(
-    \   'auto-pairs',
-    \   'echodoc',
-    \   'neosnippet',
-    \   'neosnippet-snippets',
-    \ )
-
-  if has('nvim')
-    call plug#load('deoplete.nvim')
-  call deoplete#custom#set('_', 'converters', [
-    \   'converter_auto_paren',
-    \   'converter_remove_overlap',
-    \   'converter_truncate_abbr',
-    \   'converter_truncate_menu'
-    \ ])
-  call deoplete#custom#set('_', 'min_pattern_length', 1)
-  else
-    call plug#load('neocomplete.vim')
-  endif
-
-  " Initialize auto-pairs
-  call AutoPairsTryInit()
-
-  " Enable echodoc here because the InsertEnter event already occurred
-  call echodoc#enable()
-endfunction
-
-augroup my_lazy_load_on_first_insert
-  autocmd!
-  autocmd InsertEnter * call s:my_lazy_load_on_first_insert()
-    \ | autocmd! my_lazy_load_on_first_insert
-augroup END
 " }}}
 
 
