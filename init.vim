@@ -241,7 +241,10 @@ if dein#load_state(s:my_plugin_dir)
     \   'Tabularize',
     \   'GTabularize',
     \ ] })
-  call dein#add('plasticboy/vim-markdown')  " syntax, indent, ftplugin
+  call dein#add('plasticboy/vim-markdown',
+    \ { 'on_ft': 'markdown',
+    \   'depends': 'tabular',
+    \ })  " syntax, indent, ftplugin
   " or
   " Plug 'rhysd/vim-gfm-syntax'
   " Plug 'kannokanno/previm'
