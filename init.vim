@@ -7,259 +7,289 @@ let $PATH = expand('~/.cargo/bin') . ':' . $PATH
 
 
 " {{{ Plugins
-" Execute the following command line first:
-"   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Execute the following commands first:
+"   curl -O https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+"   sh ./installer.sh <my_plugin_dir>
 if has('nvim')
-  let s:my_plugin_dir = '~/.config/nvim/bundle/'
+  let s:my_plugin_dir = expand('~/.config/nvim/bundle')
 else
-  let s:my_plugin_dir = '~/.vim/bundle/'
+  let s:my_plugin_dir = expand('~/.vim/bundle')
 endif
-call plug#begin(s:my_plugin_dir)
 
 " Prevent default plugins from being loaded
 let g:loaded_matchparen = 1
 
-" Plugins
-" Plug 'AndrewRadev/inline_edit.vim'
-Plug 'AndrewRadev/linediff.vim',
-  \ { 'on': [
-  \   'Linediff',
-  \   'LinediffReset',
-  \   'LinediffAdd',
-  \   'LinediffShow',
-  \   'LinediffLast',
-  \   'LinediffMerge',
-  \   'LinediffPick',
-  \ ] }
-" Plug 'AndrewRadev/sideways.vim'
-" Plug 'dannyob/quickfixstatus'
-" Plug 'dhruvasagar/vim-table-mode'
-Plug 'easymotion/vim-easymotion',
-  \ { 'on': [
-  \   '<Plug>(easymotion-fl)',
-  \   '<Plug>(easymotion-Fl)',
-  \   '<Plug>(easymotion-tl)',
-  \   '<Plug>(easymotion-Tl)',
-  \   '<Plug>(easymotion-linebackward)',
-  \   '<Plug>(easymotion-j)',
-  \   '<Plug>(easymotion-k)',
-  \   '<Plug>(easymotion-lineforward)',
-  \   '<Plug>(easymotion-bd-f)',
-  \   '<Plug>(easymotion-overwin-f)',
-  \   '<Plug>(easymotion-bd-w)',
-  \   '<Plug>(easymotion-overwin-w)',
-  \   '<Plug>(easymotion-bd-jk)',
-  \   '<Plug>(easymotion-overwin-line)',
-  \ ] }
-  \ " optionally depends on 'tpope/vim-repeat'
-" Plug 'vim-scripts/matchit.zip'
-" Plug 'godlygeek/tabular'
-Plug 'haya14busa/incsearch.vim',
-  \ { 'on': [
-  \   '<Plug>(incsearch-forward)',
-  \   '<Plug>(incsearch-stay)',
-  \ ] }
-Plug 'itchyny/vim-cursorword'
-Plug 'itchyny/vim-parenmatch'
-Plug 'jiangmiao/auto-pairs', { 'on': [] }
-Plug 'junegunn/vim-easy-align',
-  \ { 'on': [
-  \   '<Plug>(EasyAlign)',
-  \ ] }
-Plug 'kana/vim-operator-user'
-" Plug 'kana/vim-textobj-indent'
-" Plug 'kana/vim-textobj-user'
-Plug 'Konfekt/FastFold'
-Plug 'lambdalisue/vim-unified-diff'
-Plug 'lilydjwg/colorizer'
-Plug 'mbbill/undotree',
-  \ { 'on': [
-  \   'UndotreeToggle',
-  \ ] }
-Plug 'ntpeters/vim-better-whitespace'
-" Plug 'rhysd/clever-f.vim'
-Plug 'rhysd/vim-operator-surround',
-  \ { 'on': [
-  \   '<Plug>(operator-surround-append)',
-  \   '<Plug>(operator-surround-delete)',
-  \   '<Plug>(operator-surround-replace)',
-  \ ] }
-  \ " depends on 'kana/vim-operator-user'
-" Plug 'vim-scripts/scratch'
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/echodoc', { 'on': [] }
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/neosnippet', { 'on': [] }
-Plug 'Shougo/neosnippet-snippets', { 'on': [] }
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'Shougo/vim-vcs'
-" Plug 'Shougo/vinarise'
-Plug 't9md/vim-choosewin',
-  \ { 'on': [
-  \   '<Plug>(choosewin)',
-  \ ] }
-Plug 'terryma/vim-expand-region',
-  \ { 'on': [
-  \   '<Plug>(expand_region_expand)',
-  \   '<Plug>(expand_region_shrink)',
-  \ ] }
-Plug 'terryma/vim-multiple-cursors'
-" Plug 'thinca/vim-fontzoom'
-" Plug 'thinca/vim-ref'
-" Plug 'thinca/vim-visualstar'
-" Plug 'tpope/vim-projectionist'
-" Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-surround'
-Plug 'tyru/caw.vim'  " Doesn't work well with lazy loading
-Plug 'tyru/open-browser.vim',
-  \ { 'on': [
-  \   '<Plug>(openbrowser-smart-search)',
-  \ ] }
-Plug 'w0rp/ale'
-" Plug 'wesQ3/vim-windowswap'
-Plug 'Yggdroot/indentLine'
-" Plug 'yonchu/accelerated-smooth-scroll'
-Plug 'yuttie/comfortable-motion.vim'
-
-" UI enhancements
-" Completion (neocomplete/deoplete)
-" Plug 'ujihisa/neco-look'
-if has('nvim')
-  function! DoRemoteUpdate(arg)
-    UpdateRemotePlugins
-  endfunction
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemoteUpdate'), 'on': [] }
-else
-  Plug 'Shougo/neocomplete.vim', { 'on': [] }
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-" Interactive filter
-if has('nvim')
-  Plug 'Shougo/denite.nvim', { 'do': function('DoRemoteUpdate') }
-else
-  Plug 'Shougo/denite.nvim'
+" Required:
+execute 'set runtimepath+=' . s:my_plugin_dir . '/repos/github.com/Shougo/dein.vim'
+
+" Required:
+if dein#load_state(s:my_plugin_dir)
+  call dein#begin(s:my_plugin_dir)
+
+  " Let dein manage dein
+  " Required:
+  call dein#add(s:my_plugin_dir . '/repos/github.com/Shougo/dein.vim')
+
+  " Plugins
+  " Plug 'AndrewRadev/inline_edit.vim'
+  call dein#add('AndrewRadev/linediff.vim',
+    \ { 'on_cmd': [
+    \   'Linediff',
+    \   'LinediffReset',
+    \   'LinediffAdd',
+    \   'LinediffShow',
+    \   'LinediffLast',
+    \   'LinediffMerge',
+    \   'LinediffPick',
+    \ ] })
+  " Plug 'AndrewRadev/sideways.vim'
+  " Plug 'dannyob/quickfixstatus'
+  " Plug 'dhruvasagar/vim-table-mode'
+  call dein#add('easymotion/vim-easymotion',
+    \ { 'on_map': [
+    \   '<Plug>(easymotion-fl)',
+    \   '<Plug>(easymotion-Fl)',
+    \   '<Plug>(easymotion-tl)',
+    \   '<Plug>(easymotion-Tl)',
+    \   '<Plug>(easymotion-linebackward)',
+    \   '<Plug>(easymotion-j)',
+    \   '<Plug>(easymotion-k)',
+    \   '<Plug>(easymotion-lineforward)',
+    \   '<Plug>(easymotion-bd-f)',
+    \   '<Plug>(easymotion-overwin-f)',
+    \   '<Plug>(easymotion-bd-w)',
+    \   '<Plug>(easymotion-overwin-w)',
+    \   '<Plug>(easymotion-bd-jk)',
+    \   '<Plug>(easymotion-overwin-line)',
+    \ ] })
+    \ " optionally depends on 'tpope/vim-repeat'
+  " Plug 'vim-scripts/matchit.zip'
+  " Plug 'godlygeek/tabular'
+  call dein#add('haya14busa/incsearch.vim',
+    \ { 'on_map': [
+    \   '<Plug>(incsearch-forward)',
+    \   '<Plug>(incsearch-stay)',
+    \ ] })
+  call dein#add('itchyny/vim-cursorword')
+  call dein#add('itchyny/vim-parenmatch')
+  call dein#add('jiangmiao/auto-pairs', { 'on_i': 1 })
+  call dein#add('junegunn/vim-easy-align',
+    \ { 'on_map': [
+    \   '<Plug>(EasyAlign)',
+    \ ] })
+  call dein#add('kana/vim-operator-user')
+  " Plug 'kana/vim-textobj-indent'
+  " Plug 'kana/vim-textobj-user'
+  call dein#add('Konfekt/FastFold')
+  call dein#add('lambdalisue/vim-unified-diff')
+  call dein#add('lilydjwg/colorizer')
+  call dein#add('mbbill/undotree',
+    \ { 'on_cmd': [
+    \   'UndotreeToggle',
+    \ ] })
+  call dein#add('ntpeters/vim-better-whitespace')
+  " Plug 'rhysd/clever-f.vim'
+  call dein#add('rhysd/vim-operator-surround',
+    \ { 'on_map': [
+    \   '<Plug>(operator-surround-append)',
+    \   '<Plug>(operator-surround-delete)',
+    \   '<Plug>(operator-surround-replace)',
+    \ ] })
+    \ " depends on 'kana/vim-operator-user'
+  " Plug 'vim-scripts/scratch'
+  " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  call dein#add('Shougo/echodoc', { 'on_i': 1 })
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('Shougo/neosnippet', { 'on_i': 1 })
+  call dein#add('Shougo/neosnippet-snippets', { 'on_i': 1 })
+  " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+  " Plug 'Shougo/vim-vcs'
+  " Plug 'Shougo/vinarise'
+  call dein#add('t9md/vim-choosewin',
+    \ { 'on_map': [
+    \   '<Plug>(choosewin)',
+    \ ] })
+  call dein#add('terryma/vim-expand-region',
+    \ { 'on_map': [
+    \   '<Plug>(expand_region_expand)',
+    \   '<Plug>(expand_region_shrink)',
+    \ ] })
+  call dein#add('terryma/vim-multiple-cursors')
+  " Plug 'thinca/vim-fontzoom'
+  " Plug 'thinca/vim-ref'
+  " Plug 'thinca/vim-visualstar'
+  " Plug 'tpope/vim-projectionist'
+  " Plug 'tpope/vim-repeat'
+  " Plug 'tpope/vim-surround'
+  call dein#add('tyru/caw.vim')  " Doesn't work well with lazy loading
+  call dein#add('tyru/open-browser.vim',
+    \ { 'on_map': [
+    \   '<Plug>(openbrowser-smart-search)',
+    \ ] })
+  call dein#add('w0rp/ale')
+  " Plug 'wesQ3/vim-windowswap'
+  call dein#add('Yggdroot/indentLine')
+  " Plug 'yonchu/accelerated-smooth-scroll'
+  call dein#add('yuttie/comfortable-motion.vim')
+
+  " UI enhancements
+  " Completion (neocomplete/deoplete)
+  " Plug 'ujihisa/neco-look'
+  if has('nvim')
+    function! DoRemoteUpdate(arg)
+      UpdateRemotePlugins
+    endfunction
+    call dein#add('Shougo/deoplete.nvim', { 'on_i': 1 })
+  else
+    call dein#add('Shougo/neocomplete.vim', { 'on_i': 1 })
+  endif
+
+  " Interactive filter
+  if has('nvim')
+    call dein#add('Shougo/denite.nvim')
+  else
+    call dein#add('Shougo/denite.nvim')
+  endif
+  call dein#add('junegunn/fzf', { 'build': './install --bin' })
+  call dein#add('junegunn/fzf.vim')
+
+  "
+  " Plugins for Languages
+  "
+  " fish shell
+  call dein#add('dag/vim-fish')
+
+  " Git
+  " Plug 'jreybert/vimagit'
+  call dein#add('itchyny/vim-gitbranch')
+  call dein#add('airblade/vim-gitgutter')
+  " Plug 'gregsexton/gitv'
+  call dein#add('lambdalisue/gina.vim',
+    \ { 'on_cmd': [
+    \   'Gina',
+    \ ] })
+  call dein#add('tpope/vim-fugitive')
+
+  " GitHub
+  " Plug 'mattn/gist-vim'
+
+  " Haskell
+  " Plug 'neovimhaskell/haskell-vim'
+  " Plug 'eagletmt/ghcmod-vim'
+  " Plug 'eagletmt/neco-ghc'
+
+  " i3
+  call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
+
+  " PHP
+  call dein#add('2072/PHP-Indenting-for-VIm')  " indent
+  " Plug 'shawncplus/phpcomplete.vim'  " This includes syntax file and conflicts with StanAngeloff/php.vim
+  call dein#add('StanAngeloff/php.vim')  " syntax
+
+  " Python
+  if has('nvim')
+    call dein#add('zchee/deoplete-jedi')
+  endif
+  " Plug 'vim-scripts/pythoncomplete'
+  " Plug 'Glench/Vim-Jinja2-Syntax'
+
+  " Ruby
+  " Plug 'vim-ruby/vim-ruby'
+
+  " Rust
+  call dein#add('racer-rust/vim-racer')
+  call dein#add('rust-lang/rust.vim')  " syntax, indent, ftplugin, compiler, plugin
+
+  " TypeScript
+  " Plug 'leafgarland/typescript-vim'
+  if has('nvim')
+    " Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
+  endif
+
+  " Vim
+  " Plug 'mopp/layoutplugin.vim'
+  call dein#add('vim-jp/syntax-vim-ex')  " syntax
+
+  " Web/CSS
+  " Plug 'csscomb/vim-csscomb'
+  call dein#add('hail2u/vim-css3-syntax')  " syntax
+  " Plug 'othree/csscomplete.vim'
+  call dein#add('cakebaker/scss-syntax.vim')  " syntax, ftplugin
+
+  " Web/JavaScript
+  " Plug 'carlitux/deoplete-ternjs'
+  call dein#add('pangloss/vim-javascript')  " syntax, indent, compiler, ftplugin
+  call dein#add('othree/javascript-libraries-syntax.vim')  " syntax
+
+  " Web/HTML
+  call dein#add('othree/html5.vim')  " syntax, indent, ftplugin
+  call dein#add('mattn/emmet-vim', { 'on_ft': ['html', 'xml', 'php'] })
+  " Plug 'ervandew/sgmlendtag'
+  " Plug 'pbrisbin/html-template-syntax'
+
+  " Markdown
+  call dein#add('godlygeek/tabular',
+    \ { 'on_cmd': [
+    \   'AddTabularPattern',
+    \   'AddTabularPipeline',
+    \   'Tabularize',
+    \   'GTabularize',
+    \ ] })
+  call dein#add('plasticboy/vim-markdown')  " syntax, indent, ftplugin
+  " or
+  " Plug 'rhysd/vim-gfm-syntax'
+  " Plug 'kannokanno/previm'
+  " Plug 'tpope/vim-markdown'
+  " Plug 'tyru/markdown-codehl-onthefly.vim'
+
+  " reStructuredText
+  call dein#add('Rykka/riv.vim', { 'on_ft': 'rst' })
+
+  " Other filetype-specific plugins
+  " Plug 'jamessan/vim-gnupg'
+  " Plug 'fatih/vim-go'
+  " Plug 'vim-scripts/gtk-vim-syntax'
+  " Plug 'guns/vim-sexp'
+  " Plug 'jceb/vim-orgmode'
+  " Plug 'lervag/vimtex'
+  " Plug 'octol/vim-cpp-enhanced-highlight'
+  " Plug 'def-lkb/ocp-indent-vim'
+  " Plug 'cespare/vim-toml'
+  call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
+  " Plug 'JuliaLang/julia-vim'
+
+  " Themes
+  call dein#add('itchyny/lightline.vim')
+  " Plug 'chriskempson/base16-vim'
+  " Plug '29decibel/codeschool-vim-theme'
+  " Plug 'jpo/vim-railscasts-theme'
+  " Plug 'nanotech/jellybeans.vim'
+  " Plug 'NLKNguyen/papercolor-theme'
+  call dein#add('ryanoasis/vim-devicons')    " This must be loaded after its supported plugins
+  " Plug 'tomasr/molokai'
+  " Plug 'w0ng/vim-hybrid'
+  call dein#add('yuttie/hydrangea-vim')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
 endif
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
 
-"
-" Plugins for Languages
-"
-" fish shell
-Plug 'dag/vim-fish'
+" Required:
+filetype plugin indent on
+syntax enable
 
-" Git
-" Plug 'jreybert/vimagit'
-Plug 'itchyny/vim-gitbranch'
-Plug 'airblade/vim-gitgutter'
-" Plug 'gregsexton/gitv'
-Plug 'lambdalisue/gina.vim',
-  \ { 'on': [
-  \   'Gina',
-  \ ] }
-Plug 'tpope/vim-fugitive'
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
 
-" GitHub
-" Plug 'mattn/gist-vim'
-
-" Haskell
-" Plug 'neovimhaskell/haskell-vim'
-" Plug 'eagletmt/ghcmod-vim'
-" Plug 'eagletmt/neco-ghc'
-
-" i3
-Plug 'PotatoesMaster/i3-vim-syntax'  " syntax, ftplugin
-
-" PHP
-Plug '2072/PHP-Indenting-for-VIm'  " indent
-" Plug 'shawncplus/phpcomplete.vim'  " This includes syntax file and conflicts with StanAngeloff/php.vim
-Plug 'StanAngeloff/php.vim'  " syntax
-
-" Python
-if has('nvim')
-  Plug 'zchee/deoplete-jedi'
-endif
-" Plug 'vim-scripts/pythoncomplete'
-" Plug 'Glench/Vim-Jinja2-Syntax'
-
-" Ruby
-" Plug 'vim-ruby/vim-ruby'
-
-" Rust
-Plug 'racer-rust/vim-racer'
-Plug 'rust-lang/rust.vim'  " syntax, indent, ftplugin, compiler, plugin
-
-" TypeScript
-" Plug 'leafgarland/typescript-vim'
-if has('nvim')
-  " Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
-endif
-
-" Vim
-" Plug 'mopp/layoutplugin.vim'
-Plug 'vim-jp/syntax-vim-ex'  " syntax
-
-" Web/CSS
-" Plug 'csscomb/vim-csscomb'
-Plug 'hail2u/vim-css3-syntax'  " syntax
-" Plug 'othree/csscomplete.vim'
-Plug 'cakebaker/scss-syntax.vim'  " syntax, ftplugin
-
-" Web/JavaScript
-" Plug 'carlitux/deoplete-ternjs'
-Plug 'pangloss/vim-javascript'  " syntax, indent, compiler, ftplugin
-Plug 'othree/javascript-libraries-syntax.vim'  " syntax
-
-" Web/HTML
-Plug 'othree/html5.vim'  " syntax, indent, ftplugin
-Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'php'] }
-" Plug 'ervandew/sgmlendtag'
-" Plug 'pbrisbin/html-template-syntax'
-
-" Markdown
-Plug 'godlygeek/tabular',
-  \ { 'on': [
-  \   'AddTabularPattern',
-  \   'AddTabularPipeline',
-  \   'Tabularize',
-  \   'GTabularize',
-  \ ] }
-Plug 'plasticboy/vim-markdown'  " syntax, indent, ftplugin
-" or
-" Plug 'rhysd/vim-gfm-syntax'
-" Plug 'kannokanno/previm'
-" Plug 'tpope/vim-markdown'
-" Plug 'tyru/markdown-codehl-onthefly.vim'
-
-" reStructuredText
-Plug 'Rykka/riv.vim', { 'for': 'rst' }
-
-" Other filetype-specific plugins
-" Plug 'jamessan/vim-gnupg'
-" Plug 'fatih/vim-go'
-" Plug 'vim-scripts/gtk-vim-syntax'
-" Plug 'guns/vim-sexp'
-" Plug 'jceb/vim-orgmode'
-" Plug 'lervag/vimtex'
-" Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'def-lkb/ocp-indent-vim'
-" Plug 'cespare/vim-toml'
-Plug 'elzr/vim-json'  " syntax, indent, ftplugin
-" Plug 'JuliaLang/julia-vim'
-
-" Themes
-Plug 'itchyny/lightline.vim'
-" Plug 'chriskempson/base16-vim'
-" Plug '29decibel/codeschool-vim-theme'
-" Plug 'jpo/vim-railscasts-theme'
-" Plug 'nanotech/jellybeans.vim'
-" Plug 'NLKNguyen/papercolor-theme'
-Plug 'ryanoasis/vim-devicons'    " This must be loaded after its supported plugins
-" Plug 'tomasr/molokai'
-" Plug 'w0ng/vim-hybrid'
-Plug 'yuttie/hydrangea-vim'
-
-call plug#end()
+"End dein Scripts-------------------------
 
 " Load some plugins when entering insert mode for the first time
 function! s:my_lazy_load_on_first_insert()
