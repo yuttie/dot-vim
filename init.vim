@@ -171,7 +171,10 @@ if dein#load_state(s:my_plugin_dir)
   else
     call dein#add('Shougo/denite.nvim')
   endif
-  call dein#add('junegunn/fzf', { 'build': './install --bin' })
+  call dein#add('junegunn/fzf',
+    \ { 'build': './install --bin; rm ./doc/fzf.txt'
+    \ })
+    \ " Remove the file because it contains a conflicting helptag
   call dein#add('junegunn/fzf.vim')
 
   "
