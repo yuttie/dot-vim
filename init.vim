@@ -90,7 +90,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'kana/vim-textobj-user'
   call dein#add('Konfekt/FastFold')
   call dein#add('lambdalisue/vim-unified-diff')
-  call dein#add('lilydjwg/colorizer')
+  call dein#add('ap/vim-css-color')
   call dein#add('mbbill/undotree',
     \ { 'on_cmd': [
     \   'UndotreeToggle',
