@@ -163,7 +163,7 @@ if dein#load_state(s:my_plugin_dir)
       \        'converter_truncate_abbr',
       \        'converter_truncate_menu'
       \      ]) |
-      \      call deoplete#custom#set('_', 'min_pattern_length', 1)"
+      \      call deoplete#custom#set('_', 'min_pattern_length', 0)"
       \ })
   else
     call dein#add('Shougo/neocomplete.vim', { 'on_i': 1 })
