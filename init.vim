@@ -600,7 +600,9 @@ nnoremap <C-i> <C-g>
 cmap w!! w !sudo tee > /dev/null %
 
 " terminal
-tnoremap <Esc> <C-\><C-n>
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
 
 " Space-prefixed bindings
 nnoremap [help] <Nop>
