@@ -112,8 +112,12 @@ if dein#load_state(s:my_plugin_dir)
     \   'hook_source': 'let g:echodoc#enable_at_startup = 1',
     \ })
   call dein#add('Shougo/neomru.vim')
-  call dein#add('Shougo/neosnippet', { 'on_i': 1 })
-  call dein#add('Shougo/neosnippet-snippets', { 'on_i': 1 })
+  call dein#add('Shougo/neosnippet',
+    \ { 'on_i': 1,
+    \   'on_ft': 'snippet',
+    \   'depends': ['neosnippet-snippets', 'context_filetype.vim'],
+    \ })
+  call dein#add('Shougo/neosnippet-snippets')
   " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
   " Plug 'Shougo/vim-vcs'
   " Plug 'Shougo/vinarise'
