@@ -126,7 +126,8 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'tpope/vim-projectionist'
   " Plug 'tpope/vim-repeat'
   " Plug 'tpope/vim-surround'
-  call dein#add('tyru/caw.vim')  " Doesn't work well with lazy loading
+  call dein#add('tyru/caw.vim',
+    \ { 'on_map': '<Plug>(caw:' })
   call dein#add('tyru/open-browser.vim',
     \ { 'on_map': [
     \   '<Plug>(openbrowser-smart-search)',
