@@ -1133,6 +1133,7 @@ if has('nvim')
 
   let g:deoplete#omni#functions = {}
   let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
+  let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 endif
 " }}}
 
