@@ -240,7 +240,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'Glench/Vim-Jinja2-Syntax'
 
   " Ruby
-  " Plug 'vim-ruby/vim-ruby'
+  call dein#add('vim-ruby/vim-ruby')  " syntax, indent, ftplugin, compiler
 
   " Rust
   call dein#add('racer-rust/vim-racer')
