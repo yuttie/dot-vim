@@ -1131,7 +1131,8 @@ if has('nvim')
     return deoplete#close_popup() . "\<CR>"
   endfunction
 
-  autocmd MyAutoCmds FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  let g:deoplete#omni#functions = {}
+  let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
 endif
 " }}}
 
