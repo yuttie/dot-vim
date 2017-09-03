@@ -601,12 +601,11 @@ nnoremap <silent> [help]dc :<C-u>Commands<CR>
 nnoremap <silent> [help]dm :<C-u>Maps<CR>
 nnoremap <silent> [help]dC :<C-u>Colors<CR>
 
-nnoremap [Plug] <Nop>
-nmap     [Space]P [Plug]
-nnoremap <silent> [Plug]P :PlugUpgrade \| PlugUpdate<CR>
-nnoremap <silent> [Plug]i :PlugInstall<CR>
-nnoremap <silent> [Plug]c :PlugClean<CR>
-nnoremap <silent> [Plug]s :PlugStatus<CR>
+nnoremap [plugin] <Nop>
+nmap     [Space]P [plugin]
+nnoremap <silent> [plugin]P :call dein#update()<CR>
+nnoremap <silent> [plugin]i :call dein#install()<CR>
+nnoremap <silent> [plugin]c :call map(dein#check_clean(), "delete(v:val, 'rf')")<CR>
 
 nnoremap [file] <Nop>
 nmap     [Space]f [file]
