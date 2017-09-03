@@ -194,7 +194,8 @@ if dein#load_state(s:my_plugin_dir)
 
   " Python
   if has('nvim')
-    call dein#add('zchee/deoplete-jedi')
+    call dein#add('zchee/deoplete-jedi',
+      \ { 'on_ft': 'python' })
   endif
   " Plug 'vim-scripts/pythoncomplete'
   " Plug 'Glench/Vim-Jinja2-Syntax'
