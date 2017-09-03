@@ -259,7 +259,7 @@ if dein#load_state(s:my_plugin_dir)
   " Web/CSS
   " Plug 'csscomb/vim-csscomb'
   call dein#add('hail2u/vim-css3-syntax')  " syntax
-  " Plug 'othree/csscomplete.vim'
+  call dein#add('othree/csscomplete.vim')
   call dein#add('cakebaker/scss-syntax.vim')  " syntax, ftplugin
 
   " Web/JavaScript
@@ -1130,6 +1130,8 @@ if has('nvim')
   function! s:my_deoplete_cr_function() abort
     return deoplete#close_popup() . "\<CR>"
   endfunction
+
+  autocmd MyAutoCmds FileType css setlocal omnifunc=csscomplete#CompleteCSS
 endif
 " }}}
 
