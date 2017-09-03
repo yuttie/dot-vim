@@ -143,9 +143,6 @@ if dein#load_state(s:my_plugin_dir)
   " Completion (neocomplete/deoplete)
   " Plug 'ujihisa/neco-look'
   if has('nvim')
-    function! DoRemoteUpdate(arg)
-      UpdateRemotePlugins
-    endfunction
     call dein#add('Shougo/deoplete.nvim',
       \ { 'on_i': 1,
       \   'depends': 'context_filetype.vim',
