@@ -103,6 +103,7 @@ if dein#load_state(s:my_plugin_dir)
     \ " depends on 'kana/vim-operator-user'
   " Plug 'vim-scripts/scratch'
   " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  call dein#add('Shougo/context_filetype.vim')
   call dein#add('Shougo/echodoc', { 'on_i': 1 })
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet', { 'on_i': 1 })
@@ -145,7 +146,10 @@ if dein#load_state(s:my_plugin_dir)
     function! DoRemoteUpdate(arg)
       UpdateRemotePlugins
     endfunction
-    call dein#add('Shougo/deoplete.nvim', { 'on_i': 1 })
+    call dein#add('Shougo/deoplete.nvim',
+      \ { 'on_i': 1,
+      \   'depends': 'context_filetype.vim',
+      \ })
   else
     call dein#add('Shougo/neocomplete.vim', { 'on_i': 1 })
   endif
