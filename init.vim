@@ -298,7 +298,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('Rykka/riv.vim', { 'on_ft': 'rst' })
 
   " Other filetype-specific plugins
-  " Plug 'jamessan/vim-gnupg'
+  call dein#add('jamessan/vim-gnupg')
   " Plug 'fatih/vim-go'
   " Plug 'vim-scripts/gtk-vim-syntax'
   " Plug 'guns/vim-sexp'
