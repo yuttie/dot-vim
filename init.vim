@@ -306,7 +306,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'lervag/vimtex'
   " Plug 'octol/vim-cpp-enhanced-highlight'
   " Plug 'def-lkb/ocp-indent-vim'
-  " Plug 'cespare/vim-toml'
+  call dein#add('cespare/vim-toml')  " syntax, ftplugin
   call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
   " Plug 'JuliaLang/julia-vim'
 
