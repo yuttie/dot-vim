@@ -1299,6 +1299,7 @@ autocmd MyAutoCmds FileType python setlocal tabstop=8
 autocmd MyAutoCmds FileType python setlocal expandtab
 autocmd MyAutoCmds FileType python setlocal softtabstop=4
 autocmd MyAutoCmds FileType python setlocal shiftwidth=4
+autocmd MyAutoCmds FileType python inoremap # X#
 " }}}
 
 
