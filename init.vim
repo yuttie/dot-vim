@@ -208,7 +208,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('dag/vim-fish')
 
   " Git
-  " Plug 'jreybert/vimagit'
+  call dein#add('jreybert/vimagit')
   call dein#add('itchyny/vim-gitbranch')
   call dein#add('airblade/vim-gitgutter')
   " Plug 'gregsexton/gitv'
