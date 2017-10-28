@@ -1054,11 +1054,13 @@ autocmd MyAutoCmds FileType gina-commit setlocal spell
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 5000
 
-nnoremap [git]  <Nop>
-nmap     <C-g>  [git]
+nnoremap [git]    <Nop>
+nmap     <C-g>    [git]
+nmap     [Space]g [git]
 
 nnoremap <silent> [git]c      :Gina commit -v --opener="topleft vsplit"<CR>
 nnoremap <silent> [git]<C-d>  :Gvdiff<CR>
+nmap [git]s     :Magit<CR>
 nmap [git]<C-n> <Plug>GitGutterNextHunk
 nmap [git]<C-p> <Plug>GitGutterPrevHunk
 nmap [git]<C-s> <Plug>GitGutterStageHunk
