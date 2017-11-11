@@ -204,6 +204,8 @@ if dein#load_state(s:my_plugin_dir)
   "
   " Plugins for Languages
   "
+  " Elm
+  call dein#add('ElmCast/elm-vim')
   " fish shell
   call dein#add('dag/vim-fish')
 
