@@ -1,28 +1,56 @@
-\documentclass[a4paper]{article}
+%\documentclass[a4paper]{article}
 %\documentclass[a4j]{jsarticle}  % for pLaTeX
 %\documentclass[a4j]{ltjsarticle}  % for LuaLaTeX
+\documentclass[lualatex,a4paper,ja=standard,jafont={sourcehan,deluxe,expert}]{bxjsarticle}  % for LuaLaTeX
 
 % Packages
+%\usepackage{luatexja}  % for LuaLaTeX with neither ltjsarticle nor bxjsarticle classes
 \usepackage{latexsym}
 \usepackage{amssymb,amsmath}
-\usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+%\usepackage[dvipdfmx]{xcolor}    % for use with dvipdfmx
+%\usepackage[dvipdfmx]{graphicx}  % for use with dvipdfmx
+\usepackage{array}  % for improved array and tabular environments
+%\usepackage{booktabs}
 %\usepackage{longtable}  % must be ahead of hyperref (http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?hyperref#sf5e3f3f)
+%\usepackage{mdwtab}
+%\usepackage{caption}
+%\usepackage{subcaption}
 %\usepackage[dvipdfmx]{hyperref}
 %\usepackage{pxjahyper}  % for pLaTeX + hyperref + dvipdfmx
 %\usepackage[pdftex,pdfencoding=auto]{hyperref}  % for LuaLaTeX
+%\usepackage{rotating}   % for making a float sideways
 %\usepackage{algorithm}  % must be behind hyperref
+%\usepackage{listings}
 %\usepackage{fancybox}
+%\usepackage{ifpdf}
+%\usepackage{eqparbox}
+%\usepackage{tikz}
 
 % Font
-%\usepackage{pxfonts}
-%\usepackage{mathpazo}
-%\usepackage{mathpple}
-%\usepackage{txfonts}
-%\usepackage{mathptmx}
+%\usepackage{newpxtext,newpxmath}  % Palatino
+%\usepackage{tgpagella}            % Palatino
+%\usepackage{mathpazo}             % Palatino (obsolete by Pagella?)
+%\usepackage{newtxtext,newtxmath}  % Times
+%\usepackage{tgtermes}             % Times
+%\usepackage{mathptmx}             % Times (obsolete by Termes?)
+%\usepackage{euler}
+%\usepackage{eulervm}
 %\usepackage[bold,expert]{otf}
-%\usepackage[bold,expert,hiraginon]{luatexja-preset}  % for LuaLaTeX
-%\usepackage{luatexja-otf}  % for LuaLaTeX
+% for LuaLaTeX
+%\usepackage[sourcehan,deluxe,expert]{luatexja-preset}  % for use with "ltjsarticle"
+\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+\setmonofont[Scale=MatchLowercase]{TeXGyreCursor}
+%\usepackage{newpxmath}  % Palatino
+\usepackage{newtxmath}  % Times
 
 
 % Path
@@ -72,9 +100,9 @@
 
 
 % Document Properties
-\title{TITLE}
-\author{Yuta Taniguchi}
-%\date{平成25年1月14日}
+\title{Template for \LaTeX}
+\author{Yuta Taniguchi \\ \texttt{yuta.taniguchi.y.t@gmail.com}}
+\date{January 9, 2018}
 
 
 \begin{document}
