@@ -323,6 +323,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'tomasr/molokai'
   " Plug 'w0ng/vim-hybrid'
   call dein#add('yuttie/hydrangea-vim')
+  call dein#add('yuttie/inkstained-vim')
 
   " Required:
   call dein#end()
@@ -471,7 +472,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=dark
-  colorscheme hydrangea
+  colorscheme inkstained
 endif
 
 " }}}
@@ -755,7 +756,7 @@ set ambiwidth=single
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'hydrangea',
+      \ 'colorscheme': 'inkstained',
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
