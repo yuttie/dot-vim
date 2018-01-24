@@ -1229,11 +1229,6 @@ xmap <C-k>  <Plug>(neosnippet_expand_target)
 imap <expr> <Tab>
   \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
   \ "\<Tab>"
-
-" Don't use conceal
-if has('conceal')
-  set conceallevel=0
-endif
 " }}}
 
 
