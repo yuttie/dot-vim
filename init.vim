@@ -1284,6 +1284,12 @@ autocmd MyAutoCmds BufNewFile,BufRead *.cpp setlocal matchpairs+=<:>
 " }}}
 
 
+" {{{ TeX
+let g:tex_conceal = ""
+autocmd MyAutoCmds FileType tex setlocal shiftwidth=2
+" }}}
+
+
 " {{{ Shell Scripts
 autocmd MyAutoCmds FileType sh,csh,tcsh,zsh setlocal shiftwidth=2
 " }}}
