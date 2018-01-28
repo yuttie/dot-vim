@@ -254,7 +254,8 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('rust-lang/rust.vim')  " syntax, indent, ftplugin, compiler, plugin
 
   " TypeScript
-  " Plug 'leafgarland/typescript-vim'
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('Quramy/tsuquyomi')
   if has('nvim')
     " Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
   endif
