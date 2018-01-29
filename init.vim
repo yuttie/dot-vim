@@ -676,6 +676,7 @@ nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 nnoremap <silent> [toggle]p :set paste!<CR>:set paste?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
+nnoremap <silent> [toggle]d :GitGutterLineHighlightsToggle<CR>
 
 nnoremap [comment] <Nop>
 nmap     [Space]c [comment]
