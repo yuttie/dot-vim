@@ -637,7 +637,7 @@ nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
 nnoremap <silent> [file]T  :VimFilerExplore<CR>
-nnoremap <silent> [file]R  :Rename
+nnoremap          [file]R  :Rename<Space>
 
 nnoremap [search] <Nop>
 nmap     [Space]s [search]
