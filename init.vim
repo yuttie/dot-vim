@@ -1060,6 +1060,7 @@ autocmd MyAutoCmds FileType gina-commit setlocal spell
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 5000
+let g:gitgutter_override_sign_column_highlight = 0
 
 nnoremap [git]    <Nop>
 nmap     <C-g>    [git]
