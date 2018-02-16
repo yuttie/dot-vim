@@ -308,7 +308,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'vim-scripts/gtk-vim-syntax'
   " Plug 'guns/vim-sexp'
   " Plug 'jceb/vim-orgmode'
-  " Plug 'lervag/vimtex'
+  call dein#add('lervag/vimtex')
   " Plug 'octol/vim-cpp-enhanced-highlight'
   " Plug 'def-lkb/ocp-indent-vim'
   call dein#add('cespare/vim-toml')  " syntax, ftplugin
@@ -1147,8 +1147,13 @@ if has('nvim')
   endfunction
 
   let g:deoplete#omni#functions = {}
+  let g:deoplete#omni#input_patterns = {}
+
   let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
   let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
+
+  let g:deoplete#omni#input_patterns.tex = '.'
+  let g:deoplete#omni#functions.tex = 'vimtex#complete#omnifunc'
 endif
 " }}}
 
