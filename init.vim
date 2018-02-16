@@ -1146,8 +1146,12 @@ if has('nvim')
     return deoplete#close_popup() . "\<CR>"
   endfunction
 
-  let g:deoplete#omni#functions = {}
-  let g:deoplete#omni#input_patterns = {}
+  if !exists('g:deoplete#omni#functions')
+      let g:deoplete#omni#functions = {}
+  endif
+  if !exists('g:deoplete#omni#input_patterns')
+      let g:deoplete#omni#input_patterns = {}
+  endif
 
   let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
   let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
