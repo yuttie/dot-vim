@@ -1156,8 +1156,7 @@ if has('nvim')
   let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
   let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
-  let g:deoplete#omni#input_patterns.tex = '.'
-  let g:deoplete#omni#functions.tex = 'vimtex#complete#omnifunc'
+  let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 endif
 " }}}
 
