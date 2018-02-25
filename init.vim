@@ -628,7 +628,7 @@ nnoremap <silent> [plugin]c :call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 nnoremap [file] <Nop>
 nmap     [Space]f [file]
-nnoremap <silent> [file]vd :e $MYVIMRC<CR>
+nnoremap <silent> [file]vd :vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :VimFiler<CR>
 nnoremap <silent> [file]f  :<C-u>Files<CR>
