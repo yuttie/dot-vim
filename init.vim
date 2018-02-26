@@ -944,6 +944,7 @@ endfunction
 
 
 " {{{ vim-better-whitespace
+let g:better_whitespace_operator = ''
 let g:better_whitespace_filetypes_blacklist = [
       \ 'diff',
       \ 'gitcommit',
