@@ -224,7 +224,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'mattn/gist-vim'
 
   " Haskell
-  " Plug 'neovimhaskell/haskell-vim'
+  call dein#add('neovimhaskell/haskell-vim')
   " Plug 'eagletmt/ghcmod-vim'
   " Plug 'eagletmt/neco-ghc'
 
