@@ -1059,6 +1059,7 @@ let g:GPGPreferSymmetric = 1
 autocmd MyAutoCmds FileType gitcommit setlocal spell
 autocmd MyAutoCmds FileType gina-commit setlocal spell
 
+set updatetime=100  " for vim-gitgutter to update signs immediately
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 5000
 let g:gitgutter_override_sign_column_highlight = 0
