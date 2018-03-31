@@ -48,6 +48,7 @@ if dein#load_state(s:my_plugin_dir)
     \   'LinediffPick',
     \ ] })
   " Plug 'AndrewRadev/sideways.vim'
+  call dein#add('cocopon/vaffle.vim')
   " Plug 'dannyob/quickfixstatus'
   " Plug 'dhruvasagar/vim-table-mode'
   call dein#add('easymotion/vim-easymotion',
@@ -636,6 +637,7 @@ nnoremap <silent> [file]vd :vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :VimFiler<CR>
 nnoremap <silent> [file]f  :<C-u>Files<CR>
+nnoremap <silent> [file]j  :Vaffle<CR>
 nnoremap <silent> [file]r  :<C-u>Denite file_mru<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
@@ -1080,6 +1082,34 @@ nmap [git]<C-p> <Plug>GitGutterPrevHunk
 nmap [git]<C-s> <Plug>GitGutterStageHunk
 nmap [git]<C-r> <Plug>GitGutterRevertHunk
 nmap [git]<C-v> <Plug>GitGutterPreviewHunk
+" }}}
+
+
+" {{{ vaffle.vim
+function! s:customize_vaffle_mappings() abort
+  " Toggle
+  nmap <buffer> <silent> <Space>       <Plug>(vaffle-toggle-current)
+  nmap <buffer> <silent> .             <Plug>(vaffle-toggle-hidden)
+  nmap <buffer> <silent> *             <Plug>(vaffle-toggle-all)
+  vmap <buffer> <silent> <Space>       <Plug>(vaffle-toggle-current)
+  " Operations for selected items
+  nmap <buffer> <nowait> <silent> d    <Plug>(vaffle-delete-selected)
+  nmap <buffer> <silent>          x    <Plug>(vaffle-fill-cmdline)
+  nmap <buffer> <silent>          m    <Plug>(vaffle-move-selected)
+  nmap <buffer> <silent>          <CR> <Plug>(vaffle-open-selected)
+  nmap <buffer> <silent>          r    <Plug>(vaffle-rename-selected)
+  " Operations for a item on cursor
+  nmap <buffer> <silent>          l    <Plug>(vaffle-open-current)
+  nmap <buffer> <nowait> <silent> t    <Plug>(vaffle-open-current-tab)
+  " Misc
+  nmap <buffer> <silent>          o    <Plug>(vaffle-mkdir)
+  nmap <buffer> <silent>          i    <Plug>(vaffle-new-file)
+  nmap <buffer> <silent>          ~    <Plug>(vaffle-open-home)
+  nmap <buffer> <silent>          h    <Plug>(vaffle-open-parent)
+  nmap <buffer> <silent>          q    <Plug>(vaffle-quit)
+  nmap <buffer> <silent>          R    <Plug>(vaffle-refresh)
+endfunction
+autocmd MyAutoCmds FileType vaffle call s:customize_vaffle_mappings()
 " }}}
 
 
