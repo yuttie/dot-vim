@@ -317,6 +317,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('cespare/vim-toml')  " syntax, ftplugin
   call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
   call dein#add('JuliaEditorSupport/julia-vim')
+  call dein#add('posva/vim-vue')
 
   " Themes
   call dein#add('itchyny/lightline.vim')
