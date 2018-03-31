@@ -1378,6 +1378,11 @@ let g:vim_json_syntax_conceal = 0
 " }}}
 
 
+" {{{ YAML
+autocmd MyAutoCmds FileType yaml setlocal shiftwidth=2
+" }}}
+
+
 " {{{ Haskell
 let g:haskell_conceal              = 0
 let g:haskell_conceal_enumerations = 0
