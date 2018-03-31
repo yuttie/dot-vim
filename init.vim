@@ -299,6 +299,9 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'tpope/vim-markdown'
   " Plug 'tyru/markdown-codehl-onthefly.vim'
 
+  " AsciiDoc
+  call dein#add('mjakl/vim-asciidoc', { 'on_ft': 'asciidoc' })
+
   " reStructuredText
   call dein#add('Rykka/riv.vim', { 'on_ft': 'rst' })
 
