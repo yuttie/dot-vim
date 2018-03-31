@@ -48,7 +48,7 @@ if dein#load_state(s:my_plugin_dir)
     \   'LinediffPick',
     \ ] })
   " Plug 'AndrewRadev/sideways.vim'
-  call dein#add('cocopon/vaffle.vim')
+  call dein#add('cocopon/vaffle.vim')  " Doesn't work correctly when lazily loaded
   " Plug 'dannyob/quickfixstatus'
   " Plug 'dhruvasagar/vim-table-mode'
   call dein#add('easymotion/vim-easymotion',
