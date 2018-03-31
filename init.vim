@@ -313,7 +313,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'def-lkb/ocp-indent-vim'
   call dein#add('cespare/vim-toml')  " syntax, ftplugin
   call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
-  " Plug 'JuliaLang/julia-vim'
+  call dein#add('JuliaEditorSupport/julia-vim')
 
   " Themes
   call dein#add('itchyny/lightline.vim')
