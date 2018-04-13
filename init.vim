@@ -1431,6 +1431,7 @@ autocmd MyAutoCmds FileType typescript setlocal shiftwidth=2
 autocmd MyAutoCmds FileType html       setlocal shiftwidth=2
 autocmd MyAutoCmds FileType css        setlocal shiftwidth=2
 autocmd MyAutoCmds FileType scss       setlocal shiftwidth=2
+autocmd MyAutoCmds FileType vue        setlocal shiftwidth=2
 " }}}
 
 
