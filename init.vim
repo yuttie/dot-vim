@@ -161,13 +161,13 @@ if dein#load_state(s:my_plugin_dir)
       \ { 'on_i': 1,
       \   'depends': 'context_filetype.vim',
       \   'hook_source':
-      \     "call deoplete#custom#set('_', 'converters', [
+      \     "call deoplete#custom#source('_', 'converters', [
       \        'converter_auto_paren',
       \        'converter_remove_overlap',
       \        'converter_truncate_abbr',
       \        'converter_truncate_menu'
       \      ]) |
-      \      call deoplete#custom#set('_', 'min_pattern_length', 0)"
+      \      call deoplete#custom#source('_', 'min_pattern_length', 0)"
       \ })
   else
     call dein#add('Shougo/neocomplete.vim', { 'on_i': 1 })
