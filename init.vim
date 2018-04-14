@@ -1,6 +1,11 @@
 scriptencoding utf-8
 
 
+" Workaround to force neovim use alternate screen
+if $TERM =~ '^tmux\(-.*\)\?$'
+  let $TERM="screen-256color"
+endif
+
 " {{{ $PATH
 let $PATH = expand('~/.cargo/bin') . ':' . $PATH
 " }}}
