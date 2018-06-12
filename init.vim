@@ -1330,6 +1330,11 @@ let g:markdown_syntax_conceal = 0
 " }}}
 
 
+" {{{ AsciiDoc
+autocmd MyAutoCmds FileType asciidoc setlocal foldlevel=1
+" }}}
+
+
 " {{{ C/C++
 autocmd MyAutoCmds BufNewFile,BufRead *.cpp setlocal matchpairs+=<:>
 " }}}
