@@ -1331,7 +1331,7 @@ let g:markdown_syntax_conceal = 0
 
 
 " {{{ AsciiDoc
-autocmd MyAutoCmds FileType asciidoc setlocal foldlevel=1
+let g:vim_asciidoc_initial_foldlevel=1
 " }}}
 
 
