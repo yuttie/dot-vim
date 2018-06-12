@@ -634,7 +634,7 @@ nnoremap [plugin] <Nop>
 nmap     [Space]P [plugin]
 nnoremap <silent> [plugin]P :call dein#update()<CR>
 nnoremap <silent> [plugin]i :call dein#install()<CR>
-nnoremap <silent> [plugin]c :call map(dein#check_clean(), "delete(v:val, 'rf')")<CR>
+nnoremap <silent> [plugin]c :echo dein#check_clean() <Bar> call map(dein#check_clean(), "delete(v:val, 'rf')") <Bar> call dein#recache_runtimepath() <Bar> echo "Cleaned up."<CR>
 
 nnoremap [file] <Nop>
 nmap     [Space]f [file]
