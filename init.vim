@@ -731,7 +731,11 @@ autocmd MyAutoCmds FileType help,ref-pydoc nnoremap <buffer><silent> q :close<CR
 
 
 " {{{ Template insertion
-let template_dir = "~/.vim/template"
+if has('nvim')
+  let template_dir = "~/.config/nvim/template"
+else
+  let template_dir = "~/.vim/template"
+endif
 function! InsertTemplate()
   if expand("%:t") == "NOTE"
     let tmpl_filename = expand(g:template_dir) . "/NOTE"
