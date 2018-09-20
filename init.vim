@@ -129,7 +129,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('Shougo/neosnippet-snippets')
   " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
   " Plug 'Shougo/vim-vcs'
-  " Plug 'Shougo/vinarise'
+  call dein#add('Shougo/vinarise')
   call dein#add('t9md/vim-choosewin',
     \ { 'on_map': [
     \   '<Plug>(choosewin)',
