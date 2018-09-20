@@ -335,7 +335,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('ryanoasis/vim-devicons')    " This must be loaded after its supported plugins
   " Plug 'tomasr/molokai'
   " Plug 'w0ng/vim-hybrid'
-  call dein#add('yuttie/hydrangea-vim')
+  call dein#add('yuttie/hydrangea-vim', { 'rev': 'develop' })
   call dein#add('yuttie/inkstained-vim')
 
   " Required:
