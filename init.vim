@@ -311,6 +311,9 @@ if dein#load_state(s:my_plugin_dir)
   " reStructuredText
   call dein#add('Rykka/riv.vim', { 'on_ft': 'rst' })
 
+  " Jupyter
+  call dein#add('szymonmaszke/vimpyter')
+
   " Other filetype-specific plugins
   call dein#add('jamessan/vim-gnupg')
   " Plug 'fatih/vim-go'
