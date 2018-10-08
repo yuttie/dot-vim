@@ -1183,9 +1183,11 @@ autocmd FileType php setlocal commentstring=//\ %s
 " {{{ deoplete.nvim
 if has('nvim')
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
-  let g:deoplete#auto_refresh_delay = 100
-  let g:deoplete#max_list = 10000
+  call deoplete#custom#option({
+  \   'auto_complete_delay': 20,
+  \   'auto_refresh_delay': 50,
+  \   'max_list': 500,
+  \ })
 
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
