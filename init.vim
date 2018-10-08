@@ -1199,17 +1199,12 @@ if has('nvim')
     return deoplete#close_popup() . "\<CR>"
   endfunction
 
-  if !exists('g:deoplete#omni#functions')
-      let g:deoplete#omni#functions = {}
-  endif
-  if !exists('g:deoplete#omni#input_patterns')
-      let g:deoplete#omni#input_patterns = {}
-  endif
-
-  let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
-  let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
-
-  let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+  " omni completion
+  call deoplete#custom#source('omni', 'functions', {
+  \ })
+  call deoplete#custom#var('omni', 'input_patterns', {
+  \   'tex': g:vimtex#re#deoplete,
+  \ })
 endif
 " }}}
 
