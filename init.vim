@@ -172,7 +172,17 @@ if dein#load_state(s:my_plugin_dir)
       \        'converter_truncate_abbr',
       \        'converter_truncate_menu'
       \      ]) |
-      \      call deoplete#custom#source('_', 'min_pattern_length', 0)"
+      \      call deoplete#custom#source('_', 'min_pattern_length', 0) |
+      \      call deoplete#custom#option({
+      \        'auto_complete_delay': 20,
+      \        'auto_refresh_delay': 50,
+      \        'max_list': 500,
+      \      }) |
+      \      call deoplete#custom#source('omni', 'functions', {
+      \      }) |
+      \      call deoplete#custom#var('omni', 'input_patterns', {
+      \        'tex': g:vimtex#re#deoplete,
+      \      })"
       \ })
   else
     call dein#add('Shougo/neocomplete.vim', { 'on_i': 1 })
@@ -1183,11 +1193,6 @@ autocmd FileType php setlocal commentstring=//\ %s
 " {{{ deoplete.nvim
 if has('nvim')
   let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#option({
-  \   'auto_complete_delay': 20,
-  \   'auto_refresh_delay': 50,
-  \   'max_list': 500,
-  \ })
 
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
@@ -1198,13 +1203,6 @@ if has('nvim')
   function! s:my_deoplete_cr_function() abort
     return deoplete#close_popup() . "\<CR>"
   endfunction
-
-  " omni completion
-  call deoplete#custom#source('omni', 'functions', {
-  \ })
-  call deoplete#custom#var('omni', 'input_patterns', {
-  \   'tex': g:vimtex#re#deoplete,
-  \ })
 endif
 " }}}
 
