@@ -7,7 +7,7 @@ if $TERM =~ '^tmux\(-.*\)\?$'
 endif
 
 " {{{ $PATH
-let $PATH = expand('~/.cargo/bin') . ':' . $PATH
+let $PATH = expand('~/.local/bin') . ':' . expand('~/.cargo/bin') . ':' . $PATH
 " }}}
 
 
