@@ -172,10 +172,10 @@ if dein#load_state(s:my_plugin_dir)
       \        'converter_truncate_abbr',
       \        'converter_truncate_menu'
       \      ]) |
-      \      call deoplete#custom#source('_', 'min_pattern_length', 0) |
+      \      call deoplete#custom#source('_', 'min_pattern_length', 1) |
       \      call deoplete#custom#option({
-      \        'auto_complete_delay': 20,
-      \        'auto_refresh_delay': 50,
+      \        'auto_complete_delay': 0,
+      \        'auto_refresh_delay': 20,
       \        'max_list': 500,
       \      }) |
       \      call deoplete#custom#source('omni', 'functions', {
