@@ -1348,6 +1348,11 @@ autocmd MyAutoCmds BufNewFile,BufRead *.cpp setlocal matchpairs+=<:>
 " }}}
 
 
+" {{{ Crystal
+autocmd MyAutoCmds FileType crystal setlocal shiftwidth=2
+" }}}
+
+
 " {{{ TeX
 let g:tex_conceal = ""
 autocmd MyAutoCmds FileType tex setlocal shiftwidth=2
@@ -1484,6 +1489,11 @@ autocmd MyAutoCmds FileType mp map <buffer> <Leader>cc :!mpost %<CR><CR>
 
 " {{{ Waf
 autocmd MyAutoCmds BufRead,BufNewFile wscript setfiletype python
+" }}}
+
+
+" {{{ XML
+autocmd MyAutoCmds FileType xml setlocal shiftwidth=2
 " }}}
 
 " }}}  Extensions
