@@ -225,6 +225,7 @@ if dein#load_state(s:my_plugin_dir)
 
   " Elm
   call dein#add('ElmCast/elm-vim')
+
   " fish shell
   call dein#add('dag/vim-fish')
 
