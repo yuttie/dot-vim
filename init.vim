@@ -239,6 +239,7 @@ if dein#load_state(s:my_plugin_dir)
     \   'Gina',
     \ ] })
   call dein#add('tpope/vim-fugitive')
+  call dein#add('hotwatermorning/auto-git-diff')
 
   " GitHub
   " Plug 'mattn/gist-vim'
