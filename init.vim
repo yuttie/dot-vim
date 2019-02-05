@@ -503,7 +503,7 @@ endif
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  set background=dark
+  set background=light
   colorscheme inkstained
 endif
 
