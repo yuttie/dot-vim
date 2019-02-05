@@ -220,6 +220,9 @@ if dein#load_state(s:my_plugin_dir)
   "
   " Plugins for Languages
   "
+  " Crystal
+  call dein#add('rhysd/vim-crystal')
+
   " Elm
   call dein#add('ElmCast/elm-vim')
   " fish shell
