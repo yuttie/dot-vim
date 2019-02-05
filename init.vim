@@ -425,7 +425,7 @@ set smarttab
 set cinoptions=:0,g0
 
 " 16 folding
-set foldlevelstart=1
+set foldlevelstart=99
 
 " 19 reading and writing files
 set modeline
@@ -1334,7 +1334,7 @@ let g:markdown_syntax_conceal = 0
 
 
 " {{{ AsciiDoc
-let g:vim_asciidoc_initial_foldlevel=1
+let g:vim_asciidoc_initial_foldlevel=99
 " }}}
 
 
