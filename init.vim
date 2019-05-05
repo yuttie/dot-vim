@@ -683,7 +683,8 @@ nnoremap <silent> [search]gr :<C-u>Rg<CR>
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]b :<C-u>Buffers<CR>
+nnoremap <silent> [buffer]b :<C-u>Denite buffer<CR>
+nnoremap <silent> [buffer]B :<C-u>Buffers<CR>
 nnoremap <silent> [buffer]n :bn<CR>
 nnoremap <silent> [buffer]p :bp<CR>
 nnoremap <silent> [buffer]d :bd<CR>
