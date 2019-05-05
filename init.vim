@@ -92,6 +92,8 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(EasyAlign)',
     \ ] })
   call dein#add('kana/vim-operator-user')
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('rhysd/vim-textobj-anyblock')
   " Plug 'kana/vim-textobj-indent'
   " Plug 'kana/vim-textobj-user'
   call dein#add('Konfekt/FastFold')
