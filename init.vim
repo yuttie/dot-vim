@@ -842,7 +842,6 @@ let g:lightline = {
       \   'filetype':    'g:lightline.my.filetype',
       \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
-      \   'ale':         'ALEGetStatusLine',
       \   'cwd':         'getcwd',
       \ },
       \ 'separator':    { 'left': '', 'right': '' },
@@ -893,7 +892,6 @@ function! g:lightline.my.layout()
       \   g:lightline.my.git_branch(),
       \   g:lightline.my.relativepath(),
       \   &modified ? '+' : '',
-      \   ALEGetStatusLine(),
       \ ]
     let right_rendered = [
       \   g:lightline.my.fileformat(),
