@@ -1042,10 +1042,9 @@ map ?  <Plug>(incsearch-stay)
 
 
 " {{{ vim-operator-surround
-map <silent>si <Plug>(operator-surround-append)
-map <silent>sd <Plug>(operator-surround-delete)
-map <silent>sc <Plug>(operator-surround-replace)
-noremap ss s
+map <silent>ys <Plug>(operator-surround-append)
+map <silent>ds <Plug>(operator-surround-delete)a
+map <silent>cs <Plug>(operator-surround-replace)a
 " }}}
 
 
