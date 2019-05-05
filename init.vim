@@ -663,7 +663,7 @@ nnoremap <silent> [plugin]c :echo dein#check_clean() <Bar> call map(dein#check_c
 
 nnoremap [file] <Nop>
 nmap     [Space]f [file]
-nnoremap <silent> [file]vd :vsplit $MYVIMRC<CR>
+nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :VimFiler<CR>
 nnoremap <silent> [file]f  :<C-u>Files<CR>
