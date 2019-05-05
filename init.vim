@@ -356,6 +356,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plug 'w0ng/vim-hybrid'
   call dein#add('yuttie/hydrangea-vim', { 'rev': 'develop' })
   call dein#add('yuttie/inkstained-vim')
+  call dein#add('yuttie/snowy-vim')
   call dein#add('cocopon/iceberg.vim')
 
   " Required:
@@ -505,7 +506,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=light
-  colorscheme inkstained
+  colorscheme snowy
 endif
 
 " }}}
@@ -796,7 +797,7 @@ set ambiwidth=single
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'inkstained',
+      \ 'colorscheme': 'snowy',
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
