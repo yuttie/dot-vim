@@ -1047,6 +1047,8 @@ map ?  <Plug>(incsearch-stay)
 map <silent>ys <Plug>(operator-surround-append)
 map <silent>ds <Plug>(operator-surround-delete)a
 map <silent>cs <Plug>(operator-surround-replace)a
+map <silent>dS <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+map <silent>cS <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 " }}}
 
 
