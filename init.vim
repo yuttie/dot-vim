@@ -162,6 +162,10 @@ if dein#load_state(s:my_plugin_dir)
 
   " UI enhancements
   call dein#add('luochen1990/rainbow')
+  call dein#add('autozimu/LanguageClient-neovim',
+    \ { 'rev': 'next',
+    \   'build': 'bash install.sh',
+    \ })
   " Completion (neocomplete/deoplete)
   " Plug 'ujihisa/neco-look'
   if has('nvim')
@@ -254,6 +258,18 @@ if dein#load_state(s:my_plugin_dir)
 
   " i3
   call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
+
+  " LanguageClient-neovim
+  let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
+
+  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+  " Or map each action separately
+  nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
   " PHP
   call dein#add('2072/PHP-Indenting-for-VIm')  " indent
