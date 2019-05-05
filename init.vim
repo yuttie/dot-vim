@@ -1050,11 +1050,6 @@ noremap ss s
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = "hutenosadi"
-
-nmap f <Plug>(easymotion-fl)
-nmap F <Plug>(easymotion-Fl)
-nmap t <Plug>(easymotion-tl)
-nmap T <Plug>(easymotion-Tl)
 " }}}
 
 
