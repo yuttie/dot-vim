@@ -161,6 +161,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('yuttie/comfortable-motion.vim')
 
   " UI enhancements
+  call dein#add('chrisbra/NrrwRgn')
   call dein#add('luochen1990/rainbow')
   call dein#add('autozimu/LanguageClient-neovim',
     \ { 'rev': 'next',
