@@ -1491,7 +1491,9 @@ let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
 let g:ale_open_list = 0
 let g:ale_linters = {
   \ 'cpp': ['clang'],
+  \ 'haskell': ['ghc', 'hlint']
   \ }
+let g:ale_haskell_ghc_options = '-fno-code -v0 -Wall'
 " }}}
 
 
