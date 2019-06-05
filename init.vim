@@ -682,14 +682,13 @@ nnoremap [file] <Nop>
 nmap     [Space]f [file]
 nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
-nnoremap <silent> [file]j  :VimFiler<CR>
-nnoremap <silent> [file]f  :<C-u>Files<CR>
 nnoremap <silent> [file]j  :Vaffle<CR>
+nnoremap <silent> [file]f  :<C-u>Denite file<CR>
+nnoremap <silent> [file]F  :<C-u>Files<CR>
 nnoremap <silent> [file]r  :<C-u>Denite file_mru<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
-nnoremap <silent> [file]T  :VimFilerExplore<CR>
 nnoremap          [file]R  :Rename<Space>
 
 nnoremap [search] <Nop>
