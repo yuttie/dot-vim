@@ -1059,11 +1059,12 @@ map ?  <Plug>(incsearch-stay)
 
 " {{{ vim-operator-surround
 map <silent>ys <Plug>(operator-surround-append)
-noremap dd dd
-map <silent>ds <Plug>(operator-surround-delete)a
-map <silent>cs <Plug>(operator-surround-replace)a
-map <silent>dS <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
-map <silent>cS <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+nmap <silent>ds <Plug>(operator-surround-delete)a
+vmap <silent>ds <Plug>(operator-surround-delete)
+nmap <silent>cs <Plug>(operator-surround-replace)a
+vmap <silent>cs <Plug>(operator-surround-replace)
+nmap <silent>dS <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+nmap <silent>cS <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 " }}}
 
 
