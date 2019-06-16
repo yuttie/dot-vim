@@ -83,9 +83,8 @@ if dein#load_state(s:my_plugin_dir)
     \ ] })
   call dein#add('itchyny/vim-cursorword')
   call dein#add('itchyny/vim-parenmatch')
-  call dein#add('jiangmiao/auto-pairs',
+  call dein#add('tmsvg/pear-tree',
     \ { 'on_i': 1,
-    \   'hook_post_source': 'call AutoPairsTryInit()',
     \ })
   call dein#add('junegunn/vim-easy-align',
     \ { 'on_map': [
