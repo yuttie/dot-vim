@@ -166,33 +166,33 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'rev': 'next',
     \   'build': 'bash install.sh',
     \ })
-  " Completion (neocomplete/deoplete)
+  " Completion
   " Plug 'ujihisa/neco-look'
-  if has('nvim')
-    call dein#add('Shougo/deoplete.nvim',
-      \ { 'on_i': 1,
-      \   'depends': 'context_filetype.vim',
-      \   'hook_source':
-      \     "call deoplete#custom#source('_', 'converters', [
-      \        'converter_auto_paren',
-      \        'converter_remove_overlap',
-      \        'converter_truncate_abbr',
-      \        'converter_truncate_menu'
-      \      ]) |
-      \      call deoplete#custom#source('_', 'min_pattern_length', 1) |
-      \      call deoplete#custom#option({
-      \        'auto_complete_delay': 0,
-      \        'auto_refresh_delay': 20,
-      \        'max_list': 500,
-      \      }) |
-      \      call deoplete#custom#source('omni', 'functions', {
-      \      }) |
-      \      call deoplete#custom#var('omni', 'input_patterns', {
-      \        'tex': g:vimtex#re#deoplete,
-      \      })"
-      \ })
-  else
-    call dein#add('Shougo/neocomplete.vim', { 'on_i': 1 })
+  call dein#add('Shougo/deoplete.nvim',
+    \ { 'on_i': 1,
+    \   'depends': 'context_filetype.vim',
+    \   'hook_source':
+    \     "call deoplete#custom#source('_', 'converters', [
+    \        'converter_auto_paren',
+    \        'converter_remove_overlap',
+    \        'converter_truncate_abbr',
+    \        'converter_truncate_menu'
+    \      ]) |
+    \      call deoplete#custom#source('_', 'min_pattern_length', 1) |
+    \      call deoplete#custom#option({
+    \        'auto_complete_delay': 0,
+    \        'auto_refresh_delay': 20,
+    \        'max_list': 500,
+    \      }) |
+    \      call deoplete#custom#source('omni', 'functions', {
+    \      }) |
+    \      call deoplete#custom#var('omni', 'input_patterns', {
+    \        'tex': g:vimtex#re#deoplete,
+    \      })"
+    \ })
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
   " Interactive filter
@@ -1215,86 +1215,17 @@ autocmd FileType php setlocal commentstring=//\ %s
 
 
 " {{{ deoplete.nvim
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
-  " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_deoplete_cr_function()<CR>
-  function! s:my_deoplete_cr_function() abort
-    return deoplete#close_popup() . "\<CR>"
-  endfunction
-endif
-" }}}
-
-
-" {{{ neocomplete.vim
-if !has('nvim')
-  let g:acp_enableAtStartup = 0                           " Disable AutoComplPop.
-  let g:neocomplete#enable_at_startup = 1                 " Use neocomplete.
-  let g:neocomplete#enable_smart_case = 1                 " Use smartcase.
-  let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-  let g:neocomplcache_max_list = 1000
-
-  " Define dictionary.
-  let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ }
-
-  " Define keyword.
-  if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-  " Plugin key-mappings.
-  inoremap <expr><C-g> neocomplete#undo_completion()
-  inoremap <expr><C-l> neocomplete#complete_common_string()
-
-  " Recommended key-mappings.
-  " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? "\<C-y>" : "\<CR>"
-  endfunction
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><C-y>  neocomplete#close_popup()
-  " Close popup by <Space>.
-  "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-  " Enable omni completion.
-  autocmd MyAutoCmds FileType css           setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd MyAutoCmds FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd MyAutoCmds FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd MyAutoCmds FileType python        setlocal omnifunc=pythoncomplete#Complete
-  autocmd MyAutoCmds FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd MyAutoCmds FileType php           setlocal omnifunc=phpcomplete#CompletePHP
-  autocmd MyAutoCmds FileType ruby          setlocal omnifunc=rubycomplete#Complete
-
-  " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.php  = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.c    = '[^.[:digit:] *\t]\%(\.\|->\)'
-  let g:neocomplete#sources#omni#input_patterns.cpp  = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-  " For perlomni.vim setting.
-  " https://github.com/c9s/perlomni.vim
-  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-endif
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_deoplete_cr_function()<CR>
+function! s:my_deoplete_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 " }}}
 
 
@@ -1312,18 +1243,6 @@ xmap <C-k>  <Plug>(neosnippet_expand_target)
 imap <expr> <Tab>
   \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
   \ "\<Tab>"
-" }}}
-
-
-" {{{ neocomplcache-clang
-if !has('nvim')
-  let g:neocomplcache_clang_use_library = 1
-  let g:neocomplcache_clang_library_path = "/usr/lib/llvm"
-  let g:neocomplcache_clang_user_options =
-    \ '-std=c++11 ' .
-    \ '-I /usr/include/eigen3 ' .
-    \ ''
-endif
 " }}}
 
 
