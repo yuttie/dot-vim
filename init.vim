@@ -1060,9 +1060,7 @@ map ?  <Plug>(incsearch-stay)
 " {{{ vim-operator-surround
 map <silent>ys <Plug>(operator-surround-append)
 nmap <silent>ds <Plug>(operator-surround-delete)a
-vmap <silent>ds <Plug>(operator-surround-delete)
 nmap <silent>cs <Plug>(operator-surround-replace)a
-vmap <silent>cs <Plug>(operator-surround-replace)
 nmap <silent>dS <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
 nmap <silent>cS <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 " }}}
