@@ -41,7 +41,6 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add(s:my_plugin_dir . '/repos/github.com/Shougo/dein.vim')
 
   " Plugins
-  " Plug 'AndrewRadev/inline_edit.vim'
   call dein#add('AndrewRadev/linediff.vim',
     \ { 'on_cmd': [
     \   'Linediff',
@@ -52,10 +51,7 @@ if dein#load_state(s:my_plugin_dir)
     \   'LinediffMerge',
     \   'LinediffPick',
     \ ] })
-  " Plug 'AndrewRadev/sideways.vim'
   call dein#add('cocopon/vaffle.vim')  " Doesn't work correctly when lazily loaded
-  " Plug 'dannyob/quickfixstatus'
-  " Plug 'dhruvasagar/vim-table-mode'
   call dein#add('easymotion/vim-easymotion',
     \ { 'on_map': [
     \   '<Plug>(easymotion-fl)',
@@ -74,8 +70,6 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(easymotion-overwin-line)',
     \ ] })
     \ " optionally depends on 'tpope/vim-repeat'
-  " Plug 'vim-scripts/matchit.zip'
-  " Plug 'godlygeek/tabular'
   call dein#add('haya14busa/incsearch.vim',
     \ { 'on_map': [
     \   '<Plug>(incsearch-forward)',
@@ -93,8 +87,6 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('kana/vim-operator-user')
   call dein#add('kana/vim-textobj-user')
   call dein#add('rhysd/vim-textobj-anyblock')
-  " Plug 'kana/vim-textobj-indent'
-  " Plug 'kana/vim-textobj-user'
   call dein#add('Konfekt/FastFold')
   call dein#add('lambdalisue/vim-unified-diff')
   call dein#add('ap/vim-css-color')  " Only for css
@@ -106,7 +98,6 @@ if dein#load_state(s:my_plugin_dir)
     \   'UndotreeToggle',
     \ ] })
   call dein#add('ntpeters/vim-better-whitespace')
-  " Plug 'rhysd/clever-f.vim'
   call dein#add('rhysd/vim-operator-surround',
     \ { 'on_map': [
     \   '<Plug>(operator-surround-append)',
@@ -114,8 +105,6 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(operator-surround-replace)',
     \ ] })
     \ " depends on 'kana/vim-operator-user'
-  " Plug 'vim-scripts/scratch'
-  " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('Shougo/echodoc',
     \ { 'on_i': 1,
@@ -131,8 +120,6 @@ if dein#load_state(s:my_plugin_dir)
     \   'depends': ['neosnippet-snippets', 'context_filetype.vim'],
     \ })
   call dein#add('Shougo/neosnippet-snippets')
-  " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-  " Plug 'Shougo/vim-vcs'
   call dein#add('Shougo/vinarise')
   call dein#add('t9md/vim-choosewin',
     \ { 'on_map': [
@@ -144,12 +131,6 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(expand_region_shrink)',
     \ ] })
   call dein#add('terryma/vim-multiple-cursors')
-  " Plug 'thinca/vim-fontzoom'
-  " Plug 'thinca/vim-ref'
-  " Plug 'thinca/vim-visualstar'
-  " Plug 'tpope/vim-projectionist'
-  " Plug 'tpope/vim-repeat'
-  " Plug 'tpope/vim-surround'
   call dein#add('tyru/caw.vim',
     \ { 'on_map': '<Plug>(caw:' })
   call dein#add('tyru/open-browser.vim',
@@ -157,9 +138,7 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(openbrowser-smart-search)',
     \ ] })
   call dein#add('w0rp/ale')
-  " Plug 'wesQ3/vim-windowswap'
   call dein#add('Yggdroot/indentLine')
-  " Plug 'yonchu/accelerated-smooth-scroll'
   call dein#add('yuttie/comfortable-motion.vim')
 
   " UI enhancements
@@ -170,7 +149,6 @@ if dein#load_state(s:my_plugin_dir)
     \   'build': 'bash install.sh',
     \ })
   " Completion
-  " Plug 'ujihisa/neco-look'
   call dein#add('Shougo/deoplete.nvim',
     \ { 'on_i': 1,
     \   'depends': 'context_filetype.vim',
@@ -243,7 +221,6 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('jreybert/vimagit')
   call dein#add('itchyny/vim-gitbranch')
   call dein#add('airblade/vim-gitgutter')
-  " Plug 'gregsexton/gitv'
   call dein#add('lambdalisue/gina.vim',
     \ { 'on_cmd': [
     \   'Gina',
@@ -251,13 +228,8 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('tpope/vim-fugitive')
   call dein#add('hotwatermorning/auto-git-diff')
 
-  " GitHub
-  " Plug 'mattn/gist-vim'
-
   " Haskell
   call dein#add('neovimhaskell/haskell-vim')
-  " Plug 'eagletmt/ghcmod-vim'
-  " Plug 'eagletmt/neco-ghc'
 
   " i3
   call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
@@ -276,7 +248,6 @@ if dein#load_state(s:my_plugin_dir)
 
   " PHP
   call dein#add('2072/PHP-Indenting-for-VIm')  " indent
-  " Plug 'shawncplus/phpcomplete.vim'  " This includes syntax file and conflicts with StanAngeloff/php.vim
   call dein#add('StanAngeloff/php.vim')  " syntax
 
   " Python
@@ -286,8 +257,6 @@ if dein#load_state(s:my_plugin_dir)
       \   'on_ft': 'python',
       \ })
   endif
-  " Plug 'vim-scripts/pythoncomplete'
-  " Plug 'Glench/Vim-Jinja2-Syntax'
 
   " Ruby
   call dein#add('vim-ruby/vim-ruby')  " syntax, indent, ftplugin, compiler
@@ -299,30 +268,22 @@ if dein#load_state(s:my_plugin_dir)
   " TypeScript
   call dein#add('leafgarland/typescript-vim')
   call dein#add('Quramy/tsuquyomi')
-  if has('nvim')
-    " Plug 'mhartington/nvim-typescript', { 'do': function('DoRemoteUpdate') }
-  endif
 
   " Vim
-  " Plug 'mopp/layoutplugin.vim'
   call dein#add('vim-jp/syntax-vim-ex')  " syntax
 
   " Web/CSS
-  " Plug 'csscomb/vim-csscomb'
   call dein#add('hail2u/vim-css3-syntax')  " syntax
   call dein#add('othree/csscomplete.vim')
   call dein#add('cakebaker/scss-syntax.vim')  " syntax, ftplugin
 
   " Web/JavaScript
-  " Plug 'carlitux/deoplete-ternjs'
   call dein#add('pangloss/vim-javascript')  " syntax, indent, compiler, ftplugin
   call dein#add('othree/javascript-libraries-syntax.vim')  " syntax
 
   " Web/HTML
   call dein#add('othree/html5.vim')  " syntax, indent, ftplugin
   call dein#add('mattn/emmet-vim', { 'on_ft': ['html', 'xml', 'php'] })
-  " Plug 'ervandew/sgmlendtag'
-  " Plug 'pbrisbin/html-template-syntax'
 
   " Markdown
   call dein#add('godlygeek/tabular',
@@ -336,11 +297,6 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'on_ft': 'markdown',
     \   'depends': 'tabular',
     \ })  " syntax, indent, ftplugin
-  " or
-  " Plug 'rhysd/vim-gfm-syntax'
-  " Plug 'kannokanno/previm'
-  " Plug 'tpope/vim-markdown'
-  " Plug 'tyru/markdown-codehl-onthefly.vim'
 
   " AsciiDoc
   call dein#add('mjakl/vim-asciidoc', { 'on_ft': 'asciidoc' })
@@ -350,13 +306,7 @@ if dein#load_state(s:my_plugin_dir)
 
   " Other filetype-specific plugins
   call dein#add('jamessan/vim-gnupg')
-  " Plug 'fatih/vim-go'
-  " Plug 'vim-scripts/gtk-vim-syntax'
-  " Plug 'guns/vim-sexp'
-  " Plug 'jceb/vim-orgmode'
   call dein#add('lervag/vimtex')
-  " Plug 'octol/vim-cpp-enhanced-highlight'
-  " Plug 'def-lkb/ocp-indent-vim'
   call dein#add('cespare/vim-toml')  " syntax, ftplugin
   call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
   call dein#add('JuliaEditorSupport/julia-vim')
@@ -364,14 +314,7 @@ if dein#load_state(s:my_plugin_dir)
 
   " Themes
   call dein#add('itchyny/lightline.vim')
-  " Plug 'chriskempson/base16-vim'
-  " Plug '29decibel/codeschool-vim-theme'
-  " Plug 'jpo/vim-railscasts-theme'
-  " Plug 'nanotech/jellybeans.vim'
-  " Plug 'NLKNguyen/papercolor-theme'
   call dein#add('ryanoasis/vim-devicons')    " This must be loaded after its supported plugins
-  " Plug 'tomasr/molokai'
-  " Plug 'w0ng/vim-hybrid'
   call dein#add('yuttie/hydrangea-vim', { 'rev': 'develop' })
   call dein#add('yuttie/inkstained-vim')
   call dein#add('yuttie/snowy-vim')
