@@ -110,8 +110,8 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'on_i': 1,
     \   'hook_source':
     \     "let g:echodoc#enable_at_startup = 1
-    \      let g:echodoc#type = 'floating'
-    \      highlight link EchoDocFloat Pmenu",
+    \     |let g:echodoc#type = 'floating'
+    \     |highlight link EchoDocFloat Pmenu",
     \ })
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet',
