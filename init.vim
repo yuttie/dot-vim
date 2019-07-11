@@ -237,7 +237,7 @@ if dein#load_state(s:my_plugin_dir)
   " LanguageClient-neovim
   let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'python': ['pyls'],
     \ }
 
   nnoremap <F5> :call LanguageClient_contextMenu()<CR>
