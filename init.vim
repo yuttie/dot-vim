@@ -250,14 +250,6 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('2072/PHP-Indenting-for-VIm')  " indent
   call dein#add('StanAngeloff/php.vim')  " syntax
 
-  " Python
-  if has('nvim')
-    call dein#add('zchee/deoplete-jedi',
-      \ { 'build': 'git submodule update --init',
-      \   'on_ft': 'python',
-      \ })
-  endif
-
   " Ruby
   call dein#add('vim-ruby/vim-ruby')  " syntax, indent, ftplugin, compiler
 
