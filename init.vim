@@ -353,6 +353,7 @@ set scrolloff=3
 set hidden        " You can change buffer without saving.
 set laststatus=2  " Always show status lines.
 set showcmd
+set cmdheight=2
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P
 
 " 7 multiple tab pages
