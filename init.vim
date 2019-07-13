@@ -733,7 +733,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified', 'cocstatus' ],
       \     [ 'ale' ],
       \   ],
       \   'right': [
@@ -745,7 +745,7 @@ let g:lightline = {
       \ 'inactive': {
       \   'left': [
       \     [ 'mode' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified', 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
@@ -771,6 +771,7 @@ let g:lightline = {
       \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
       \   'cwd':         'getcwd',
+      \   'cocstatus':   'coc#status',
       \ },
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
@@ -854,6 +855,7 @@ function! g:lightline.my.layout()
   endwhile
 endfunction
 autocmd MyAutoCmds WinEnter,BufWinEnter,FileType,EncodingChanged,VimResized * call g:lightline.my.layout()
+autocmd MyAutoCmds User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 function! g:lightline.my.relativepath_level(level)
   let relpath = expand('%')
