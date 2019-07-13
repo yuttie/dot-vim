@@ -594,9 +594,9 @@ nmap     [Space]f [file]
 nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :Vaffle<CR>
-nnoremap <silent> [file]f  :<C-u>Denite file<CR>
+nnoremap <silent> [file]f  :<C-u>CocList files<CR>
 nnoremap <silent> [file]F  :<C-u>Files<CR>
-nnoremap <silent> [file]r  :<C-u>Denite file_mru<CR>
+nnoremap <silent> [file]r  :<C-u>CocList mru<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
@@ -610,7 +610,7 @@ nnoremap <silent> [search]gr :<C-u>Rg<CR>
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]b :<C-u>Denite buffer<CR>
+nnoremap <silent> [buffer]b :<C-u>CocList buffers<CR>
 nnoremap <silent> [buffer]B :<C-u>Buffers<CR>
 nnoremap <silent> [buffer]n :bn<CR>
 nnoremap <silent> [buffer]p :bp<CR>
@@ -622,12 +622,22 @@ nnoremap <silent> [project]f :<C-u>GFiles<CR>
 
 nnoremap [error] <Nop>
 nmap     [Space]e [error]
-nnoremap <silent> [error]l :lwindow<CR>
-nnoremap <silent> [error]c :lclose<CR>
-nnoremap <silent> [error]n :lnext<CR>
-nnoremap <silent> [error]p :lprevious<CR>
-nnoremap <silent> [error]N <Plug>(ale_next_wrap)
-nnoremap <silent> [error]P <Plug>(ale_previous_wrap)
+nnoremap <silent> [error]e :<C-u>CocList diagnostics<CR>
+nmap     <silent> [error]n <Plug>(coc-diagnostic-next)
+nmap     <silent> [error]p <Plug>(coc-diagnostic-prev)
+
+nnoremap [lang-server] <Nop>
+nmap     [Space]l [lang-server]
+nmap              [lang-server]r  <Plug>(coc-rename)
+nmap              [lang-server]f  <Plug>(coc-format-selected)
+xmap              [lang-server]f  <Plug>(coc-format-selected)
+nmap              [lang-server]a  <Plug>(coc-codeaction-selected)
+xmap              [lang-server]a  <Plug>(coc-codeaction-selected)
+nmap              [lang-server]ac <Plug>(coc-codeaction)
+nmap              [lang-server]F  <Plug>(coc-fix-current)
+nnoremap <silent> [lang-server]E  :<C-u>CocList extensions<CR>
+nnoremap <silent> [lang-server]:  :<C-u>CocList commands<cr>
+
 
 nnoremap [toggle] <Nop>
 nmap     [Space]t [toggle]
@@ -673,7 +683,7 @@ nmap     [jump]L  <Plug>(easymotion-overwin-line)
 
 nmap     [jump]W <Plug>(choosewin)
 
-nmap     [jump]o  :<C-u>Denite outline<CR>
+nnoremap <silent> [jump]o :<C-u>CocList outline<CR>
 
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
@@ -1128,30 +1138,6 @@ autocmd FileType php setlocal commentstring=//\ %s
 
 
 " {{{ coc.nvim
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -1169,34 +1155,11 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" Setup formatexpr specified filetype(s).
+autocmd MyAutoCmds FileType typescript,json setl formatexpr=CocAction('formatSelected')
 
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+" Update signature help on jump placeholder
+autocmd MyAutoCmds User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -1206,27 +1169,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " }}}
 
 
