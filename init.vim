@@ -708,8 +708,8 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified', 'cocstatus' ],
-      \     [ 'ale' ],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \     [ 'ale', 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
@@ -720,7 +720,8 @@ let g:lightline = {
       \ 'inactive': {
       \   'left': [
       \     [ 'mode' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified', 'cocstatus' ],
+      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \     [ 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
