@@ -142,28 +142,6 @@ if dein#load_state(s:my_plugin_dir)
     \ })
 
   " Interactive filter
-  call dein#add('Shougo/denite.nvim',
-    \ { 'on_cmd': 'Denite',
-    \   'hook_source':
-    \     "call denite#custom#var('file_rec', 'command',
-    \        ['rg', '--files', '--glob', '!.git'])
-    \     |call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-    \     |call denite#custom#var('file_rec/git', 'command',
-    \        ['git', 'ls-files', '-co', '--exclude-standard'])
-    \     |call denite#custom#map(
-    \        'insert',
-    \        '<C-n>',
-    \        '<denite:move_to_next_line>',
-    \        'noremap'
-    \      )
-    \     |call denite#custom#map(
-    \        'insert',
-    \        '<C-p>',
-    \        '<denite:move_to_previous_line>',
-    \        'noremap'
-    \      )
-    \     |call denite#custom#option('default', 'prompt', '>')",
-    \ })
   call dein#add('junegunn/fzf',
     \ { 'build': './install --bin; rm ./doc/fzf.txt'
     \ })
