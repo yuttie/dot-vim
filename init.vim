@@ -188,19 +188,16 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('vim-ruby/vim-ruby')  " syntax, indent, ftplugin, compiler
 
   " Rust
-  call dein#add('racer-rust/vim-racer')
   call dein#add('rust-lang/rust.vim')  " syntax, indent, ftplugin, compiler, plugin
 
   " TypeScript
   call dein#add('leafgarland/typescript-vim')
-  call dein#add('Quramy/tsuquyomi')
 
   " Vim
   call dein#add('vim-jp/syntax-vim-ex')  " syntax
 
   " Web/CSS
   call dein#add('hail2u/vim-css3-syntax')  " syntax
-  call dein#add('othree/csscomplete.vim')
   call dein#add('cakebaker/scss-syntax.vim')  " syntax, ftplugin
 
   " Web/JavaScript
