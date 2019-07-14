@@ -609,7 +609,6 @@ nmap     [Space]t [toggle]
 nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
 nnoremap <silent> [toggle]w :setl list!<CR>:setl list?<CR>
 nnoremap <silent> [toggle]i :IndentLinesToggle<CR>:echo b:indentLine_enabled ? 'indentLine enabled' : 'indentLine disabled'<CR>
-nnoremap <silent> [toggle]l :ALEToggle<CR>:echo g:ale_enabled ? 'ALE enabled' : 'ALE disabled'<CR>
 nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 " 'paste' is OBSOLETE
 nnoremap <silent> [toggle]p :set paste!<CR>:set paste?<CR>
@@ -709,7 +708,7 @@ let g:lightline = {
       \   'left': [
       \     [ 'mode', 'paste' ],
       \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
-      \     [ 'ale', 'cocstatus' ],
+      \     [ 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
@@ -756,7 +755,6 @@ let g:lightline = {
 let g:lightline.my = {}
 
 function! g:lightline.my.layout_init()
-  let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', 'OK']
   let g:lightline.my.layout_levels = {
     \   'relativepath': 3,
     \   'filetype': 2,
@@ -776,7 +774,6 @@ function! g:lightline.my.layout()
   endtry
 
   let possible_fixes = [
-    \   "let g:ale_statusline_format = ['E:%d', 'W:%d', '']",
     \   'let g:lightline.my.layout_levels.relativepath = 2',
     \   'let g:lightline.my.layout_levels.relativepath = 1',
     \   'let g:lightline.my.layout_levels.fileformat = 1',
@@ -1293,22 +1290,6 @@ autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<
 
 " Use the old regexp engine because the new NFA engine is slow for Haskell's syntax highlighting.
 autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
-" }}}
-
-
-" {{{ ALE
-let g:ale_rust_cargo_use_check = 1
-let g:ale_sign_error = '!!'
-let g:ale_sign_warning = '??'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
-let g:ale_open_list = 0
-let g:ale_linters = {
-  \ 'cpp': ['clang'],
-  \ 'haskell': ['ghc', 'hlint']
-  \ }
-let g:ale_haskell_ghc_options = '-fno-code -v0 -Wall'
 " }}}
 
 
