@@ -140,10 +140,6 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'rev': 'release',
     \   'merge': 0,
     \ })
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
 
   " Interactive filter
   call dein#add('Shougo/denite.nvim',
