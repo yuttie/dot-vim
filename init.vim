@@ -234,6 +234,9 @@ if dein#load_state(s:my_plugin_dir)
   " i3
   call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
 
+  " Julia
+  call dein#add('JuliaEditorSupport/julia-vim')
+
   " LanguageClient-neovim
   let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
@@ -277,6 +280,9 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('othree/html5.vim')  " syntax, indent, ftplugin
   call dein#add('mattn/emmet-vim', { 'on_ft': ['html', 'xml', 'php'] })
 
+  " Web/Vue
+  call dein#add('posva/vim-vue')
+
   " Markdown
   call dein#add('godlygeek/tabular',
     \ { 'on_cmd': [
@@ -296,13 +302,17 @@ if dein#load_state(s:my_plugin_dir)
   " reStructuredText
   call dein#add('Rykka/riv.vim', { 'on_ft': 'rst' })
 
-  " Other filetype-specific plugins
-  call dein#add('jamessan/vim-gnupg')
+  " TeX
   call dein#add('lervag/vimtex')
+
+  " TOML
   call dein#add('cespare/vim-toml')  " syntax, ftplugin
+
+  " JSON
   call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
-  call dein#add('JuliaEditorSupport/julia-vim')
-  call dein#add('posva/vim-vue')
+
+  " GnuPG
+  call dein#add('jamessan/vim-gnupg')
 
   " Themes
   call dein#add('itchyny/lightline.vim')
