@@ -129,7 +129,6 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'on_map': [
     \   '<Plug>(openbrowser-smart-search)',
     \ ] })
-  call dein#add('w0rp/ale')
   call dein#add('Yggdroot/indentLine')
   call dein#add('yuttie/comfortable-motion.vim')
 
