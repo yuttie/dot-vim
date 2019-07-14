@@ -229,7 +229,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('hotwatermorning/auto-git-diff')
 
   " Haskell
-  call dein#add('neovimhaskell/haskell-vim')
+  call dein#add('neovimhaskell/haskell-vim')  " syntax, indent
 
   " i3
   call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
