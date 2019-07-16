@@ -106,12 +106,6 @@ if dein#load_state(s:my_plugin_dir)
     \ ] })
     \ " depends on 'kana/vim-operator-user'
   call dein#add('Shougo/context_filetype.vim')
-  call dein#add('Shougo/neosnippet',
-    \ { 'on_i': 1,
-    \   'on_ft': 'snippet',
-    \   'depends': ['neosnippet-snippets', 'context_filetype.vim'],
-    \ })
-  call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/vinarise')
   call dein#add('t9md/vim-choosewin',
     \ { 'on_map': [
@@ -1129,23 +1123,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-" }}}
-
-
-" {{{ neosnippet
-if has('nvim')
-  let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-else
-  let g:neosnippet#snippets_directory='~/.vim/snippets'
-endif
-
-" Plugin key-mappings.
-imap <C-k>  <Plug>(neosnippet_expand_or_jump)
-smap <C-k>  <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>  <Plug>(neosnippet_expand_target)
-imap <expr> <Tab>
-  \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-  \ "\<Tab>"
 " }}}
 
 
