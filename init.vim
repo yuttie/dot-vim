@@ -134,6 +134,7 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'rev': 'release',
     \   'merge': 0,
     \ })
+  call dein#add('honza/vim-snippets')
 
   " Interactive filter
   call dein#add('junegunn/fzf',
