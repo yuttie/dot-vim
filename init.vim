@@ -1000,9 +1000,9 @@ nnoremap [git]    <Nop>
 nmap     <C-g>    [git]
 nmap     [Space]g [git]
 
-nnoremap <silent> [git]c      :Gina commit -v --opener="topleft vsplit"<CR>
-nnoremap <silent> [git]<C-d>  :Gvdiff<CR>
-nmap [git]s     :Magit<CR>
+nnoremap <silent> [git]c  :Gina commit -v --opener="topleft vsplit"<CR>
+nnoremap <silent> [git]d  :Gvdiff<CR>
+nnoremap <silent> [git]s  :Magit<CR>
 nmap [git]<C-n> <Plug>GitGutterNextHunk
 nmap [git]<C-p> <Plug>GitGutterPrevHunk
 nmap [git]<C-s> <Plug>GitGutterStageHunk
