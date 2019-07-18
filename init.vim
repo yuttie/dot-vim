@@ -106,20 +106,6 @@ if dein#load_state(s:my_plugin_dir)
     \ ] })
     \ " depends on 'kana/vim-operator-user'
   call dein#add('Shougo/context_filetype.vim')
-  call dein#add('Shougo/echodoc',
-    \ { 'on_i': 1,
-    \   'hook_source':
-    \     "let g:echodoc#enable_at_startup = 1
-    \     |let g:echodoc#type = 'floating'
-    \     |highlight link EchoDocFloat Pmenu",
-    \ })
-  call dein#add('Shougo/neomru.vim')
-  call dein#add('Shougo/neosnippet',
-    \ { 'on_i': 1,
-    \   'on_ft': 'snippet',
-    \   'depends': ['neosnippet-snippets', 'context_filetype.vim'],
-    \ })
-  call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/vinarise')
   call dein#add('t9md/vim-choosewin',
     \ { 'on_map': [
@@ -137,68 +123,20 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'on_map': [
     \   '<Plug>(openbrowser-smart-search)',
     \ ] })
-  call dein#add('w0rp/ale')
   call dein#add('Yggdroot/indentLine')
   call dein#add('yuttie/comfortable-motion.vim')
 
   " UI enhancements
   call dein#add('chrisbra/NrrwRgn')
   call dein#add('luochen1990/rainbow')
-  call dein#add('autozimu/LanguageClient-neovim',
-    \ { 'rev': 'next',
-    \   'build': 'bash install.sh',
-    \ })
   " Completion
-  call dein#add('Shougo/deoplete.nvim',
-    \ { 'on_i': 1,
-    \   'depends': 'context_filetype.vim',
-    \   'hook_source':
-    \     "call deoplete#custom#source('_', 'converters', [
-    \        'converter_auto_paren',
-    \        'converter_remove_overlap',
-    \        'converter_truncate_abbr',
-    \        'converter_truncate_menu'
-    \      ]) |
-    \      call deoplete#custom#source('_', 'min_pattern_length', 1) |
-    \      call deoplete#custom#option({
-    \        'auto_complete_delay': 0,
-    \        'auto_refresh_delay': 20,
-    \        'max_list': 500,
-    \      }) |
-    \      call deoplete#custom#source('omni', 'functions', {
-    \      }) |
-    \      call deoplete#custom#var('omni', 'input_patterns', {
-    \        'tex': g:vimtex#re#deoplete,
-    \      })"
+  call dein#add('neoclide/coc.nvim',
+    \ { 'rev': 'release',
+    \   'merge': 0,
     \ })
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+  call dein#add('honza/vim-snippets')
 
   " Interactive filter
-  call dein#add('Shougo/denite.nvim',
-    \ { 'on_cmd': 'Denite',
-    \   'hook_source':
-    \     "call denite#custom#var('file_rec', 'command',
-    \        ['rg', '--files', '--glob', '!.git'])
-    \     |call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-    \     |call denite#custom#var('file_rec/git', 'command',
-    \        ['git', 'ls-files', '-co', '--exclude-standard'])
-    \     |call denite#custom#map(
-    \        'insert',
-    \        '<C-n>',
-    \        '<denite:move_to_next_line>',
-    \        'noremap'
-    \      )
-    \     |call denite#custom#map(
-    \        'insert',
-    \        '<C-p>',
-    \        '<denite:move_to_previous_line>',
-    \        'noremap'
-    \      )
-    \     |call denite#custom#option('default', 'prompt', '>')",
-    \ })
   call dein#add('junegunn/fzf',
     \ { 'build': './install --bin; rm ./doc/fzf.txt'
     \ })
@@ -237,18 +175,6 @@ if dein#load_state(s:my_plugin_dir)
   " Julia
   call dein#add('JuliaEditorSupport/julia-vim')
 
-  " LanguageClient-neovim
-  let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['pyls'],
-    \ }
-
-  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-  " Or map each action separately
-  nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
   " PHP
   call dein#add('2072/PHP-Indenting-for-VIm')  " indent
   call dein#add('StanAngeloff/php.vim')  " syntax
@@ -257,19 +183,16 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('vim-ruby/vim-ruby')  " syntax, indent, ftplugin, compiler
 
   " Rust
-  call dein#add('racer-rust/vim-racer')
   call dein#add('rust-lang/rust.vim')  " syntax, indent, ftplugin, compiler, plugin
 
   " TypeScript
   call dein#add('leafgarland/typescript-vim')
-  call dein#add('Quramy/tsuquyomi')
 
   " Vim
   call dein#add('vim-jp/syntax-vim-ex')  " syntax
 
   " Web/CSS
   call dein#add('hail2u/vim-css3-syntax')  " syntax
-  call dein#add('othree/csscomplete.vim')
   call dein#add('cakebaker/scss-syntax.vim')  " syntax, ftplugin
 
   " Web/JavaScript
@@ -628,9 +551,9 @@ nmap     [Space]f [file]
 nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :Vaffle<CR>
-nnoremap <silent> [file]f  :<C-u>Denite file<CR>
+nnoremap <silent> [file]f  :<C-u>CocList files<CR>
 nnoremap <silent> [file]F  :<C-u>Files<CR>
-nnoremap <silent> [file]r  :<C-u>Denite file_mru<CR>
+nnoremap <silent> [file]r  :<C-u>CocList mru<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
@@ -644,7 +567,7 @@ nnoremap <silent> [search]gr :<C-u>Rg<CR>
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]b :<C-u>Denite buffer<CR>
+nnoremap <silent> [buffer]b :<C-u>CocList buffers<CR>
 nnoremap <silent> [buffer]B :<C-u>Buffers<CR>
 nnoremap <silent> [buffer]n :bn<CR>
 nnoremap <silent> [buffer]p :bp<CR>
@@ -656,19 +579,28 @@ nnoremap <silent> [project]f :<C-u>GFiles<CR>
 
 nnoremap [error] <Nop>
 nmap     [Space]e [error]
-nnoremap <silent> [error]l :lwindow<CR>
-nnoremap <silent> [error]c :lclose<CR>
-nnoremap <silent> [error]n :lnext<CR>
-nnoremap <silent> [error]p :lprevious<CR>
-nnoremap <silent> [error]N <Plug>(ale_next_wrap)
-nnoremap <silent> [error]P <Plug>(ale_previous_wrap)
+nnoremap <silent> [error]e :<C-u>CocList diagnostics<CR>
+nmap     <silent> [error]n <Plug>(coc-diagnostic-next)
+nmap     <silent> [error]p <Plug>(coc-diagnostic-prev)
+
+nnoremap [lang-server] <Nop>
+nmap     [Space]l [lang-server]
+nmap              [lang-server]r  <Plug>(coc-rename)
+nmap              [lang-server]f  <Plug>(coc-format-selected)
+xmap              [lang-server]f  <Plug>(coc-format-selected)
+nmap              [lang-server]a  <Plug>(coc-codeaction-selected)
+xmap              [lang-server]a  <Plug>(coc-codeaction-selected)
+nmap              [lang-server]ac <Plug>(coc-codeaction)
+nmap              [lang-server]F  <Plug>(coc-fix-current)
+nnoremap <silent> [lang-server]E  :<C-u>CocList extensions<CR>
+nnoremap <silent> [lang-server]:  :<C-u>CocList commands<cr>
+
 
 nnoremap [toggle] <Nop>
 nmap     [Space]t [toggle]
 nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
 nnoremap <silent> [toggle]w :setl list!<CR>:setl list?<CR>
 nnoremap <silent> [toggle]i :IndentLinesToggle<CR>:echo b:indentLine_enabled ? 'indentLine enabled' : 'indentLine disabled'<CR>
-nnoremap <silent> [toggle]l :ALEToggle<CR>:echo g:ale_enabled ? 'ALE enabled' : 'ALE disabled'<CR>
 nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 " 'paste' is OBSOLETE
 nnoremap <silent> [toggle]p :set paste!<CR>:set paste?<CR>
@@ -707,7 +639,7 @@ nmap     [jump]L  <Plug>(easymotion-overwin-line)
 
 nmap     [jump]W <Plug>(choosewin)
 
-nmap     [jump]o  :<C-u>Denite outline<CR>
+nnoremap <silent> [jump]o :<C-u>CocList outline<CR>
 
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
@@ -768,7 +700,7 @@ let g:lightline = {
       \   'left': [
       \     [ 'mode', 'paste' ],
       \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
-      \     [ 'ale' ],
+      \     [ 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
@@ -780,6 +712,7 @@ let g:lightline = {
       \   'left': [
       \     [ 'mode' ],
       \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
+      \     [ 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
@@ -805,6 +738,7 @@ let g:lightline = {
       \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
       \   'cwd':         'getcwd',
+      \   'cocstatus':   'coc#status',
       \ },
       \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
@@ -813,7 +747,6 @@ let g:lightline = {
 let g:lightline.my = {}
 
 function! g:lightline.my.layout_init()
-  let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', 'OK']
   let g:lightline.my.layout_levels = {
     \   'relativepath': 3,
     \   'filetype': 2,
@@ -833,7 +766,6 @@ function! g:lightline.my.layout()
   endtry
 
   let possible_fixes = [
-    \   "let g:ale_statusline_format = ['E:%d', 'W:%d', '']",
     \   'let g:lightline.my.layout_levels.relativepath = 2',
     \   'let g:lightline.my.layout_levels.relativepath = 1',
     \   'let g:lightline.my.layout_levels.fileformat = 1',
@@ -888,6 +820,7 @@ function! g:lightline.my.layout()
   endwhile
 endfunction
 autocmd MyAutoCmds WinEnter,BufWinEnter,FileType,EncodingChanged,VimResized * call g:lightline.my.layout()
+autocmd MyAutoCmds User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 function! g:lightline.my.relativepath_level(level)
   let relpath = expand('%')
@@ -1159,35 +1092,53 @@ autocmd FileType php setlocal commentstring=//\ %s
 " }}}
 
 
-" {{{ deoplete.nvim
-let g:deoplete#enable_at_startup = 1
+" {{{ coc.nvim
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_deoplete_cr_function()<CR>
-function! s:my_deoplete_cr_function() abort
-  return deoplete#close_popup() . "\<CR>"
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
-" }}}
 
+" Setup formatexpr specified filetype(s).
+autocmd MyAutoCmds FileType typescript,json setl formatexpr=CocAction('formatSelected')
 
-" {{{ neosnippet
-if has('nvim')
-  let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-else
-  let g:neosnippet#snippets_directory='~/.vim/snippets'
-endif
+" Update signature help on jump placeholder
+autocmd MyAutoCmds User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
-" Plugin key-mappings.
-imap <C-k>  <Plug>(neosnippet_expand_or_jump)
-smap <C-k>  <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>  <Plug>(neosnippet_expand_target)
-imap <expr> <Tab>
-  \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-  \ "\<Tab>"
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 " }}}
 
 
@@ -1280,11 +1231,6 @@ autocmd MyAutoCmds FileType ruby,eruby setlocal shiftwidth=2
 " }}}
 
 
-" {{{ deoplete-jedi
-let deoplete#sources#jedi#show_docstring = 1
-" }}}
-
-
 " {{{ Python
 autocmd MyAutoCmds FileType python setlocal tabstop=8
 autocmd MyAutoCmds FileType python setlocal expandtab
@@ -1334,22 +1280,6 @@ autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<
 
 " Use the old regexp engine because the new NFA engine is slow for Haskell's syntax highlighting.
 autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
-" }}}
-
-
-" {{{ ALE
-let g:ale_rust_cargo_use_check = 1
-let g:ale_sign_error = '!!'
-let g:ale_sign_warning = '??'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%severity%][%linter%] %s'
-let g:ale_open_list = 0
-let g:ale_linters = {
-  \ 'cpp': ['clang'],
-  \ 'haskell': ['ghc', 'hlint']
-  \ }
-let g:ale_haskell_ghc_options = '-fno-code -v0 -Wall'
 " }}}
 
 
