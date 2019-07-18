@@ -88,6 +88,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('kana/vim-textobj-user')
   call dein#add('rhysd/vim-textobj-anyblock')
   call dein#add('Konfekt/FastFold')
+  call dein#add('lambdalisue/suda.vim')
   call dein#add('lambdalisue/vim-unified-diff')
   call dein#add('ap/vim-css-color')  " Only for css
   call dein#add('lilydjwg/colorizer',
