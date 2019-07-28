@@ -282,6 +282,7 @@ set cursorline
 " 4 displaying text
 set number
 set scrolloff=3
+set signcolumn=yes
 
 " 6 multiple windows
 set hidden        " You can change buffer without saving.
