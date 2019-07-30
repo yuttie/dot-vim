@@ -176,6 +176,9 @@ if dein#load_state(s:my_plugin_dir)
   " i3
   call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
 
+  " jq
+  call dein#add('vito-c/jq.vim')
+
   " Julia
   call dein#add('JuliaEditorSupport/julia-vim')
 
