@@ -156,6 +156,9 @@ if dein#load_state(s:my_plugin_dir)
   " fish shell
   call dein#add('dag/vim-fish')
 
+  " Gentoo
+  call dein#add('gentoo/gentoo-syntax')
+
   " Git
   call dein#add('jreybert/vimagit')
   call dein#add('itchyny/vim-gitbranch')
