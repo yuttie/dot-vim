@@ -197,6 +197,9 @@ if dein#load_state(s:my_plugin_dir)
   " Rust
   call dein#add('rust-lang/rust.vim')  " syntax, indent, ftplugin, compiler, plugin
 
+  " tmux
+  call dein#add('tmux-plugins/vim-tmux')
+
   " TypeScript
   call dein#add('leafgarland/typescript-vim')
 
