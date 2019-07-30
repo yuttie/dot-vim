@@ -183,9 +183,9 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('JuliaEditorSupport/julia-vim')
 
   " nginx
-  call dein#add('nginx/nginx',  " ftdetect, ftplugin, indent, syntax
+  call dein#add('nginx/nginx',
     \ { 'rtp': 'contrib/vim',
-    \ })
+    \ })  " ftdetect, ftplugin, indent, syntax
 
   " PHP
   call dein#add('2072/PHP-Indenting-for-VIm')  " indent
