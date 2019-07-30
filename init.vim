@@ -157,7 +157,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('dag/vim-fish')
 
   " Gentoo
-  call dein#add('gentoo/gentoo-syntax')
+  call dein#add('gentoo/gentoo-syntax')  " ftdetect, ftplugin, indent, plugin, syntax
 
   " Git
   call dein#add('jreybert/vimagit')
@@ -177,7 +177,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
 
   " jq
-  call dein#add('vito-c/jq.vim')
+  call dein#add('vito-c/jq.vim')  " ftdetect, ftplugin, syntax
 
   " Julia
   call dein#add('JuliaEditorSupport/julia-vim')
