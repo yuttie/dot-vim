@@ -954,7 +954,8 @@ map ?  <Plug>(incsearch-stay)
 
 
 " {{{ vim-operator-surround
-map <silent>ys <Plug>(operator-surround-append)
+nmap <silent>ys <Plug>(operator-surround-append)
+vmap <silent>ys <Plug>(operator-surround-append)
 nmap <silent>ds <Plug>(operator-surround-delete)a
 nmap <silent>cs <Plug>(operator-surround-replace)a
 nmap <silent>dS <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
