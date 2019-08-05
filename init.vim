@@ -906,6 +906,7 @@ let g:better_whitespace_filetypes_blacklist = [
 
 
 " {{{ indentLine
+let g:indentLine_enabled = 0
 let g:indentLine_color_term = 251
 let g:indentLine_color_gui = '#c8c6c1'
 let g:indentLine_color_tty_light = 4
