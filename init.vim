@@ -52,6 +52,7 @@ if dein#load_state(s:my_plugin_dir)
     \   'LinediffPick',
     \ ] })
   call dein#add('cocopon/vaffle.vim')  " Doesn't work correctly when lazily loaded
+  call dein#add('dkarter/bullets.vim')
   call dein#add('easymotion/vim-easymotion',
     \ { 'on_map': [
     \   '<Plug>(easymotion-fl)',
