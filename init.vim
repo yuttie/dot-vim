@@ -1208,7 +1208,6 @@ autocmd MyAutoCmds FileType vim setlocal shiftwidth=2
 
 
 " {{{ Markdown
-autocmd MyAutoCmds FileType markdown setlocal shiftwidth=2
 let g:markdown_fenced_languages = ['cpp', 'ruby', 'json']
 let g:markdown_syntax_conceal = 0
 nnoremap [markdown]  <Nop>
