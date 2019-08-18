@@ -130,6 +130,8 @@ if dein#load_state(s:my_plugin_dir)
   " UI enhancements
   call dein#add('chrisbra/NrrwRgn')
   call dein#add('luochen1990/rainbow')
+  call dein#add('junegunn/limelight.vim')
+  call dein#add('junegunn/goyo.vim')
   " Completion
   call dein#add('neoclide/coc.nvim',
     \ { 'rev': 'release',
