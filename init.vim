@@ -1237,6 +1237,9 @@ autocmd MyAutoCmds FileType crystal setlocal shiftwidth=2
 
 " {{{ TeX
 let g:tex_conceal = ""
+if has('nvim')
+  let g:vimtex_compiler_progname = "nvr"
+endif
 autocmd MyAutoCmds FileType tex setlocal shiftwidth=2
 autocmd MyAutoCmds FileType bib setlocal shiftwidth=2
 " }}}
