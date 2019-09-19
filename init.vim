@@ -243,9 +243,6 @@ if dein#load_state(s:my_plugin_dir)
   " reStructuredText
   call dein#add('Rykka/riv.vim', { 'on_ft': 'rst' })
 
-  " TeX
-  call dein#add('lervag/vimtex')
-
   " TOML
   call dein#add('cespare/vim-toml')  " syntax, ftplugin
 
