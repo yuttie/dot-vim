@@ -300,6 +300,7 @@ set cursorline
 set number
 set scrolloff=3
 set signcolumn=yes
+set nowrap
 
 " 6 multiple windows
 set hidden        " You can change buffer without saving.
