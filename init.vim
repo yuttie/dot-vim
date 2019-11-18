@@ -200,6 +200,9 @@ if dein#load_state(s:my_plugin_dir)
   " Rust
   call dein#add('rust-lang/rust.vim')  " syntax, indent, ftplugin, compiler, plugin
 
+  " Text
+  call dein#add('rhysd/vim-grammarous')
+
   " tmux
   call dein#add('tmux-plugins/vim-tmux')
 
@@ -1263,6 +1266,17 @@ let g:rainbow_conf = {
   \     'css': 0,
   \   }
   \ }
+" }}}
+
+
+" {{{ rhysd/vim-grammarous
+nmap <F5> <Plug>(grammarous-move-to-next-error)
+nnoremap [grammarous]    <Nop>
+nmap     [Space]G [grammarous]
+
+nnoremap [grammarous]G  :GrammarousCheck<CR>
+nmap     [grammarous]n  <Plug>(grammarous-move-to-next-error)
+nmap     [grammarous]p  <Plug>(grammarous-move-to-previous-error)
 " }}}
 
 
