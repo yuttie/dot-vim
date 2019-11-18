@@ -540,8 +540,8 @@ nnoremap <S-Down>  <C-w>+<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap <C-Tab>   gt
 nnoremap <C-S-Tab> gT
-nnoremap <S-PageDown> :tabmove +1<CR>
-nnoremap <S-PageUp>   :tabmove -1<CR>
+nnoremap <silent> <S-PageDown> :tabmove +1<CR>
+nnoremap <silent> <S-PageUp>   :tabmove -1<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-i> <C-g>
 
