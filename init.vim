@@ -323,7 +323,7 @@ set printoptions& printoptions+=number:y
 set printmbfont=r:GothicBBB-Medium
 
 " 12 messages and info
-set shortmess&  " Shortens messages to avoid 'press a key' prompt.
+set shortmess& shortmess+=I  " Shortens messages to avoid 'press a key' prompt.
 set ruler       " Show the cursor position all the time.
 
 " 14 editing text
