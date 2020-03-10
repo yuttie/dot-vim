@@ -900,6 +900,16 @@ endfunction
 " }}}
 
 
+" {{{ itchyny/vim-parenmatch
+let g:parenmatch_highlight = 0
+function! s:my_parenmatch_highlight() abort
+  highlight ParenMatch term=underline,bold cterm=underline,bold gui=underline,bold
+endfunction
+autocmd MyAutoCmds VimEnter * call s:my_parenmatch_highlight()
+autocmd MyAutoCmds ColorScheme * call s:my_parenmatch_highlight()
+" }}}
+
+
 " {{{ vim-better-whitespace
 let g:better_whitespace_operator = ''
 let g:better_whitespace_filetypes_blacklist = [
