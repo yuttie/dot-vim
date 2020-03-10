@@ -321,8 +321,8 @@ set printoptions& printoptions+=number:y
 set printmbfont=r:GothicBBB-Medium
 
 " 12 messages and info
-set shortmess=atToOI  " Shortens messages to avoid 'press a key' prompt.
-set ruler             " Show the cursor position all the time.
+set shortmess&  " Shortens messages to avoid 'press a key' prompt.
+set ruler       " Show the cursor position all the time.
 
 " 14 editing text
 set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
