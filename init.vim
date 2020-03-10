@@ -413,7 +413,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=light
-  colorscheme snowy
+  colorscheme iceberg
 endif
 
 " }}}
@@ -716,7 +716,7 @@ set ambiwidth=single
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'snowy',
+      \ 'colorscheme': 'iceberg',
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
