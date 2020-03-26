@@ -241,6 +241,10 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'on_ft': 'markdown',
     \   'depends': 'tabular',
     \ })  " syntax, indent, ftplugin
+  call dein#add('iamcco/markdown-preview.nvim',
+    \ { 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+    \   'build': 'sh -c "cd app & yarn install"'
+    \ })
 
   " AsciiDoc
   call dein#add('mjakl/vim-asciidoc', { 'on_ft': 'asciidoc' })
