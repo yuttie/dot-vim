@@ -1312,6 +1312,11 @@ nmap     [Space]m    [markdown]
 xmap     [Space]m    [markdown]
 nmap     [markdown]f :TableFormat<CR>
 xmap     [markdown]f :TableFormat<CR>
+nmap     [markdown]p :MarkdownPreview<CR>  " From iamcco/markdown-preview.nvim
+
+
+" iamcco/markdown-preview.nvim
+let g:mkdp_markdown_css = expand('~/.local/share/sindresorhus/github-markdown-css/github-markdown.css')
 " }}}
 
 
