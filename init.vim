@@ -578,9 +578,8 @@ nmap     [Space]f [file]
 nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :Vaffle<CR>
-nnoremap <silent> [file]f  :<C-u>CocList files<CR>
-nnoremap <silent> [file]F  :<C-u>Files<CR>
-nnoremap <silent> [file]r  :<C-u>CocList mru<CR>
+nnoremap <silent> [file]f  :<C-u>Files<CR>
+nnoremap <silent> [file]r  :<C-u>History<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
@@ -594,8 +593,7 @@ nnoremap <silent> [search]gr :<C-u>Rg<CR>
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]b :<C-u>CocList buffers<CR>
-nnoremap <silent> [buffer]B :<C-u>Buffers<CR>
+nnoremap <silent> [buffer]b :<C-u>Buffers<CR>
 nnoremap <silent> [buffer]n :bn<CR>
 nnoremap <silent> [buffer]p :bp<CR>
 nnoremap <silent> [buffer]d :bd<CR>
