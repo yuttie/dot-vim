@@ -749,7 +749,6 @@ let g:lightline = {
       \     [ 'tabs' ],
       \   ],
       \   'right': [
-      \     [ 'close' ],
       \     [ 'cwd' ],
       \   ]
       \ },
