@@ -268,6 +268,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('yuttie/inkstained-vim')
   call dein#add('yuttie/snowy-vim')
   call dein#add('cocopon/iceberg.vim')
+  call dein#add('arcticicestudio/nord-vim')
 
   " Required:
   call dein#end()
@@ -419,7 +420,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=light
-  colorscheme iceberg
+  colorscheme nord
 endif
 
 " }}}
@@ -720,7 +721,7 @@ set ambiwidth=single
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
