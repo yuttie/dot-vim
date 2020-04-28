@@ -348,7 +348,7 @@ set cinoptions=:0,g0
 set foldlevelstart=99
 
 " 19 reading and writing files
-set modeline
+set nomodeline
 set fileformats=unix,dos
 set backup
 
