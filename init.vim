@@ -393,6 +393,8 @@ augroup MyAutoCmds
   autocmd!
 augroup end
 
+" Reset ibus-skk to the direct input mode when leave the insert mode
+autocmd MyAutoCmds InsertLeave * call system('ibus engine skk')
 
 " Prefer POSIX compatible shell
 if &shell =~# 'fish$'
