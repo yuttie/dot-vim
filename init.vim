@@ -554,6 +554,8 @@ nnoremap <silent> <S-PageUp>   :tabmove -1<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-i> <C-g>
 
+nnoremap <F8>  :split \| execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') \| terminal<CR>
+
 " command
 cmap w!! w !sudo tee > /dev/null %
 
