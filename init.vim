@@ -1334,6 +1334,15 @@ autocmd MyAutoCmds FileType crystal setlocal shiftwidth=2
 
 
 " {{{ TeX
+" Add environments from amsmath package
+autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-A', 'equation', 1)
+autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-B', 'align',    1)
+autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-C', 'gather',   1)
+autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-D', 'alignat',  1)
+autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-E', 'multline', 1)
+autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-F', 'flalign',  1)
+autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-G', 'split',    0)
+
 let g:tex_conceal = ""
 if has('nvim')
   let g:vimtex_compiler_progname = "nvr"
