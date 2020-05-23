@@ -1,6 +1,7 @@
 {
     "suggest.autoTrigger": "none",
     "python.jediEnabled": false,
+    "python.venvPath": "~/.cache/pypoetry/virtualenvs",
     "list.insertMappings": {
         "<C-a>": "prompt:start",
         "<C-e>": "prompt:end",
