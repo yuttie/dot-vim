@@ -268,7 +268,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('yuttie/inkstained-vim')
   call dein#add('yuttie/snowy-vim')
   call dein#add('cocopon/iceberg.vim')
-  call dein#add('arcticicestudio/nord-vim')
+  call dein#add('arcticicestudio/nord-vim', { 'rev': 'master' })
 
   " Required:
   call dein#end()
