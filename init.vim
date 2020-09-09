@@ -1390,6 +1390,11 @@ autocmd MyAutoCmds FileType yaml setlocal shiftwidth=2
 " }}}
 
 
+" {{{ Elm
+autocmd MyAutoCmds FileType elm setlocal shiftwidth=2
+" }}}
+
+
 " {{{ Haskell
 let g:haskell_conceal              = 0
 let g:haskell_conceal_enumerations = 0
