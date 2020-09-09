@@ -94,10 +94,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('lilydjwg/colorizer',
     \ { 'hook_source': 'let g:colorizer_nomap = 1'
     \ })
-  call dein#add('mbbill/undotree',
-    \ { 'on_cmd': [
-    \   'UndotreeToggle',
-    \ ] })
+  call dein#add('simnalamburt/vim-mundo')
   call dein#add('ntpeters/vim-better-whitespace')
   call dein#add('rhysd/vim-operator-surround',
     \ { 'on_map': [
