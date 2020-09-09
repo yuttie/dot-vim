@@ -277,6 +277,9 @@ endif
 filetype plugin indent on
 syntax enable
 
+" Personal access token for GitHub
+let g:dein#install_github_api_token = ''
+
 " If you want to install not installed plugins on startup.
 "if dein#check_install()
 "  call dein#install()
@@ -572,7 +575,7 @@ nnoremap <silent> [help]dC :<C-u>Colors<CR>
 
 nnoremap [plugin] <Nop>
 nmap     [Space]P [plugin]
-nnoremap <silent> [plugin]P :call dein#update()<CR>
+nnoremap <silent> [plugin]P :call dein#check_update(v:true)<CR>
 nnoremap <silent> [plugin]i :call dein#install()<CR>
 nnoremap <silent> [plugin]c :echo dein#check_clean() <Bar> call map(dein#check_clean(), "delete(v:val, 'rf')") <Bar> call dein#recache_runtimepath() <Bar> echo "Cleaned up."<CR>
 
