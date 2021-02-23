@@ -1348,7 +1348,7 @@ autocmd MyAutoCmds FileType bib setlocal shiftwidth=2
 
 
 " {{{ Shell Scripts
-autocmd MyAutoCmds FileType sh,csh,tcsh,zsh setlocal shiftwidth=2
+autocmd MyAutoCmds FileType sh,csh,fish,tcsh,zsh setlocal shiftwidth=2
 " }}}
 
 
