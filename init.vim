@@ -325,6 +325,7 @@ set printmbfont=r:GothicBBB-Medium
 " 12 messages and info
 set shortmess& shortmess+=I  " Shortens messages to avoid 'press a key' prompt.
 set ruler       " Show the cursor position all the time.
+set title
 
 " 14 editing text
 set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
