@@ -1085,6 +1085,7 @@ let g:vimfiler_tree_closed_icon = '►'
 
 " {{{ fzf.vim
 let $FZF_DEFAULT_COMMAND = 'rg --files --glob !.git'
+let $BAT_THEME = 'GitHub'
 let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
   \   'bg':      ['bg', 'Normal'],
