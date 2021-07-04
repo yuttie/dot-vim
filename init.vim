@@ -1126,7 +1126,7 @@ command! -bang -nargs=* Rg
 
 
 " {{{ caw.vim
-autocmd FileType php setlocal commentstring=//\ %s
+autocmd MyAutoCmds FileType php setlocal commentstring=//\ %s
 " }}}
 
 
