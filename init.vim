@@ -609,17 +609,17 @@ nnoremap <silent> [error]e :<C-u>CocList diagnostics<CR>
 nmap     <silent> [error]n <Plug>(coc-diagnostic-next)
 nmap     <silent> [error]p <Plug>(coc-diagnostic-prev)
 
-nnoremap [lang-server] <Nop>
-nmap     [Space]l [lang-server]
-nmap              [lang-server]r  <Plug>(coc-rename)
-nmap              [lang-server]f  <Plug>(coc-format-selected)
-xmap              [lang-server]f  <Plug>(coc-format-selected)
-nmap              [lang-server]a  <Plug>(coc-codeaction-selected)
-xmap              [lang-server]a  <Plug>(coc-codeaction-selected)
-nmap              [lang-server]ac <Plug>(coc-codeaction)
-nmap              [lang-server]F  <Plug>(coc-fix-current)
-nnoremap <silent> [lang-server]E  :<C-u>CocList extensions<CR>
-nnoremap <silent> [lang-server]:  :<C-u>CocList commands<cr>
+nnoremap [coc] <Nop>
+nmap     [Space]C [coc]
+nmap              [coc]r  <Plug>(coc-rename)
+nmap              [coc]f  <Plug>(coc-format-selected)
+xmap              [coc]f  <Plug>(coc-format-selected)
+nmap              [coc]a  <Plug>(coc-codeaction-selected)
+xmap              [coc]a  <Plug>(coc-codeaction-selected)
+nmap              [coc]ac <Plug>(coc-codeaction)
+nmap              [coc]F  <Plug>(coc-fix-current)
+nnoremap <silent> [coc]E  :<C-u>CocList extensions<CR>
+nnoremap <silent> [coc]:  :<C-u>CocList commands<cr>
 
 
 nnoremap [toggle] <Nop>
