@@ -114,7 +114,7 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(expand_region_expand)',
     \   '<Plug>(expand_region_shrink)',
     \ ] })
-  call dein#add('terryma/vim-multiple-cursors')
+  call dein#add('mg979/vim-visual-multi')
   call dein#add('tyru/caw.vim',
     \ { 'on_map': '<Plug>(caw:' })
   call dein#add('tyru/open-browser.vim',
