@@ -91,6 +91,9 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('lambdalisue/suda.vim')
   call dein#add('lambdalisue/vim-unified-diff')
   call dein#add('ap/vim-css-color')  " Only for css
+  call dein#add('nvim-treesitter/nvim-treesitter',
+    \ { 'hook_post_update': 'TSUpdate'
+    \ })
   call dein#add('lilydjwg/colorizer',
     \ { 'hook_source': 'let g:colorizer_nomap = 1'
     \ })
@@ -427,6 +430,51 @@ endfunction
 autocmd MyAutoCmds VimEnter * call s:my_colorscheme_adjustments()
 autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
 
+" nvim-treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "all",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- List of parsers to ignore installing
+  ignore_install = {},
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    disable = {},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+
+  indent = {
+    enable = true,
+  },
+}
+EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 " }}}
 
 
@@ -732,7 +780,7 @@ let g:lightline = {
       \   'left': [
       \     [ 'mode', 'paste' ],
       \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
-      \     [ 'cocstatus' ],
+      \     [ 'treesitter', 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
@@ -744,7 +792,7 @@ let g:lightline = {
       \   'left': [
       \     [ 'mode' ],
       \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
-      \     [ 'cocstatus' ],
+      \     [ 'treesitter', 'cocstatus' ],
       \   ],
       \   'right': [
       \     [ 'fulllineinfo' ],
@@ -768,6 +816,7 @@ let g:lightline = {
       \   'filetype':    'g:lightline.my.filetype',
       \   'fileformat':  'g:lightline.my.fileformat',
       \   'git_branch':  'g:lightline.my.git_branch',
+      \   'treesitter':  'g:lightline.my.treesitter',
       \   'cwd':         'getcwd',
       \   'cocstatus':   'coc#status',
       \ },
@@ -783,6 +832,7 @@ function! g:lightline.my.layout_init()
     \   'filetype': 2,
     \   'fileformat': 2,
     \   'git_branch': 1,
+    \   'treesitter': 10,
     \ }
 endfunction
 call g:lightline.my.layout_init()
@@ -797,6 +847,15 @@ function! g:lightline.my.layout()
   endtry
 
   let possible_fixes = [
+    \   'let g:lightline.my.layout_levels.treesitter = 9',
+    \   'let g:lightline.my.layout_levels.treesitter = 8',
+    \   'let g:lightline.my.layout_levels.treesitter = 7',
+    \   'let g:lightline.my.layout_levels.treesitter = 6',
+    \   'let g:lightline.my.layout_levels.treesitter = 5',
+    \   'let g:lightline.my.layout_levels.treesitter = 4',
+    \   'let g:lightline.my.layout_levels.treesitter = 3',
+    \   'let g:lightline.my.layout_levels.treesitter = 2',
+    \   'let g:lightline.my.layout_levels.treesitter = 1',
     \   'let g:lightline.my.layout_levels.relativepath = 2',
     \   'let g:lightline.my.layout_levels.relativepath = 1',
     \   'let g:lightline.my.layout_levels.fileformat = 1',
@@ -890,6 +949,10 @@ function! g:lightline.my.git_branch_level(level)
   endif
 endfunction
 
+function! g:lightline.my.treesitter_level(level)
+  return nvim_treesitter#statusline(10 * a:level)
+endfunction
+
 function! g:lightline.my.relativepath()
   return g:lightline.my.relativepath_level(g:lightline.my.layout_levels.relativepath)
 endfunction
@@ -904,6 +967,10 @@ endfunction
 
 function! g:lightline.my.git_branch()
   return g:lightline.my.git_branch_level(g:lightline.my.layout_levels.git_branch)
+endfunction
+
+function! g:lightline.my.treesitter()
+  return g:lightline.my.treesitter_level(g:lightline.my.layout_levels.treesitter)
 endfunction
 " }}}
 
