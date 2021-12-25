@@ -421,6 +421,12 @@ if &t_Co > 2 || has("gui_running")
   colorscheme iceberg
 endif
 
+function! s:my_colorscheme_adjustments() abort
+  highlight SpellBad term=underline cterm=undercurl ctermfg=red gui=undercurl guifg=red
+endfunction
+autocmd MyAutoCmds VimEnter * call s:my_colorscheme_adjustments()
+autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
+
 " }}}
 
 
