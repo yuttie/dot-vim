@@ -1,5 +1,4 @@
 {
-    "suggest.autoTrigger": "none",
     "python.jediEnabled": false,
     "python.venvPath": "~/.cache/pypoetry/virtualenvs",
     "list.insertMappings": {
