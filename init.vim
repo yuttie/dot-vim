@@ -151,7 +151,7 @@ if dein#load_state(s:my_plugin_dir)
   " Plugins for Languages
   "
   " Crystal
-  call dein#add('rhysd/vim-crystal')
+  call dein#add('vim-crystal/vim-crystal')
 
   " fish shell
   call dein#add('dag/vim-fish')
