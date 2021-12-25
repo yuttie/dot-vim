@@ -251,7 +251,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
 
   " GnuPG
-  call dein#add('jamessan/vim-gnupg')
+  call dein#add('jamessan/vim-gnupg', { 'rev': 'main' })
 
   " Themes
   call dein#add('itchyny/lightline.vim')
