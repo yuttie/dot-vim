@@ -89,10 +89,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('Konfekt/FastFold')
   call dein#add('lambdalisue/suda.vim')
   call dein#add('lambdalisue/vim-unified-diff')
-  call dein#add('ap/vim-css-color')  " Only for css
-  call dein#add('lilydjwg/colorizer',
-    \ { 'hook_source': 'let g:colorizer_nomap = 1'
-    \ })
+  call dein#add('norcalli/nvim-colorizer.lua')
   call dein#add('simnalamburt/vim-mundo')
   call dein#add('ntpeters/vim-better-whitespace')
   call dein#add('rhysd/vim-operator-surround',
@@ -1024,6 +1021,26 @@ map('n', '<A-0>', ':BufferLast<CR>', opts)
 map('n', '<A-c>', ':BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 map('n', '<C-p>', ':BufferPick<CR>', opts)
+EOF
+" }}}
+
+
+" {{{ norcalli/nvim-colorizer.lua
+lua <<EOF
+require'colorizer'.setup({
+  '*';
+}, {
+  RGB      = true;         -- #RGB hex codes
+  RRGGBB   = true;         -- #RRGGBB hex codes
+  names    = true;         -- "Name" codes like Blue
+  RRGGBBAA = true;         -- #RRGGBBAA hex codes
+  rgb_fn   = true;         -- CSS rgb() and rgba() functions
+  hsl_fn   = true;         -- CSS hsl() and hsla() functions
+  css      = true;         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+  css_fn   = true;         -- Enable all CSS *functions*: rgb_fn, hsl_fn
+  -- Available modes: foreground, background
+  mode     = 'background'; -- Set the display mode.
+})
 EOF
 " }}}
 
