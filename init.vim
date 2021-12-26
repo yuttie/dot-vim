@@ -157,6 +157,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('windwp/nvim-ts-autotag')
   call dein#add('JoosepAlviste/nvim-ts-context-commentstring')
   call dein#add('lewis6991/spellsitter.nvim')
+  call dein#add('folke/twilight.nvim')
 
   "
   " Plugins for Languages
@@ -605,6 +606,15 @@ require('spellsitter').setup {
   -- * ffi: built-in spell checker using the FFI to access the
   --   internal spell_check() function
   spellchecker = 'vimfn',
+}
+EOF
+
+" folke/twilight.nvim
+lua <<EOF
+require("twilight").setup {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
 }
 EOF
 
