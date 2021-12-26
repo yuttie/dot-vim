@@ -1,300 +1,307 @@
+-- {{{ $PATH
+vim.env.PATH = vim.fn.expand('~/.local/bin') .. ':' .. vim.fn.expand('~/.cargo/bin') .. ':' .. vim.env.PATH
+-- }}}
+
+
+-- {{{ Plugins
+-- Execute the following commands first:
+--   curl -O https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+--   sh ./installer.sh <my_plugin_dir>
+local my_plugin_dir = vim.fn.expand('~/.config/nvim/bundle')
+
+-- Prevent default plugins from being loaded
+vim.g.loaded_matchparen = 1
+vim.g.loaded_matchit = 1
+
+-- dein Scripts-----------------------------
+-- Required:
+vim.o.runtimepath = vim.o.runtimepath .. ',' .. my_plugin_dir .. '/repos/github.com/Shougo/dein.vim'
+
+-- Required:
+if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
+  vim.fn['dein#begin'](my_plugin_dir)
+
+  -- Let dein manage dein
+  -- Required:
+  vim.fn['dein#add'](my_plugin_dir .. '/repos/github.com/Shougo/dein.vim')
+
+  -- Plugins
+  vim.fn['dein#add']('AndrewRadev/linediff.vim', {
+    on_cmd = {
+      'Linediff',
+      'LinediffReset',
+      'LinediffAdd',
+      'LinediffShow',
+      'LinediffLast',
+      'LinediffMerge',
+      'LinediffPick',
+    },
+  })
+  vim.fn['dein#add']('cocopon/vaffle.vim')  -- Doesn't work correctly when lazily loaded
+  vim.fn['dein#add']('dkarter/bullets.vim')
+  vim.fn['dein#add']('easymotion/vim-easymotion', {
+    on_map = {
+      '<Plug>(easymotion-fl)',
+      '<Plug>(easymotion-Fl)',
+      '<Plug>(easymotion-tl)',
+      '<Plug>(easymotion-Tl)',
+      '<Plug>(easymotion-linebackward)',
+      '<Plug>(easymotion-j)',
+      '<Plug>(easymotion-k)',
+      '<Plug>(easymotion-lineforward)',
+      '<Plug>(easymotion-bd-f)',
+      '<Plug>(easymotion-overwin-f)',
+      '<Plug>(easymotion-bd-w)',
+      '<Plug>(easymotion-overwin-w)',
+      '<Plug>(easymotion-bd-jk)',
+      '<Plug>(easymotion-overwin-line)',
+    },
+  })  -- optionally depends on 'tpope/vim-repeat'
+  vim.fn['dein#add']('haya14busa/incsearch.vim', {
+    on_map = {
+      '<Plug>(incsearch-forward)',
+      '<Plug>(incsearch-stay)',
+    },
+  })
+  vim.fn['dein#add']('itchyny/vim-cursorword')
+  vim.fn['dein#add']('junegunn/vim-easy-align', {
+    on_map = {
+      '<Plug>(EasyAlign)',
+    },
+  })
+  vim.fn['dein#add']('kana/vim-repeat')
+  vim.fn['dein#add']('kana/vim-operator-user')
+  vim.fn['dein#add']('kana/vim-textobj-user')
+  vim.fn['dein#add']('rhysd/vim-textobj-anyblock')
+  vim.fn['dein#add']('Konfekt/FastFold')
+  vim.fn['dein#add']('lambdalisue/suda.vim')
+  vim.fn['dein#add']('lambdalisue/vim-unified-diff')
+  vim.fn['dein#add']('norcalli/nvim-colorizer.lua')
+  vim.fn['dein#add']('simnalamburt/vim-mundo')
+  vim.fn['dein#add']('ntpeters/vim-better-whitespace')
+  vim.fn['dein#add']('rhysd/vim-operator-surround', {
+    on_map = {
+      '<Plug>(operator-surround-append)',
+      '<Plug>(operator-surround-delete)',
+      '<Plug>(operator-surround-replace)',
+    },
+  })  -- depends on 'kana/vim-operator-user'
+  vim.fn['dein#add']('Shougo/context_filetype.vim')
+  vim.fn['dein#add']('Shougo/vinarise')
+  vim.fn['dein#add']('t9md/vim-choosewin', {
+    on_map = {
+      '<Plug>(choosewin)',
+    },
+  })
+  vim.fn['dein#add']('terryma/vim-expand-region', {
+    on_map = {
+      '<Plug>(expand_region_expand)',
+      '<Plug>(expand_region_shrink)',
+    },
+  })
+  vim.fn['dein#add']('mg979/vim-visual-multi')
+  vim.fn['dein#add']('tyru/caw.vim', {
+    on_map = '<Plug>(caw:',
+  })
+  vim.fn['dein#add']('tyru/open-browser.vim', {
+    on_map = {
+      '<Plug>(openbrowser-smart-search)',
+    },
+  })
+  vim.fn['dein#add']('lukas-reineke/indent-blankline.nvim')
+  vim.fn['dein#add']('yuttie/comfortable-motion.vim')
+
+  -- UI enhancements
+  vim.fn['dein#add']('chrisbra/NrrwRgn')
+  vim.fn['dein#add']('luochen1990/rainbow')
+  vim.fn['dein#add']('junegunn/limelight.vim')
+  vim.fn['dein#add']('junegunn/goyo.vim')
+  vim.fn['dein#add']('preservim/nerdtree')
+  -- Completion
+  vim.fn['dein#add']('neoclide/coc.nvim', {
+    rev = 'release',
+    merge = 0,
+  })
+  vim.fn['dein#add']('honza/vim-snippets')
+
+  -- Interactive filter
+  vim.fn['dein#add']('junegunn/fzf', {
+    build = './install --bin; rm ./doc/fzf.txt',
+  })  -- Remove the file because it contains a conflicting helptag
+  vim.fn['dein#add']('junegunn/fzf.vim')
+
+  --
+  -- Tree-sitter
+  --
+  vim.fn['dein#add']('nvim-treesitter/nvim-treesitter', {
+    hook_post_update = 'TSUpdate',
+  })
+  vim.fn['dein#add']('nvim-treesitter/nvim-treesitter-refactor')
+  vim.fn['dein#add']('nvim-treesitter/nvim-treesitter-textobjects')
+  vim.fn['dein#add']('p00f/nvim-ts-rainbow')
+  vim.fn['dein#add']('andymass/vim-matchup')
+  vim.fn['dein#add']('windwp/nvim-ts-autotag')
+  vim.fn['dein#add']('JoosepAlviste/nvim-ts-context-commentstring')
+  vim.fn['dein#add']('lewis6991/spellsitter.nvim')
+  vim.fn['dein#add']('folke/twilight.nvim')
+  vim.fn['dein#add']('windwp/nvim-autopairs')
+
+  --
+  -- Plugins for Languages
+  --
+  -- Crystal
+  vim.fn['dein#add']('vim-crystal/vim-crystal')
+
+  -- fish shell
+  vim.fn['dein#add']('dag/vim-fish')
+
+  -- Gentoo
+  vim.fn['dein#add']('gentoo/gentoo-syntax')  -- ftdetect, ftplugin, indent, plugin, syntax
+
+  -- Git
+  vim.fn['dein#add']('jreybert/vimagit')
+  vim.fn['dein#add']('itchyny/vim-gitbranch')
+  vim.fn['dein#add']('airblade/vim-gitgutter')
+  vim.fn['dein#add']('lambdalisue/gina.vim', {
+    on_cmd = {
+      'Gina',
+    },
+  })
+  vim.fn['dein#add']('tpope/vim-fugitive')
+  vim.fn['dein#add']('hotwatermorning/auto-git-diff')
+
+  -- Haskell
+  vim.fn['dein#add']('neovimhaskell/haskell-vim')  -- syntax, indent
+
+  -- i3
+  vim.fn['dein#add']('PotatoesMaster/i3-vim-syntax')  -- syntax, ftplugin
+
+  -- jq
+  vim.fn['dein#add']('vito-c/jq.vim')  -- ftdetect, ftplugin, syntax
+
+  -- Julia
+  vim.fn['dein#add']('JuliaEditorSupport/julia-vim')
+
+  -- nginx
+  vim.fn['dein#add']('nginx/nginx', {
+    rtp = 'contrib/vim',
+  })  -- ftdetect, ftplugin, indent, syntax
+
+  -- PHP
+  vim.fn['dein#add']('2072/PHP-Indenting-for-VIm')  -- indent
+  vim.fn['dein#add']('StanAngeloff/php.vim')  -- syntax
+
+  -- Ruby
+  vim.fn['dein#add']('vim-ruby/vim-ruby')  -- syntax, indent, ftplugin, compiler
+
+  -- Rust
+  vim.fn['dein#add']('rust-lang/rust.vim')  -- syntax, indent, ftplugin, compiler, plugin
+
+  -- Text
+  vim.fn['dein#add']('rhysd/vim-grammarous')
+
+  -- tmux
+  vim.fn['dein#add']('tmux-plugins/vim-tmux')
+
+  -- TypeScript
+  vim.fn['dein#add']('leafgarland/typescript-vim')
+
+  -- Vim
+  vim.fn['dein#add']('vim-jp/syntax-vim-ex')  -- syntax
+
+  -- Web/CSS
+  vim.fn['dein#add']('hail2u/vim-css3-syntax')  -- syntax
+  vim.fn['dein#add']('cakebaker/scss-syntax.vim')  -- syntax, ftplugin
+
+  -- Web/JavaScript
+  vim.fn['dein#add']('pangloss/vim-javascript')  -- syntax, indent, compiler, ftplugin
+  vim.fn['dein#add']('othree/javascript-libraries-syntax.vim')  -- syntax
+
+  -- Web/HTML
+  vim.fn['dein#add']('othree/html5.vim')  -- syntax, indent, ftplugin
+  vim.fn['dein#add']('mattn/emmet-vim', {
+    on_ft = {'html', 'xml', 'php'},
+  })
+
+  -- Web/Vue
+  vim.fn['dein#add']('posva/vim-vue')
+
+  -- Markdown
+  vim.fn['dein#add']('godlygeek/tabular', {
+    on_cmd = {
+      'AddTabularPattern',
+      'AddTabularPipeline',
+      'Tabularize',
+      'GTabularize',
+    },
+  })
+  vim.fn['dein#add']('plasticboy/vim-markdown', {
+    on_ft = 'markdown',
+    depends = 'tabular',
+  })  -- syntax, indent, ftplugin
+  vim.fn['dein#add']('iamcco/markdown-preview.nvim', {
+    on_ft = {'markdown', 'pandoc.markdown', 'rmd'},
+    build = 'sh -c "cd app & yarn install"',
+  })
+
+  -- AsciiDoc
+  vim.fn['dein#add']('mjakl/vim-asciidoc', {
+    on_ft = 'asciidoc',
+  })
+
+  -- reStructuredText
+  vim.fn['dein#add']('Rykka/riv.vim', {
+    on_ft = 'rst',
+  })
+
+  -- TOML
+  vim.fn['dein#add']('cespare/vim-toml')  -- syntax, ftplugin
+
+  -- JSON
+  vim.fn['dein#add']('elzr/vim-json')  -- syntax, indent, ftplugin
+
+  -- GnuPG
+  vim.fn['dein#add']('jamessan/vim-gnupg', {
+    rev = 'main',
+  })
+
+  -- Themes
+  vim.fn['dein#add']('itchyny/lightline.vim')
+  vim.fn['dein#add']('ryanoasis/vim-devicons')    -- This must be loaded after its supported plugins
+  vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
+  vim.fn['dein#add']('romgrk/barbar.nvim')
+  vim.fn['dein#add']('yuttie/hydrangea-vim', {
+    rev = 'develop',
+  })
+  vim.fn['dein#add']('yuttie/inkstained-vim')
+  vim.fn['dein#add']('yuttie/snowy-vim')
+  vim.fn['dein#add']('cocopon/iceberg.vim')
+  vim.fn['dein#add']('arcticicestudio/nord-vim', {
+    rev = 'master',
+  })
+
+  -- Required:
+  vim.fn['dein#end']()
+  vim.fn['dein#save_state']()
+end
+
+-- Required:
+vim.cmd('filetype plugin indent on')
+vim.cmd('syntax enable')
+
+-- Personal access token for GitHub
+vim.g['dein#install_github_api_token'] = ''
+
+-- If you want to install not installed plugins on startup.
+if vim.fn['dein#check_install']() == 1 then
+  vim.fn['dein#install']()
+end
+
+-- End dein Scripts-------------------------
+-- }}}
+
+
 vim.cmd [=[
-" Workaround to force neovim use alternate screen
-if $TERM =~ '^tmux\(-.*\)\?$'
-  let $TERM="screen-256color"
-endif
-
-" {{{ $PATH
-let $PATH = expand('~/.local/bin') . ':' . expand('~/.cargo/bin') . ':' . $PATH
-" }}}
-
-
-" {{{ Plugins
-" Execute the following commands first:
-"   curl -O https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
-"   sh ./installer.sh <my_plugin_dir>
-if has('nvim')
-  let s:my_plugin_dir = expand('~/.config/nvim/bundle')
-else
-  let s:my_plugin_dir = expand('~/.vim/bundle')
-endif
-
-" Prevent default plugins from being loaded
-let g:loaded_matchparen = 1
-let g:loaded_matchit = 1
-
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-execute 'set runtimepath+=' . s:my_plugin_dir . '/repos/github.com/Shougo/dein.vim'
-
-" Required:
-if dein#load_state(s:my_plugin_dir)
-  call dein#begin(s:my_plugin_dir)
-
-  " Let dein manage dein
-  " Required:
-  call dein#add(s:my_plugin_dir . '/repos/github.com/Shougo/dein.vim')
-
-  " Plugins
-  call dein#add('AndrewRadev/linediff.vim',
-    \ { 'on_cmd': [
-    \   'Linediff',
-    \   'LinediffReset',
-    \   'LinediffAdd',
-    \   'LinediffShow',
-    \   'LinediffLast',
-    \   'LinediffMerge',
-    \   'LinediffPick',
-    \ ] })
-  call dein#add('cocopon/vaffle.vim')  " Doesn't work correctly when lazily loaded
-  call dein#add('dkarter/bullets.vim')
-  call dein#add('easymotion/vim-easymotion',
-    \ { 'on_map': [
-    \   '<Plug>(easymotion-fl)',
-    \   '<Plug>(easymotion-Fl)',
-    \   '<Plug>(easymotion-tl)',
-    \   '<Plug>(easymotion-Tl)',
-    \   '<Plug>(easymotion-linebackward)',
-    \   '<Plug>(easymotion-j)',
-    \   '<Plug>(easymotion-k)',
-    \   '<Plug>(easymotion-lineforward)',
-    \   '<Plug>(easymotion-bd-f)',
-    \   '<Plug>(easymotion-overwin-f)',
-    \   '<Plug>(easymotion-bd-w)',
-    \   '<Plug>(easymotion-overwin-w)',
-    \   '<Plug>(easymotion-bd-jk)',
-    \   '<Plug>(easymotion-overwin-line)',
-    \ ] })
-    \ " optionally depends on 'tpope/vim-repeat'
-  call dein#add('haya14busa/incsearch.vim',
-    \ { 'on_map': [
-    \   '<Plug>(incsearch-forward)',
-    \   '<Plug>(incsearch-stay)',
-    \ ] })
-  call dein#add('itchyny/vim-cursorword')
-  call dein#add('junegunn/vim-easy-align',
-    \ { 'on_map': [
-    \   '<Plug>(EasyAlign)',
-    \ ] })
-  call dein#add('kana/vim-repeat')
-  call dein#add('kana/vim-operator-user')
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('rhysd/vim-textobj-anyblock')
-  call dein#add('Konfekt/FastFold')
-  call dein#add('lambdalisue/suda.vim')
-  call dein#add('lambdalisue/vim-unified-diff')
-  call dein#add('norcalli/nvim-colorizer.lua')
-  call dein#add('simnalamburt/vim-mundo')
-  call dein#add('ntpeters/vim-better-whitespace')
-  call dein#add('rhysd/vim-operator-surround',
-    \ { 'on_map': [
-    \   '<Plug>(operator-surround-append)',
-    \   '<Plug>(operator-surround-delete)',
-    \   '<Plug>(operator-surround-replace)',
-    \ ] })
-    \ " depends on 'kana/vim-operator-user'
-  call dein#add('Shougo/context_filetype.vim')
-  call dein#add('Shougo/vinarise')
-  call dein#add('t9md/vim-choosewin',
-    \ { 'on_map': [
-    \   '<Plug>(choosewin)',
-    \ ] })
-  call dein#add('terryma/vim-expand-region',
-    \ { 'on_map': [
-    \   '<Plug>(expand_region_expand)',
-    \   '<Plug>(expand_region_shrink)',
-    \ ] })
-  call dein#add('mg979/vim-visual-multi')
-  call dein#add('tyru/caw.vim',
-    \ { 'on_map': '<Plug>(caw:' })
-  call dein#add('tyru/open-browser.vim',
-    \ { 'on_map': [
-    \   '<Plug>(openbrowser-smart-search)',
-    \ ] })
-  call dein#add('lukas-reineke/indent-blankline.nvim')
-  call dein#add('yuttie/comfortable-motion.vim')
-
-  " UI enhancements
-  call dein#add('chrisbra/NrrwRgn')
-  call dein#add('luochen1990/rainbow')
-  call dein#add('junegunn/limelight.vim')
-  call dein#add('junegunn/goyo.vim')
-  call dein#add('preservim/nerdtree')
-  " Completion
-  call dein#add('neoclide/coc.nvim',
-    \ { 'rev': 'release',
-    \   'merge': 0,
-    \ })
-  call dein#add('honza/vim-snippets')
-
-  " Interactive filter
-  call dein#add('junegunn/fzf',
-    \ { 'build': './install --bin; rm ./doc/fzf.txt'
-    \ })
-    \ " Remove the file because it contains a conflicting helptag
-  call dein#add('junegunn/fzf.vim')
-
-  "
-  " Tree-sitter
-  "
-  call dein#add('nvim-treesitter/nvim-treesitter',
-    \ { 'hook_post_update': 'TSUpdate'
-    \ })
-  call dein#add('nvim-treesitter/nvim-treesitter-refactor')
-  call dein#add('nvim-treesitter/nvim-treesitter-textobjects')
-  call dein#add('p00f/nvim-ts-rainbow')
-  call dein#add('andymass/vim-matchup')
-  call dein#add('windwp/nvim-ts-autotag')
-  call dein#add('JoosepAlviste/nvim-ts-context-commentstring')
-  call dein#add('lewis6991/spellsitter.nvim')
-  call dein#add('folke/twilight.nvim')
-  call dein#add('windwp/nvim-autopairs')
-
-  "
-  " Plugins for Languages
-  "
-  " Crystal
-  call dein#add('vim-crystal/vim-crystal')
-
-  " fish shell
-  call dein#add('dag/vim-fish')
-
-  " Gentoo
-  call dein#add('gentoo/gentoo-syntax')  " ftdetect, ftplugin, indent, plugin, syntax
-
-  " Git
-  call dein#add('jreybert/vimagit')
-  call dein#add('itchyny/vim-gitbranch')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('lambdalisue/gina.vim',
-    \ { 'on_cmd': [
-    \   'Gina',
-    \ ] })
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('hotwatermorning/auto-git-diff')
-
-  " Haskell
-  call dein#add('neovimhaskell/haskell-vim')  " syntax, indent
-
-  " i3
-  call dein#add('PotatoesMaster/i3-vim-syntax')  " syntax, ftplugin
-
-  " jq
-  call dein#add('vito-c/jq.vim')  " ftdetect, ftplugin, syntax
-
-  " Julia
-  call dein#add('JuliaEditorSupport/julia-vim')
-
-  " nginx
-  call dein#add('nginx/nginx',
-    \ { 'rtp': 'contrib/vim',
-    \ })  " ftdetect, ftplugin, indent, syntax
-
-  " PHP
-  call dein#add('2072/PHP-Indenting-for-VIm')  " indent
-  call dein#add('StanAngeloff/php.vim')  " syntax
-
-  " Ruby
-  call dein#add('vim-ruby/vim-ruby')  " syntax, indent, ftplugin, compiler
-
-  " Rust
-  call dein#add('rust-lang/rust.vim')  " syntax, indent, ftplugin, compiler, plugin
-
-  " Text
-  call dein#add('rhysd/vim-grammarous')
-
-  " tmux
-  call dein#add('tmux-plugins/vim-tmux')
-
-  " TypeScript
-  call dein#add('leafgarland/typescript-vim')
-
-  " Vim
-  call dein#add('vim-jp/syntax-vim-ex')  " syntax
-
-  " Web/CSS
-  call dein#add('hail2u/vim-css3-syntax')  " syntax
-  call dein#add('cakebaker/scss-syntax.vim')  " syntax, ftplugin
-
-  " Web/JavaScript
-  call dein#add('pangloss/vim-javascript')  " syntax, indent, compiler, ftplugin
-  call dein#add('othree/javascript-libraries-syntax.vim')  " syntax
-
-  " Web/HTML
-  call dein#add('othree/html5.vim')  " syntax, indent, ftplugin
-  call dein#add('mattn/emmet-vim', { 'on_ft': ['html', 'xml', 'php'] })
-
-  " Web/Vue
-  call dein#add('posva/vim-vue')
-
-  " Markdown
-  call dein#add('godlygeek/tabular',
-    \ { 'on_cmd': [
-    \   'AddTabularPattern',
-    \   'AddTabularPipeline',
-    \   'Tabularize',
-    \   'GTabularize',
-    \ ] })
-  call dein#add('plasticboy/vim-markdown',
-    \ { 'on_ft': 'markdown',
-    \   'depends': 'tabular',
-    \ })  " syntax, indent, ftplugin
-  call dein#add('iamcco/markdown-preview.nvim',
-    \ { 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
-    \   'build': 'sh -c "cd app & yarn install"'
-    \ })
-
-  " AsciiDoc
-  call dein#add('mjakl/vim-asciidoc', { 'on_ft': 'asciidoc' })
-
-  " reStructuredText
-  call dein#add('Rykka/riv.vim', { 'on_ft': 'rst' })
-
-  " TOML
-  call dein#add('cespare/vim-toml')  " syntax, ftplugin
-
-  " JSON
-  call dein#add('elzr/vim-json')  " syntax, indent, ftplugin
-
-  " GnuPG
-  call dein#add('jamessan/vim-gnupg', { 'rev': 'main' })
-
-  " Themes
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('ryanoasis/vim-devicons')    " This must be loaded after its supported plugins
-  call dein#add('kyazdani42/nvim-web-devicons')
-  call dein#add('romgrk/barbar.nvim')
-  call dein#add('yuttie/hydrangea-vim', { 'rev': 'develop' })
-  call dein#add('yuttie/inkstained-vim')
-  call dein#add('yuttie/snowy-vim')
-  call dein#add('cocopon/iceberg.vim')
-  call dein#add('arcticicestudio/nord-vim', { 'rev': 'master' })
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" Personal access token for GitHub
-let g:dein#install_github_api_token = ''
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
- call dein#install()
-endif
-
-"End dein Scripts-------------------------
-" }}}
-
-
 " {{{ Options
 "
 " 1 important
