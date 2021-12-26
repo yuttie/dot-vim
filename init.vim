@@ -124,7 +124,7 @@ if dein#load_state(s:my_plugin_dir)
     \ { 'on_map': [
     \   '<Plug>(openbrowser-smart-search)',
     \ ] })
-  call dein#add('Yggdroot/indentLine')
+  call dein#add('lukas-reineke/indent-blankline.nvim')
   call dein#add('yuttie/comfortable-motion.vim')
 
   " UI enhancements
@@ -678,7 +678,6 @@ nnoremap [toggle] <Nop>
 nmap     [Space]t [toggle]
 nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
 nnoremap <silent> [toggle]w :setl list!<CR>:setl list?<CR>
-nnoremap <silent> [toggle]i :IndentLinesToggle<CR>:echo b:indentLine_enabled ? 'indentLine enabled' : 'indentLine disabled'<CR>
 nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 " 'paste' is OBSOLETE
 nnoremap <silent> [toggle]p :set paste!<CR>:set paste?<CR>
@@ -1113,13 +1112,20 @@ let g:better_whitespace_filetypes_blacklist = [
 " }}}
 
 
-" {{{ indentLine
-let g:indentLine_enabled = 0
-let g:indentLine_color_term = 251
-let g:indentLine_color_gui = '#c8c6c1'
-let g:indentLine_color_tty_light = 4
-let g:indentLine_color_dark = 2
-let g:indentLine_char = '⎸'
+" {{{ lukas-reineke/indent-blankline.nvim
+lua <<EOF
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = true,
+    show_end_of_line = true,
+    space_char_blankline = " ",
+}
+EOF
 " }}}
 
 
