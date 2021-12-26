@@ -78,7 +78,6 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(incsearch-stay)',
     \ ] })
   call dein#add('itchyny/vim-cursorword')
-  call dein#add('tmsvg/pear-tree')
   call dein#add('junegunn/vim-easy-align',
     \ { 'on_map': [
     \   '<Plug>(EasyAlign)',
@@ -158,6 +157,7 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('JoosepAlviste/nvim-ts-context-commentstring')
   call dein#add('lewis6991/spellsitter.nvim')
   call dein#add('folke/twilight.nvim')
+  call dein#add('windwp/nvim-autopairs')
 
   "
   " Plugins for Languages
@@ -615,6 +615,12 @@ require("twilight").setup {
   -- your configuration comes here
   -- or leave it empty to use the default settings
   -- refer to the configuration section below
+}
+EOF
+
+" windwp/nvim-autopairs
+lua <<EOF
+require('nvim-autopairs').setup {
 }
 EOF
 
