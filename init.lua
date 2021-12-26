@@ -301,108 +301,114 @@ end
 -- }}}
 
 
+-- {{{ Options
+-- 2 moving around, searching and patterns
+vim.o.incsearch = true
+vim.o.inccommand = 'nosplit'
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.wrapscan = false
+vim.o.cursorline = true
+
+-- 4 displaying text
+vim.o.number = true
+vim.o.scrolloff = 3
+vim.o.signcolumn = 'yes'
+vim.o.wrap = false
+
+-- 6 multiple windows
+vim.o.hidden = true        -- You can change buffer without saving.
+vim.o.laststatus = 2  -- Always show status lines.
+vim.o.showcmd = true
+vim.o.cmdheight = 2
+vim.o.statusline = "%<%f %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P"
+-- set statusline=  %<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P
+
+-- 7 multiple tab pages
+vim.o.showtabline = 2
+vim.o.tabpagemax = 100
+
+-- 11 printing
+vim.o.printencoding = 'utf-8'
+vim.o.printmbcharset = 'JIS_X_1990'
+vim.o.printfont = 'monospace 10'
+vim.cmd('set printoptions&')
+if vim.o.printoptions == '' then
+  vim.o.printoptions = 'number:y'
+else
+  vim.o.printoptions = vim.o.printoptions .. ',number:y'
+end
+vim.o.printmbfont = 'r:GothicBBB-Medium'
+
+-- 12 messages and info
+vim.cmd('set shortmess&')
+vim.o.shortmess = vim.o.shortmess .. 'I'  -- Shortens messages to avoid 'press a key' prompt.
+vim.o.ruler = true       -- Show the cursor position all the time.
+vim.o.title = true
+
+-- 14 editing text
+vim.o.backspace = 'indent,eol,start'  -- Allow backspacing over everything in insert mode.
+vim.cmd('set formatoptions&')
+vim.o.formatoptions = vim.o.formatoptions .. 'mM'
+vim.o.completeopt = 'menuone'
+
+-- 15 tabs and indenting
+vim.o.expandtab = true     -- Use white-space instead of tabs.
+vim.o.shiftwidth = 4  -- Set indent width on autoindent.
+vim.o.shiftround = true
+vim.o.autoindent = true    -- Always set auto-indenting on.
+vim.o.smartindent = true   -- Use smart indenting.
+vim.o.smarttab = true
+vim.o.cinoptions = ':0,g0'
+
+-- 16 folding
+vim.o.foldlevelstart = 99
+
+-- 19 reading and writing files
+vim.o.modeline = false
+vim.o.fileformats = 'unix,dos'
+vim.o.backup = true
+
+-- 21 command line editing
+--vim.cmd('set suffixes&')
+--if vim.o.suffixes == '' then
+--  vim.o.suffixes = '.info,.aux,.log,.dvi,.bbl,.out,.pdf'  -- Files with suffix in suffixes are ignored.
+--else
+--  vim.o.suffixes = vim.o.suffixes .. ',.info,.aux,.log,.dvi,.bbl,.out,.pdf'  -- Files with suffix in suffixes are ignored.
+--end
+vim.o.wildmode = 'full'  -- Set completion mode.
+vim.o.wildmenu = true
+--vim.cmd('set wildignore&')
+--if vim.o.wildignore == '' then
+--  vim.o.wildignore = '*.o'
+--else
+--  vim.o.wildignore = vim.o.wildignore .. ',*.o'
+--end
+
+-- 25 multi-byte characters
+vim.o.fileencoding = 'utf-8'  -- Default encoding for new files.
+-- Automatic file encoding recognition.
+-- Vim tries the specified encodings in the specified order, and stops when
+-- an encoding is successfully applied. Therefore widely matching encodings,
+-- like 'euc-jp', should be placed at the end of fileencodings.
+-- 'utf-8'が先頭に有っても'cp932'と'euc-jp'のファイルはちゃんとそれと識別される
+-- ようだ。しかし'iso-2022-jp'は識別されない。
+-- 'iso-2022-jp'が先頭にあると、新規ファイルのデフォルトのエンコーディングが
+-- 'iso-2022-jp'になる問題があるので先頭に置くことはできない。
+vim.o.fileencodings = 'utf-8,iso-2022-jp,cp932,sjis,euc-jp,utf-16le,utf-16'
+vim.o.ambiwidth = 'double'
+
+-- 26 various
+vim.cmd('set sessionoptions&')
+vim.o.lazyredraw = true
+
+-- Enable mouse
+vim.o.mouse = 'a'
+
+-- }}}
+
+
 vim.cmd [=[
-" {{{ Options
-"
-" 1 important
-set nocompatible
-
-" 2 moving around, searching and patterns
-set incsearch
-if has('nvim')
-  set inccommand=nosplit
-endif
-set ignorecase
-set smartcase
-set nowrapscan
-set cursorline
-
-" 4 displaying text
-set number
-set scrolloff=3
-set signcolumn=yes
-set nowrap
-
-" 6 multiple windows
-set hidden        " You can change buffer without saving.
-set laststatus=2  " Always show status lines.
-set showcmd
-set cmdheight=2
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P
-
-" 7 multiple tab pages
-set showtabline=2
-set tabpagemax=100
-
-" 11 printing
-set printencoding=utf-8
-set printmbcharset=JIS_X_1990
-set printfont=monospace\ 10
-set printoptions& printoptions+=number:y
-set printmbfont=r:GothicBBB-Medium
-
-" 12 messages and info
-set shortmess& shortmess+=I  " Shortens messages to avoid 'press a key' prompt.
-set ruler       " Show the cursor position all the time.
-set title
-
-" 14 editing text
-set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
-set formatoptions& formatoptions+=mM
-set completeopt=menuone
-
-" 15 tabs and indenting
-set expandtab     " Use white-space instead of tabs.
-set shiftwidth=4  " Set indent width on autoindent.
-set shiftround
-set autoindent    " Always set auto-indenting on.
-set smartindent   " Use smart indenting.
-set smarttab
-set cinoptions=:0,g0
-
-" 16 folding
-set foldlevelstart=99
-
-" 19 reading and writing files
-set nomodeline
-set fileformats=unix,dos
-set backup
-
-" 21 command line editing
-"set suffixes& suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.pdf  " Files with suffix in suffixes are ignored.
-set wildmode=full  " Set completion mode.
-set wildmenu
-"set wildignore& wildignore+=*.o
-
-" 25 multi-byte characters
-if has('vim_starting')
-  set encoding=utf-8      " Encoding used for text inside vim.
-endif
-set fileencoding=utf-8  " Default encoding for new files.
-set termencoding=utf-8  " Terminal's encoding.
-" Automatic file encoding recognition.
-" Vim tries the specified encodings in the specified order, and stops when
-" an encoding is successfully applied. Therefore widely matching encodings,
-" like 'euc-jp', should be placed at the end of fileencodings.
-" 'utf-8'が先頭に有っても'cp932'と'euc-jp'のファイルはちゃんとそれと識別される
-" ようだ。しかし'iso-2022-jp'は識別されない。
-" 'iso-2022-jp'が先頭にあると、新規ファイルのデフォルトのエンコーディングが
-" 'iso-2022-jp'になる問題があるので先頭に置くことはできない。
-set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp,utf-16le,utf-16
-set ambiwidth=double
-
-" 26 various
-set sessionoptions&
-  \ sessionoptions-=options
-  \ sessionoptions-=localoptions
-set lazyredraw
-
-" Enable mouse
-set mouse=a
-
-" }}}
-
-
 " Autocommand group
 augroup MyAutoCmds
   autocmd!
