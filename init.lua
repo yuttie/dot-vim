@@ -434,9 +434,7 @@ if (has("termguicolors"))
 endif
 
 " Change the cursor sahpe
-if has('nvim')
-  set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-endif
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
@@ -763,9 +761,7 @@ nnoremap <F8>  :split \| execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h')
 cmap w!! w !sudo tee > /dev/null %
 
 " terminal
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-endif
+tnoremap <Esc> <C-\><C-n>
 
 " Space-prefixed bindings
 nnoremap [help] <Nop>
@@ -883,11 +879,7 @@ autocmd MyAutoCmds FileType help,ref-pydoc nnoremap <buffer><silent> q :close<CR
 
 
 " {{{ Template insertion
-if has('nvim')
-  let template_dir = "~/.config/nvim/template"
-else
-  let template_dir = "~/.vim/template"
-endif
+let template_dir = "~/.config/nvim/template"
 function! InsertTemplate()
   if expand("%:t") == "NOTE"
     let tmpl_filename = expand(g:template_dir) . "/NOTE"
@@ -1518,11 +1510,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -1708,9 +1696,7 @@ autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-F', 'flalign',  1)
 autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-G', 'split',    0)
 
 let g:tex_conceal = ""
-if has('nvim')
-  let g:vimtex_compiler_progname = "nvr"
-endif
+let g:vimtex_compiler_progname = "nvr"
 autocmd MyAutoCmds FileType tex setlocal shiftwidth=2
 autocmd MyAutoCmds FileType bib setlocal shiftwidth=2
 " }}}
