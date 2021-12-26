@@ -1,6 +1,4 @@
-scriptencoding utf-8
-
-
+vim.cmd [=[
 " Workaround to force neovim use alternate screen
 if $TERM =~ '^tmux\(-.*\)\?$'
   let $TERM="screen-256color"
@@ -1831,3 +1829,4 @@ autocmd MyAutoCmds FileType xml setlocal shiftwidth=2
 
 
 " vim: set foldmethod=marker:
+]=]
