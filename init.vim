@@ -23,6 +23,7 @@ endif
 
 " Prevent default plugins from being loaded
 let g:loaded_matchparen = 1
+let g:loaded_matchit = 1
 
 "dein Scripts-----------------------------
 if &compatible
@@ -77,7 +78,6 @@ if dein#load_state(s:my_plugin_dir)
     \   '<Plug>(incsearch-stay)',
     \ ] })
   call dein#add('itchyny/vim-cursorword')
-  call dein#add('itchyny/vim-parenmatch')
   call dein#add('tmsvg/pear-tree')
   call dein#add('junegunn/vim-easy-align',
     \ { 'on_map': [
@@ -91,9 +91,6 @@ if dein#load_state(s:my_plugin_dir)
   call dein#add('lambdalisue/suda.vim')
   call dein#add('lambdalisue/vim-unified-diff')
   call dein#add('ap/vim-css-color')  " Only for css
-  call dein#add('nvim-treesitter/nvim-treesitter',
-    \ { 'hook_post_update': 'TSUpdate'
-    \ })
   call dein#add('lilydjwg/colorizer',
     \ { 'hook_source': 'let g:colorizer_nomap = 1'
     \ })
@@ -146,6 +143,19 @@ if dein#load_state(s:my_plugin_dir)
     \ })
     \ " Remove the file because it contains a conflicting helptag
   call dein#add('junegunn/fzf.vim')
+
+  "
+  " Tree-sitter
+  "
+  call dein#add('nvim-treesitter/nvim-treesitter',
+    \ { 'hook_post_update': 'TSUpdate'
+    \ })
+  call dein#add('nvim-treesitter/nvim-treesitter-refactor')
+  call dein#add('nvim-treesitter/nvim-treesitter-textobjects')
+  call dein#add('p00f/nvim-ts-rainbow')
+  call dein#add('andymass/vim-matchup')
+  call dein#add('windwp/nvim-ts-autotag')
+  call dein#add('JoosepAlviste/nvim-ts-context-commentstring')
 
   "
   " Plugins for Languages
@@ -469,6 +479,112 @@ require'nvim-treesitter.configs'.setup {
   },
 
   indent = {
+    enable = true,
+  },
+
+  refactor = {
+    highlight_definitions = { enable = true },
+    highlight_current_scope = { enable = true },
+    smart_rename = {
+      enable = true,
+      keymaps = {
+        smart_rename = "grr",
+      },
+    },
+    navigation = {
+      enable = true,
+      keymaps = {
+        goto_definition = "gnd",
+        list_definitions = "gnD",
+        list_definitions_toc = "gO",
+        goto_next_usage = "<a-*>",
+        goto_previous_usage = "<a-#>",
+      },
+    },
+  },
+
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+
+        -- Or you can define your own textobjects like this
+        ["iF"] = {
+          python = "(function_definition) @function",
+          cpp = "(function_definition) @function",
+          c = "(function_definition) @function",
+          java = "(method_declaration) @function",
+        },
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+    lsp_interop = {
+      enable = true,
+      border = 'none',
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      },
+    },
+  },
+
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  },
+
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = { "c", "ruby" },  -- optional, list of language that will be disabled
+    -- [options]
+  },
+
+  autotag = {
+    enable = true,
+  },
+
+  context_commentstring = {
     enable = true,
   },
 }
