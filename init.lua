@@ -57,6 +57,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       '<Plug>(easymotion-overwin-line)',
     },
   })  -- optionally depends on 'tpope/vim-repeat'
+  vim.fn['dein#add']('haya14busa/vim-asterisk')
   vim.fn['dein#add']('haya14busa/incsearch.vim', {
     on_map = {
       '<Plug>(incsearch-forward)',
@@ -1326,8 +1327,19 @@ nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
 nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
 nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " }}}
+]=]
 
 
+-- {{{ haya14busa/vim-asterisk
+vim.api.nvim_set_keymap('', '*',  '<Plug>(asterisk-z*)', {})
+vim.api.nvim_set_keymap('', '#',  '<Plug>(asterisk-z#)', {})
+vim.api.nvim_set_keymap('', 'g*', '<Plug>(asterisk-gz*)', {})
+vim.api.nvim_set_keymap('', 'g#', '<Plug>(asterisk-gz#)', {})
+vim.g['asterisk#keeppos'] = 1
+-- }}}
+
+
+vim.cmd [=[
 " {{{ incsearch.vim
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-stay)
