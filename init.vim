@@ -383,8 +383,8 @@ set sessionoptions&
   \ sessionoptions-=localoptions
 set lazyredraw
 
-" Disable mouse
-set mouse=
+" Enable mouse
+set mouse=a
 
 " }}}
 
