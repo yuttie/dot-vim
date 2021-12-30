@@ -1394,18 +1394,20 @@ vim.cmd [=[
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-stay)
 " }}}
+]=]
 
 
-" {{{ vim-operator-surround
-nmap <silent>ys <Plug>(operator-surround-append)
-vmap <silent>ys <Plug>(operator-surround-append)
-nmap <silent>ds <Plug>(operator-surround-delete)a
-nmap <silent>cs <Plug>(operator-surround-replace)a
-nmap <silent>dS <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
-nmap <silent>cS <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
-" }}}
+-- {{{ rhysd/vim-operator-surround
+vim.api.nvim_set_keymap('n', 'sa', '<Plug>(operator-surround-append)', { silent = true })
+vim.api.nvim_set_keymap('v', 'sa', '<Plug>(operator-surround-append)', { silent = true })
+vim.api.nvim_set_keymap('n', 'sd', '<Plug>(operator-surround-delete)a', { silent = true })
+vim.api.nvim_set_keymap('n', 'sc', '<Plug>(operator-surround-replace)a', { silent = true })
+vim.api.nvim_set_keymap('n', 'sD', '<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)', { silent = true })
+vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)', { silent = true })
+-- }}}
 
 
+vim.cmd [=[
 " {{{ vim-easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
