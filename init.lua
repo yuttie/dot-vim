@@ -101,9 +101,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
     },
   })
   vim.fn['dein#add']('mg979/vim-visual-multi')
-  vim.fn['dein#add']('tyru/caw.vim', {
-    on_map = '<Plug>(caw:',
-  })
+  vim.fn['dein#add']('numToStr/Comment.nvim')
   vim.fn['dein#add']('tyru/open-browser.vim', {
     on_map = {
       '<Plug>(openbrowser-smart-search)',
@@ -842,16 +840,65 @@ nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
 nnoremap <silent> [toggle]d :GitGutterLineHighlightsToggle<CR>
 nnoremap <silent> [toggle]( :RainbowToggle<CR>
+]=]
 
-nnoremap [comment] <Nop>
-nmap     [Space]c [comment]
-xmap     [Space]c [comment]
-nmap     [comment]  <Plug>(caw:hatpos:toggle:operator)
-xmap     [comment]  <Plug>(caw:hatpos:toggle:operator)
-nmap     [comment]c <Plug>(caw:hatpos:toggle)
-nmap     [comment]o <Plug>(caw:jump:comment-next)
-nmap     [comment]O <Plug>(caw:jump:comment-prev)
+-- Commenting
+vim.api.nvim_set_keymap('n', '[comment]', '<Nop>', { noremap = true })
+vim.api.nvim_set_keymap('x', '[comment]', '<Nop>', { noremap = true })
+vim.api.nvim_set_keymap('n', '[Space]c', '[comment]', {})
+vim.api.nvim_set_keymap('x', '[Space]c', '[comment]', {})
+require('Comment').setup({
+    ---LHS of toggle mappings in NORMAL + VISUAL mode
+    ---@type table
+    toggler = {
+        ---Line-comment toggle keymap
+        line = '[comment]c',
+    },
 
+    ---LHS of operator-pending mappings in NORMAL + VISUAL mode
+    ---@type table
+    opleader = {
+        ---Line-comment keymap
+        line = '[comment]',
+    },
+
+    ---LHS of extra mappings
+    ---@type table
+    extra = {
+        ---Add comment on the line above
+        above = '[comment]O',
+        ---Add comment on the line below
+        below = '[comment]o',
+        ---Add comment at the end of line
+        eol = '[comment]A',
+    },
+
+    ---@param ctx Ctx
+    pre_hook = function(ctx)
+        -- Only calculate commentstring for tsx filetypes
+        if vim.bo.filetype == 'typescriptreact' then
+            local U = require('Comment.utils')
+
+            -- Detemine whether to use linewise or blockwise commentstring
+            local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
+
+            -- Determine the location where to calculate commentstring from
+            local location = nil
+            if ctx.ctype == U.ctype.block then
+                location = require('ts_context_commentstring.utils').get_cursor_location()
+            elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+                location = require('ts_context_commentstring.utils').get_visual_start_location()
+            end
+
+            return require('ts_context_commentstring.internal').calculate_commentstring({
+                key = type,
+                location = location,
+            })
+        end
+    end,
+})
+
+vim.cmd [=[
 nnoremap [jump] <Nop>
 nmap     [Space]<Space> [jump]
 xmap     [Space]<Space> [jump]
