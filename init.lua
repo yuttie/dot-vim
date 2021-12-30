@@ -682,6 +682,12 @@ endfunction
 " }}}
 
 
+" {{{ Neovide
+set guifont=monospace:h10
+let g:neovide_cursor_vfx_mode = "railgun"
+" }}}
+
+
 " {{{ Commands
 command! ReloadVimrc source $MYVIMRC
 command! ReloadGvimrc source $MYVIMRC|source $MYGVIMRC
