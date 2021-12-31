@@ -57,6 +57,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       '<Plug>(easymotion-overwin-line)',
     },
   })  -- optionally depends on 'tpope/vim-repeat'
+  vim.fn['dein#add']('tpope/vim-repeat')
   vim.fn['dein#add']('haya14busa/vim-asterisk')
   vim.fn['dein#add']('haya14busa/incsearch.vim', {
     on_map = {
