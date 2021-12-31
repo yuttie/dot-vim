@@ -449,9 +449,9 @@ function! s:my_colorscheme_adjustments() abort
 endfunction
 autocmd MyAutoCmds VimEnter * call s:my_colorscheme_adjustments()
 autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
+]=]
 
-" nvim-treesitter
-lua <<EOF
+-- nvim-treesitter
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = "all",
@@ -596,13 +596,13 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
-EOF
 
+vim.cmd [=[
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+]=]
 
-" lewis6991/spellsitter.nvim
-lua <<EOF
+-- lewis6991/spellsitter.nvim
 require('spellsitter').setup {
   -- Whether enabled, can be a list of filetypes, e.g. {'python', 'lua'}
   enable = true,
@@ -613,26 +613,22 @@ require('spellsitter').setup {
   --   internal spell_check() function
   spellchecker = 'vimfn',
 }
-EOF
 
-" folke/twilight.nvim
-lua <<EOF
+-- folke/twilight.nvim
 require("twilight").setup {
   -- your configuration comes here
   -- or leave it empty to use the default settings
   -- refer to the configuration section below
 }
-EOF
 
-" windwp/nvim-autopairs
-lua <<EOF
+-- windwp/nvim-autopairs
 require('nvim-autopairs').setup {
 }
-EOF
 
-" }}}
+-- }}}
 
 
+vim.cmd [=[
 " Filetype plugin settings                                                   {{{
 " ==============================================================================
 
