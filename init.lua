@@ -125,10 +125,10 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('honza/vim-snippets')
 
   -- Interactive filter
-  vim.fn['dein#add']('junegunn/fzf', {
-    build = './install --bin; rm ./doc/fzf.txt',
-  })  -- Remove the file because it contains a conflicting helptag
-  vim.fn['dein#add']('junegunn/fzf.vim')
+  vim.fn['dein#add']('nvim-telescope/telescope.nvim')
+  vim.fn['dein#add']('nvim-telescope/telescope-fzf-native.nvim', {
+    build = 'make',
+  })
 
   --
   -- Tree-sitter
@@ -772,10 +772,6 @@ tnoremap <Esc> <C-\><C-n>
 " Space-prefixed bindings
 nnoremap [help] <Nop>
 nmap     [Space]h [help]
-nnoremap <silent> [help]h  :<C-u>Helptags<CR>
-nnoremap <silent> [help]dc :<C-u>Commands<CR>
-nnoremap <silent> [help]dm :<C-u>Maps<CR>
-nnoremap <silent> [help]dC :<C-u>Colors<CR>
 
 nnoremap [plugin] <Nop>
 nmap     [Space]P [plugin]
@@ -788,8 +784,6 @@ nmap     [Space]f [file]
 nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :Vaffle<CR>
-nnoremap <silent> [file]f  :<C-u>Files<CR>
-nnoremap <silent> [file]r  :<C-u>History<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NERDTree<CR>
@@ -797,20 +791,12 @@ nnoremap          [file]R  :Rename<Space>
 
 nnoremap [search] <Nop>
 nmap     [Space]s [search]
-nnoremap <silent> [search]s  :<C-u>BLines<CR>
-nnoremap <silent> [search]gg :<C-u>Grep<CR>
-nnoremap <silent> [search]gr :<C-u>Rg<CR>
 
 nnoremap [buffer] <Nop>
 nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]b :<C-u>Buffers<CR>
 nnoremap <silent> [buffer]n :bn<CR>
 nnoremap <silent> [buffer]p :bp<CR>
 nnoremap <silent> [buffer]d :bd<CR>
-
-nnoremap [project] <Nop>
-nmap     [Space]p [project]
-nnoremap <silent> [project]f :<C-u>GFiles<CR>
 
 nnoremap [error] <Nop>
 nmap     [Space]e [error]
@@ -1534,6 +1520,20 @@ require('gitsigns').setup {
 -- }}}
 
 
+-- {{{ nvim-telescope/telescope.nvim
+vim.api.nvim_set_keymap('n', '[buffer]b', '<cmd>Telescope buffers<CR>',                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[file]f',   '<cmd>Telescope find_files<CR>',                { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[file]r',   '<cmd>Telescope oldfiles<CR>',                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[git]f',    '<cmd>Telescope git_files<CR>',                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[help]h',   '<cmd>Telescope help_tags<CR>',                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[help]dc',  '<cmd>Telescope commands<CR>',                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[help]dm',  '<cmd>Telescope keymaps<CR>',                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[help]dC',  '<cmd>Telescope colorscheme<CR>',               { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[search]s', '<cmd>Telescope current_buffer_fuzzy_find<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[search]g', '<cmd>Telescope live_grep<CR>',                 { noremap = true, silent = true })
+-- }}}
+
+
 vim.cmd [=[
 " {{{ vaffle.vim
 function! s:customize_vaffle_mappings() abort
@@ -1568,48 +1568,6 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_explorer_columns = 'devicons'
 let g:vimfiler_tree_opened_icon = '▼'
 let g:vimfiler_tree_closed_icon = '►'
-" }}}
-
-
-" {{{ fzf.vim
-let $FZF_DEFAULT_COMMAND = 'rg --files --glob !.git'
-let $BAT_THEME = 'GitHub'
-let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
-  \   'bg':      ['bg', 'Normal'],
-  \   'hl':      ['fg', 'Comment'],
-  \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \   'hl+':     ['fg', 'Statement'],
-  \   'info':    ['fg', 'PreProc'],
-  \   'prompt':  ['fg', 'Conditional'],
-  \   'pointer': ['fg', 'Exception'],
-  \   'marker':  ['fg', 'Keyword'],
-  \   'spinner': ['fg', 'Label'],
-  \   'header':  ['fg', 'Comment'] }
-
-function! s:fzf_statusline()
-  " Override statusline as you like
-  highlight fzf1 guifg=#1e222c guibg=#91b5ff
-  highlight fzf2 guifg=#91b5ff guibg=#2a303b
-  setlocal statusline=%#fzf1#\ fzf\ %#fzf2#
-endfunction
-
-autocmd MyAutoCmds FileType fzf tnoremap <silent><buffer> <Esc> <C-\><C-n>:q<CR>
-autocmd MyAutoCmds User FzfStatusLine call <SID>fzf_statusline()
-
-command! -bang -nargs=* Grep
-  \ call fzf#vim#grep('grep --line-number --recursive '.shellescape(<q-args>), 0, <bang>0)
-
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
 " }}}
 
 
