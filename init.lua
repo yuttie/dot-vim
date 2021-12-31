@@ -161,7 +161,8 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- Git
   vim.fn['dein#add']('jreybert/vimagit')
   vim.fn['dein#add']('itchyny/vim-gitbranch')
-  vim.fn['dein#add']('airblade/vim-gitgutter')
+  vim.fn['dein#add']('nvim-lua/plenary.nvim')
+  vim.fn['dein#add']('lewis6991/gitsigns.nvim')
   vim.fn['dein#add']('lambdalisue/gina.vim', {
     on_cmd = {
       'Gina',
@@ -837,7 +838,6 @@ nnoremap <silent> [toggle]w :setl list!<CR>:setl list?<CR>
 nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
-nnoremap <silent> [toggle]d :GitGutterLineHighlightsToggle<CR>
 nnoremap <silent> [toggle]( :RainbowToggle<CR>
 ]=]
 
@@ -1454,11 +1454,6 @@ let g:GPGPreferSymmetric = 1
 autocmd MyAutoCmds FileType gitcommit setlocal spell
 autocmd MyAutoCmds FileType gina-commit setlocal spell
 
-set updatetime=100  " for vim-gitgutter to update signs immediately
-let g:gitgutter_map_keys = 0
-let g:gitgutter_max_signs = 5000
-let g:gitgutter_override_sign_column_highlight = 0
-
 nnoremap [git]    <Nop>
 nmap     <C-g>    [git]
 nmap     [Space]g [git]
@@ -1466,14 +1461,80 @@ nmap     [Space]g [git]
 nnoremap <silent> [git]c  :Gina commit -v --opener="topleft vsplit"<CR>
 nnoremap <silent> [git]d  :Gvdiff<CR>
 nnoremap <silent> [git]s  :Magit<CR>
-nmap [git]<C-n> <Plug>(GitGutterNextHunk)
-nmap [git]<C-p> <Plug>(GitGutterPrevHunk)
-nmap [git]<C-s> <Plug>(GitGutterStageHunk)
-nmap [git]<C-r> <Plug>(GitGutterRevertHunk)
-nmap [git]<C-v> <Plug>(GitGutterPreviewHunk)
 " }}}
+]=]
 
 
+-- {{{ lewis6991/gitsigns.nvim
+require('gitsigns').setup {
+  signs = {
+    add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+  },
+  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+  keymaps = {
+    -- Default keymap options
+    noremap = true,
+
+    ['n [git]<C-n>'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
+    ['n [git]<C-p>'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
+
+    ['n [git]s'] = '<cmd>Gitsigns stage_hunk<CR>',
+    ['v [git]s'] = ':Gitsigns stage_hunk<CR>',
+    ['n [git]u'] = '<cmd>Gitsigns undo_stage_hunk<CR>',
+    ['n [git]r'] = '<cmd>Gitsigns reset_hunk<CR>',
+    ['v [git]r'] = ':Gitsigns reset_hunk<CR>',
+    ['n [git]R'] = '<cmd>Gitsigns reset_buffer<CR>',
+    ['n [git]p'] = '<cmd>Gitsigns preview_hunk<CR>',
+    ['n [git]b'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+    ['n [git]S'] = '<cmd>Gitsigns stage_buffer<CR>',
+    ['n [git]U'] = '<cmd>Gitsigns reset_buffer_index<CR>',
+
+    -- Text objects
+    ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
+    ['x ih'] = ':<C-U>Gitsigns select_hunk<CR>'
+  },
+  watch_gitdir = {
+    interval = 1000,
+    follow_files = true
+  },
+  attach_to_untracked = true,
+  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+    delay = 1000,
+    ignore_whitespace = false,
+  },
+  current_line_blame_formatter_opts = {
+    relative_time = false
+  },
+  sign_priority = 6,
+  update_debounce = 100,
+  status_formatter = nil, -- Use default
+  max_file_length = 40000,
+  preview_config = {
+    -- Options passed to nvim_open_win
+    border = 'single',
+    style = 'minimal',
+    relative = 'cursor',
+    row = 0,
+    col = 1
+  },
+  yadm = {
+    enable = false
+  },
+}
+-- }}}
+
+
+vim.cmd [=[
 " {{{ vaffle.vim
 function! s:customize_vaffle_mappings() abort
   " Toggle
