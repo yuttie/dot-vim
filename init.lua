@@ -1613,11 +1613,6 @@ command! -bang -nargs=* Rg
 " }}}
 
 
-" {{{ caw.vim
-autocmd MyAutoCmds FileType php setlocal commentstring=//\ %s
-" }}}
-
-
 " {{{ coc.nvim
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
