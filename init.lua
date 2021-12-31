@@ -161,7 +161,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- Git
   vim.fn['dein#add']('jreybert/vimagit')
   vim.fn['dein#add']('itchyny/vim-gitbranch')
-  vim.fn['dein#add']('nvim-lua/plenary.nvim')
+  vim.fn['dein#add']('nvim-lua/plenary.nvim')  -- Required by: gitsigns.nvim, telescope.nvim
   vim.fn['dein#add']('lewis6991/gitsigns.nvim')
   vim.fn['dein#add']('lambdalisue/gina.vim', {
     on_cmd = {
