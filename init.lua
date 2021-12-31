@@ -1460,7 +1460,7 @@ nmap     [Space]g [git]
 
 nnoremap <silent> [git]c  :Gina commit -v --opener="topleft vsplit"<CR>
 nnoremap <silent> [git]d  :Gvdiff<CR>
-nnoremap <silent> [git]s  :Magit<CR>
+nnoremap <silent> [git]m  :Magit<CR>
 " }}}
 ]=]
 
