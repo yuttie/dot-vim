@@ -1372,8 +1372,8 @@ vim.g['asterisk#keeppos'] = 1
 
 
 -- {{{ incsearch.vim
-vim.api.nvim_set_key('', '/', '<Plug>(incsearch-forward)', {})
-vim.api.nvim_set_key('', '?', '<Plug>(incsearch-stay)', {})
+vim.api.nvim_set_keymap('', '/', '<Plug>(incsearch-forward)', {})
+vim.api.nvim_set_keymap('', '?', '<Plug>(incsearch-stay)', {})
 vim.g['incsearch#magic'] = '\v'
 -- }}}
 
