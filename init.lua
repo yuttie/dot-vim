@@ -1660,15 +1660,43 @@ do
     return exepath('python3') or exepath('python') or 'python'
   end
 
+  -- Servers
+  -- * pyright:  yarn global add pyright
+  -- * bashls:   yarn global add bash-language-server
+  -- * ccls:     emerge dev-util/ccls, pacman -S community/ccls
+  -- * cssls:    yarn global add vscode-langservers-extracted
+  -- * dockerls: yarn global add dockerfile-language-server-nodejs
+  -- * eslint:   yarn global add vscode-langservers-extracted
+  -- * html:     yarn global add vscode-langservers-extracted
+  -- * sqlls:    yarn global add sql-language-server
+  -- * texlab:   cargo install --git https://github.com/latex-lsp/texlab.git --locked
+  -- * tsserver: yarn global add typescript-language-server
+  -- * vimls:    yarn global add vim-language-server
+  -- * vuels:    yarn global add vls
   lspconfig['pyright'].setup {
     capabilities = capabilities,
     before_init = function(_, config)
       config.settings.python.pythonPath = get_python_path(config.root_dir)
     end,
   }
-  lspconfig['rust_analyzer'].setup {
-    capabilities = capabilities,
+  local servers = {
+    'bashls',
+    'ccls',
+    'cssls',
+    'dockerls',
+    'eslint',
+    'html',
+    'sqlls',
+    'texlab',
+    'tsserver',
+    'vimls',
+    'vuels',
   }
+  for _, server in ipairs(servers) do
+    lspconfig[server].setup {
+      capabilities = capabilities,
+    }
+  end
 end
 -- }}}
 
