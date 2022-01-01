@@ -113,7 +113,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
 
   -- UI enhancements
   vim.fn['dein#add']('chrisbra/NrrwRgn')
-  vim.fn['dein#add']('junegunn/goyo.vim')
+  vim.fn['dein#add']('folke/zen-mode.nvim')
   vim.fn['dein#add']('kyazdani42/nvim-tree.lua')
   -- Completion
   vim.fn['dein#add']('neoclide/coc.nvim', {
@@ -819,6 +819,7 @@ nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
 nnoremap <silent> [toggle]( :RainbowToggle<CR>
+nnoremap <silent> [toggle]z :ZenMode<CR>
 ]=]
 
 -- Commenting
