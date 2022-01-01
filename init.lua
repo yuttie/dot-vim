@@ -111,6 +111,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('yuttie/comfortable-motion.vim')
 
   -- UI enhancements
+  vim.fn['dein#add']('machakann/vim-highlightedyank')
   vim.fn['dein#add']('chrisbra/NrrwRgn')
   vim.fn['dein#add']('folke/zen-mode.nvim')
   vim.fn['dein#add']('kyazdani42/nvim-tree.lua')
@@ -1346,6 +1347,11 @@ nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
 nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " }}}
 ]=]
+
+
+-- {{{ kyazdani42/nvim-tree.lua
+vim.api.nvim_set_keymap('', 'y', '<Plug>(highlightedyank)', {})
+-- }}}
 
 
 -- {{{ kyazdani42/nvim-tree.lua
