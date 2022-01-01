@@ -114,7 +114,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- UI enhancements
   vim.fn['dein#add']('chrisbra/NrrwRgn')
   vim.fn['dein#add']('junegunn/goyo.vim')
-  vim.fn['dein#add']('preservim/nerdtree')
+  vim.fn['dein#add']('kyazdani42/nvim-tree.lua')
   -- Completion
   vim.fn['dein#add']('neoclide/coc.nvim', {
     rev = 'release',
@@ -780,7 +780,7 @@ nnoremap <silent> [file]vR :source $MYVIMRC<CR>
 nnoremap <silent> [file]j  :Vaffle<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
-nnoremap <silent> [file]t  :NERDTree<CR>
+nnoremap <silent> [file]t  :NvimTreeToggle<CR>
 nnoremap          [file]R  :Rename<Space>
 
 nnoremap [search] <Nop>
