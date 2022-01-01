@@ -115,12 +115,18 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('chrisbra/NrrwRgn')
   vim.fn['dein#add']('folke/zen-mode.nvim')
   vim.fn['dein#add']('kyazdani42/nvim-tree.lua')
-  -- Completion
-  vim.fn['dein#add']('neoclide/coc.nvim', {
-    rev = 'release',
-    merge = 0,
-  })
-  vim.fn['dein#add']('honza/vim-snippets')
+
+  -- LSP
+  vim.fn['dein#add']('neovim/nvim-lspconfig')
+  -- Auto-completion
+  vim.fn['dein#add']('hrsh7th/cmp-nvim-lsp')
+  vim.fn['dein#add']('hrsh7th/cmp-buffer')
+  vim.fn['dein#add']('hrsh7th/cmp-path')
+  vim.fn['dein#add']('hrsh7th/cmp-cmdline')
+  vim.fn['dein#add']('hrsh7th/nvim-cmp')
+  -- Snippets
+  vim.fn['dein#add']('hrsh7th/cmp-vsnip')
+  vim.fn['dein#add']('hrsh7th/vim-vsnip')
 
   -- Interactive filter
   vim.fn['dein#add']('nvim-telescope/telescope.nvim')
@@ -344,7 +350,6 @@ vim.opt.title = true
 vim.opt.backspace = { 'indent', 'eol', 'start' }  -- Allow backspacing over everything in insert mode.
 vim.cmd('set formatoptions&')
 vim.opt.formatoptions:append({ m = true, M = true })
-vim.opt.completeopt = 'menuone'
 
 -- 15 tabs and indenting
 vim.opt.expandtab = true     -- Use white-space instead of tabs.
@@ -1582,117 +1587,93 @@ vim.api.nvim_set_keymap('n', '[search]g', '<cmd>Telescope live_grep<CR>',       
 -- }}}
 
 
+-- {{{ neovim/nvim-lspconfig & hrsh7th/nvim-cmp
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+-- Setup nvim-cmp.
+local cmp = require'cmp'
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+  }, {
+    { name = 'buffer' },
+  }),
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' },
+  },
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' },
+  }, {
+    { name = 'cmdline' },
+  })
+})
+
+-- Setup lspconfig.
+do
+  local lspconfig = require('lspconfig')
+  local util = require('lspconfig/util')
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+  local path = util.path
+
+  local function get_python_path(workspace)
+    -- Use activated virtualenv.
+    if vim.env.VIRTUAL_ENV then
+      return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+    end
+
+    -- Use virtualenv managed by poetry.
+    local match = vim.fn.glob(path.join(workspace, 'poetry.lock'))
+    if match ~= '' then
+      local venv = vim.fn.trim(vim.fn.system('poetry env info -p'))
+      return path.join(venv, 'bin', 'python')
+    end
+
+    -- Fallback to system Python.
+    return exepath('python3') or exepath('python') or 'python'
+  end
+
+  lspconfig['pyright'].setup {
+    capabilities = capabilities,
+    before_init = function(_, config)
+      config.settings.python.pythonPath = get_python_path(config.root_dir)
+    end,
+  }
+  lspconfig['rust_analyzer'].setup {
+    capabilities = capabilities,
+  }
+end
+-- }}}
+
+
 vim.cmd [=[
-" {{{ coc.nvim
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd MyAutoCmds CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Setup formatexpr specified filetype(s).
-autocmd MyAutoCmds FileType typescript,json setl formatexpr=CocAction('formatSelected')
-
-" Update signature help on jump placeholder.
-autocmd MyAutoCmds User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-" }}}
-
-
 " {{{ rhysd/vim-grammarous
 nmap <F5> <Plug>(grammarous-move-to-next-error)
 nnoremap [grammarous]    <Nop>
