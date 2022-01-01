@@ -805,7 +805,6 @@ nnoremap <silent> [toggle]w :setl list!<CR>:setl list?<CR>
 nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
-nnoremap <silent> [toggle]( :RainbowToggle<CR>
 nnoremap <silent> [toggle]z :ZenMode<CR>
 ]=]
 
@@ -1691,33 +1690,6 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-" }}}
-
-
-" {{{ rainbow
-let g:rainbow_active = 0
-let g:rainbow_conf = {
-  \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-  \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-  \   'operators': '_,_',
-  \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-  \   'separately': {
-  \     '*': {},
-  \     'tex': {
-  \       'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-  \     },
-  \     'lisp': {
-  \       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-  \     },
-  \     'vim': {
-  \       'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-  \     },
-  \     'html': {
-  \       'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-  \     },
-  \     'css': 0,
-  \   }
-  \ }
 " }}}
 
 
