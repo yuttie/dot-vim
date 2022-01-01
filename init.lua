@@ -175,9 +175,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('tpope/vim-fugitive')
   vim.fn['dein#add']('hotwatermorning/auto-git-diff')
 
-  -- Haskell
-  vim.fn['dein#add']('neovimhaskell/haskell-vim')  -- syntax, indent
-
   -- i3
   vim.fn['dein#add']('PotatoesMaster/i3-vim-syntax')  -- syntax, ftplugin
 
@@ -192,16 +189,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
     rtp = 'contrib/vim',
   })  -- ftdetect, ftplugin, indent, syntax
 
-  -- PHP
-  vim.fn['dein#add']('2072/PHP-Indenting-for-VIm')  -- indent
-  vim.fn['dein#add']('StanAngeloff/php.vim')  -- syntax
-
-  -- Ruby
-  vim.fn['dein#add']('vim-ruby/vim-ruby')  -- syntax, indent, ftplugin, compiler
-
-  -- Rust
-  vim.fn['dein#add']('rust-lang/rust.vim')  -- syntax, indent, ftplugin, compiler, plugin
-
   -- Text
   vim.fn['dein#add']('rhysd/vim-grammarous')
 
@@ -211,19 +198,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- TypeScript
   vim.fn['dein#add']('leafgarland/typescript-vim')
 
-  -- Vim
-  vim.fn['dein#add']('vim-jp/syntax-vim-ex')  -- syntax
-
-  -- Web/CSS
-  vim.fn['dein#add']('hail2u/vim-css3-syntax')  -- syntax
-  vim.fn['dein#add']('cakebaker/scss-syntax.vim')  -- syntax, ftplugin
-
-  -- Web/JavaScript
-  vim.fn['dein#add']('pangloss/vim-javascript')  -- syntax, indent, compiler, ftplugin
-  vim.fn['dein#add']('othree/javascript-libraries-syntax.vim')  -- syntax
-
   -- Web/HTML
-  vim.fn['dein#add']('othree/html5.vim')  -- syntax, indent, ftplugin
   vim.fn['dein#add']('mattn/emmet-vim', {
     on_ft = {'html', 'xml', 'php'},
   })
@@ -240,10 +215,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       'GTabularize',
     },
   })
-  vim.fn['dein#add']('plasticboy/vim-markdown', {
-    on_ft = 'markdown',
-    depends = 'tabular',
-  })  -- syntax, indent, ftplugin
   vim.fn['dein#add']('iamcco/markdown-preview.nvim', {
     on_ft = {'markdown', 'pandoc.markdown', 'rmd'},
     build = 'sh -c "cd app & yarn install"',
@@ -258,12 +229,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('Rykka/riv.vim', {
     on_ft = 'rst',
   })
-
-  -- TOML
-  vim.fn['dein#add']('cespare/vim-toml')  -- syntax, ftplugin
-
-  -- JSON
-  vim.fn['dein#add']('elzr/vim-json')  -- syntax, indent, ftplugin
 
   -- GnuPG
   vim.fn['dein#add']('jamessan/vim-gnupg', {
