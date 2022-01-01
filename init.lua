@@ -693,13 +693,6 @@ nnoremap gk  k
 nnoremap P   Pg;
 nnoremap gc  `[v`]
 
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
 nnoremap <C-Left>  <C-w>h
 nnoremap <C-Right> <C-w>l
 nnoremap <C-Up>    <C-w>k
