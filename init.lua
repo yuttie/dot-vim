@@ -113,7 +113,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
 
   -- UI enhancements
   vim.fn['dein#add']('chrisbra/NrrwRgn')
-  vim.fn['dein#add']('junegunn/limelight.vim')
   vim.fn['dein#add']('junegunn/goyo.vim')
   vim.fn['dein#add']('preservim/nerdtree')
   -- Completion
