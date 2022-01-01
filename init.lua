@@ -1371,12 +1371,11 @@ vim.g['asterisk#keeppos'] = 1
 -- }}}
 
 
-vim.cmd [=[
-" {{{ incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-stay)
-" }}}
-]=]
+-- {{{ incsearch.vim
+vim.api.nvim_set_key('', '/', '<Plug>(incsearch-forward)', {})
+vim.api.nvim_set_key('', '?', '<Plug>(incsearch-stay)', {})
+vim.g['incsearch#magic'] = '\v'
+-- }}}
 
 
 -- {{{ rhysd/vim-operator-surround
