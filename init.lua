@@ -37,7 +37,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       'LinediffPick',
     },
   })
-  vim.fn['dein#add']('cocopon/vaffle.vim')  -- Doesn't work correctly when lazily loaded
   vim.fn['dein#add']('dkarter/bullets.vim')
   vim.fn['dein#add']('easymotion/vim-easymotion', {
     on_map = {
@@ -765,7 +764,6 @@ nnoremap [file] <Nop>
 nmap     [Space]f [file]
 nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
 nnoremap <silent> [file]vR :source $MYVIMRC<CR>
-nnoremap <silent> [file]j  :Vaffle<CR>
 nnoremap <silent> [file]s  :w<CR>
 nnoremap <silent> [file]S  :wa<CR>
 nnoremap <silent> [file]t  :NvimTreeToggle<CR>
@@ -1350,6 +1348,69 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 ]=]
 
 
+-- {{{ kyazdani42/nvim-tree.lua
+require('nvim-tree').setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = false,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  diagnostics = {
+    enable = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  view = {
+    width = 30,
+    height = 30,
+    hide_root_folder = false,
+    side = 'left',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    },
+    number = false,
+    relativenumber = false,
+    signcolumn = "yes"
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
+  }
+}
+-- }}}
+
+
 -- {{{ haya14busa/vim-asterisk
 vim.api.nvim_set_keymap('', '*',  '<Plug>(asterisk-z*)', {})
 vim.api.nvim_set_keymap('', '#',  '<Plug>(asterisk-z#)', {})
@@ -1517,34 +1578,6 @@ vim.api.nvim_set_keymap('n', '[search]g', '<cmd>Telescope live_grep<CR>',       
 
 
 vim.cmd [=[
-" {{{ vaffle.vim
-function! s:customize_vaffle_mappings() abort
-  " Toggle
-  nmap <buffer> <silent> <Space>       <Plug>(vaffle-toggle-current)
-  nmap <buffer> <silent> .             <Plug>(vaffle-toggle-hidden)
-  nmap <buffer> <silent> *             <Plug>(vaffle-toggle-all)
-  vmap <buffer> <silent> <Space>       <Plug>(vaffle-toggle-current)
-  " Operations for selected items
-  nmap <buffer> <nowait> <silent> d    <Plug>(vaffle-delete-selected)
-  nmap <buffer> <silent>          x    <Plug>(vaffle-fill-cmdline)
-  nmap <buffer> <silent>          m    <Plug>(vaffle-move-selected)
-  nmap <buffer> <silent>          <CR> <Plug>(vaffle-open-selected)
-  nmap <buffer> <silent>          r    <Plug>(vaffle-rename-selected)
-  " Operations for a item on cursor
-  nmap <buffer> <silent>          l    <Plug>(vaffle-open-current)
-  nmap <buffer> <nowait> <silent> t    <Plug>(vaffle-open-current-tab)
-  " Misc
-  nmap <buffer> <silent>          o    <Plug>(vaffle-mkdir)
-  nmap <buffer> <silent>          i    <Plug>(vaffle-new-file)
-  nmap <buffer> <silent>          ~    <Plug>(vaffle-open-home)
-  nmap <buffer> <silent>          h    <Plug>(vaffle-open-parent)
-  nmap <buffer> <silent>          q    <Plug>(vaffle-quit)
-  nmap <buffer> <silent>          R    <Plug>(vaffle-refresh)
-endfunction
-autocmd MyAutoCmds FileType vaffle call s:customize_vaffle_mappings()
-" }}}
-
-
 " {{{ coc.nvim
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
