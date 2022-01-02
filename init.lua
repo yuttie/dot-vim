@@ -70,12 +70,10 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       '<Plug>(EasyAlign)',
     },
   })
-  vim.fn['dein#add']('kana/vim-repeat')
   vim.fn['dein#add']('kana/vim-operator-user')
   vim.fn['dein#add']('kana/vim-operator-replace')
   vim.fn['dein#add']('kana/vim-textobj-user')
   vim.fn['dein#add']('rhysd/vim-textobj-anyblock')
-  vim.fn['dein#add']('Konfekt/FastFold')
   vim.fn['dein#add']('lambdalisue/suda.vim')
   vim.fn['dein#add']('lambdalisue/vim-unified-diff')
   vim.fn['dein#add']('norcalli/nvim-colorizer.lua')
@@ -88,7 +86,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       '<Plug>(operator-surround-replace)',
     },
   })  -- depends on 'kana/vim-operator-user'
-  vim.fn['dein#add']('Shougo/context_filetype.vim')
   vim.fn['dein#add']('Shougo/vinarise')
   vim.fn['dein#add']('t9md/vim-choosewin', {
     on_map = {
@@ -154,12 +151,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- Plugins for Languages
   --
-  -- Crystal
-  vim.fn['dein#add']('vim-crystal/vim-crystal')
-
-  -- fish shell
-  vim.fn['dein#add']('dag/vim-fish')
-
   -- Gentoo
   vim.fn['dein#add']('gentoo/gentoo-syntax')  -- ftdetect, ftplugin, indent, plugin, syntax
 
@@ -182,9 +173,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- jq
   vim.fn['dein#add']('vito-c/jq.vim')  -- ftdetect, ftplugin, syntax
 
-  -- Julia
-  vim.fn['dein#add']('JuliaEditorSupport/julia-vim')
-
   -- nginx
   vim.fn['dein#add']('nginx/nginx', {
     rtp = 'contrib/vim',
@@ -196,16 +184,10 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- tmux
   vim.fn['dein#add']('tmux-plugins/vim-tmux')
 
-  -- TypeScript
-  vim.fn['dein#add']('leafgarland/typescript-vim')
-
   -- Web/HTML
   vim.fn['dein#add']('mattn/emmet-vim', {
     on_ft = {'html', 'xml', 'php'},
   })
-
-  -- Web/Vue
-  vim.fn['dein#add']('posva/vim-vue')
 
   -- Markdown
   vim.fn['dein#add']('godlygeek/tabular', {
@@ -224,11 +206,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- AsciiDoc
   vim.fn['dein#add']('mjakl/vim-asciidoc', {
     on_ft = 'asciidoc',
-  })
-
-  -- reStructuredText
-  vim.fn['dein#add']('Rykka/riv.vim', {
-    on_ft = 'rst',
   })
 
   -- GnuPG
