@@ -4,7 +4,9 @@ vim.env.PATH = vim.fn.expand('~/.local/bin') .. ':' .. vim.fn.expand('~/.cargo/b
 
 
 -- {{{ Plugins
--- Execute the following commands first:
+
+-- Plugins are managed by Shougo/dein.vim.
+-- Execute the following commands to setup dein.vim:
 --   curl -O https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
 --   sh ./installer.sh <my_plugin_dir>
 local my_plugin_dir = vim.fn.expand('~/.config/nvim/bundle')
@@ -13,19 +15,48 @@ local my_plugin_dir = vim.fn.expand('~/.config/nvim/bundle')
 vim.g.loaded_matchparen = 1
 vim.g.loaded_matchit = 1
 
--- dein Scripts-----------------------------
--- Required:
+-- Add path of dein.vim to runtimepath
 vim.opt.runtimepath:append(my_plugin_dir .. '/repos/github.com/Shougo/dein.vim')
 
--- Required:
+-- Add plugins
 if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#begin'](my_plugin_dir)
 
-  -- Let dein manage dein
-  -- Required:
+  -- Let dein.vim manage itself
   vim.fn['dein#add'](my_plugin_dir .. '/repos/github.com/Shougo/dein.vim')
 
   -- Plugins
+
+  --
+  -- Edit
+  --
+  vim.fn['dein#add']('kana/vim-operator-user')
+  vim.fn['dein#add']('kana/vim-operator-replace')
+  vim.fn['dein#add']('kana/vim-textobj-user')
+  vim.fn['dein#add']('rhysd/vim-textobj-anyblock')
+  vim.fn['dein#add']('simnalamburt/vim-mundo')
+  vim.fn['dein#add']('mg979/vim-visual-multi')
+  vim.fn['dein#add']('numToStr/Comment.nvim')
+  vim.fn['dein#add']('chrisbra/NrrwRgn')
+  vim.fn['dein#add']('folke/zen-mode.nvim')
+  vim.fn['dein#add']('rhysd/vim-operator-surround', {
+    on_map = {
+      '<Plug>(operator-surround-append)',
+      '<Plug>(operator-surround-delete)',
+      '<Plug>(operator-surround-replace)',
+    },
+  })  -- depends on 'kana/vim-operator-user'
+  vim.fn['dein#add']('terryma/vim-expand-region', {
+    on_map = {
+      '<Plug>(expand_region_expand)',
+      '<Plug>(expand_region_shrink)',
+    },
+  })
+
+  --
+  -- Diff
+  --
+  vim.fn['dein#add']('lambdalisue/vim-unified-diff')
   vim.fn['dein#add']('AndrewRadev/linediff.vim', {
     on_cmd = {
       'Linediff',
@@ -37,7 +68,21 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       'LinediffPick',
     },
   })
+
+  --
+  -- Text Formatting
+  --
   vim.fn['dein#add']('dkarter/bullets.vim')
+  vim.fn['dein#add']('tpope/vim-repeat')
+  vim.fn['dein#add']('junegunn/vim-easy-align', {
+    on_map = {
+      '<Plug>(EasyAlign)',
+    },
+  })
+
+  --
+  -- Move
+  --
   vim.fn['dein#add']('easymotion/vim-easymotion', {
     on_map = {
       '<Plug>(easymotion-fl)',
@@ -56,7 +101,15 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       '<Plug>(easymotion-overwin-line)',
     },
   })  -- optionally depends on 'tpope/vim-repeat'
-  vim.fn['dein#add']('tpope/vim-repeat')
+  vim.fn['dein#add']('t9md/vim-choosewin', {
+    on_map = {
+      '<Plug>(choosewin)',
+    },
+  })
+
+  --
+  -- Search
+  --
   vim.fn['dein#add']('haya14busa/vim-asterisk')
   vim.fn['dein#add']('haya14busa/incsearch.vim', {
     on_map = {
@@ -65,56 +118,38 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
     },
   })
   vim.fn['dein#add']('itchyny/vim-cursorword')
-  vim.fn['dein#add']('junegunn/vim-easy-align', {
-    on_map = {
-      '<Plug>(EasyAlign)',
-    },
-  })
-  vim.fn['dein#add']('kana/vim-operator-user')
-  vim.fn['dein#add']('kana/vim-operator-replace')
-  vim.fn['dein#add']('kana/vim-textobj-user')
-  vim.fn['dein#add']('rhysd/vim-textobj-anyblock')
+
+  --
+  -- File
+  --
   vim.fn['dein#add']('lambdalisue/suda.vim')
-  vim.fn['dein#add']('lambdalisue/vim-unified-diff')
-  vim.fn['dein#add']('norcalli/nvim-colorizer.lua')
-  vim.fn['dein#add']('simnalamburt/vim-mundo')
-  vim.fn['dein#add']('ntpeters/vim-better-whitespace')
-  vim.fn['dein#add']('rhysd/vim-operator-surround', {
-    on_map = {
-      '<Plug>(operator-surround-append)',
-      '<Plug>(operator-surround-delete)',
-      '<Plug>(operator-surround-replace)',
-    },
-  })  -- depends on 'kana/vim-operator-user'
   vim.fn['dein#add']('Shougo/vinarise')
-  vim.fn['dein#add']('t9md/vim-choosewin', {
-    on_map = {
-      '<Plug>(choosewin)',
-    },
+  vim.fn['dein#add']('kyazdani42/nvim-tree.lua')
+  vim.fn['dein#add']('jamessan/vim-gnupg', {
+    rev = 'main',
   })
-  vim.fn['dein#add']('terryma/vim-expand-region', {
-    on_map = {
-      '<Plug>(expand_region_expand)',
-      '<Plug>(expand_region_shrink)',
-    },
-  })
-  vim.fn['dein#add']('mg979/vim-visual-multi')
-  vim.fn['dein#add']('numToStr/Comment.nvim')
+
+  --
+  -- UI enhancement
+  --
+  vim.fn['dein#add']('norcalli/nvim-colorizer.lua')
+  vim.fn['dein#add']('ntpeters/vim-better-whitespace')
+  vim.fn['dein#add']('lukas-reineke/indent-blankline.nvim')
+  vim.fn['dein#add']('yuttie/comfortable-motion.vim')
+  vim.fn['dein#add']('machakann/vim-highlightedyank')
+
+  --
+  -- Others
+  --
   vim.fn['dein#add']('tyru/open-browser.vim', {
     on_map = {
       '<Plug>(openbrowser-smart-search)',
     },
   })
-  vim.fn['dein#add']('lukas-reineke/indent-blankline.nvim')
-  vim.fn['dein#add']('yuttie/comfortable-motion.vim')
 
-  -- UI enhancements
-  vim.fn['dein#add']('machakann/vim-highlightedyank')
-  vim.fn['dein#add']('chrisbra/NrrwRgn')
-  vim.fn['dein#add']('folke/zen-mode.nvim')
-  vim.fn['dein#add']('kyazdani42/nvim-tree.lua')
-
+  --
   -- LSP
+  --
   vim.fn['dein#add']('neovim/nvim-lspconfig')
   -- Auto-completion
   vim.fn['dein#add']('hrsh7th/cmp-nvim-lsp')
@@ -126,7 +161,9 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('hrsh7th/cmp-vsnip')
   vim.fn['dein#add']('hrsh7th/vim-vsnip')
 
+  --
   -- Interactive filter
+  --
   vim.fn['dein#add']('nvim-telescope/telescope.nvim')
   vim.fn['dein#add']('nvim-telescope/telescope-fzf-native.nvim', {
     build = 'make',
@@ -149,7 +186,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('windwp/nvim-autopairs')
 
   --
-  -- Plugins for Languages
+  -- Filetype-specific plugins
   --
   -- Gentoo
   vim.fn['dein#add']('gentoo/gentoo-syntax')  -- ftdetect, ftplugin, indent, plugin, syntax
@@ -208,12 +245,9 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
     on_ft = 'asciidoc',
   })
 
-  -- GnuPG
-  vim.fn['dein#add']('jamessan/vim-gnupg', {
-    rev = 'main',
-  })
-
+  --
   -- Themes
+  --
   vim.fn['dein#add']('itchyny/lightline.vim')
   vim.fn['dein#add']('ryanoasis/vim-devicons')    -- This must be loaded after its supported plugins
   vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
@@ -228,7 +262,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
     rev = 'master',
   })
 
-  -- Required:
+  -- End of plugin list
   vim.fn['dein#end']()
   vim.fn['dein#save_state']()
 end
