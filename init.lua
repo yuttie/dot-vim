@@ -72,6 +72,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   })
   vim.fn['dein#add']('kana/vim-repeat')
   vim.fn['dein#add']('kana/vim-operator-user')
+  vim.fn['dein#add']('kana/vim-operator-replace')
   vim.fn['dein#add']('kana/vim-textobj-user')
   vim.fn['dein#add']('rhysd/vim-textobj-anyblock')
   vim.fn['dein#add']('Konfekt/FastFold')
@@ -1394,6 +1395,12 @@ vim.g['asterisk#keeppos'] = 1
 vim.api.nvim_set_keymap('', '/', '<Plug>(incsearch-forward)', {})
 vim.api.nvim_set_keymap('', '?', '<Plug>(incsearch-stay)', {})
 vim.g['incsearch#magic'] = '\v'
+-- }}}
+
+
+-- {{{ kana/vim-operator-replace
+vim.api.nvim_set_keymap('', 'pp', 'p', { noremap = true })
+vim.api.nvim_set_keymap('', 'p', '<Plug>(operator-replace)', {})
 -- }}}
 
 
