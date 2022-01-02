@@ -674,7 +674,6 @@ omap     <Space> [Space]
 
 " {{{ Mappings
 " insert
-inoremap <C-d> <Del>
 inoremap <C-s> <C-d>
 
 " insert and command line
@@ -682,6 +681,7 @@ noremap! <C-a> <Home>
 noremap! <C-e> <End>
 noremap! <C-b> <Left>
 noremap! <C-f> <Right>
+noremap! <C-d> <Del>
 noremap! <M-f> <S-Right>
 noremap! <M-b> <S-Left>
 
