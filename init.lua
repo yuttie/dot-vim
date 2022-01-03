@@ -160,6 +160,8 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- Snippets
   vim.fn['dein#add']('hrsh7th/cmp-vsnip')
   vim.fn['dein#add']('hrsh7th/vim-vsnip')
+  -- Signature
+  vim.fn['dein#add']('ray-x/lsp_signature.nvim')
 
   --
   -- Interactive filter
@@ -1676,6 +1678,11 @@ do
     }
   end
 end
+-- }}}
+
+
+-- {{{ ray-x/lsp_signature.nvim
+require('lsp_signature').setup()
 -- }}}
 
 
