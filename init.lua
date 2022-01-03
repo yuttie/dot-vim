@@ -646,13 +646,6 @@ command! -nargs=? -bang Utf16 edit<bang> ++enc=utf-16 <args>
 command! -nargs=? -bang Jis   edit<bang> ++enc=iso-2022-jp <args>
 command! -nargs=1 -complete=file Rename saveas <args> | call delete(expand('#'))
 command! Hitest source $VIMRUNTIME/syntax/hitest.vim
-
-if has("gui_running")
-  command! Enlarge16 set guifont=monospace\ 16
-  command! Enlarge32 set guifont=monospace\ 32
-  command! Enlarge64 set guifont=monospace\ 64
-  command! Enlarge128 set guifont=monospace\ 128
-endif
 " }}}
 
 
