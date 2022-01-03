@@ -769,6 +769,8 @@ nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
 nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
 nnoremap <silent> [toggle]z :ZenMode<CR>
+nnoremap <silent> [toggle]i :IndentBlanklineToggle<CR>
+nnoremap <silent> [toggle]<Space> :setl list!<CR>:setl list?<CR>
 ]=]
 
 -- Commenting
