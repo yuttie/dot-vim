@@ -233,8 +233,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- Themes
   --
-  vim.fn['dein#add']('itchyny/lightline.vim')
-  vim.fn['dein#add']('ryanoasis/vim-devicons')    -- This must be loaded after its supported plugins
+  vim.fn['dein#add']('nvim-lualine/lualine.nvim')
   vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
   vim.fn['dein#add']('yuttie/hydrangea-vim', {
     rev = 'develop',
@@ -288,7 +287,6 @@ vim.opt.hidden = true        -- You can change buffer without saving.
 vim.opt.laststatus = 2  -- Always show status lines.
 vim.opt.showcmd = true
 vim.opt.cmdheight = 2
-vim.opt.statusline = "%<%f %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%{exists('*SkkGetModeStr')?SkkGetModeStr():''}%=%l,%c%V%8P"
 
 -- 7 multiple tab pages
 vim.opt.showtabline = 2
@@ -918,217 +916,51 @@ require'colorizer'.setup({
 })
 EOF
 " }}}
+]=]
 
 
-" {{{ lightline.vim
-set ambiwidth=single
-set noshowmode
-
-let g:lightline = {
-      \ 'enable': {
-      \   'statusline': 1,
-      \   'tabline': 1,
-      \ },
-      \ 'colorscheme': 'iceberg',
-      \ 'active': {
-      \   'left': [
-      \     [ 'mode', 'paste' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
-      \     [ 'treesitter', 'cocstatus' ],
-      \   ],
-      \   'right': [
-      \     [ 'fulllineinfo' ],
-      \     [ 'filetype' ],
-      \     [ 'fileformat', 'fileencoding' ],
-      \   ],
-      \ },
-      \ 'inactive': {
-      \   'left': [
-      \     [ 'mode' ],
-      \     [ 'git_branch', 'readonly', 'relativepath', 'modified' ],
-      \     [ 'treesitter', 'cocstatus' ],
-      \   ],
-      \   'right': [
-      \     [ 'fulllineinfo' ],
-      \     [ 'filetype' ],
-      \   ],
-      \ },
-      \ 'tabline': {
-      \   'left': [
-      \     [ 'tabs' ],
-      \   ],
-      \   'right': [
-      \     [ 'cwd' ],
-      \   ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \   'fulllineinfo': '%3p%% %3l %2v',
-      \ },
-      \ 'component_function': {
-      \   'relativepath': 'g:lightline.my.relativepath',
-      \   'filetype':    'g:lightline.my.filetype',
-      \   'fileformat':  'g:lightline.my.fileformat',
-      \   'git_branch':  'g:lightline.my.git_branch',
-      \   'treesitter':  'g:lightline.my.treesitter',
-      \   'cwd':         'getcwd',
-      \   'cocstatus':   'coc#status',
-      \ },
-      \ 'separator':    { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
-
-let g:lightline.my = {}
-
-function! g:lightline.my.layout_init()
-  let g:lightline.my.layout_levels = {
-    \   'relativepath': 3,
-    \   'filetype': 2,
-    \   'fileformat': 2,
-    \   'git_branch': 1,
-    \   'treesitter': 10,
-    \ }
-endfunction
-call g:lightline.my.layout_init()
-
-function! g:lightline.my.layout()
-  " Test if light line is ready or not
-  try
-    call lightline#mode()
-  catch
-    " Not ready yet
-    return
-  endtry
-
-  let possible_fixes = [
-    \   'let g:lightline.my.layout_levels.treesitter = 9',
-    \   'let g:lightline.my.layout_levels.treesitter = 8',
-    \   'let g:lightline.my.layout_levels.treesitter = 7',
-    \   'let g:lightline.my.layout_levels.treesitter = 6',
-    \   'let g:lightline.my.layout_levels.treesitter = 5',
-    \   'let g:lightline.my.layout_levels.treesitter = 4',
-    \   'let g:lightline.my.layout_levels.treesitter = 3',
-    \   'let g:lightline.my.layout_levels.treesitter = 2',
-    \   'let g:lightline.my.layout_levels.treesitter = 1',
-    \   'let g:lightline.my.layout_levels.relativepath = 2',
-    \   'let g:lightline.my.layout_levels.relativepath = 1',
-    \   'let g:lightline.my.layout_levels.fileformat = 1',
-    \   'let g:lightline.my.layout_levels.filetype = 1',
-    \   'let g:lightline.my.layout_levels.git_branch = 0',
-    \ ]
-  let padding_len = 2
-  let sep_len = 1
-  let available = winwidth(0)
-
-  " Optimize the layout
-  call g:lightline.my.layout_init()
-  while 1
-    " Compute the already occupied space
-    let left_rendered = [
-      \   lightline#mode(),
-      \   &paste?"PASTE":"",
-      \   g:lightline.my.git_branch(),
-      \   g:lightline.my.relativepath(),
-      \   &modified ? '+' : '',
-      \ ]
-    let right_rendered = [
-      \   g:lightline.my.fileformat(),
-      \   &fenc!=#""?&fenc:&enc,
-      \   g:lightline.my.filetype(),
-      \   '100%',
-      \   '1000:100',
-      \ ]
-    let occupied = 0
-    for component in left_rendered + right_rendered
-      if !empty(component)
-        let occupied += strlen(component) + padding_len + sep_len
-      endif
-    endfor
-
-    " Evaluate the current layout
-    if occupied <= available
-      " Fine
-      break
-    else
-      " Overflow
-      if len(possible_fixes) == 0
-        " No fix available
-        break
-      else
-        " Try to fix
-        let app = possible_fixes[0]
-        call remove(possible_fixes, 0)
-        exec app
-      endif
-    end
-  endwhile
-endfunction
-autocmd MyAutoCmds WinEnter,BufWinEnter,FileType,EncodingChanged,VimResized * call g:lightline.my.layout()
-autocmd MyAutoCmds User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-function! g:lightline.my.relativepath_level(level)
-  let relpath = expand('%')
-  return a:level >= 3 ? relpath
-    \  : a:level == 2 ? pathshorten(relpath)
-    \  : expand('%:t')
-endfunction
-
-function! g:lightline.my.filetype_level(level)
-  let relpath = expand('%')
-  if empty(&filetype)
-    let filetype = 'no ft'
-    let icon = ''
-  else
-    let filetype = &filetype
-    let icon = WebDevIconsGetFileTypeSymbol()
-  endif
-  return a:level >= 2 ? filetype . ' ' . icon
-    \  : a:level == 1 ? icon
-    \  : ''
-endfunction
-
-function! g:lightline.my.fileformat_level(level)
-  return a:level >= 2 ? &fileformat . ' ' . WebDevIconsGetFileFormatSymbol()
-    \  : a:level == 1 ? WebDevIconsGetFileFormatSymbol()
-    \  : ''
-endfunction
-
-function! g:lightline.my.git_branch_level(level)
-  let branch = gitbranch#name()
-  if empty(branch)
-    return ''
-  else
-    return a:level >= 1 ? '' . branch
-      \  : ''
-  endif
-endfunction
-
-function! g:lightline.my.treesitter_level(level)
-  return nvim_treesitter#statusline(10 * a:level)
-endfunction
-
-function! g:lightline.my.relativepath()
-  return g:lightline.my.relativepath_level(g:lightline.my.layout_levels.relativepath)
-endfunction
-
-function! g:lightline.my.filetype()
-  return g:lightline.my.filetype_level(g:lightline.my.layout_levels.filetype)
-endfunction
-
-function! g:lightline.my.fileformat()
-  return g:lightline.my.fileformat_level(g:lightline.my.layout_levels.fileformat)
-endfunction
-
-function! g:lightline.my.git_branch()
-  return g:lightline.my.git_branch_level(g:lightline.my.layout_levels.git_branch)
-endfunction
-
-function! g:lightline.my.treesitter()
-  return g:lightline.my.treesitter_level(g:lightline.my.layout_levels.treesitter)
-endfunction
-" }}}
+-- {{{ nvim-lualine/lualine.nvim
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {
+    lualine_a = {
+      { 'tabs', mode = 1 },
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  extensions = {}
+}
+-- }}}
 
 
+vim.cmd [=[
 " {{{ itchyny/vim-parenmatch
 let g:parenmatch_highlight = 0
 function! s:my_parenmatch_highlight() abort
