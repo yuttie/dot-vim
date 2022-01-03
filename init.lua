@@ -83,24 +83,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- Move
   --
-  vim.fn['dein#add']('easymotion/vim-easymotion', {
-    on_map = {
-      '<Plug>(easymotion-fl)',
-      '<Plug>(easymotion-Fl)',
-      '<Plug>(easymotion-tl)',
-      '<Plug>(easymotion-Tl)',
-      '<Plug>(easymotion-linebackward)',
-      '<Plug>(easymotion-j)',
-      '<Plug>(easymotion-k)',
-      '<Plug>(easymotion-lineforward)',
-      '<Plug>(easymotion-bd-f)',
-      '<Plug>(easymotion-overwin-f)',
-      '<Plug>(easymotion-bd-w)',
-      '<Plug>(easymotion-overwin-w)',
-      '<Plug>(easymotion-bd-jk)',
-      '<Plug>(easymotion-overwin-line)',
-    },
-  })  -- optionally depends on 'tpope/vim-repeat'
+  vim.fn['dein#add']('phaazon/hop.nvim')
   vim.fn['dein#add']('t9md/vim-choosewin', {
     on_map = {
       '<Plug>(choosewin)',
@@ -852,20 +835,6 @@ nmap     [Space]<Space> [jump]
 xmap     [Space]<Space> [jump]
 omap     [Space]<Space> [jump]
 
-map      [jump]h  <Plug>(easymotion-linebackward)
-map      [jump]j  <Plug>(easymotion-j)
-map      [jump]k  <Plug>(easymotion-k)
-map      [jump]l  <Plug>(easymotion-lineforward)
-
-map      [jump]c  <Plug>(easymotion-bd-f)
-nmap     [jump]c  <Plug>(easymotion-overwin-f)
-
-map      [jump]w  <Plug>(easymotion-bd-w)
-nmap     [jump]w  <Plug>(easymotion-overwin-w)
-
-map      [jump]L  <Plug>(easymotion-bd-jk)
-nmap     [jump]L  <Plug>(easymotion-overwin-line)
-
 nmap     [jump]W <Plug>(choosewin)
 
 nnoremap <silent> [jump]o :<C-u>CocList outline<CR>
@@ -1332,14 +1301,22 @@ vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(text
 -- }}}
 
 
+-- {{{ phaazon/hop.nvim
+require('hop').setup()
+-- place this in one of your configuration file(s)
+vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('o', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
+vim.api.nvim_set_keymap('o', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
+vim.api.nvim_set_keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+
+vim.api.nvim_set_keymap('n', '[jump]w', "<cmd>lua require'hop'.hint_words()<cr>", {})
+vim.api.nvim_set_keymap('n', '[jump]l', "<cmd>lua require'hop'.hint_lines_skip_whitespace()<cr>", {})
+-- }}}
+
+
 vim.cmd [=[
-" {{{ vim-easymotion
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_keys = "hutenosadi"
-" }}}
-
-
 " {{{ vim-choosewin
 let g:choosewin_overlay_enable = 1
 let g:choosewin_color_overlay = {
