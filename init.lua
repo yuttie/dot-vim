@@ -347,7 +347,7 @@ vim.opt.fileencoding = 'utf-8'  -- Default encoding for new files.
 -- 'iso-2022-jp'が先頭にあると、新規ファイルのデフォルトのエンコーディングが
 -- 'iso-2022-jp'になる問題があるので先頭に置くことはできない。
 vim.opt.fileencodings = { 'utf-8', 'iso-2022-jp', 'cp932', 'sjis', 'euc-jp', 'utf-16le', 'utf-16' }
-vim.opt.ambiwidth = 'double'
+vim.opt.ambiwidth = 'single'
 
 -- 26 various
 vim.cmd('set sessionoptions&')
