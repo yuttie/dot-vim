@@ -637,7 +637,6 @@ let g:neovide_cursor_vfx_mode = "railgun"
 
 " {{{ Commands
 command! ReloadVimrc source $MYVIMRC
-command! ReloadGvimrc source $MYVIMRC|source $MYGVIMRC
 command! -nargs=? -bang Cp932 edit<bang> ++enc=cp932 <args>
 command! -nargs=? -bang Eucjp edit<bang> ++enc=euc-jp <args>
 command! -nargs=? -bang Sjis  edit<bang> ++enc=sjis <args>
