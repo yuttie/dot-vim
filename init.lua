@@ -943,7 +943,7 @@ require('lualine').setup {
   },
   tabline = {
     lualine_a = {
-      { 'tabs', mode = 1 },
+      { 'tabs', mode = 1, max_length = function() return vim.o.columns end },
     },
     lualine_b = {},
     lualine_c = {},
