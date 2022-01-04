@@ -631,6 +631,8 @@ endfunction
 
 " {{{ Neovide
 set guifont=monospace:h10
+let g:neovide_cursor_animation_length=0.03
+let g:neovide_cursor_trail_length=0.5
 let g:neovide_cursor_vfx_mode = "railgun"
 " }}}
 
