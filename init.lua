@@ -957,16 +957,6 @@ require('lualine').setup {
 
 
 vim.cmd [=[
-" {{{ itchyny/vim-parenmatch
-let g:parenmatch_highlight = 0
-function! s:my_parenmatch_highlight() abort
-  highlight ParenMatch term=underline,bold cterm=underline,bold gui=underline,bold
-endfunction
-autocmd MyAutoCmds VimEnter * call s:my_parenmatch_highlight()
-autocmd MyAutoCmds ColorScheme * call s:my_parenmatch_highlight()
-" }}}
-
-
 " {{{ vim-better-whitespace
 let g:better_whitespace_operator = ''
 let g:better_whitespace_filetypes_blacklist = [
@@ -1013,18 +1003,6 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " {{{ vim-expand-region
 vmap + <Plug>(expand_region_expand)
 vmap - <Plug>(expand_region_shrink)
-" }}}
-
-
-" {{{ accelerated-smooth-scroll
-let g:ac_smooth_scroll_no_default_key_mappings = 1
-let g:ac_smooth_scroll_du_sleep_time_msec = 5
-let g:ac_smooth_scroll_fb_sleep_time_msec = 3
-
-nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
-nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
-nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
-nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " }}}
 ]=]
 
@@ -1197,8 +1175,8 @@ nnoremap <silent> [git]m  :Magit<CR>
 -- {{{ lewis6991/gitsigns.nvim
 require('gitsigns').setup {
   signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '▊', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '▊', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    add          = {hl = 'GitSignsAdd'   , text = '┃', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '┃', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     delete       = {hl = 'GitSignsDelete', text = '▁', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     topdelete    = {hl = 'GitSignsDelete', text = '▔', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
@@ -1408,12 +1386,6 @@ nmap     [grammarous]p  <Plug>(grammarous-move-to-previous-error)
 " }}}
 
 
-" {{{ vim-ref
-let g:ref_alc_start_linenumber = 42
-let g:ref_refe_encoding = 'euc-jp'
-" }}}
-
-
 " {{{ fish
 autocmd MyAutoCmds FileType fish setlocal foldmethod=expr
 " }}}
@@ -1426,14 +1398,10 @@ autocmd MyAutoCmds FileType vim setlocal shiftwidth=2
 
 
 " {{{ Markdown
-let g:markdown_fenced_languages = ['cpp', 'ruby', 'json']
-let g:markdown_syntax_conceal = 0
 nnoremap [markdown]  <Nop>
 xnoremap [markdown]  <Nop>
 nmap     [Space]m    [markdown]
 xmap     [Space]m    [markdown]
-nmap     [markdown]f :TableFormat<CR>
-xmap     [markdown]f :TableFormat<CR>
 nmap     [markdown]p :MarkdownPreview<CR>  " From iamcco/markdown-preview.nvim
 " }}}
 
@@ -1454,17 +1422,6 @@ autocmd MyAutoCmds FileType crystal setlocal shiftwidth=2
 
 
 " {{{ TeX
-" Add environments from amsmath package
-autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-A', 'equation', 1)
-autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-B', 'align',    1)
-autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-C', 'gather',   1)
-autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-D', 'alignat',  1)
-autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-E', 'multline', 1)
-autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-F', 'flalign',  1)
-autocmd MyAutoCmds FileType tex call TexNewMathZone('MY-G', 'split',    0)
-
-let g:tex_conceal = ""
-let g:vimtex_compiler_progname = "nvr"
 autocmd MyAutoCmds FileType tex setlocal shiftwidth=2
 autocmd MyAutoCmds FileType bib setlocal shiftwidth=2
 " }}}
@@ -1485,26 +1442,6 @@ autocmd MyAutoCmds FileType python setlocal tabstop=8
 autocmd MyAutoCmds FileType python setlocal expandtab
 autocmd MyAutoCmds FileType python setlocal softtabstop=4
 autocmd MyAutoCmds FileType python setlocal shiftwidth=4
-autocmd MyAutoCmds FileType python inoremap # X#
-" }}}
-
-
-" {{{ Java
-" <<< javacomplete plugin: Omni Completion for JAVA >>>
-autocmd MyAutoCmds FileType java setlocal omnifunc=javacomplete#Complete
-autocmd MyAutoCmds FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
-autocmd MyAutoCmds FileType java inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-autocmd MyAutoCmds FileType java inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
-" Java ctags database
-"autocmd MyAutoCmds FileType java map <buffer> <C-F12> :!ctags -R --languages=Java --fields=+iaS --extra=+q .<CR>
-" }}}
-
-
-" {{{ JSON
-autocmd MyAutoCmds BufRead,BufNewFile *.json setfiletype json
-autocmd MyAutoCmds FileType json command! JSONPrettify %!python -m json.tool
-
-let g:vim_json_syntax_conceal = 0
 " }}}
 
 
@@ -1518,34 +1455,6 @@ autocmd MyAutoCmds FileType elm setlocal shiftwidth=2
 " }}}
 
 
-" {{{ Haskell
-let g:haskell_conceal              = 0
-let g:haskell_conceal_enumerations = 0
-
-autocmd MyAutoCmds FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-autocmd MyAutoCmds FileType haskell nnoremap <buffer> [haskell]   <Nop>
-autocmd MyAutoCmds FileType haskell nmap     <buffer> [Space]h  [haskell]
-
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> <Esc><Esc>  :nohlsearch \| :GhcModTypeClear<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]c  :GhcModCheckAsync<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]t  :GhcModType<CR>
-autocmd MyAutoCmds FileType haskell nnoremap <buffer><silent> [haskell]m  :make<CR>
-
-" Use the old regexp engine because the new NFA engine is slow for Haskell's syntax highlighting.
-autocmd MyAutoCmds FileType haskell setlocal regexpengine=1
-" }}}
-
-
-" {{{ vim-racer
-let g:racer_experimental_completer = 1
-autocmd MyAutoCmds FileType rust nmap gd <Plug>(rust-def)
-autocmd MyAutoCmds FileType rust nmap gs <Plug>(rust-def-split)
-autocmd MyAutoCmds FileType rust nmap gx <Plug>(rust-def-vertical)
-autocmd MyAutoCmds FileType rust nmap gD <Plug>(rust-doc)
-" }}}
-
-
 " {{{ Web
 autocmd MyAutoCmds FileType javascript setlocal shiftwidth=2
 autocmd MyAutoCmds FileType typescript setlocal shiftwidth=2
@@ -1553,38 +1462,6 @@ autocmd MyAutoCmds FileType html       setlocal shiftwidth=2
 autocmd MyAutoCmds FileType css        setlocal shiftwidth=2
 autocmd MyAutoCmds FileType scss       setlocal shiftwidth=2
 autocmd MyAutoCmds FileType vue        setlocal shiftwidth=2
-" }}}
-
-
-" {{{ PHP
-function! s:PhpOverrideSyntaxHighlight()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-autocmd MyAutoCmds FileType php call s:PhpOverrideSyntaxHighlight()
-
-function! s:PHPFix()
-  set nocursorline
-  let b:cursorword = 0
-  autocmd InsertEnter <buffer> DisableWhitespace
-  autocmd InsertLeave <buffer> EnableWhitespace
-endfunction
-autocmd MyAutoCmds FileType php call s:PHPFix()
-" }}}
-
-
-" {{{ Context Free
-autocmd MyAutoCmds BufNewFile,BufRead *.cfdg setfiletype cfdg
-" }}}
-
-
-" {{{ MetaPost
-autocmd MyAutoCmds FileType mp map <buffer> <Leader>cc :!mpost %<CR><CR>
-" }}}
-
-
-" {{{ Waf
-autocmd MyAutoCmds BufRead,BufNewFile wscript setfiletype python
 " }}}
 
 
