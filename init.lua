@@ -143,6 +143,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- Snippets
   vim.fn['dein#add']('hrsh7th/cmp-vsnip')
   vim.fn['dein#add']('hrsh7th/vim-vsnip')
+  vim.fn['dein#add']('rafamadriz/friendly-snippets')
   -- Signature
   vim.fn['dein#add']('ray-x/lsp_signature.nvim')
 
