@@ -880,8 +880,11 @@ autocmd MyAutoCmds FileType gitcommit setlocal spell
 autocmd MyAutoCmds FileType gina-commit setlocal spell
 
 nnoremap [git]    <Nop>
+vnoremap [git]    <Nop>
 nmap     <C-g>    [git]
+vmap     <C-g>    [git]
 nmap     [Space]g [git]
+vmap     [Space]g [git]
 
 nnoremap <silent> [git]c  :Gina commit -v --opener="topleft vsplit"<CR>
 nnoremap <silent> [git]d  :Gvdiff<CR>
