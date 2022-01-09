@@ -241,6 +241,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   })
   vim.fn['dein#add']('yuttie/inkstained-vim')
   vim.fn['dein#add']('yuttie/snowy-vim')
+  vim.fn['dein#add']('yuttie/sublimetext-spacegray.vim')
   vim.fn['dein#add']('cocopon/iceberg.vim')
   vim.fn['dein#add']('arcticicestudio/nord-vim', {
     rev = 'master',
@@ -303,7 +304,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=light
-  colorscheme iceberg
+  colorscheme spacegray-dark
 endif
 
 function! s:my_colorscheme_adjustments() abort
