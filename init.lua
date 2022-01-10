@@ -811,8 +811,8 @@ vim.g['incsearch#magic'] = '\v'
 
 
 -- {{{ kana/vim-operator-replace
-vim.api.nvim_set_keymap('', 'pp', 'p', { noremap = true })
-vim.api.nvim_set_keymap('', 'p', '<Plug>(operator-replace)', {})
+vim.api.nvim_set_keymap('n', 'pp', 'p', { noremap = true })
+vim.api.nvim_set_keymap('n', 'p', '<Plug>(operator-replace)', {})
 -- }}}
 
 
