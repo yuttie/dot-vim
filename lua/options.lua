@@ -8,7 +8,7 @@ vim.opt.cursorline = true
 
 -- 4 displaying text
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.scrolloff = 3
 vim.opt.signcolumn = 'yes'
 vim.opt.wrap = false
