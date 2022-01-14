@@ -459,21 +459,6 @@ nnoremap <silent> [buffer]d :bd<CR>
 nnoremap [error] <Nop>
 nmap     [Space]e [error]
 nnoremap <silent> [error]e :<C-u>CocList diagnostics<CR>
-nmap     <silent> [error]n <Plug>(coc-diagnostic-next)
-nmap     <silent> [error]p <Plug>(coc-diagnostic-prev)
-
-nnoremap [coc] <Nop>
-nmap     [Space]C [coc]
-nmap              [coc]r  <Plug>(coc-rename)
-nmap              [coc]f  <Plug>(coc-format-selected)
-xmap              [coc]f  <Plug>(coc-format-selected)
-nmap              [coc]a  <Plug>(coc-codeaction-selected)
-xmap              [coc]a  <Plug>(coc-codeaction-selected)
-nmap              [coc]ac <Plug>(coc-codeaction)
-nmap              [coc]F  <Plug>(coc-fix-current)
-nnoremap <silent> [coc]E  :<C-u>CocList extensions<CR>
-nnoremap <silent> [coc]:  :<C-u>CocList commands<cr>
-
 
 nnoremap [toggle] <Nop>
 nmap     [Space]t [toggle]
