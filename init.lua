@@ -1036,18 +1036,19 @@ do
   end
 
   -- Servers
-  -- * pyright:  yarn global add pyright
-  -- * bashls:   yarn global add bash-language-server
-  -- * ccls:     emerge dev-util/ccls, pacman -S community/ccls
-  -- * cssls:    yarn global add vscode-langservers-extracted
-  -- * dockerls: yarn global add dockerfile-language-server-nodejs
-  -- * eslint:   yarn global add vscode-langservers-extracted
-  -- * html:     yarn global add vscode-langservers-extracted
-  -- * sqlls:    yarn global add sql-language-server
-  -- * texlab:   cargo install --git https://github.com/latex-lsp/texlab.git --locked
-  -- * tsserver: yarn global add typescript-language-server
-  -- * vimls:    yarn global add vim-language-server
-  -- * vuels:    yarn global add vls
+  -- * pyright:       yarn global add pyright
+  -- * bashls:        yarn global add bash-language-server
+  -- * ccls:          emerge dev-util/ccls, pacman -S community/ccls
+  -- * cssls:         yarn global add vscode-langservers-extracted
+  -- * dockerls:      yarn global add dockerfile-language-server-nodejs
+  -- * eslint:        yarn global add vscode-langservers-extracted
+  -- * html:          yarn global add vscode-langservers-extracted
+  -- * rust_analyzer: curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+  -- * sqlls:         yarn global add sql-language-server
+  -- * texlab:        cargo install --git https://github.com/latex-lsp/texlab.git --locked
+  -- * tsserver:      yarn global add typescript-language-server
+  -- * vimls:         yarn global add vim-language-server
+  -- * vuels:         yarn global add vls
   lspconfig['pyright'].setup {
     capabilities = capabilities,
     before_init = function(_, config)
@@ -1061,6 +1062,7 @@ do
     'dockerls',
     'eslint',
     'html',
+    'rust_analyzer',
     'sqlls',
     'texlab',
     'tsserver',
