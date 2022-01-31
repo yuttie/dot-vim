@@ -965,6 +965,13 @@ vim.api.nvim_set_keymap('n', '[search]g', '<cmd>Telescope live_grep<CR>',       
 -- {{{ neovim/nvim-lspconfig & hrsh7th/nvim-cmp
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
+-- Diagnostic symbols in the sign column
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
