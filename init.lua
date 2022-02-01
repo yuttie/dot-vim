@@ -648,7 +648,15 @@ require('lualine').setup {
   },
   tabline = {
     lualine_a = {
-      { 'tabs', mode = 1, max_length = function() return vim.o.columns end },
+      {
+        'tabs',
+        mode = 1,
+        max_length = function() return vim.o.columns end,
+        tabs_color = {
+          active = 'PMenuSel',
+          inactive = 'PMenu',
+        },
+      },
     },
     lualine_b = {},
     lualine_c = {},
