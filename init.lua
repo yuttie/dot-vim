@@ -36,7 +36,11 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('kana/vim-operator-user')
   vim.fn['dein#add']('kana/vim-operator-replace')
   vim.fn['dein#add']('kana/vim-textobj-user')
-  vim.fn['dein#add']('rhysd/vim-textobj-anyblock')
+  vim.fn['dein#add']('rhysd/vim-textobj-anyblock', {
+    on_map = {
+      '<Plug>(textobj-anyblock-a)',
+    },
+  })
   vim.fn['dein#add']('simnalamburt/vim-mundo')
   vim.fn['dein#add']('mg979/vim-visual-multi')
   vim.fn['dein#add']('numToStr/Comment.nvim')
