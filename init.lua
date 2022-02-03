@@ -458,7 +458,6 @@ nnoremap <silent> [buffer]d :bd<CR>
 
 nnoremap [error] <Nop>
 nmap     [Space]e [error]
-nnoremap <silent> [error]e :<C-u>CocList diagnostics<CR>
 
 nnoremap [toggle] <Nop>
 nmap     [Space]t [toggle]
@@ -535,8 +534,6 @@ xmap     [Space]<Space> [jump]
 omap     [Space]<Space> [jump]
 
 nmap     [jump]W <Plug>(choosewin)
-
-nnoremap <silent> [jump]o :<C-u>CocList outline<CR>
 
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
