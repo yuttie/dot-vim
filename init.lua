@@ -576,9 +576,6 @@ nmap     [jump]W <Plug>(choosewin)
 nnoremap [quit] <Nop>
 nmap     [Space]q [quit]
 nnoremap <silent> [quit]q :confirm qall<CR>
-
-" close a help window by `q'
-autocmd MyAutoCmds FileType help,ref-pydoc nnoremap <buffer><silent> q :close<CR>
 " }}}
 
 
@@ -920,9 +917,6 @@ let g:GPGPreferSymmetric = 1
 
 
 " {{{ Git
-autocmd MyAutoCmds FileType gitcommit setlocal spell
-autocmd MyAutoCmds FileType gina-commit setlocal spell
-
 nnoremap [git]    <Nop>
 vnoremap [git]    <Nop>
 nmap     <C-g>    [git]
@@ -1163,17 +1157,6 @@ nmap     [Space]G [grammarous]
 nnoremap [grammarous]G  :GrammarousCheck<CR>
 nmap     [grammarous]n  <Plug>(grammarous-move-to-next-error)
 nmap     [grammarous]p  <Plug>(grammarous-move-to-previous-error)
-" }}}
-
-
-" {{{ fish
-autocmd MyAutoCmds FileType fish setlocal foldmethod=expr
-" }}}
-
-
-" {{{ Vim
-autocmd MyAutoCmds FileType vim setlocal keywordprg=:help
-autocmd MyAutoCmds FileType vim setlocal shiftwidth=2
 " }}}
 
 
