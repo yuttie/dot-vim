@@ -303,7 +303,7 @@ set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  set background=light
+  set background=dark
   colorscheme spacegray-dark
 endif
 
