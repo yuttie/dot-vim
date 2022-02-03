@@ -12,6 +12,7 @@ autocmd MyAutoCmds FileType fish setlocal foldmethod=expr
 " {{{ Help
 " Close a help window by `q'
 autocmd MyAutoCmds FileType help nnoremap <buffer><silent> q :close<CR>
+autocmd MyAutoCmds FileType help setl conceallevel=0
 " "}}}"
 
 
