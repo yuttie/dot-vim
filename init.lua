@@ -751,7 +751,7 @@ vmap - <Plug>(expand_region_shrink)
 ]=]
 
 
--- {{{ kyazdani42/nvim-tree.lua
+-- {{{ machakann/vim-highlightedyank
 vim.api.nvim_set_keymap('', 'y', '<Plug>(highlightedyank)', {})
 -- }}}
 
