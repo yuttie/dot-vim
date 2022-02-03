@@ -15,6 +15,9 @@ local my_plugin_dir = vim.fn.expand('~/.config/nvim/bundle')
 vim.g.loaded_matchparen = 1
 vim.g.loaded_matchit = 1
 
+-- Prevent plugins from setting default keymaps
+vim.g.lightspeed_no_default_keymaps = 1
+
 -- Add path of dein.vim to runtimepath
 vim.opt.runtimepath:append(my_plugin_dir .. '/repos/github.com/Shougo/dein.vim')
 
@@ -83,7 +86,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- Move
   --
-  vim.fn['dein#add']('phaazon/hop.nvim')
+  vim.fn['dein#add']('ggandor/lightspeed.nvim')
   vim.fn['dein#add']('t9md/vim-choosewin', {
     on_map = {
       '<Plug>(choosewin)',
@@ -529,6 +532,8 @@ require('Comment').setup({
 
 vim.cmd [=[
 nnoremap [jump] <Nop>
+xnoremap [jump] <Nop>
+onoremap [jump] <Nop>
 nmap     [Space]<Space> [jump]
 xmap     [Space]<Space> [jump]
 omap     [Space]<Space> [jump]
@@ -816,18 +821,33 @@ vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(text
 -- }}}
 
 
--- {{{ phaazon/hop.nvim
-require('hop').setup()
--- place this in one of your configuration file(s)
-vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-vim.api.nvim_set_keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-vim.api.nvim_set_keymap('o', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
-vim.api.nvim_set_keymap('o', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
-vim.api.nvim_set_keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-vim.api.nvim_set_keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-
-vim.api.nvim_set_keymap('n', '[jump]w', "<cmd>lua require'hop'.hint_words()<cr>", {})
-vim.api.nvim_set_keymap('n', '[jump]l', "<cmd>lua require'hop'.hint_lines_skip_whitespace()<cr>", {})
+-- {{{ ggandor/lightspeed.nvim
+vim.api.nvim_set_keymap('n', '[jump]j', '<Plug>Lightspeed_s', {})
+vim.api.nvim_set_keymap('n', '[jump]k', '<Plug>Lightspeed_S', {})
+vim.api.nvim_set_keymap('x', '[jump]j', '<Plug>Lightspeed_s', {})
+vim.api.nvim_set_keymap('x', '[jump]k', '<Plug>Lightspeed_S', {})
+vim.api.nvim_set_keymap('o', '[jump]j', '<Plug>Lightspeed_s', {})
+vim.api.nvim_set_keymap('o', '[jump]k', '<Plug>Lightspeed_S', {})
+vim.api.nvim_set_keymap('n', '[jump]J', '<Plug>Lightspeed_gs', {})
+vim.api.nvim_set_keymap('n', '[jump]K', '<Plug>Lightspeed_gS', {})
+vim.api.nvim_set_keymap('n', 'f', '<Plug>Lightspeed_f', {})
+vim.api.nvim_set_keymap('n', 'F', '<Plug>Lightspeed_F', {})
+vim.api.nvim_set_keymap('x', 'f', '<Plug>Lightspeed_f', {})
+vim.api.nvim_set_keymap('x', 'F', '<Plug>Lightspeed_F', {})
+vim.api.nvim_set_keymap('o', 'f', '<Plug>Lightspeed_f', {})
+vim.api.nvim_set_keymap('o', 'F', '<Plug>Lightspeed_F', {})
+vim.api.nvim_set_keymap('n', 't', '<Plug>Lightspeed_t', {})
+vim.api.nvim_set_keymap('n', 'T', '<Plug>Lightspeed_T', {})
+vim.api.nvim_set_keymap('x', 't', '<Plug>Lightspeed_t', {})
+vim.api.nvim_set_keymap('x', 'T', '<Plug>Lightspeed_T', {})
+vim.api.nvim_set_keymap('o', 't', '<Plug>Lightspeed_t', {})
+vim.api.nvim_set_keymap('o', 'T', '<Plug>Lightspeed_T', {})
+vim.api.nvim_set_keymap('n', ';', '<Plug>Lightspeed_;_ft', {})
+vim.api.nvim_set_keymap('x', ';', '<Plug>Lightspeed_;_ft', {})
+vim.api.nvim_set_keymap('o', ';', '<Plug>Lightspeed_;_ft', {})
+vim.api.nvim_set_keymap('n', ',', '<Plug>Lightspeed_,_ft', {})
+vim.api.nvim_set_keymap('x', ',', '<Plug>Lightspeed_,_ft', {})
+vim.api.nvim_set_keymap('o', ',', '<Plug>Lightspeed_,_ft', {})
 -- }}}
 
 
