@@ -86,7 +86,36 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- Move
   --
-  vim.fn['dein#add']('ggandor/lightspeed.nvim')
+  vim.fn['dein#add']('ggandor/lightspeed.nvim', {
+    on_map = {
+      '<Plug>Lightspeed_s',
+      '<Plug>Lightspeed_S',
+      '<Plug>Lightspeed_s',
+      '<Plug>Lightspeed_S',
+      '<Plug>Lightspeed_s',
+      '<Plug>Lightspeed_S',
+      '<Plug>Lightspeed_gs',
+      '<Plug>Lightspeed_gS',
+      '<Plug>Lightspeed_f',
+      '<Plug>Lightspeed_F',
+      '<Plug>Lightspeed_f',
+      '<Plug>Lightspeed_F',
+      '<Plug>Lightspeed_f',
+      '<Plug>Lightspeed_F',
+      '<Plug>Lightspeed_t',
+      '<Plug>Lightspeed_T',
+      '<Plug>Lightspeed_t',
+      '<Plug>Lightspeed_T',
+      '<Plug>Lightspeed_t',
+      '<Plug>Lightspeed_T',
+      '<Plug>Lightspeed_;_ft',
+      '<Plug>Lightspeed_;_ft',
+      '<Plug>Lightspeed_;_ft',
+      '<Plug>Lightspeed_,_ft',
+      '<Plug>Lightspeed_,_ft',
+      '<Plug>Lightspeed_,_ft',
+    },
+  })
   vim.fn['dein#add']('t9md/vim-choosewin', {
     on_map = {
       '<Plug>(choosewin)',
