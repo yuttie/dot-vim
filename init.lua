@@ -772,23 +772,6 @@ wk.register({
     U = { '<cmd>Gitsigns reset_buffer_index<CR>',                 '', noremap = true, silent = true },
     f = { '<cmd>Telescope git_files<CR>',                         '', noremap = true, silent = true },
   },
-  ['<C-g>'] = {
-    name = 'git',
-    c = { ':Gina commit -v --opener="topleft vsplit"<CR>', '', noremap = true, silent = true },
-    d = { ':Gvdiff<CR>',                                   '', noremap = true, silent = true },
-    m = { ':Magit<CR>',                                    '', noremap = true, silent = true },
-    ['<C-n>'] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", '', expr = true },
-    ['<C-p>'] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", '', expr = true },
-    s = { '<cmd>Gitsigns stage_hunk<CR>',                         '', noremap = true, silent = true },
-    u = { '<cmd>Gitsigns undo_stage_hunk<CR>',                    '', noremap = true, silent = true },
-    r = { '<cmd>Gitsigns reset_hunk<CR>',                         '', noremap = true, silent = true },
-    R = { '<cmd>Gitsigns reset_buffer<CR>',                       '', noremap = true, silent = true },
-    p = { '<cmd>Gitsigns preview_hunk<CR>',                       '', noremap = true, silent = true },
-    b = { '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', '', noremap = true, silent = true },
-    S = { '<cmd>Gitsigns stage_buffer<CR>',                       '', noremap = true, silent = true },
-    U = { '<cmd>Gitsigns reset_buffer_index<CR>',                 '', noremap = true, silent = true },
-    f = { '<cmd>Telescope git_files<CR>',                         '', noremap = true, silent = true },
-  },
   G = {
     name = 'grammarous',
     G = { ':GrammarousCheck<CR>',                      '', noremap = true },
@@ -800,6 +783,22 @@ wk.register({
     p = { ':MarkdownPreview<CR>', '', noremap = true, silent = true },  -- From iamcco/markdown-preview.nvim
   },
 }, { mode = 'n', prefix = '<Space>' })
+wk.register({
+  c = { ':Gina commit -v --opener="topleft vsplit"<CR>', '', noremap = true, silent = true },
+  d = { ':Gvdiff<CR>',                                   '', noremap = true, silent = true },
+  m = { ':Magit<CR>',                                    '', noremap = true, silent = true },
+  ['<C-n>'] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", '', expr = true },
+  ['<C-p>'] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", '', expr = true },
+  s = { '<cmd>Gitsigns stage_hunk<CR>',                         '', noremap = true, silent = true },
+  u = { '<cmd>Gitsigns undo_stage_hunk<CR>',                    '', noremap = true, silent = true },
+  r = { '<cmd>Gitsigns reset_hunk<CR>',                         '', noremap = true, silent = true },
+  R = { '<cmd>Gitsigns reset_buffer<CR>',                       '', noremap = true, silent = true },
+  p = { '<cmd>Gitsigns preview_hunk<CR>',                       '', noremap = true, silent = true },
+  b = { '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', '', noremap = true, silent = true },
+  S = { '<cmd>Gitsigns stage_buffer<CR>',                       '', noremap = true, silent = true },
+  U = { '<cmd>Gitsigns reset_buffer_index<CR>',                 '', noremap = true, silent = true },
+  f = { '<cmd>Telescope git_files<CR>',                         '', noremap = true, silent = true },
+}, { mode = 'n', prefix = '<C-g>' })
 wk.register({
   c = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', '' },
   ['<Space>'] = {
