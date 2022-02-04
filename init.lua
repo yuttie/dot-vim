@@ -156,6 +156,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('lukas-reineke/indent-blankline.nvim')
   vim.fn['dein#add']('yuttie/comfortable-motion.vim')
   vim.fn['dein#add']('machakann/vim-highlightedyank')
+  vim.fn['dein#add']('folke/which-key.nvim')
 
   --
   -- Others
@@ -406,16 +407,6 @@ lua require('commands')
 " }}}
 
 
-" {{{ Prefix key
-nnoremap [Space] <Nop>
-xnoremap [Space] <Nop>
-onoremap [Space] <Nop>
-nmap     <Space> [Space]
-xmap     <Space> [Space]
-omap     <Space> [Space]
-" }}}
-
-
 " {{{ Mappings
 " insert
 inoremap <C-s> <C-d>
@@ -463,79 +454,23 @@ cnoremap <C-x> <C-r>=expand('%:p')<CR>
 
 " terminal
 tnoremap <Esc> <C-\><C-n>
-
-" Space-prefixed bindings
-nnoremap [help] <Nop>
-nmap     [Space]h [help]
-
-nnoremap [plugin] <Nop>
-nmap     [Space]P [plugin]
-nnoremap <silent> [plugin]P :call dein#check_update(v:true)<CR>
-nnoremap <silent> [plugin]i :call dein#install()<CR>
-nnoremap <silent> [plugin]c :echo dein#check_clean() <Bar> call map(dein#check_clean(), "delete(v:val, 'rf')") <Bar> call dein#recache_runtimepath() <Bar> echo "Cleaned up."<CR>
-
-nnoremap [file] <Nop>
-nmap     [Space]f [file]
-nnoremap <silent> [file]vd :tab vsplit $MYVIMRC<CR>
-nnoremap <silent> [file]vR :source $MYVIMRC<CR>
-nnoremap <silent> [file]s  :w<CR>
-nnoremap <silent> [file]S  :wa<CR>
-nnoremap <silent> [file]t  :NvimTreeToggle<CR>
-nnoremap          [file]R  :Rename<Space>
-
-nnoremap [search] <Nop>
-nmap     [Space]s [search]
-
-nnoremap [buffer] <Nop>
-nmap     [Space]b [buffer]
-nnoremap <silent> [buffer]n :bn<CR>
-nnoremap <silent> [buffer]p :bp<CR>
-nnoremap <silent> [buffer]d :bd<CR>
-
-nnoremap [error] <Nop>
-nmap     [Space]e [error]
-
-nnoremap [toggle] <Nop>
-nmap     [Space]t [toggle]
-nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
-nnoremap <silent> [toggle]w :setl list!<CR>:setl list?<CR>
-nnoremap <silent> [toggle]n :setl number!<CR>:setl number?<CR>
-nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
-nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
-nnoremap <silent> [toggle]z :ZenMode<CR>
-nnoremap <silent> [toggle]i :IndentBlanklineToggle<CR>
-nnoremap <silent> [toggle]<Space> :setl list!<CR>:setl list?<CR>
 ]=]
 
 -- Commenting
-vim.api.nvim_set_keymap('n', '[comment]', '<Nop>', { noremap = true })
-vim.api.nvim_set_keymap('x', '[comment]', '<Nop>', { noremap = true })
-vim.api.nvim_set_keymap('n', '[Space]c', '[comment]', {})
-vim.api.nvim_set_keymap('x', '[Space]c', '[comment]', {})
 require('Comment').setup({
-    ---LHS of toggle mappings in NORMAL + VISUAL mode
+    ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
     ---@type table
-    toggler = {
-        ---Line-comment toggle keymap
-        line = '[comment]c',
-    },
-
-    ---LHS of operator-pending mappings in NORMAL + VISUAL mode
-    ---@type table
-    opleader = {
-        ---Line-comment keymap
-        line = '[comment]',
-    },
-
-    ---LHS of extra mappings
-    ---@type table
-    extra = {
-        ---Add comment on the line above
-        above = '[comment]O',
-        ---Add comment on the line below
-        below = '[comment]o',
-        ---Add comment at the end of line
-        eol = '[comment]A',
+    mappings = {
+        ---Operator-pending mapping
+        ---Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
+        ---NOTE: These mappings can be changed individually by `opleader` and `toggler` config
+        basic = false,
+        ---Extra mapping
+        ---Includes `gco`, `gcO`, `gcA`
+        extra = false,
+        ---Extended mapping
+        ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
+        extended = false,
     },
 
     ---@param ctx Ctx
@@ -562,20 +497,7 @@ require('Comment').setup({
         end
     end,
 })
-
 vim.cmd [=[
-nnoremap [jump] <Nop>
-xnoremap [jump] <Nop>
-onoremap [jump] <Nop>
-nmap     [Space]<Space> [jump]
-xmap     [Space]<Space> [jump]
-omap     [Space]<Space> [jump]
-
-nmap     [jump]W <Plug>(choosewin)
-
-nnoremap [quit] <Nop>
-nmap     [Space]q [quit]
-nnoremap <silent> [quit]q :confirm qall<CR>
 " }}}
 
 
@@ -756,6 +678,150 @@ vim.api.nvim_set_keymap('', 'y', '<Plug>(highlightedyank)', {})
 -- }}}
 
 
+-- {{{ folke/which-key.nvim
+local wk = require('which-key')
+wk.register({
+  h = {
+    name = 'help',
+    h = { '<cmd>Telescope help_tags<CR>',   'Help tags',    noremap = true, silent = true },
+    c = { '<cmd>Telescope commands<CR>',    'Commands',     noremap = true, silent = true },
+    m = { '<cmd>Telescope keymaps<CR>',     'Keymaps',      noremap = true, silent = true },
+    C = { '<cmd>Telescope colorscheme<CR>', 'Colorschemes', noremap = true, silent = true },
+  },
+  P = {
+    name = 'plugin',
+    P = { ':call dein#check_update(v:true)<CR>', 'Update',  noremap = true, silent = true },
+    i = { ':call dein#install()<CR>',            'Install', noremap = true, silent = true },
+    c = { ':echo dein#check_clean() <Bar> call map(dein#check_clean(), "delete(v:val, \'rf\')") <Bar> call dein#recache_runtimepath() <Bar> echo "Cleaned up."<CR>', 'Clean', noremap = true, silent = true },
+  },
+  f = {
+    name = 'file',
+    v = {
+      name = 'vim',
+      d = { ':tab vsplit $MYVIMRC<CR>', 'Open $MYVIMRC',   noremap = true, silent = true },
+      R = { ':source $MYVIMRC<CR>',     'Reload $MYVIMRC', noremap = true, silent = true },
+    },
+    s = { ':w<CR>',              '', noremap = true, silent = true },
+    S = { ':wa<CR>',             '', noremap = true, silent = true },
+    t = { ':NvimTreeToggle<CR>', '', noremap = true, silent = true },
+    R = { ':Rename<Space>',      '', noremap = true },
+    f = { '<cmd>Telescope find_files<CR>', '', noremap = true, silent = true },
+    r = { '<cmd>Telescope oldfiles<CR>',   '', noremap = true, silent = true },
+  },
+  s = {
+    name = 'search',
+    s = { '<cmd>Telescope current_buffer_fuzzy_find<CR>', '', noremap = true, silent = true },
+    g = { '<cmd>Telescope live_grep<CR>',                 '', noremap = true, silent = true },
+  },
+  b = {
+    name = 'buffer',
+    n = { ':bn<CR>', '', noremap = true, silent = true },
+    p = { ':bp<CR>', '', noremap = true, silent = true },
+    d = { ':bd<CR>', '', noremap = true, silent = true },
+    b = { '<cmd>Telescope buffers<CR>', '', noremap = true, silent = true },
+  },
+  e = {
+    name = 'error',
+  },
+  t = {
+    name = 'toggle',
+    s = { ':setl spell!<CR>:setl spell?<CR>',         '', noremap = true, silent = true },
+    w = { ':setl list!<CR>:setl list?<CR>',           '', noremap = true, silent = true },
+    n = { ':setl number!<CR>:setl number?<CR>',       '', noremap = true, silent = true },
+    t = { ':setl expandtab!<CR>:setl expandtab?<CR>', '', noremap = true, silent = true },
+    w = { ':setl wrap!<CR>:setl wrap?<CR>',           '', noremap = true, silent = true },
+    z = { ':ZenMode<CR>',                             '', noremap = true, silent = true },
+    i = { ':IndentBlanklineToggle<CR>',               '', noremap = true, silent = true },
+    ['<Space>'] = { ':setl list!<CR>:setl list?<CR>', '', noremap = true, silent = true },
+  },
+  c = {
+    name = 'comment',
+    [''] = { '<CMD>lua require("Comment.api").call("toggle_linewise_op")<CR>g@',          '' },
+    c    = { '<CMD>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', '' },
+    o    = { '<CMD>lua require("Comment.api").call("insert_linewise_below")<CR>',         '' },
+    O    = { '<CMD>lua require("Comment.api").call("insert_linewise_above")<CR>',         '' },
+    A    = { '<CMD>lua require("Comment.api").call("insert_linewise_eol")<CR>',           '' },
+  },
+  ['<Space>'] = {
+    name = 'jump',
+    j = { '<Plug>Lightspeed_s',  '' },
+    k = { '<Plug>Lightspeed_S',  '' },
+    J = { '<Plug>Lightspeed_gs', '' },
+    K = { '<Plug>Lightspeed_gS', '' },
+    W = { '<Plug>(choosewin)',   '' },
+  },
+  q = {
+    name = 'quit',
+    q = { ':confirm qall<CR>', '', noremap = true, silent = true },
+  },
+  a = { '<Plug>(EasyAlign)', 'EasyAlign' },
+  g = {
+    name = 'git',
+    c = { ':Gina commit -v --opener="topleft vsplit"<CR>', '', noremap = true, silent = true },
+    d = { ':Gvdiff<CR>',                                   '', noremap = true, silent = true },
+    m = { ':Magit<CR>',                                    '', noremap = true, silent = true },
+    ['<C-n>'] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", '', expr = true },
+    ['<C-p>'] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", '', expr = true },
+    s = { '<cmd>Gitsigns stage_hunk<CR>',                         '', noremap = true, silent = true },
+    u = { '<cmd>Gitsigns undo_stage_hunk<CR>',                    '', noremap = true, silent = true },
+    r = { '<cmd>Gitsigns reset_hunk<CR>',                         '', noremap = true, silent = true },
+    R = { '<cmd>Gitsigns reset_buffer<CR>',                       '', noremap = true, silent = true },
+    p = { '<cmd>Gitsigns preview_hunk<CR>',                       '', noremap = true, silent = true },
+    b = { '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', '', noremap = true, silent = true },
+    S = { '<cmd>Gitsigns stage_buffer<CR>',                       '', noremap = true, silent = true },
+    U = { '<cmd>Gitsigns reset_buffer_index<CR>',                 '', noremap = true, silent = true },
+    f = { '<cmd>Telescope git_files<CR>',                         '', noremap = true, silent = true },
+  },
+  ['<C-g>'] = {
+    name = 'git',
+    c = { ':Gina commit -v --opener="topleft vsplit"<CR>', '', noremap = true, silent = true },
+    d = { ':Gvdiff<CR>',                                   '', noremap = true, silent = true },
+    m = { ':Magit<CR>',                                    '', noremap = true, silent = true },
+    ['<C-n>'] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", '', expr = true },
+    ['<C-p>'] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", '', expr = true },
+    s = { '<cmd>Gitsigns stage_hunk<CR>',                         '', noremap = true, silent = true },
+    u = { '<cmd>Gitsigns undo_stage_hunk<CR>',                    '', noremap = true, silent = true },
+    r = { '<cmd>Gitsigns reset_hunk<CR>',                         '', noremap = true, silent = true },
+    R = { '<cmd>Gitsigns reset_buffer<CR>',                       '', noremap = true, silent = true },
+    p = { '<cmd>Gitsigns preview_hunk<CR>',                       '', noremap = true, silent = true },
+    b = { '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', '', noremap = true, silent = true },
+    S = { '<cmd>Gitsigns stage_buffer<CR>',                       '', noremap = true, silent = true },
+    U = { '<cmd>Gitsigns reset_buffer_index<CR>',                 '', noremap = true, silent = true },
+    f = { '<cmd>Telescope git_files<CR>',                         '', noremap = true, silent = true },
+  },
+  G = {
+    name = 'grammarous',
+    G = { ':GrammarousCheck<CR>',                      '', noremap = true },
+    n = { '<Plug>(grammarous-move-to-next-error)',     '' },
+    p = { '<Plug>(grammarous-move-to-previous-error)', '' },
+  },
+  m = {
+    name = 'markdown',
+    p = { ':MarkdownPreview<CR>', '', noremap = true, silent = true },  -- From iamcco/markdown-preview.nvim
+  },
+}, { mode = 'n', prefix = '<Space>' })
+wk.register({
+  c = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', '' },
+  ['<Space>'] = {
+    j = { '<Plug>Lightspeed_s', '' },
+    k = { '<Plug>Lightspeed_S', '' },
+  },
+  a = { '<Plug>(EasyAlign)', '' },
+  g = {
+    name = 'git',
+    s = { '<cmd>Gitsigns stage_hunk<CR>', '', noremap = true, silent = true },
+    r = { '<cmd>Gitsigns reset_hunk<CR>', '', noremap = true, silent = true },
+  }
+}, { mode = 'x', prefix = '<Space>' })
+wk.register({
+  ['<Space>'] = {
+    j = { '<Plug>Lightspeed_s', '' },
+    k = { '<Plug>Lightspeed_S', '' },
+  },
+}, { mode = 'o', prefix = '<Space>' })
+-- }}}
+
+
 -- {{{ kyazdani42/nvim-tree.lua
 require('nvim-tree').setup {
   disable_netrw       = true,
@@ -852,14 +918,6 @@ vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(text
 
 
 -- {{{ ggandor/lightspeed.nvim
-vim.api.nvim_set_keymap('n', '[jump]j', '<Plug>Lightspeed_s', {})
-vim.api.nvim_set_keymap('n', '[jump]k', '<Plug>Lightspeed_S', {})
-vim.api.nvim_set_keymap('x', '[jump]j', '<Plug>Lightspeed_s', {})
-vim.api.nvim_set_keymap('x', '[jump]k', '<Plug>Lightspeed_S', {})
-vim.api.nvim_set_keymap('o', '[jump]j', '<Plug>Lightspeed_s', {})
-vim.api.nvim_set_keymap('o', '[jump]k', '<Plug>Lightspeed_S', {})
-vim.api.nvim_set_keymap('n', '[jump]J', '<Plug>Lightspeed_gs', {})
-vim.api.nvim_set_keymap('n', '[jump]K', '<Plug>Lightspeed_gS', {})
 vim.api.nvim_set_keymap('n', 'f', '<Plug>Lightspeed_f', {})
 vim.api.nvim_set_keymap('n', 'F', '<Plug>Lightspeed_F', {})
 vim.api.nvim_set_keymap('x', 'f', '<Plug>Lightspeed_f', {})
@@ -895,16 +953,6 @@ let g:choosewin_color_overlay_current = {
 " }}}
 
 
-" {{{ vim-easy-align
-nnoremap [easy-align]  <Nop>
-xnoremap [easy-align]  <Nop>
-nmap     [Space]a      [easy-align]
-xmap     [Space]a      [easy-align]
-nmap     [easy-align]  <Plug>(EasyAlign)
-xmap     [easy-align]  <Plug>(EasyAlign)
-" }}}
-
-
 " {{{ open-browser.vim
 nmap gw <Plug>(openbrowser-smart-search)
 vmap gw <Plug>(openbrowser-smart-search)
@@ -913,20 +961,6 @@ vmap gw <Plug>(openbrowser-smart-search)
 
 " {{{ vim-gnupg
 let g:GPGPreferSymmetric = 1
-" }}}
-
-
-" {{{ Git
-nnoremap [git]    <Nop>
-vnoremap [git]    <Nop>
-nmap     <C-g>    [git]
-vmap     <C-g>    [git]
-nmap     [Space]g [git]
-vmap     [Space]g [git]
-
-nnoremap <silent> [git]c  :Gina commit -v --opener="topleft vsplit"<CR>
-nnoremap <silent> [git]d  :Gvdiff<CR>
-nnoremap <silent> [git]m  :Magit<CR>
 " }}}
 ]=]
 
@@ -947,20 +981,6 @@ require('gitsigns').setup {
   keymaps = {
     -- Default keymap options
     noremap = true,
-
-    ['n [git]<C-n>'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
-    ['n [git]<C-p>'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
-
-    ['n [git]s'] = '<cmd>Gitsigns stage_hunk<CR>',
-    ['v [git]s'] = ':Gitsigns stage_hunk<CR>',
-    ['n [git]u'] = '<cmd>Gitsigns undo_stage_hunk<CR>',
-    ['n [git]r'] = '<cmd>Gitsigns reset_hunk<CR>',
-    ['v [git]r'] = ':Gitsigns reset_hunk<CR>',
-    ['n [git]R'] = '<cmd>Gitsigns reset_buffer<CR>',
-    ['n [git]p'] = '<cmd>Gitsigns preview_hunk<CR>',
-    ['n [git]b'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
-    ['n [git]S'] = '<cmd>Gitsigns stage_buffer<CR>',
-    ['n [git]U'] = '<cmd>Gitsigns reset_buffer_index<CR>',
 
     -- Text objects
     ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
@@ -997,20 +1017,6 @@ require('gitsigns').setup {
     enable = false
   },
 }
--- }}}
-
-
--- {{{ nvim-telescope/telescope.nvim
-vim.api.nvim_set_keymap('n', '[buffer]b', '<cmd>Telescope buffers<CR>',                   { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[file]f',   '<cmd>Telescope find_files<CR>',                { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[file]r',   '<cmd>Telescope oldfiles<CR>',                  { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[git]f',    '<cmd>Telescope git_files<CR>',                 { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[help]h',   '<cmd>Telescope help_tags<CR>',                 { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[help]dc',  '<cmd>Telescope commands<CR>',                  { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[help]dm',  '<cmd>Telescope keymaps<CR>',                   { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[help]dC',  '<cmd>Telescope colorscheme<CR>',               { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[search]s', '<cmd>Telescope current_buffer_fuzzy_find<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[search]g', '<cmd>Telescope live_grep<CR>',                 { noremap = true, silent = true })
 -- }}}
 
 
@@ -1151,21 +1157,6 @@ require('lsp_signature').setup {
 vim.cmd [=[
 " {{{ rhysd/vim-grammarous
 nmap <F5> <Plug>(grammarous-move-to-next-error)
-nnoremap [grammarous]    <Nop>
-nmap     [Space]G [grammarous]
-
-nnoremap [grammarous]G  :GrammarousCheck<CR>
-nmap     [grammarous]n  <Plug>(grammarous-move-to-next-error)
-nmap     [grammarous]p  <Plug>(grammarous-move-to-previous-error)
-" }}}
-
-
-" {{{ Markdown
-nnoremap [markdown]  <Nop>
-xnoremap [markdown]  <Nop>
-nmap     [Space]m    [markdown]
-xmap     [Space]m    [markdown]
-nmap     [markdown]p :MarkdownPreview<CR>  " From iamcco/markdown-preview.nvim
 " }}}
 
 
