@@ -451,7 +451,6 @@ nnoremap <C-i> <C-g>
 nnoremap <F8>  :split \| execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') \| terminal<CR>
 
 " command
-cmap w!! w !sudo tee > /dev/null %
 cnoremap <C-x> <C-r>=expand('%:p')<CR>
 
 " terminal
