@@ -183,6 +183,8 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('rafamadriz/friendly-snippets')
   -- Signature
   vim.fn['dein#add']('ray-x/lsp_signature.nvim')
+  -- Appearance
+  vim.fn['dein#add']('onsails/lspkind-nvim')
 
   --
   -- Interactive filter
@@ -1056,6 +1058,13 @@ cmp.setup({
   }, {
     { name = 'buffer' },
   }),
+  formatting = {
+    format = require('lspkind').cmp_format({
+      mode = 'symbol_text',
+      preset = 'codicons',
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+    }),
+  },
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
