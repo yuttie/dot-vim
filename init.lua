@@ -1023,6 +1023,15 @@ require('gitsigns').setup {
 -- {{{ neovim/nvim-lspconfig & hrsh7th/nvim-cmp
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
+-- Configure diagnostic
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 -- Diagnostic symbols in the sign column
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
