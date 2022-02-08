@@ -723,6 +723,10 @@ wk.register({
   },
   e = {
     name = 'error',
+    e = { '<cmd>lua vim.diagnostic.open_float()<CR>', '', noremap = true, silent = true },
+    p = { '<cmd>lua vim.diagnostic.goto_prev()<CR>',  '', noremap = true, silent = true },
+    n = { '<cmd>lua vim.diagnostic.goto_next()<CR>',  '', noremap = true, silent = true },
+    l = { '<cmd>lua vim.diagnostic.setloclist()<CR>', '', noremap = true, silent = true },
   },
   t = {
     name = 'toggle',
@@ -1097,6 +1101,22 @@ do
   local util = require('lspconfig/util')
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+  local on_attach = function(client, bufnr)
+    -- Mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { noremap = true, silent = true }
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  end
+
   local path = util.path
 
   local function get_python_path(workspace)
@@ -1132,6 +1152,7 @@ do
   -- * vuels:         yarn global add vls
   lspconfig['pyright'].setup {
     capabilities = capabilities,
+    on_attach = on_attach,
     before_init = function(_, config)
       config.settings.python.pythonPath = get_python_path(config.root_dir)
     end,
@@ -1153,6 +1174,7 @@ do
   for _, server in ipairs(servers) do
     lspconfig[server].setup {
       capabilities = capabilities,
+      on_attach = on_attach,
     }
   end
 end
