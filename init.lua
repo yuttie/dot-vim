@@ -679,6 +679,24 @@ vim.api.nvim_set_keymap('', 'y', '<Plug>(highlightedyank)', {})
 -- }}}
 
 
+-- {{{ nvim-telescope/telescope.nvim
+require('telescope').setup{
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          -- map actions.which_key to <C-h> (default: <C-/>)
+          -- actions.which_key shows the mappings for your picker,
+          -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+          ["<C-d>"] = "delete_buffer",
+        },
+      },
+    },
+  },
+}
+-- }}}
+
+
 -- {{{ folke/which-key.nvim
 local wk = require('which-key')
 wk.register({
