@@ -926,24 +926,27 @@ vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(text
 
 
 -- {{{ ggandor/lightspeed.nvim
-vim.api.nvim_set_keymap('n', 'f', '<Plug>Lightspeed_f', {})
-vim.api.nvim_set_keymap('n', 'F', '<Plug>Lightspeed_F', {})
-vim.api.nvim_set_keymap('x', 'f', '<Plug>Lightspeed_f', {})
-vim.api.nvim_set_keymap('x', 'F', '<Plug>Lightspeed_F', {})
-vim.api.nvim_set_keymap('o', 'f', '<Plug>Lightspeed_f', {})
-vim.api.nvim_set_keymap('o', 'F', '<Plug>Lightspeed_F', {})
-vim.api.nvim_set_keymap('n', 't', '<Plug>Lightspeed_t', {})
-vim.api.nvim_set_keymap('n', 'T', '<Plug>Lightspeed_T', {})
-vim.api.nvim_set_keymap('x', 't', '<Plug>Lightspeed_t', {})
-vim.api.nvim_set_keymap('x', 'T', '<Plug>Lightspeed_T', {})
-vim.api.nvim_set_keymap('o', 't', '<Plug>Lightspeed_t', {})
-vim.api.nvim_set_keymap('o', 'T', '<Plug>Lightspeed_T', {})
-vim.api.nvim_set_keymap('n', ';', '<Plug>Lightspeed_;_ft', {})
-vim.api.nvim_set_keymap('x', ';', '<Plug>Lightspeed_;_ft', {})
-vim.api.nvim_set_keymap('o', ';', '<Plug>Lightspeed_;_ft', {})
-vim.api.nvim_set_keymap('n', ',', '<Plug>Lightspeed_,_ft', {})
-vim.api.nvim_set_keymap('x', ',', '<Plug>Lightspeed_,_ft', {})
-vim.api.nvim_set_keymap('o', ',', '<Plug>Lightspeed_,_ft', {})
+vim.api.nvim_set_keymap('n', 'f', '<Plug>Lightspeed_f', { silent = true })
+vim.api.nvim_set_keymap('n', 'F', '<Plug>Lightspeed_F', { silent = true })
+vim.api.nvim_set_keymap('x', 'f', '<Plug>Lightspeed_f', { silent = true })
+vim.api.nvim_set_keymap('x', 'F', '<Plug>Lightspeed_F', { silent = true })
+vim.api.nvim_set_keymap('o', 'f', '<Plug>Lightspeed_f', { silent = true })
+vim.api.nvim_set_keymap('o', 'F', '<Plug>Lightspeed_F', { silent = true })
+
+vim.api.nvim_set_keymap('n', 't', '<Plug>Lightspeed_t', { silent = true })
+vim.api.nvim_set_keymap('n', 'T', '<Plug>Lightspeed_T', { silent = true })
+vim.api.nvim_set_keymap('x', 't', '<Plug>Lightspeed_t', { silent = true })
+vim.api.nvim_set_keymap('x', 'T', '<Plug>Lightspeed_T', { silent = true })
+vim.api.nvim_set_keymap('o', 't', '<Plug>Lightspeed_t', { silent = true })
+vim.api.nvim_set_keymap('o', 'T', '<Plug>Lightspeed_T', { silent = true })
+
+vim.api.nvim_set_keymap('n', ';', '<Plug>Lightspeed_;_ft', { silent = true })
+vim.api.nvim_set_keymap('x', ';', '<Plug>Lightspeed_;_ft', { silent = true })
+vim.api.nvim_set_keymap('o', ';', '<Plug>Lightspeed_;_ft', { silent = true })
+
+vim.api.nvim_set_keymap('n', ',', '<Plug>Lightspeed_,_ft', { silent = true })
+vim.api.nvim_set_keymap('x', ',', '<Plug>Lightspeed_,_ft', { silent = true })
+vim.api.nvim_set_keymap('o', ',', '<Plug>Lightspeed_,_ft', { silent = true })
 -- }}}
 
 
