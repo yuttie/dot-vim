@@ -735,7 +735,7 @@ wk.register({
   t = {
     name = 'toggle',
     s = { ':setl spell!<CR>:setl spell?<CR>',         '', noremap = true, silent = true },
-    w = { ':setl list!<CR>:setl list?<CR>',           '', noremap = true, silent = true },
+    W = { ':setl list!<CR>:setl list?<CR>',           '', noremap = true, silent = true },
     n = { ':setl number!<CR>:setl number?<CR>',       '', noremap = true, silent = true },
     t = { ':setl expandtab!<CR>:setl expandtab?<CR>', '', noremap = true, silent = true },
     w = { ':setl wrap!<CR>:setl wrap?<CR>',           '', noremap = true, silent = true },
