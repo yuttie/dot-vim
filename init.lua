@@ -610,21 +610,19 @@ require('lualine').setup {
 -- }}}
 
 
-vim.cmd [=[
-" {{{ vim-better-whitespace
-let g:better_whitespace_operator = ''
-let g:better_whitespace_filetypes_blacklist = [
-      \ 'diff',
-      \ 'gitcommit',
-      \ 'qf',
-      \ 'help',
-      \ 'markdown',
-      \ ]
-" }}}
+-- {{{ vim-better-whitespace
+vim.g.better_whitespace_operator = ''
+vim.g.better_whitespace_filetypes_blacklist = {
+  'diff',
+  'gitcommit',
+  'qf',
+  'help',
+  'markdown',
+}
+-- }}}
 
 
-" {{{ lukas-reineke/indent-blankline.nvim
-lua <<EOF
+-- {{{ lukas-reineke/indent-blankline.nvim
 vim.opt.list = true
 vim.opt.listchars:append({ eol = '↴' })
 
@@ -635,10 +633,10 @@ require("indent_blankline").setup {
     show_end_of_line = true,
     space_char_blankline = " ",
 }
-EOF
-" }}}
+-- }}}
 
 
+vim.cmd [=[
 " {{{ comfortable-motion.vim
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
@@ -950,30 +948,28 @@ vim.api.nvim_set_keymap('o', ',', '<Plug>Lightspeed_,_ft', { silent = true })
 -- }}}
 
 
-vim.cmd [=[
-" {{{ vim-choosewin
-let g:choosewin_overlay_enable = 1
-let g:choosewin_color_overlay = {
-      \ 'gui': ['#484e55', '#484e55'],
-      \ 'cterm': [239, 239]
-      \ }
-let g:choosewin_color_overlay_current = {
-      \ 'gui': ['#e4c374', '#e4c374'],
-      \ 'cterm': [179, 179]
-      \ }
-" }}}
+-- {{{ vim-choosewin
+vim.g.choosewin_overlay_enable = 1
+vim.g.choosewin_color_overlay = {
+  gui = {'#484e55', '#484e55'},
+  cterm = {239, 239},
+}
+vim.g.choosewin_color_overlay_current = {
+  gui = {'#e4c374', '#e4c374'},
+  cterm = {179, 179},
+}
+-- }}}
 
 
-" {{{ open-browser.vim
-nmap gw <Plug>(openbrowser-smart-search)
-vmap gw <Plug>(openbrowser-smart-search)
-" }}}
+-- {{{ open-browser.vim
+vim.api.nvim_set_keymap('n', 'gw', '<Plug>(openbrowser-smart-search)', {})
+vim.api.nvim_set_keymap('v', 'gw', '<Plug>(openbrowser-smart-search)', {})
+-- }}}
 
 
-" {{{ vim-gnupg
-let g:GPGPreferSymmetric = 1
-" }}}
-]=]
+-- {{{ vim-gnupg
+vim.g.GPGPreferSymmetric = 1
+-- }}}
 
 
 -- {{{ lewis6991/gitsigns.nvim
