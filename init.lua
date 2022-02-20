@@ -714,8 +714,10 @@ wk.register({
   },
   s = {
     name = 'search',
-    s = { '<cmd>Telescope current_buffer_fuzzy_find<CR>', '[Telescope] Current buffer lines', noremap = true, silent = true },
-    g = { '<cmd>Telescope live_grep<CR>',                 '[Telescope] Live grep',            noremap = true, silent = true },
+    b     = { '<cmd>Telescope current_buffer_fuzzy_find<CR>', '[Telescope] Current buffer lines', noremap = true, silent = true },
+    g     = { '<cmd>Telescope live_grep<CR>',                 '[Telescope] Live grep',            noremap = true, silent = true },
+    s     = { '<cmd>Telescope lsp_document_symbols<CR>',      '[Telescope] LSP document symbols', noremap = true, silent = true },
+    ['/'] = { '<cmd>Telescope search_history<CR>',            '[Telescope] Search history',       noremap = true, silent = true },
   },
   b = {
     name = 'buffer',
