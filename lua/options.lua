@@ -47,7 +47,7 @@ vim.opt.expandtab = true     -- Use white-space instead of tabs.
 vim.opt.shiftwidth = 4  -- Set indent width on autoindent.
 vim.opt.shiftround = true
 vim.opt.autoindent = true    -- Always set auto-indenting on.
-vim.opt.smartindent = true   -- Use smart indenting.
+vim.opt.smartindent = false   -- If this option is enabled, '>>' doesn't work with comments starting with #
 vim.opt.smarttab = true
 vim.opt.cinoptions = { ':0', 'g0' }
 
