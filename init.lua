@@ -507,10 +507,10 @@ endfunction
 
 autocmd MyAutoCmds BufNewFile * call InsertTemplate()
 " }}}
+]=]
 
 
-" {{{ nvim-web-devicons
-lua <<EOF
+-- {{{ nvim-web-devicons
 require'nvim-web-devicons'.setup {
  -- your personnal icons can go here (to override)
  -- you can specify color or cterm_color instead of specifying both of them
@@ -521,12 +521,10 @@ require'nvim-web-devicons'.setup {
  -- will get overriden by `get_icons` option
  default = true;
 }
-EOF
-" }}}
+-- }}}
 
 
-" {{{ norcalli/nvim-colorizer.lua
-lua <<EOF
+-- {{{ norcalli/nvim-colorizer.lua
 require'colorizer'.setup({
   '*';
 }, {
@@ -541,9 +539,7 @@ require'colorizer'.setup({
   -- Available modes: foreground, background
   mode     = 'background'; -- Set the display mode.
 })
-EOF
-" }}}
-]=]
+-- }}}
 
 
 -- {{{ nvim-lualine/lualine.nvim
