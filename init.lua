@@ -132,7 +132,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- Terminal
   --
-  vim.fn['dein#add']('numToStr/FTerm.nvim')
+  vim.fn['dein#add']('voldikss/vim-floaterm')
 
   --
   -- Others
@@ -820,12 +820,25 @@ wk.register({
 -- }}}
 
 
--- {{{ numToStr/FTerm.nvim
-require'FTerm'.setup({
-  blend = 10,
-})
-vim.api.nvim_set_keymap('n', '<A-t>',  '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<A-t>',  '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+-- {{{ voldikss/vim-floaterm
+vim.g.floaterm_width = 0.8
+vim.g.floaterm_height = 0.8
+vim.cmd('autocmd MyAutoCmds User FloatermOpen set winblend=10')
+-- Toggle
+vim.api.nvim_set_keymap('n', '<A-t>',  '<CMD>FloatermToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-t>',  '<C-\\><C-n><CMD>FloatermToggle<CR>', { noremap = true, silent = true })
+-- New
+vim.api.nvim_set_keymap('n', '<A-c>',  '<CMD>FloatermNew<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-c>',  '<C-\\><C-n><CMD>FloatermNew<CR>', { noremap = true, silent = true })
+-- Kill
+vim.api.nvim_set_keymap('n', '<A-x>',  '<CMD>FloatermKill<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-x>',  '<C-\\><C-n><CMD>FloatermKill<CR>', { noremap = true, silent = true })
+-- Previous
+vim.api.nvim_set_keymap('n', '<A-p>',  '<CMD>FloatermPrev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-p>',  '<C-\\><C-n><CMD>FloatermPrev<CR>', { noremap = true, silent = true })
+-- Next
+vim.api.nvim_set_keymap('n', '<A-n>',  '<CMD>FloatermNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-n>',  '<C-\\><C-n><CMD>FloatermNext<CR>', { noremap = true, silent = true })
 -- }}}
 
 
