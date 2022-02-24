@@ -130,6 +130,11 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('folke/which-key.nvim')
 
   --
+  -- Terminal
+  --
+  vim.fn['dein#add']('numToStr/FTerm.nvim')
+
+  --
   -- Others
   --
   vim.fn['dein#add']('tyru/open-browser.vim', {
@@ -812,6 +817,15 @@ wk.register({
     k = { '<Plug>Lightspeed_S', 'Backward with 2-char' },
   },
 }, { mode = 'o', prefix = '<Space>' })
+-- }}}
+
+
+-- {{{ numToStr/FTerm.nvim
+require'FTerm'.setup({
+  blend = 10,
+})
+vim.api.nvim_set_keymap('n', '<A-t>',  '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-t>',  '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
 -- }}}
 
 
