@@ -83,6 +83,7 @@ vim.opt.ambiwidth = 'single'
 -- 26 various
 vim.cmd('set sessionoptions&')
 vim.opt.lazyredraw = true
+vim.opt.pumblend = 10
 
 -- Enable mouse
 vim.opt.mouse = 'a'
