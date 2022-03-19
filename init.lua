@@ -592,26 +592,24 @@ require("indent_blankline").setup {
 -- }}}
 
 
-vim.cmd [=[
-" {{{ comfortable-motion.vim
-nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+-- {{{ comfortable-motion.vim
+vim.api.nvim_set_keymap('n', '<C-d>', ':call comfortable_motion#flick(100)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-u>', ':call comfortable_motion#flick(-100)<CR>', { noremap = true, silent = true })
 
-nnoremap <silent> <C-f>      :call comfortable_motion#flick(200)<CR>
-nnoremap <silent> <C-b>      :call comfortable_motion#flick(-200)<CR>
-nnoremap <silent> <PageDown> :call comfortable_motion#flick(200)<CR>
-nnoremap <silent> <PageUp>   :call comfortable_motion#flick(-200)<CR>
+vim.api.nvim_set_keymap('n', '<C-f>',      ':call comfortable_motion#flick(200)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-b>',      ':call comfortable_motion#flick(-200)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<PageDown>', ':call comfortable_motion#flick(200)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<PageUp>',   ':call comfortable_motion#flick(-200)<CR>', { noremap = true, silent = true })
 
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
-" }}}
+vim.api.nvim_set_keymap('', '<ScrollWheelDown>', ':call comfortable_motion#flick(40)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('', '<ScrollWheelUp>',   ':call comfortable_motion#flick(-40)<CR>', { noremap = true, silent = true })
+-- }}}
 
 
-" {{{ vim-expand-region
-vmap + <Plug>(expand_region_expand)
-vmap - <Plug>(expand_region_shrink)
-" }}}
-]=]
+-- {{{ vim-expand-region
+vim.api.nvim_set_keymap('v', '+', '<Plug>(expand_region_expand)', {})
+vim.api.nvim_set_keymap('v', '-', '<Plug>(expand_region_shrink)', {})
+-- }}}
 
 
 -- {{{ machakann/vim-highlightedyank
@@ -1013,21 +1011,19 @@ require('gitsigns').setup {
 require('lsp')
 
 
-vim.cmd [=[
-" {{{ rhysd/vim-grammarous
-nmap <F5> <Plug>(grammarous-move-to-next-error)
-" }}}
+-- {{{ rhysd/vim-grammarous
+vim.api.nvim_set_keymap('n', '<F5>', '<Plug>(grammarous-move-to-next-error)', {})
+-- }}}
 
 
-" {{{ AsciiDoc
-let g:vim_asciidoc_initial_foldlevel=99
-" }}}
+-- {{{ AsciiDoc
+vim.g.vim_asciidoc_initial_foldlevel = 99
+-- }}}
 
 
-" {{{ C/C++
-autocmd MyAutoCmds BufNewFile,BufRead *.cpp setlocal matchpairs+=<:>
-" }}}
-]=]
+-- {{{ C/C++
+vim.cmd('autocmd MyAutoCmds BufNewFile,BufRead *.cpp setlocal matchpairs+=<:>')
+-- }}}
 
 
 require('filetype-autocmds')
