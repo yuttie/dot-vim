@@ -356,27 +356,6 @@ endif
 " Extensions                                                                 {{{
 " ==============================================================================
 
-" {{{ Functions
-function! MakeAllWindowsEqualSize()
-  let g:old_tab_page = tabpagenr()
-  let g:num_tab_page = tabpagenr('$')
-  tabfirst
-  for i in range(g:num_tab_page)
-    execute "normal \<C-W>="
-    tabnext
-  endfor
-  for i in range(g:old_tab_page - 1)
-    tabnext
-  endfor
-endfunction
-
-function! EditHeaderAndSourceFileInNewTab(filename)
-  execute 'tab vsplit ' . a:filename . '.c'
-  execute 'vsplit ' . a:filename . '.h'
-endfunction
-" }}}
-
-
 " {{{ Neovide
 set guifont=monospace:h10
 let g:neovide_cursor_animation_length=0.03
