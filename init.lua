@@ -351,71 +351,71 @@ if isdirectory(expand("$VIMRUNTIME/ftplugin"))
 endif
 
 " }}}
-
-
-" Extensions                                                                 {{{
-" ==============================================================================
-
-" {{{ Neovide
-set guifont=monospace:h10
-let g:neovide_cursor_animation_length=0.03
-let g:neovide_cursor_trail_length=0.5
-let g:neovide_cursor_vfx_mode = "railgun"
-" }}}
-
-
-" {{{ Commands
-lua require('commands')
-" }}}
-
-
-" {{{ Mappings
-" insert
-inoremap <C-s> <C-d>
-
-" insert and command line
-noremap! <C-a> <Home>
-noremap! <C-e> <End>
-noremap! <C-b> <Left>
-noremap! <C-f> <Right>
-noremap! <C-d> <Del>
-noremap! <M-f> <S-Right>
-noremap! <M-b> <S-Left>
-
-" normal
-nnoremap j   gj
-nnoremap k   gk
-nnoremap gj  j
-nnoremap gk  k
-nnoremap P   Pg;
-nnoremap gc  `[v`]
-
-nnoremap <C-Left>  <C-w>h
-nnoremap <C-Right> <C-w>l
-nnoremap <C-Up>    <C-w>k
-nnoremap <C-Down>  <C-w>j
-
-nnoremap <S-Left>  <C-w>><CR>
-nnoremap <S-Right> <C-w><<CR>
-nnoremap <S-Up>    <C-w>-<CR>
-nnoremap <S-Down>  <C-w>+<CR>
-
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-nnoremap <C-Tab>   gt
-nnoremap <C-S-Tab> gT
-nnoremap <silent> <S-PageDown> :tabmove +1<CR>
-nnoremap <silent> <S-PageUp>   :tabmove -1<CR>
-nnoremap <C-s> :w<CR>
-nnoremap <C-i> <C-g>
-
-nnoremap <F8>  :split \| execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') \| terminal<CR>
-
-" command
-cnoremap <C-x> <C-r>=expand('%:p')<CR>
-
-" terminal
-tnoremap <Esc> <C-\><C-n>
 ]=]
+
+
+-- Extensions                                                                 {{{
+-- ==============================================================================
+
+-- {{{ Neovide
+vim.opt.guifont = 'monospace:h10'
+vim.g.neovide_cursor_animation_length = 0.03
+vim.g.neovide_cursor_trail_length = 0.5
+vim.g.neovide_cursor_vfx_mode = "railgun"
+-- }}}
+
+
+-- {{{ Commands
+require('commands')
+-- }}}
+
+
+-- {{{ Mappings
+-- insert
+vim.api.nvim_set_keymap('i', '<C-s>', '<C-d>', { noremap = true })
+
+-- insert and command line
+vim.api.nvim_set_keymap('!', '<C-a>', '<Home>', { noremap = true })
+vim.api.nvim_set_keymap('!', '<C-e>', '<End>', { noremap = true })
+vim.api.nvim_set_keymap('!', '<C-b>', '<Left>', { noremap = true })
+vim.api.nvim_set_keymap('!', '<C-f>', '<Right>', { noremap = true })
+vim.api.nvim_set_keymap('!', '<C-d>', '<Del>', { noremap = true })
+vim.api.nvim_set_keymap('!', '<M-f>', '<S-Right>', { noremap = true })
+vim.api.nvim_set_keymap('!', '<M-b>', '<S-Left>', { noremap = true })
+
+-- normal
+vim.api.nvim_set_keymap('n', 'j',   'gj', { noremap = true })
+vim.api.nvim_set_keymap('n', 'k',   'gk', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gj',  'j', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gk',  'k', { noremap = true })
+vim.api.nvim_set_keymap('n', 'P',   'Pg;', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gc',  '`[v`]', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<C-Left>',  '<C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Up>',    '<C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Down>',  '<C-w>j', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<S-Left>',  '<C-w>><CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-Right>', '<C-w><<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-Up>',    '<C-w>-<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-Down>',  '<C-w>+<CR>', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Tab>',   'gt', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-S-Tab>', 'gT', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-PageDown>', ':tabmove +1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-PageUp>',   ':tabmove -1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-i>', '<C-g>', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<F8>',  ":split | execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') | terminal<CR>", { noremap = true })
+
+-- command
+vim.api.nvim_set_keymap('c', '<C-x>', "<C-r>=expand('%:p')<CR>", { noremap = true })
+
+-- terminal
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
 -- Commenting
 require('Comment').setup({
