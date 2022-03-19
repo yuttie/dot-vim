@@ -339,21 +339,6 @@ require('plugin-treesitter')
 -- }}}
 
 
-vim.cmd [=[
-" Filetype plugin settings                                                   {{{
-" ==============================================================================
-
-" Enable plugin-provided filetype settings, but only if the ftplugin
-" directory exists (which it won't on livecds, for example).
-if isdirectory(expand("$VIMRUNTIME/ftplugin"))
-  filetype plugin on
-  filetype indent on
-endif
-
-" }}}
-]=]
-
-
 -- Extensions                                                                 {{{
 -- ==============================================================================
 
