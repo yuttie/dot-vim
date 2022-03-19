@@ -272,7 +272,12 @@ vim.cmd('filetype plugin indent on')
 vim.cmd('syntax enable')
 
 -- Personal access token for GitHub
-vim.g['dein#install_github_api_token'] = ''
+do
+  local io = require('io')
+  local file = io.open('.github_api_token', 'r')
+  vim.g['dein#install_github_api_token'] = file:read('*a'):match('^%s*(.-)%s*$')
+  file:close()
+end
 
 -- If you want to install not installed plugins on startup.
 if vim.fn['dein#check_install']() == 1 then
