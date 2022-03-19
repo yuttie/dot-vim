@@ -274,7 +274,7 @@ vim.cmd('syntax enable')
 -- Personal access token for GitHub
 do
   local io = require('io')
-  local file = io.open('.github_api_token', 'r')
+  local file = io.open(vim.fn.expand('~/.config/nvim/.github_api_token'), 'r')
   vim.g['dein#install_github_api_token'] = file:read('*a'):match('^%s*(.-)%s*$')
   file:close()
 end
