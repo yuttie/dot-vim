@@ -57,7 +57,9 @@ vim.opt.foldlevelstart = 99
 -- 19 reading and writing files
 vim.opt.modeline = false
 vim.opt.fileformats = { 'unix', 'dos' }
-vim.opt.backup = true
+vim.opt.backup = false  -- Don't leave a backup file after the file has been successfully written.
+vim.opt.writebackup = true  -- Hold a backup only while the file is being written.
+vim.opt.backupcopy = 'yes'  -- Necessary for correctly watching file changes, e.g. inotifywait.
 
 -- 21 command line editing
 --vim.cmd('set suffixes&')
