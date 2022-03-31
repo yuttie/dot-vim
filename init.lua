@@ -169,6 +169,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('nvim-telescope/telescope-fzf-native.nvim', {
     build = 'make',
   })
+  vim.fn['dein#add']('nvim-telescope/telescope-file-browser.nvim')
 
   --
   -- Tree-sitter
