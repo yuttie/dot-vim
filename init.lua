@@ -581,6 +581,8 @@ vim.g.better_whitespace_filetypes_blacklist = {
 -- {{{ lukas-reineke/indent-blankline.nvim
 vim.opt.list = true
 vim.opt.listchars:append({ eol = '﬋' })
+vim.opt.listchars:remove('nbsp')
+vim.opt.listchars:remove('trail')
 
 require("indent_blankline").setup {
   -- for example, context is off by default, use this to turn it on
