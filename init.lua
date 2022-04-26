@@ -726,6 +726,7 @@ wk.register({
   a = { '<Plug>(EasyAlign)', 'EasyAlign' },
   g = {
     name = 'git',
+    ['<C-g>'] = { 'g<C-g>',                                       'Count words',           noremap = true, silent = true },
     c = { ':Gina commit -v --opener="topleft vsplit"<CR>',        'Commit',                noremap = true, silent = true },
     d = { ':Gvdiff<CR>',                                          'Diff',                  noremap = true, silent = true },
     m = { ':Magit<CR>',                                           'Magit',                 noremap = true, silent = true },
