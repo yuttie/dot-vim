@@ -91,6 +91,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- Move
   --
   vim.fn['dein#add']('ggandor/lightspeed.nvim')
+  vim.fn['dein#add']('phaazon/hop.nvim')
   vim.fn['dein#add']('t9md/vim-choosewin', {
     on_map = {
       '<Plug>(choosewin)',
@@ -713,10 +714,8 @@ wk.register({
   },
   ['<Space>'] = {
     name = 'jump',
-    j = { '<Plug>Lightspeed_s',  'Forward with 2-char' },
-    k = { '<Plug>Lightspeed_S',  'Backward with 2-char' },
-    J = { '<Plug>Lightspeed_gs', 'Forward with 2-char (cross-window)' },
-    K = { '<Plug>Lightspeed_gS', 'Backward with 2-char (cross-window)' },
+    w = { '<cmd>HopWord<CR>', '' },
+    l = { '<cmd>HopLine<CR>', '' },
     W = { '<Plug>(choosewin)',   'Window' },
   },
   q = {
@@ -772,8 +771,8 @@ wk.register({
 wk.register({
   c = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', 'Toggle line-wise' },
   ['<Space>'] = {
-    j = { '<Plug>Lightspeed_s', 'Forward with 2-char' },
-    k = { '<Plug>Lightspeed_S', 'Backward with 2-char' },
+    w = { '<cmd>HopWord<CR>', '' },
+    l = { '<cmd>HopLine<CR>', '' },
   },
   a = { '<Plug>(EasyAlign)', 'EasyAlign' },
   g = {
@@ -784,8 +783,8 @@ wk.register({
 }, { mode = 'x', prefix = '<Space>' })
 wk.register({
   ['<Space>'] = {
-    j = { '<Plug>Lightspeed_s', 'Forward with 2-char' },
-    k = { '<Plug>Lightspeed_S', 'Backward with 2-char' },
+    w = { '<cmd>HopWord<CR>', '' },
+    l = { '<cmd>HopLine<CR>', '' },
   },
 }, { mode = 'o', prefix = '<Space>' })
 -- }}}
@@ -905,6 +904,11 @@ vim.api.nvim_set_keymap('n', 'sd', '<Plug>(operator-surround-delete)a', { silent
 vim.api.nvim_set_keymap('n', 'sc', '<Plug>(operator-surround-replace)a', { silent = true })
 vim.api.nvim_set_keymap('n', 'sD', '<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)', { silent = true })
 vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)', { silent = true })
+-- }}}
+
+
+-- {{{ phaazon/hop.nvim
+require'hop'.setup()
 -- }}}
 
 
