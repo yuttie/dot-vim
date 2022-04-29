@@ -12,6 +12,9 @@ vim.opt.relativenumber = false
 vim.opt.scrolloff = 3
 vim.opt.signcolumn = 'yes'
 vim.opt.wrap = false
+vim.opt.breakindent = true
+vim.opt.breakindentopt = { 'shift:2' }
+vim.opt.showbreak = '>> '
 
 -- 6 multiple windows
 vim.opt.hidden = true        -- You can change buffer without saving.
