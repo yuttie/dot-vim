@@ -109,6 +109,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
     },
   })
   vim.fn['dein#add']('itchyny/vim-cursorword')
+  vim.fn['dein#add']('inkarkat/vim-mark')
 
   --
   -- File
@@ -831,6 +832,11 @@ vim.g['asterisk#keeppos'] = 1
 vim.api.nvim_set_keymap('', '/', '<Plug>(incsearch-forward)', {})
 vim.api.nvim_set_keymap('', '?', '<Plug>(incsearch-stay)', {})
 vim.g['incsearch#magic'] = '\v'
+-- }}}
+
+
+-- {{{ inkarkat/vim-mark
+vim.g.mw_no_mappings = 1
 -- }}}
 
 
