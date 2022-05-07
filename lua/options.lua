@@ -90,6 +90,7 @@ vim.cmd('set sessionoptions&')
 vim.opt.lazyredraw = true
 vim.opt.pumblend = 10
 vim.opt.diffopt = { 'internal', 'filler', 'closeoff', 'indent-heuristic', 'algorithm:histogram', 'followwrap' }
+vim.opt.spelllang = { 'en_us', 'cjk' }
 
 -- Enable mouse
 vim.opt.mouse = 'a'
