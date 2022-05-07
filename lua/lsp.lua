@@ -125,6 +125,8 @@ do
   -- * tsserver:      yarn global add typescript-language-server
   -- * vimls:         yarn global add vim-language-server
   -- * vuels:         yarn global add vls
+
+  -- pyright
   lspconfig['pyright'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -132,6 +134,8 @@ do
       config.settings.python.pythonPath = get_python_path(config.root_dir)
     end,
   }
+
+  -- Other servers
   local servers = {
     'bashls',
     'ccls',
