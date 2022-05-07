@@ -154,6 +154,10 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('hrsh7th/cmp-buffer')
   vim.fn['dein#add']('hrsh7th/cmp-path')
   vim.fn['dein#add']('hrsh7th/cmp-cmdline')
+  vim.fn['dein#add']('hrsh7th/cmp-emoji')
+  vim.fn['dein#add']('hrsh7th/cmp-nvim-lua')
+  vim.fn['dein#add']('ray-x/cmp-treesitter')
+  vim.fn['dein#add']('f3fora/cmp-spell')
   vim.fn['dein#add']('hrsh7th/nvim-cmp')
   -- Snippets
   vim.fn['dein#add']('hrsh7th/cmp-vsnip')

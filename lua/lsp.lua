@@ -41,6 +41,9 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
+    { name = 'treesitter' },
+    { name = 'spell' },
+    { name = 'emoji' },
   }, {
     { name = 'buffer' },
   }),
@@ -80,6 +83,20 @@ cmp.setup.cmdline(':', {
     { name = 'path' },
   }, {
     { name = 'cmdline' },
+  }),
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('lua', {
+  sources = cmp.config.sources({
+    { name = 'nvim_lua' },
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' }, -- For vsnip users.
+    { name = 'treesitter' },
+    { name = 'spell' },
+    { name = 'emoji' },
+  }, {
+    { name = 'buffer' },
   }),
 })
 
