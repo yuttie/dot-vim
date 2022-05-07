@@ -45,11 +45,23 @@ cmp.setup({
     { name = 'buffer' },
   }),
   formatting = {
-    format = require('lspkind').cmp_format({
-      mode = 'symbol_text',
-      preset = 'codicons',
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-    }),
+    format = function(entry, vim_item)
+      vim_item = require('lspkind').cmp_format({
+        mode = 'symbol_text',
+        preset = 'default',
+        menu = {
+          nvim_lsp = 'LSP',
+          vsnip = 'Snippet',
+        },
+        maxwidth = nil,
+      })(entry, vim_item)
+      if vim_item.menu ~= nil then
+        vim_item.menu = '[' .. vim_item.menu .. ']'
+      else
+        vim_item.menu = '[' .. entry.source.name .. ']'
+      end
+      return vim_item
+    end,
   },
 })
 
