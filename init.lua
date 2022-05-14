@@ -258,6 +258,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   vim.fn['dein#add']('nvim-lualine/lualine.nvim')
   vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
+  vim.fn['dein#add']('folke/lsp-colors.nvim')
   vim.fn['dein#add']('yuttie/hydrangea-vim', {
     rev = 'develop',
   })
