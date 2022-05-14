@@ -320,20 +320,16 @@ endif
 " Enable true color support
 if (has("termguicolors"))
   set termguicolors
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
 " Change the cursor sahpe
 set guicursor=n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:hor20-Cursor/lCursor
 
-" Switch syntax highlighting on, when the terminal has colors
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-  set background=dark
-  colorscheme spacegray-dark
-endif
+" Switch syntax highlighting on
+syntax on
+set hlsearch
+set background=dark
+colorscheme spacegray-dark
 
 function! s:my_colorscheme_adjustments() abort
   highlight SpellBad term=underline cterm=undercurl ctermfg=red gui=undercurl guifg=red
