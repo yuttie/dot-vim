@@ -327,7 +327,6 @@ set guicursor=n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:
 
 " Switch syntax highlighting on
 syntax on
-set hlsearch
 set background=dark
 colorscheme spacegray-dark
 
