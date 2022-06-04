@@ -329,7 +329,7 @@ set guicursor=n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:
 " Switch syntax highlighting on
 syntax on
 set background=dark
-colorscheme spacegray-dark
+colorscheme hydrangea
 
 function! s:my_colorscheme_adjustments() abort
   highlight SpellBad term=underline cterm=undercurl ctermfg=red gui=undercurl guifg=red
