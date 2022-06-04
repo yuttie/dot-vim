@@ -332,7 +332,7 @@ set background=dark
 colorscheme hydrangea
 
 function! s:my_colorscheme_adjustments() abort
-  highlight SpellBad term=underline cterm=undercurl ctermfg=red gui=undercurl guifg=red
+  highlight SpellBad term=underline cterm=undercurl gui=undercurl
 endfunction
 autocmd MyAutoCmds VimEnter * call s:my_colorscheme_adjustments()
 autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
