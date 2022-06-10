@@ -15,6 +15,9 @@ local my_plugin_dir = vim.fn.expand('~/.config/nvim/bundle')
 vim.g.loaded_matchparen = 1
 vim.g.loaded_matchit = 1
 
+-- Prevent default plugins from setting default keymaps
+vim.g.omni_sql_no_default_maps = 1
+
 -- Prevent plugins from setting default keymaps
 vim.g.lightspeed_no_default_keymaps = 1
 
