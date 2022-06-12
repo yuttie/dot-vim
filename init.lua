@@ -300,6 +300,10 @@ end
 -- }}}
 
 
+-- Disable syntax highlighting to use treesitter instead
+vim.cmd('syntax off')
+
+
 require('options')
 
 
