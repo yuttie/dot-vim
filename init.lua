@@ -387,6 +387,11 @@ vim.api.nvim_set_keymap('n', 'gk',  'k', { noremap = true })
 vim.api.nvim_set_keymap('n', 'P',   'Pg;', { noremap = true })
 vim.api.nvim_set_keymap('n', 'gc',  '`[v`]', { noremap = true })
 
+vim.api.nvim_set_keymap('n', '<M-h>', '<C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('n', '<M-l>', '<C-w>l', { noremap = true })
+vim.api.nvim_set_keymap('n', '<M-k>', '<C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<M-j>', '<C-w>j', { noremap = true })
+
 vim.api.nvim_set_keymap('n', '<C-Left>',  '<C-w>h', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-Up>',    '<C-w>k', { noremap = true })
