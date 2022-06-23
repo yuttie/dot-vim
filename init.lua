@@ -3,6 +3,12 @@ vim.env.PATH = vim.fn.expand('~/.local/bin') .. ':' .. vim.fn.expand('~/.cargo/b
 -- }}}
 
 
+-- {{{ Replace filetype.vim with filetype.lua
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+-- }}}
+
+
 -- {{{ Plugins
 
 -- Plugins are managed by Shougo/dein.vim.
