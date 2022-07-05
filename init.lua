@@ -192,6 +192,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('nvim-treesitter/nvim-treesitter', {
     hook_post_update = 'TSUpdate',
   })
+  vim.fn['dein#add']('nvim-treesitter/playground')
   vim.fn['dein#add']('nvim-treesitter/nvim-treesitter-refactor')
   vim.fn['dein#add']('nvim-treesitter/nvim-treesitter-textobjects')
   vim.fn['dein#add']('p00f/nvim-ts-rainbow')
