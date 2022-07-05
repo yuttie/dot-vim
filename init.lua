@@ -770,6 +770,7 @@ wk.register({
     name = 'toggle',
     i = { ':IndentBlanklineToggle<CR>',             'Indent line',               noremap = true, silent = true },
     n = { ':setl number! | setl number?<CR>',       'Line number',               noremap = true, silent = true },
+    r = { ':TSBufToggle rainbow<CR>',               'Rainbow',                   noremap = true, silent = true },
     s = { ':setl spell! | setl spell?<CR>',         'Spell check',               noremap = true, silent = true },
     t = { ':setl expandtab! | setl expandtab?<CR>', 'Expand tab',                noremap = true, silent = true },
     w = { ':setl wrap! | setl wrap?<CR>',           'Line wrap',                 noremap = true, silent = true },
