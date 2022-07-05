@@ -773,7 +773,6 @@ wk.register({
     s = { ':setl spell! | setl spell?<CR>',         'Spell check',               noremap = true, silent = true },
     t = { ':setl expandtab! | setl expandtab?<CR>', 'Expand tab',                noremap = true, silent = true },
     w = { ':setl wrap! | setl wrap?<CR>',           'Line wrap',                 noremap = true, silent = true },
-    W = { ':setl list! | setl list?<CR>',           'Visibility of whitespaces', noremap = true, silent = true },
     z = { ':ZenMode<CR>',                           'Zen mode',                  noremap = true, silent = true },
     ['<Space>'] = { ':setl list! | setl list?<CR>', 'Visibility of whitespaces', noremap = true, silent = true },
   },
