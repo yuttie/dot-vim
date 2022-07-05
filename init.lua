@@ -768,13 +768,13 @@ wk.register({
   },
   t = {
     name = 'toggle',
-    s = { ':setl spell!<CR>:setl spell?<CR>',         'Spell check',               noremap = true, silent = true },
-    W = { ':setl list!<CR>:setl list?<CR>',           'Visibility of whitespaces', noremap = true, silent = true },
+    i = { ':IndentBlanklineToggle<CR>',               'Indent line',               noremap = true, silent = true },
     n = { ':setl number!<CR>:setl number?<CR>',       'Line number',               noremap = true, silent = true },
+    s = { ':setl spell!<CR>:setl spell?<CR>',         'Spell check',               noremap = true, silent = true },
     t = { ':setl expandtab!<CR>:setl expandtab?<CR>', 'Expand tab',                noremap = true, silent = true },
     w = { ':setl wrap!<CR>:setl wrap?<CR>',           'Line wrap',                 noremap = true, silent = true },
+    W = { ':setl list!<CR>:setl list?<CR>',           'Visibility of whitespaces', noremap = true, silent = true },
     z = { ':ZenMode<CR>',                             'Zen mode',                  noremap = true, silent = true },
-    i = { ':IndentBlanklineToggle<CR>',               'Indent line',               noremap = true, silent = true },
     ['<Space>'] = { ':setl list!<CR>:setl list?<CR>', 'Visibility of whitespaces', noremap = true, silent = true },
   },
   c = {
