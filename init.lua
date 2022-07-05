@@ -734,7 +734,7 @@ wk.register({
     name = 'file',
     v = {
       name = 'vim',
-      i = { ':tab vsplit $MYVIMRC<CR>', 'Open $MYVIMRC',   noremap = true, silent = true },
+      i = { ':tab vsplit $MYVIMRC | lcd %:h<CR>', 'Open $MYVIMRC',   noremap = true, silent = true },
       R = { ':source $MYVIMRC<CR>',     'Reload $MYVIMRC', noremap = true, silent = true },
     },
     s = { ':w<CR>',              'Save',                                        noremap = true, silent = true },
