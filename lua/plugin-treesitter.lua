@@ -165,3 +165,7 @@ require('spellsitter').setup {
 -- windwp/nvim-autopairs
 require('nvim-autopairs').setup {
 }
+
+-- nvim-treesitter/nvim-treesitter-context
+require('treesitter-context').setup{
+}
