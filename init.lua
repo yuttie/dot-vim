@@ -185,6 +185,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
     build = 'make',
   })
   vim.fn['dein#add']('nvim-telescope/telescope-file-browser.nvim')
+  vim.fn['dein#add']('nvim-telescope/telescope-ui-select.nvim')
 
   --
   -- Tree-sitter
@@ -660,6 +661,7 @@ require('telescope').setup{
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('ui-select')
 -- }}}
 
 
