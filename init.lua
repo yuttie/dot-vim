@@ -137,7 +137,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('ntpeters/vim-better-whitespace')
   vim.fn['dein#add']('lukas-reineke/indent-blankline.nvim')
   vim.fn['dein#add']('yuttie/comfortable-motion.vim')
-  vim.fn['dein#add']('machakann/vim-highlightedyank')
   vim.fn['dein#add']('folke/which-key.nvim')
   vim.fn['dein#add']('rcarriga/nvim-notify')
 
@@ -660,6 +659,13 @@ require('telescope').setup{
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('ui-select')
 -- }}}
+
+
+-- {{{ Highlight a selection on yank }}}
+-- See https://neovim.io/doc/user/lua.html#lua-highlight.
+vim.cmd [=[
+autocmd MyAutoCmds TextYankPost * silent! lua vim.highlight.on_yank { timeout = 1000 }
+]=]
 
 
 -- {{{ folke/zen-mode.nvim
