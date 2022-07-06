@@ -640,11 +640,6 @@ vim.api.nvim_set_keymap('v', '-', '<Plug>(expand_region_shrink)', {})
 -- }}}
 
 
--- {{{ machakann/vim-highlightedyank
-vim.api.nvim_set_keymap('', 'y', '<Plug>(highlightedyank)', {})
--- }}}
-
-
 -- {{{ nvim-telescope/telescope.nvim
 require('telescope').setup{
   pickers = {
