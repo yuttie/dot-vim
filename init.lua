@@ -268,7 +268,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- Themes
   --
-  vim.fn['dein#add']('yuttie/hydrangea-vim', { rev = 'lualine-theme' })
+  vim.fn['dein#add']('yuttie/hydrangea-vim')
   vim.fn['dein#add']('yuttie/inkstained-vim')
   vim.fn['dein#add']('yuttie/snowy-vim')
   vim.fn['dein#add']('yuttie/sublimetext-spacegray.vim')
@@ -280,7 +280,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   -- UI
   --
-  vim.fn['dein#add']('nvim-lualine/lualine.nvim', { depends = 'yuttie/hydrangea-vim' })
+  vim.fn['dein#add']('nvim-lualine/lualine.nvim')
   vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
   vim.fn['dein#add']('folke/lsp-colors.nvim')
 
