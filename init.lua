@@ -139,6 +139,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('yuttie/comfortable-motion.vim')
   vim.fn['dein#add']('machakann/vim-highlightedyank')
   vim.fn['dein#add']('folke/which-key.nvim')
+  vim.fn['dein#add']('rcarriga/nvim-notify')
 
   --
   -- Terminal
