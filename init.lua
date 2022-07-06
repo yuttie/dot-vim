@@ -203,6 +203,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('JoosepAlviste/nvim-ts-context-commentstring')
   vim.fn['dein#add']('lewis6991/spellsitter.nvim')
   vim.fn['dein#add']('windwp/nvim-autopairs')
+  vim.fn['dein#add']('mfussenegger/nvim-treehopper')
 
   --
   -- Filetype-specific plugins

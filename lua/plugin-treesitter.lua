@@ -169,3 +169,7 @@ require('nvim-autopairs').setup {
 -- nvim-treesitter/nvim-treesitter-context
 require('treesitter-context').setup{
 }
+
+-- mfussenegger/nvim-treehopper
+vim.api.nvim_set_keymap('o', 'm',  ":<C-U>lua require('tsht').nodes()<CR>", { silent = true })
+vim.api.nvim_set_keymap('v', 'm',  ":lua require('tsht').nodes()<CR>", { silent = true, noremap = true })
