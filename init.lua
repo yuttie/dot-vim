@@ -135,6 +135,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('yuttie/comfortable-motion.vim')
   vim.fn['dein#add']('folke/which-key.nvim')
   vim.fn['dein#add']('rcarriga/nvim-notify')
+  vim.fn['dein#add']('sindrets/winshift.nvim')
 
   --
   -- Terminal
@@ -944,6 +945,26 @@ vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(text
 require'hop'.setup {
   multi_windows = true,
 }
+-- }}}
+
+
+-- {{{ sindrets/winshift.nvim
+require("winshift").setup {
+}
+
+-- Start Win-Move mode:
+vim.api.nvim_set_keymap('n', '<C-W><C-M>', '<Cmd>WinShift<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-W>m', '<Cmd>WinShift<CR>', { noremap = true })
+
+-- Swap two windows:
+vim.api.nvim_set_keymap('n', '<C-W>X', '<Cmd>WinShift swap<CR>', { noremap = true })
+
+-- If you don't want to use Win-Move mode you can create mappings for calling the
+-- move commands directly:
+vim.api.nvim_set_keymap('n', '<C-M-H>', '<Cmd>WinShift left<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-M-J>', '<Cmd>WinShift down<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-M-K>', '<Cmd>WinShift up<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-M-L>', '<Cmd>WinShift right<CR>', { noremap = true })
 -- }}}
 
 
