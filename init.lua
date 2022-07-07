@@ -54,6 +54,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('mg979/vim-visual-multi')
   vim.fn['dein#add']('numToStr/Comment.nvim')
   vim.fn['dein#add']('chrisbra/NrrwRgn')
+  vim.fn['dein#add']('hoschi/yode-nvim')
   vim.fn['dein#add']('folke/zen-mode.nvim')
   vim.fn['dein#add']('rhysd/vim-operator-surround', {
     on_map = {
@@ -666,6 +667,11 @@ autocmd MyAutoCmds TextYankPost * silent! lua vim.highlight.on_yank { timeout = 
 ]=]
 
 
+-- {{{ hoschi/yode-nvim
+require('yode-nvim').setup({})
+-- }}}
+
+
 -- {{{ folke/zen-mode.nvim
 require('zen-mode').setup {
   window = {
@@ -854,7 +860,11 @@ wk.register({
     name = 'git',
     s = { '<cmd>Gitsigns stage_hunk<CR>', 'Stage hunk', noremap = true, silent = true },
     r = { '<cmd>Gitsigns reset_hunk<CR>', 'Reset hunk', noremap = true, silent = true },
-  }
+  },
+  s = { '<cmd>split<CR>:YodeCreateSeditorReplace<CR>', 'Focus on selection (horizontal split, above)', noremap = true, silent = true },
+  S = { '<cmd>split<CR><ESC><C-w>jgv:YodeCreateSeditorReplace<CR>', 'Focus on selection (horizontal split, below)', noremap = true, silent = true },
+  v = { '<cmd>vsplit<CR>:YodeCreateSeditorReplace<CR>', 'Focus on selection (vertical split, left)', noremap = true, silent = true },
+  V = { '<cmd>vsplit<CR><ESC><C-w>lgv:YodeCreateSeditorReplace<CR>', 'Focus on selection (vertical split, right)', noremap = true, silent = true },
 }, { mode = 'x', prefix = '<Space>' })
 wk.register({
   ['<Space>'] = {
