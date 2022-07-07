@@ -101,11 +101,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   --
   vim.fn['dein#add']('ggandor/lightspeed.nvim')
   vim.fn['dein#add']('phaazon/hop.nvim')
-  vim.fn['dein#add']('t9md/vim-choosewin', {
-    on_map = {
-      '<Plug>(choosewin)',
-    },
-  })
 
   --
   -- Search
@@ -795,7 +790,6 @@ wk.register({
     name = 'jump',
     w = { '<cmd>HopWord<CR>', '' },
     l = { '<cmd>HopLine<CR>', '' },
-    W = { '<Plug>(choosewin)',   'Window' },
   },
   q = {
     name = 'quit',
@@ -935,7 +929,9 @@ vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(text
 
 
 -- {{{ phaazon/hop.nvim
-require'hop'.setup()
+require'hop'.setup {
+  multi_windows = true,
+}
 -- }}}
 
 
@@ -961,19 +957,6 @@ vim.api.nvim_set_keymap('o', ';', '<Plug>Lightspeed_;_ft', { silent = true })
 vim.api.nvim_set_keymap('n', ',', '<Plug>Lightspeed_,_ft', { silent = true })
 vim.api.nvim_set_keymap('x', ',', '<Plug>Lightspeed_,_ft', { silent = true })
 vim.api.nvim_set_keymap('o', ',', '<Plug>Lightspeed_,_ft', { silent = true })
--- }}}
-
-
--- {{{ vim-choosewin
-vim.g.choosewin_overlay_enable = 1
-vim.g.choosewin_color_overlay = {
-  gui = {'#484e55', '#484e55'},
-  cterm = {239, 239},
-}
-vim.g.choosewin_color_overlay_current = {
-  gui = {'#e4c374', '#e4c374'},
-  cterm = {179, 179},
-}
 -- }}}
 
 
