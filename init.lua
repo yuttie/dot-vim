@@ -778,6 +778,18 @@ wk.register({
   },
   t = {
     name = 'toggle',
+    d = { (function()
+             local enabled = true
+             return function()
+               if enabled then
+                 enabled = false
+                 vim.diagnostic.disable(0)  -- 0 means a current buffer
+               else
+                 enabled = true
+                 vim.diagnostic.enable(0)  -- 0 means a current buffer
+               end
+             end
+           end)(),                                  'Diagnostics',               noremap = true, silent = true },
     i = { ':IndentBlanklineToggle<CR>',             'Indent line',               noremap = true, silent = true },
     n = { ':setl number! | setl number?<CR>',       'Line number',               noremap = true, silent = true },
     r = { ':TSBufToggle rainbow<CR>',               'Rainbow',                   noremap = true, silent = true },
