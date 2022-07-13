@@ -278,7 +278,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- UI
   --
   vim.fn['dein#add']('nvim-lualine/lualine.nvim')
-  vim.fn['dein#add']('akinsho/bufferline.nvim')
+  vim.fn['dein#add']('akinsho/bufferline.nvim', { rev = 'dev' })
   vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
   vim.fn['dein#add']('folke/lsp-colors.nvim')
 
@@ -581,6 +581,29 @@ require('bufferline').setup {
     mode = 'tabs',
     always_show_bufferline = true,
   },
+  highlights = function(config)
+    local hl = {}
+
+    for name, tbl in pairs(config.highlights) do
+      local tbl_copy = {}
+      for k, v in pairs(tbl) do
+        -- Modify gui to remove italic
+        if k == 'gui' then
+          local parts = vim.split(v, ',')
+          for _, part in pairs(parts) do
+            if part ~= 'italic' then
+              tbl_copy['gui'] = part
+            end
+          end
+        else
+          tbl_copy[k] = v
+        end
+      end
+      hl[name] = tbl_copy
+    end
+
+    return hl
+  end,
 }
 require('bufferline.config').options.left_mouse_command = vim.api.nvim_set_current_tabpage
 require('bufferline.config').options.middle_mouse_command = function(tabhandle)
