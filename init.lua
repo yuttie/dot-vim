@@ -580,6 +580,13 @@ require('bufferline').setup {
   options = {
     mode = 'tabs',
     always_show_bufferline = true,
+    left_mouse_command = vim.api.nvim_set_current_tabpage,
+    middle_mouse_command = function(tabhandle)
+      if table.getn(vim.api.nvim_list_tabpages()) > 1 then
+        vim.cmd('tabclose ' .. vim.api.nvim_tabpage_get_number(tabhandle))
+      end
+    end,
+    right_mouse_command = '',
   },
   highlights = function(config)
     local hl = {}
@@ -605,13 +612,6 @@ require('bufferline').setup {
     return hl
   end,
 }
-require('bufferline.config').options.left_mouse_command = vim.api.nvim_set_current_tabpage
-require('bufferline.config').options.middle_mouse_command = function(tabhandle)
-  if table.getn(vim.api.nvim_list_tabpages()) > 1 then
-    vim.cmd('tabclose ' .. vim.api.nvim_tabpage_get_number(tabhandle))
-  end
-end
-require('bufferline.config').options.right_mouse_command = nil
 -- }}}
 
 
