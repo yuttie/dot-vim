@@ -278,6 +278,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- UI
   --
   vim.fn['dein#add']('nvim-lualine/lualine.nvim')
+  vim.fn['dein#add']('akinsho/bufferline.nvim')
   vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
   vim.fn['dein#add']('folke/lsp-colors.nvim')
 
@@ -568,25 +569,26 @@ require('lualine').setup {
     lualine_z = {'location'}
   },
   tabline = {
-    lualine_a = {
-      {
-        'tabs',
-        mode = 1,
-        max_length = function() return vim.o.columns end,
-        tabs_color = {
-          active = 'PMenuSel',
-          inactive = 'PMenu',
-        },
-      },
-    },
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {}
   },
   extensions = {}
 }
+-- }}}
+
+
+-- {{{ akinsho/bufferline.nvim
+require('bufferline').setup {
+  options = {
+    mode = 'tabs',
+    always_show_bufferline = true,
+  },
+}
+require('bufferline.config').options.left_mouse_command = vim.api.nvim_set_current_tabpage
+require('bufferline.config').options.middle_mouse_command = function(tabhandle)
+  if table.getn(vim.api.nvim_list_tabpages()) > 1 then
+    vim.cmd('tabclose ' .. vim.api.nvim_tabpage_get_number(tabhandle))
+  end
+end
+require('bufferline.config').options.right_mouse_command = nil
 -- }}}
 
 
