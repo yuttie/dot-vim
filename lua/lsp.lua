@@ -20,6 +20,11 @@ end
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
+local cmp_window_config = {
+  border = 'rounded',
+  winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+}
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -28,8 +33,8 @@ cmp.setup({
     end,
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(cmp_window_config),
+    documentation = cmp.config.window.bordered(cmp_window_config),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
