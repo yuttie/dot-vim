@@ -53,6 +53,7 @@ cmp.setup({
     { name = 'buffer' },
   }),
   formatting = {
+    fields = { 'kind', 'abbr', 'menu' },
     format = function(entry, vim_item)
       vim_item = require('lspkind').cmp_format({
         mode = 'symbol_text',
@@ -63,6 +64,8 @@ cmp.setup({
         },
         maxwidth = nil,
       })(entry, vim_item)
+      vim_item.kind = vim_item.kind .. ' '
+      vim_item.abbr = vim_item.abbr .. ' '
       if vim_item.menu ~= nil then
         vim_item.menu = '[' .. vim_item.menu .. ']'
       else
