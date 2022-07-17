@@ -589,6 +589,14 @@ require('bufferline').setup {
       end
     end,
     right_mouse_command = '',
+    sort_by = function(buf_a, buf_b)
+      if not buf_a and buf_b then
+        return true
+      elseif buf_a and not buf_b then
+        return false
+      end
+      return buf_a.ordinal < buf_b.ordinal
+    end,
   },
   highlights = function(config)
     local hl = {}
