@@ -579,6 +579,7 @@ require('lualine').setup {
 require('bufferline').setup {
   options = {
     mode = 'tabs',
+    themable = true,
     always_show_bufferline = true,
     left_mouse_command = vim.api.nvim_set_current_tabpage,
     middle_mouse_command = function(tabhandle)
