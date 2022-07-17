@@ -581,6 +581,7 @@ require('bufferline').setup {
     mode = 'tabs',
     themable = true,
     always_show_bufferline = true,
+    separator_style = { '|', '|' },
     left_mouse_command = vim.api.nvim_set_current_tabpage,
     middle_mouse_command = function(tabhandle)
       if table.getn(vim.api.nvim_list_tabpages()) > 1 then
