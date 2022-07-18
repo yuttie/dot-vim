@@ -315,12 +315,10 @@ vim.cmd('syntax off')
 require('options')
 
 
-vim.cmd [=[
-" Autocommand group
-augroup MyAutoCmds
-  autocmd!
-augroup end
+-- Autocommand group
+vim.api.nvim_create_augroup('MyAutoCmds', {})
 
+vim.cmd [=[
 " Reset ibus-skk to the direct input mode when leave the insert mode
 autocmd MyAutoCmds InsertLeave * call system('ibus engine skk')
 
