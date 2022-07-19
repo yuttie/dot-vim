@@ -675,6 +675,9 @@ vim.api.nvim_set_keymap('v', '-', '<Plug>(expand_region_shrink)', {})
 -- {{{ nvim-telescope/telescope.nvim
 require('telescope').setup{
   pickers = {
+    find_files = {
+      no_ignore = true,
+    },
     buffers = {
       mappings = {
         i = {
