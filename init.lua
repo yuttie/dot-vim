@@ -675,9 +675,6 @@ vim.api.nvim_set_keymap('v', '-', '<Plug>(expand_region_shrink)', {})
 -- {{{ nvim-telescope/telescope.nvim
 require('telescope').setup{
   pickers = {
-    find_files = {
-      no_ignore = true,
-    },
     buffers = {
       mappings = {
         i = {
@@ -788,7 +785,8 @@ wk.register({
     S = { ':wa<CR>',             'Save all',                                    noremap = true, silent = true },
     t = { ':NvimTreeToggle<CR>', 'Toggle tree view',                            noremap = true, silent = true },
     R = { ':Rename<Space>',      'Start renaming current file',                 noremap = true },
-    f = { '<cmd>Telescope find_files<CR>', '[Telescope] Files',                 noremap = true, silent = true },
+    f = { '<cmd>Telescope find_files no_ignore=true<CR>', '[Telescope] Files',  noremap = true, silent = true },
+    F = { '<cmd>Telescope find_files cwd=~/<CR>', '[Telescope] Files',          noremap = true, silent = true },
     r = { '<cmd>Telescope oldfiles<CR>',   '[Telescope] Recently opened files', noremap = true, silent = true },
   },
   s = {
