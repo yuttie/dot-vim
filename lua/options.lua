@@ -94,3 +94,6 @@ vim.opt.spelllang = { 'en_us', 'cjk' }
 
 -- Enable mouse
 vim.opt.mouse = 'a'
+
+-- Terminal
+vim.opt.scrollback = 1000
