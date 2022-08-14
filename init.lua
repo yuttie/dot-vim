@@ -835,8 +835,8 @@ wk.register({
   },
   c = {
     name = 'comment',
-    [''] = { '<CMD>lua require("Comment.api").call("toggle_linewise_op")<CR>g@',          'Toggle line-wise' },
-    c    = { '<CMD>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', 'Toggle current line' },
+    [''] = { '<CMD>lua require("Comment.api").call("toggle.linewise.count_repeat")<CR>g@$', 'Toggle line-wise' },
+    c    = { '<CMD>lua require("Comment.api").call("toggle.linewise.current")<CR>g@$',      'Toggle current line' },
     o    = { '<CMD>lua require("Comment.api").call("insert_linewise_below")<CR>',         'Insert below' },
     O    = { '<CMD>lua require("Comment.api").call("insert_linewise_above")<CR>',         'Insert above' },
     A    = { '<CMD>lua require("Comment.api").call("insert_linewise_eol")<CR>',           'Insert at end of line' },
@@ -897,7 +897,7 @@ wk.register({
   f = { '<cmd>Telescope git_files<CR>',                         '[Telescope] Git files', noremap = true, silent = true },
 }, { mode = 'n', prefix = '<C-g>' })
 wk.register({
-  c = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', 'Toggle line-wise' },
+  c = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', 'Toggle line-wise' },
   ['<Space>'] = {
     w = { '<cmd>HopWord<CR>', '' },
     l = { '<cmd>HopLine<CR>', '' },
