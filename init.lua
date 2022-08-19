@@ -837,9 +837,6 @@ wk.register({
     name = 'comment',
     [''] = { require('Comment.api').call('toggle.linewise', 'g@'), 'Toggle line-wise', expr = true },
     c    = { require('Comment.api').call('toggle.linewise.current', 'g@$'),      'Toggle current line', expr = true },
-    o    = { require('Comment.api').call('insert_linewise_below'),         'Insert below', expr = true },
-    O    = { require('Comment.api').call('insert_linewise_above'),         'Insert above', expr = true },
-    A    = { require('Comment.api').call('insert_linewise_eol'),           'Insert at end of line', expr = true },
   },
   ['<Space>'] = {
     name = 'jump',
