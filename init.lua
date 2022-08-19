@@ -835,11 +835,11 @@ wk.register({
   },
   c = {
     name = 'comment',
-    [''] = { '<CMD>lua require("Comment.api").call("toggle.linewise.count_repeat")<CR>g@$', 'Toggle line-wise' },
-    c    = { '<CMD>lua require("Comment.api").call("toggle.linewise.current")<CR>g@$',      'Toggle current line' },
-    o    = { '<CMD>lua require("Comment.api").call("insert_linewise_below")<CR>',         'Insert below' },
-    O    = { '<CMD>lua require("Comment.api").call("insert_linewise_above")<CR>',         'Insert above' },
-    A    = { '<CMD>lua require("Comment.api").call("insert_linewise_eol")<CR>',           'Insert at end of line' },
+    [''] = { require('Comment.api').call('toggle.linewise', 'g@'), 'Toggle line-wise', expr = true },
+    c    = { require('Comment.api').call('toggle.linewise.current', 'g@$'),      'Toggle current line', expr = true },
+    o    = { require('Comment.api').call('insert_linewise_below'),         'Insert below', expr = true },
+    O    = { require('Comment.api').call('insert_linewise_above'),         'Insert above', expr = true },
+    A    = { require('Comment.api').call('insert_linewise_eol'),           'Insert at end of line', expr = true },
   },
   ['<Space>'] = {
     name = 'jump',
