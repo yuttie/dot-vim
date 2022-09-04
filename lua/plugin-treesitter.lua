@@ -188,6 +188,7 @@ require('treesitter-context').setup {
     },
     python = {
       'elif_clause',
+      'else_clause',
     },
     rust = {
       'impl_item',
