@@ -375,6 +375,7 @@ require('commands')
 -- {{{ Mappings
 -- insert
 vim.api.nvim_set_keymap('i', '<C-s>', '<C-d>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true })
 
 -- insert and command line
 vim.api.nvim_set_keymap('!', '<C-a>', '<Home>', { noremap = true })
