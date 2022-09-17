@@ -410,7 +410,6 @@ vim.api.nvim_set_keymap('n', '<S-Down>',  '<C-w>+<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Tab>',   'gt', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-S-Tab>', 'gT', { noremap = true })
 vim.api.nvim_set_keymap('n', '<S-PageDown>', ':tabmove +1<CR>', { noremap = true, silent = true })
