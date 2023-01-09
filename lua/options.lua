@@ -43,7 +43,7 @@ vim.opt.title = true
 -- 14 editing text
 vim.opt.backspace = { 'indent', 'eol', 'start' }  -- Allow backspacing over everything in insert mode.
 vim.cmd('set formatoptions&')
-vim.opt.formatoptions:append({ m = true, M = true })
+vim.opt.formatoptions:append({ m = true, M = true, c = true, r = true, o = true })
 
 -- 15 tabs and indenting
 vim.opt.expandtab = true     -- Use white-space instead of tabs.
