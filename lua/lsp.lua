@@ -46,7 +46,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
-    { name = 'treesitter' },
     { name = 'spell' },
     { name = 'emoji' },
   }, {
@@ -100,7 +99,6 @@ cmp.setup.filetype('lua', {
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
-    { name = 'treesitter' },
     { name = 'spell' },
     { name = 'emoji' },
   }, {
