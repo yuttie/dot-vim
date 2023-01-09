@@ -101,12 +101,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- Search
   --
   vim.fn['dein#add']('haya14busa/vim-asterisk')
-  vim.fn['dein#add']('haya14busa/incsearch.vim', {
-    on_map = {
-      '<Plug>(incsearch-forward)',
-      '<Plug>(incsearch-stay)',
-    },
-  })
   vim.fn['dein#add']('itchyny/vim-cursorword')
   vim.fn['dein#add']('inkarkat/vim-mark')
 
@@ -949,13 +943,6 @@ vim.api.nvim_set_keymap('', '#',  '<Plug>(asterisk-z#)', {})
 vim.api.nvim_set_keymap('', 'g*', '<Plug>(asterisk-gz*)', {})
 vim.api.nvim_set_keymap('', 'g#', '<Plug>(asterisk-gz#)', {})
 vim.g['asterisk#keeppos'] = 1
--- }}}
-
-
--- {{{ incsearch.vim
-vim.api.nvim_set_keymap('', '/', '<Plug>(incsearch-forward)', {})
-vim.api.nvim_set_keymap('', '?', '<Plug>(incsearch-stay)', {})
-vim.g['incsearch#magic'] = '\v'
 -- }}}
 
 
