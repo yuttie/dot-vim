@@ -793,9 +793,9 @@ wk.register({
     d = { ':bd<CR>', 'Delete',                                 noremap = true, silent = true },
     b = { '<cmd>Telescope buffers<CR>', '[Telescope] Buffers', noremap = true, silent = true },
   },
-  e = {
-    name = 'error',
-    e = { '<cmd>lua vim.diagnostic.open_float()<CR>', 'Show diagnostics in floating window', noremap = true, silent = true },
+  d = {
+    name = 'diagnostic',
+    d = { '<cmd>lua vim.diagnostic.open_float()<CR>', 'Show diagnostics in floating window', noremap = true, silent = true },
     p = { '<cmd>lua vim.diagnostic.goto_prev()<CR>',  'Previous',                            noremap = true, silent = true },
     n = { '<cmd>lua vim.diagnostic.goto_next()<CR>',  'Next',                                noremap = true, silent = true },
     l = { '<cmd>lua vim.diagnostic.setloclist()<CR>', 'Show list',                           noremap = true, silent = true },
