@@ -18,7 +18,7 @@ vim.opt.showbreak = '>> '
 
 -- 6 multiple windows
 vim.opt.hidden = true        -- You can change buffer without saving.
-vim.opt.laststatus = 2  -- Always show status lines.
+vim.opt.laststatus = 3  -- Always show status lines.
 vim.opt.showcmd = true
 vim.opt.cmdheight = 2
 
