@@ -845,11 +845,7 @@ wk.register({
     [''] = { require('Comment.api').call('toggle.linewise', 'g@'), 'Toggle line-wise', expr = true },
     c    = { require('Comment.api').call('toggle.linewise.current', 'g@$'),      'Toggle current line', expr = true },
   },
-  ['<Space>'] = {
-    name = 'jump',
-    w = { '<cmd>HopWord<CR>', '' },
-    l = { '<cmd>HopLine<CR>', '' },
-  },
+  ['<Space>'] = { '<cmd>HopWord<CR>', '' },
   q = {
     name = 'quit',
     q = { ':confirm qall<CR>', 'Quit Neovim', noremap = true, silent = true },
