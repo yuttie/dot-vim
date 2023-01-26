@@ -103,6 +103,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('haya14busa/vim-asterisk')
   vim.fn['dein#add']('itchyny/vim-cursorword')
   vim.fn['dein#add']('inkarkat/vim-mark')
+  vim.fn['dein#add']('azabiong/vim-highlighter')
 
   --
   -- File
@@ -613,6 +614,12 @@ require('bufferline').setup {
 -- }}}
 
 
+-- {{{ azabiong/vim-highlighter
+-- Prevent default key mapping
+vim.g.HiMapKeys = 0
+-- }}}
+
+
 -- {{{ vim-better-whitespace
 vim.g.better_whitespace_operator = ''
 vim.g.better_whitespace_filetypes_blacklist = {
@@ -751,12 +758,20 @@ require('zen-mode').setup {
 -- {{{ folke/which-key.nvim
 local wk = require('which-key')
 wk.register({
-  h = {
+  ['?'] = {
     name = 'help',
-    h = { '<cmd>Telescope help_tags<CR>',   'Help tags',    noremap = true, silent = true },
-    c = { '<cmd>Telescope commands<CR>',    'Commands',     noremap = true, silent = true },
-    m = { '<cmd>Telescope keymaps<CR>',     'Keymaps',      noremap = true, silent = true },
-    C = { '<cmd>Telescope colorscheme<CR>', 'Colorschemes', noremap = true, silent = true },
+    ['?'] = { '<cmd>Telescope help_tags<CR>',   'Help tags',    noremap = true, silent = true },
+    [':'] = { '<cmd>Telescope commands<CR>',    'Commands',     noremap = true, silent = true },
+    k     = { '<cmd>Telescope keymaps<CR>',     'Keymaps',      noremap = true, silent = true },
+    c     = { '<cmd>Telescope colorscheme<CR>', 'Colorschemes', noremap = true, silent = true },
+  },
+  h = {
+    name = 'highlight',
+    h     = { ':<C-U>if highlighter#Command("+") | noh | endif<CR>',     'HiSet',   noremap = true },
+    d     = { ':<C-U>if highlighter#Command("-") | noh | endif<CR>',     'HiErase', noremap = true },
+    c     = { ':<C-U>if highlighter#Command("clear") | noh | endif<CR>', 'HiClear', noremap = true },
+    ['/'] = { ':<C-U><C-R>=highlighter#Find("/")<CR>',                   'HiFind',  noremap = true },
+    H     = { ':<C-U>if highlighter#Command("+%") | noh | endif<CR>',    'HiSetSL', noremap = true },
   },
   P = {
     name = 'plugin',
@@ -894,6 +909,13 @@ wk.register({
     name = 'git',
     s = { '<cmd>Gitsigns stage_hunk<CR>', 'Stage hunk', noremap = true, silent = true },
     r = { '<cmd>Gitsigns reset_hunk<CR>', 'Reset hunk', noremap = true, silent = true },
+  },
+  h = {
+    name = 'highlight',
+    h     = { ':<C-U>if highlighter#Command("+x") | noh | endif<CR>',  'HiSet',   noremap = true },
+    d     = { ':<C-U>if highlighter#Command("-x") | noh | endif<CR>',  'HiErase', noremap = true },
+    ['/'] = { ':<C-U><C-R>=highlighter#Find("/x")<CR>',                'HiFind',  noremap = true },
+    H     = { ':<C-U>if highlighter#Command("+x%") | noh | endif<CR>', 'HiSetSL', noremap = true },
   },
   s = { '<cmd>split<CR>:YodeCreateSeditorReplace<CR>', 'Focus on selection (horizontal split, above)', noremap = true, silent = true },
   S = { '<cmd>split<CR><ESC><C-w>jgv:YodeCreateSeditorReplace<CR>', 'Focus on selection (horizontal split, below)', noremap = true, silent = true },
