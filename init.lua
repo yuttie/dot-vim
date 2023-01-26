@@ -95,7 +95,9 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   -- Move
   --
   vim.fn['dein#add']('ggandor/lightspeed.nvim')
-  vim.fn['dein#add']('phaazon/hop.nvim')
+  vim.fn['dein#add']('phaazon/hop.nvim', {
+    rev = 'v1.3',
+  })
 
   --
   -- Search
