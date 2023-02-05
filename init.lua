@@ -127,8 +127,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('folke/which-key.nvim')
   vim.fn['dein#add']('rcarriga/nvim-notify')
   vim.fn['dein#add']('sindrets/winshift.nvim')
-  vim.fn['dein#add']('kevinhwang91/nvim-hlslens')
-  vim.fn['dein#add']('petertriho/nvim-scrollbar')
 
   --
   -- Terminal
@@ -991,19 +989,6 @@ vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(text
 require'hop'.setup {
   multi_windows = true,
 }
--- }}}
-
-
--- {{{ kevinhwang91/nvim-hlslens
--- require('hlslens').setup() is not required
-require("scrollbar.handlers.search").setup({
-  -- hlslens config overrides
-})
--- }}}
-
-
--- {{{ petertriho/nvim-scrollbar
-require("scrollbar").setup()
 -- }}}
 
 
