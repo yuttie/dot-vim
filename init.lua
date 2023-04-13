@@ -1,3 +1,6 @@
+-- Enable lua-loader that byte-compiles and caches lua files
+vim.loader.enable()
+
 -- {{{ $PATH
 vim.env.PATH = vim.fn.expand('~/.local/bin') .. ':' .. vim.fn.expand('~/.cargo/bin') .. ':' .. vim.env.PATH
 -- }}}
