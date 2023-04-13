@@ -26,14 +26,6 @@ vim.opt.cmdheight = 2
 vim.opt.showtabline = 2
 vim.opt.tabpagemax = 100
 
--- 11 printing
-vim.opt.printencoding = 'utf-8'
-vim.opt.printmbcharset = 'JIS_X_1990'
-vim.opt.printfont = 'monospace 10'
-vim.cmd('set printoptions&')
-vim.opt.printoptions:append({ number = 'y' })
-vim.opt.printmbfont = 'r:GothicBBB-Medium'
-
 -- 12 messages and info
 vim.cmd('set shortmess&')
 vim.opt.shortmess:append({ I = true })  -- Shortens messages to avoid 'press a key' prompt.
