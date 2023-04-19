@@ -809,7 +809,7 @@ require('lazy').setup({
     'windwp/nvim-ts-autotag',
     event = 'InsertEnter',
   },
-  'JoosepAlviste/nvim-ts-context-commentstring',
+  { 'JoosepAlviste/nvim-ts-context-commentstring', lazy = true },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
