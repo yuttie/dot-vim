@@ -48,6 +48,8 @@ vim.opt.cinoptions = { ':0', 'g0' }
 
 -- 16 folding
 vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- 19 reading and writing files
 vim.opt.fileformats = { 'unix', 'dos' }
