@@ -238,7 +238,16 @@ require('lazy').setup({
   --
   'lambdalisue/suda.vim',
   'Shougo/vinarise',
-  'nvim-tree/nvim-tree.lua',
+  {
+    'nvim-tree/nvim-tree.lua',
+    cmd = {
+      'NvimTreeToggle',
+    },
+    config = function()
+      require('nvim-tree').setup {
+      }
+    end,
+  },
   {
     'jamessan/vim-gnupg',
     branch = 'main',
@@ -1427,12 +1436,6 @@ vim.api.nvim_set_keymap('t', '<A-p>',  '<C-\\><C-n><CMD>FloatermPrev<CR>', { nor
 -- Next
 vim.api.nvim_set_keymap('n', '<A-n>',  '<CMD>FloatermNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<A-n>',  '<C-\\><C-n><CMD>FloatermNext<CR>', { noremap = true, silent = true })
--- }}}
-
-
--- {{{ nvim-tree/nvim-tree.lua
-require('nvim-tree').setup {
-}
 -- }}}
 
 
