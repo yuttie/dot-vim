@@ -471,7 +471,6 @@ require('lazy').setup({
     event = 'InsertEnter',
   },
   'JoosepAlviste/nvim-ts-context-commentstring',
-  'lewis6991/spellsitter.nvim',
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
