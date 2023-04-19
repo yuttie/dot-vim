@@ -238,7 +238,7 @@ require('lazy').setup({
   --
   'lambdalisue/suda.vim',
   'Shougo/vinarise',
-  'kyazdani42/nvim-tree.lua',
+  'nvim-tree/nvim-tree.lua',
   {
     'jamessan/vim-gnupg',
     branch = 'main',
@@ -1430,7 +1430,7 @@ vim.api.nvim_set_keymap('t', '<A-n>',  '<C-\\><C-n><CMD>FloatermNext<CR>', { nor
 -- }}}
 
 
--- {{{ kyazdani42/nvim-tree.lua
+-- {{{ nvim-tree/nvim-tree.lua
 require('nvim-tree').setup {
 }
 -- }}}
