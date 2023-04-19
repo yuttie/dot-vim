@@ -151,6 +151,7 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('neovim/nvim-lspconfig')
   -- Auto-completion
   vim.fn['dein#add']('hrsh7th/cmp-nvim-lsp')
+  vim.fn['dein#add']('hrsh7th/cmp-nvim-lsp-signature-help')
   vim.fn['dein#add']('hrsh7th/cmp-buffer')
   vim.fn['dein#add']('hrsh7th/cmp-path')
   vim.fn['dein#add']('hrsh7th/cmp-cmdline')
@@ -163,8 +164,6 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
   vim.fn['dein#add']('hrsh7th/cmp-vsnip')
   vim.fn['dein#add']('hrsh7th/vim-vsnip')
   vim.fn['dein#add']('rafamadriz/friendly-snippets')
-  -- Signature
-  vim.fn['dein#add']('ray-x/lsp_signature.nvim')
   -- Appearance
   vim.fn['dein#add']('onsails/lspkind-nvim')
 

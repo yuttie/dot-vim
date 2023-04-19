@@ -45,6 +45,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'vsnip' }, -- For vsnip users.
     { name = 'spell' },
     { name = 'emoji' },
@@ -98,6 +99,7 @@ cmp.setup.filetype('lua', {
   sources = cmp.config.sources({
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'vsnip' }, -- For vsnip users.
     { name = 'spell' },
     { name = 'emoji' },
@@ -192,16 +194,4 @@ do
     }
   end
 end
--- }}}
-
-
--- {{{ ray-x/lsp_signature.nvim
-require('lsp_signature').setup {
-  hint_enable = false,
-  bind = true, -- This is mandatory, otherwise border config won't get registered.
-  handler_opts = {
-    border = "rounded",
-  },
-  padding = ' ',
-}
 -- }}}
