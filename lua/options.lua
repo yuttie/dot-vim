@@ -58,6 +58,7 @@ vim.opt.backupcopy = 'yes'  -- Necessary for correctly watching file changes, e.
 -- 21 command line editing
 --vim.cmd('set suffixes&')
 --vim.opt.suffixes:append({ '.info', '.aux', '.log', '.dvi', '.bbl', '.out', '.pdf' })  -- Files with suffix in suffixes are ignored.
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.wildmode = 'full'  -- Set completion mode.
 vim.opt.wildmenu = true
 --vim.cmd('set wildignore&')

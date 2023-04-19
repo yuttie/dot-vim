@@ -1,6 +1,4 @@
 -- {{{ neovim/nvim-lspconfig & hrsh7th/nvim-cmp
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
 -- Configure diagnostic
 vim.diagnostic.config({
   virtual_text = true,
