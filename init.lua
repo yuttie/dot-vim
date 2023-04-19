@@ -52,7 +52,53 @@ require('lazy').setup({
   },
   'simnalamburt/vim-mundo',
   'mg979/vim-visual-multi',
-  { 'numToStr/Comment.nvim', lazy = true },
+  {
+    'numToStr/Comment.nvim',
+    lazy = true,
+    config = function()
+      -- Commenting
+      require('Comment').setup({
+          ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
+          ---@type table
+          mappings = {
+              ---Operator-pending mapping
+              ---Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
+              ---NOTE: These mappings can be changed individually by `opleader` and `toggler` config
+              basic = false,
+              ---Extra mapping
+              ---Includes `gco`, `gcO`, `gcA`
+              extra = false,
+              ---Extended mapping
+              ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
+              extended = false,
+          },
+
+          ---@param ctx Ctx
+          pre_hook = function(ctx)
+              -- Only calculate commentstring for tsx filetypes
+              if vim.bo.filetype == 'typescriptreact' then
+                  local U = require('Comment.utils')
+
+                  -- Detemine whether to use linewise or blockwise commentstring
+                  local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
+
+                  -- Determine the location where to calculate commentstring from
+                  local location = nil
+                  if ctx.ctype == U.ctype.block then
+                      location = require('ts_context_commentstring.utils').get_cursor_location()
+                  elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+                      location = require('ts_context_commentstring.utils').get_visual_start_location()
+                  end
+
+                  return require('ts_context_commentstring.internal').calculate_commentstring({
+                      key = type,
+                      location = location,
+                  })
+              end
+          end,
+      })
+    end,
+  },
   'chrisbra/NrrwRgn',
   {
     'hoschi/yode-nvim',
@@ -62,6 +108,9 @@ require('lazy').setup({
     cmd = {
       'YodeCreateSeditorReplace',
     },
+    config = function()
+      require('yode-nvim').setup({})
+    end,
   },
   'folke/zen-mode.nvim',
   {
@@ -659,47 +708,6 @@ vim.api.nvim_set_keymap('c', '<C-x>', "<C-r>=expand('%:p')<CR>", { noremap = tru
 -- terminal
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
--- Commenting
-require('Comment').setup({
-    ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
-    ---@type table
-    mappings = {
-        ---Operator-pending mapping
-        ---Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
-        ---NOTE: These mappings can be changed individually by `opleader` and `toggler` config
-        basic = false,
-        ---Extra mapping
-        ---Includes `gco`, `gcO`, `gcA`
-        extra = false,
-        ---Extended mapping
-        ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-        extended = false,
-    },
-
-    ---@param ctx Ctx
-    pre_hook = function(ctx)
-        -- Only calculate commentstring for tsx filetypes
-        if vim.bo.filetype == 'typescriptreact' then
-            local U = require('Comment.utils')
-
-            -- Detemine whether to use linewise or blockwise commentstring
-            local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
-
-            -- Determine the location where to calculate commentstring from
-            local location = nil
-            if ctx.ctype == U.ctype.block then
-                location = require('ts_context_commentstring.utils').get_cursor_location()
-            elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-                location = require('ts_context_commentstring.utils').get_visual_start_location()
-            end
-
-            return require('ts_context_commentstring.internal').calculate_commentstring({
-                key = type,
-                location = location,
-            })
-        end
-    end,
-})
 vim.cmd [=[
 " }}}
 
@@ -938,11 +946,6 @@ require('telescope').load_extension('ui-select')
 vim.cmd [=[
 autocmd MyAutoCmds TextYankPost * silent! lua vim.highlight.on_yank { timeout = 1000 }
 ]=]
-
-
--- {{{ hoschi/yode-nvim
-require('yode-nvim').setup({})
--- }}}
 
 
 -- {{{ folke/zen-mode.nvim
