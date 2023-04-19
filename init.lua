@@ -274,7 +274,26 @@ require('lazy').setup({
     lazy = true,
   },
   'rcarriga/nvim-notify',
-  'sindrets/winshift.nvim',
+  {
+    'sindrets/winshift.nvim',
+    config = function()
+      require("winshift").setup {
+      }
+    end,
+    keys = {
+      -- Start Win-Move mode:
+      { '<C-W><C-M>', '<Cmd>WinShift<CR>', noremap = true },
+      { '<C-W>m', '<Cmd>WinShift<CR>', noremap = true },
+      -- Swap two windows:
+      { '<C-W>X', '<Cmd>WinShift swap<CR>', noremap = true },
+      -- If you don't want to use Win-Move mode you can create mappings for calling the
+      -- move commands directly:
+      { '<C-M-H>', '<Cmd>WinShift left<CR>', noremap = true },
+      { '<C-M-J>', '<Cmd>WinShift down<CR>', noremap = true },
+      { '<C-M-K>', '<Cmd>WinShift up<CR>', noremap = true },
+      { '<C-M-L>', '<Cmd>WinShift right<CR>', noremap = true },
+    },
+  },
 
   --
   -- Terminal
@@ -1475,26 +1494,6 @@ vim.api.nvim_set_keymap('n', 'sd', '<Plug>(operator-surround-delete)a', { silent
 vim.api.nvim_set_keymap('n', 'sc', '<Plug>(operator-surround-replace)a', { silent = true })
 vim.api.nvim_set_keymap('n', 'sD', '<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)', { silent = true })
 vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)', { silent = true })
--- }}}
-
-
--- {{{ sindrets/winshift.nvim
-require("winshift").setup {
-}
-
--- Start Win-Move mode:
-vim.api.nvim_set_keymap('n', '<C-W><C-M>', '<Cmd>WinShift<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-W>m', '<Cmd>WinShift<CR>', { noremap = true })
-
--- Swap two windows:
-vim.api.nvim_set_keymap('n', '<C-W>X', '<Cmd>WinShift swap<CR>', { noremap = true })
-
--- If you don't want to use Win-Move mode you can create mappings for calling the
--- move commands directly:
-vim.api.nvim_set_keymap('n', '<C-M-H>', '<Cmd>WinShift left<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-M-J>', '<Cmd>WinShift down<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-M-K>', '<Cmd>WinShift up<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-M-L>', '<Cmd>WinShift right<CR>', { noremap = true })
 -- }}}
 
 
