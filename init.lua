@@ -1045,6 +1045,11 @@ vim.api.nvim_set_keymap('v', 'gw', '<Plug>(openbrowser-smart-search)', {})
 -- }}}
 
 
+-- {{{ dkarter/bullets.vim
+vim.g.bullets_outline_levels = {'ROM', 'ABC', 'num', 'abc', 'rom', 'std*'}
+-- }}}
+
+
 -- {{{ vim-gnupg
 vim.g.GPGPreferSymmetric = 1
 -- }}}
