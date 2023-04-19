@@ -8,11 +8,18 @@ vim.env.PATH = vim.fn.expand('~/.local/bin') .. ':' .. vim.fn.expand('~/.cargo/b
 
 -- {{{ Plugins
 
--- Plugins are managed by Shougo/dein.vim.
--- Execute the following commands to setup dein.vim:
---   curl -O https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
---   sh ./installer.sh <my_plugin_dir>
-local my_plugin_dir = vim.fn.expand('~/.config/nvim/bundle')
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 -- Prevent default plugins from being loaded
 vim.g.loaded_matchparen = 1
@@ -24,55 +31,65 @@ vim.g.omni_sql_no_default_maps = 1
 -- Prevent plugins from setting default keymaps
 vim.g.lightspeed_no_default_keymaps = 1
 
--- Add path of dein.vim to runtimepath
-vim.opt.runtimepath:append(my_plugin_dir .. '/repos/github.com/Shougo/dein.vim')
-
--- Add plugins
-if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
-  vim.fn['dein#begin'](my_plugin_dir)
-
-  -- Let dein.vim manage itself
-  vim.fn['dein#add'](my_plugin_dir .. '/repos/github.com/Shougo/dein.vim')
-
-  -- Plugins
-
+require('lazy').setup({
   --
   -- Edit
   --
-  vim.fn['dein#add']('kana/vim-operator-user')
-  vim.fn['dein#add']('kana/vim-operator-replace')
-  vim.fn['dein#add']('kana/vim-textobj-user')
-  vim.fn['dein#add']('rhysd/vim-textobj-anyblock', {
-    on_map = {
+  {
+    'kana/vim-operator-replace',
+    dependencies = {
+      'kana/vim-operator-user',
+    },
+  },
+  {
+    'rhysd/vim-textobj-anyblock',
+    dependencies = {
+      'kana/vim-textobj-user',
+    },
+    keys = {
       '<Plug>(textobj-anyblock-a)',
     },
-  })
-  vim.fn['dein#add']('simnalamburt/vim-mundo')
-  vim.fn['dein#add']('mg979/vim-visual-multi')
-  vim.fn['dein#add']('numToStr/Comment.nvim')
-  vim.fn['dein#add']('chrisbra/NrrwRgn')
-  vim.fn['dein#add']('hoschi/yode-nvim')
-  vim.fn['dein#add']('folke/zen-mode.nvim')
-  vim.fn['dein#add']('rhysd/vim-operator-surround', {
-    on_map = {
+  },
+  'simnalamburt/vim-mundo',
+  'mg979/vim-visual-multi',
+  { 'numToStr/Comment.nvim', lazy = true },
+  'chrisbra/NrrwRgn',
+  {
+    'hoschi/yode-nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    cmd = {
+      'YodeCreateSeditorReplace',
+    },
+  },
+  'folke/zen-mode.nvim',
+  {
+    'rhysd/vim-operator-surround',
+    dependencies = {
+      'kana/vim-operator-user',
+    },
+    keys = {
       '<Plug>(operator-surround-append)',
       '<Plug>(operator-surround-delete)',
       '<Plug>(operator-surround-replace)',
     },
-  })  -- depends on 'kana/vim-operator-user'
-  vim.fn['dein#add']('terryma/vim-expand-region', {
-    on_map = {
+  },
+  {
+    'terryma/vim-expand-region',
+    keys = {
       '<Plug>(expand_region_expand)',
       '<Plug>(expand_region_shrink)',
     },
-  })
+  },
 
   --
   -- Diff
   --
-  vim.fn['dein#add']('lambdalisue/vim-unified-diff')
-  vim.fn['dein#add']('AndrewRadev/linediff.vim', {
-    on_cmd = {
+  'lambdalisue/vim-unified-diff',
+  {
+    'AndrewRadev/linediff.vim',
+    cmd = {
       'Linediff',
       'LinediffReset',
       'LinediffAdd',
@@ -81,223 +98,267 @@ if vim.fn['dein#load_state'](my_plugin_dir) == 1 then
       'LinediffMerge',
       'LinediffPick',
     },
-  })
+  },
 
   --
   -- Text Formatting
   --
-  vim.fn['dein#add']('dkarter/bullets.vim')
-  vim.fn['dein#add']('tpope/vim-repeat')
-  vim.fn['dein#add']('junegunn/vim-easy-align', {
-    on_map = {
+  'dkarter/bullets.vim',
+  'tpope/vim-repeat',
+  {
+    'junegunn/vim-easy-align',
+    keys = {
       '<Plug>(EasyAlign)',
     },
-  })
+  },
 
   --
   -- Move
   --
-  vim.fn['dein#add']('ggandor/lightspeed.nvim')
-  vim.fn['dein#add']('phaazon/hop.nvim', {
-    rev = 'v1.3',
-  })
+  'ggandor/lightspeed.nvim',
+  {
+    'phaazon/hop.nvim',
+    branch = 'v1.3',
+  },
 
   --
   -- Search
   --
-  vim.fn['dein#add']('haya14busa/vim-asterisk')
-  vim.fn['dein#add']('itchyny/vim-cursorword')
-  vim.fn['dein#add']('inkarkat/vim-mark')
-  vim.fn['dein#add']('azabiong/vim-highlighter')
+  'haya14busa/vim-asterisk',
+  'itchyny/vim-cursorword',
+  'inkarkat/vim-mark',
+  'azabiong/vim-highlighter',
 
   --
   -- File
   --
-  vim.fn['dein#add']('lambdalisue/suda.vim')
-  vim.fn['dein#add']('Shougo/vinarise')
-  vim.fn['dein#add']('kyazdani42/nvim-tree.lua')
-  vim.fn['dein#add']('jamessan/vim-gnupg', {
-    rev = 'main',
-  })
+  'lambdalisue/suda.vim',
+  'Shougo/vinarise',
+  'kyazdani42/nvim-tree.lua',
+  {
+    'jamessan/vim-gnupg',
+    branch = 'main',
+  },
 
   --
   -- UI enhancement
   --
-  vim.fn['dein#add']('norcalli/nvim-colorizer.lua')
-  vim.fn['dein#add']('ntpeters/vim-better-whitespace')
-  vim.fn['dein#add']('lukas-reineke/indent-blankline.nvim')
-  vim.fn['dein#add']('yuttie/comfortable-motion.vim')
-  vim.fn['dein#add']('folke/which-key.nvim')
-  vim.fn['dein#add']('rcarriga/nvim-notify')
-  vim.fn['dein#add']('sindrets/winshift.nvim')
+  'norcalli/nvim-colorizer.lua',
+  'ntpeters/vim-better-whitespace',
+  'lukas-reineke/indent-blankline.nvim',
+  'yuttie/comfortable-motion.vim',
+  {
+    'folke/which-key.nvim',
+    lazy = true,
+  },
+  'rcarriga/nvim-notify',
+  'sindrets/winshift.nvim',
 
   --
   -- Terminal
   --
-  vim.fn['dein#add']('voldikss/vim-floaterm')
+  'voldikss/vim-floaterm',
 
   --
   -- Others
   --
-  vim.fn['dein#add']('tyru/open-browser.vim', {
-    on_map = {
+  {
+    'tyru/open-browser.vim',
+    keys = {
       '<Plug>(openbrowser-smart-search)',
     },
-  })
+  },
 
   --
   -- LSP
   --
-  vim.fn['dein#add']('neovim/nvim-lspconfig')
+  'neovim/nvim-lspconfig',
   -- Auto-completion
-  vim.fn['dein#add']('hrsh7th/cmp-nvim-lsp')
-  vim.fn['dein#add']('hrsh7th/cmp-nvim-lsp-signature-help')
-  vim.fn['dein#add']('hrsh7th/cmp-buffer')
-  vim.fn['dein#add']('hrsh7th/cmp-path')
-  vim.fn['dein#add']('hrsh7th/cmp-cmdline')
-  vim.fn['dein#add']('hrsh7th/cmp-emoji')
-  vim.fn['dein#add']('hrsh7th/cmp-nvim-lua')
-  vim.fn['dein#add']('ray-x/cmp-treesitter')
-  vim.fn['dein#add']('f3fora/cmp-spell')
-  vim.fn['dein#add']('hrsh7th/nvim-cmp')
-  -- Snippets
-  vim.fn['dein#add']('hrsh7th/cmp-vsnip')
-  vim.fn['dein#add']('hrsh7th/vim-vsnip')
-  vim.fn['dein#add']('rafamadriz/friendly-snippets')
-  -- Appearance
-  vim.fn['dein#add']('onsails/lspkind-nvim')
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    dependencies = {
+      -- Sources
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-emoji',
+      'hrsh7th/cmp-nvim-lua',
+      'ray-x/cmp-treesitter',
+      'f3fora/cmp-spell',
+      -- Snippets
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+      'rafamadriz/friendly-snippets',
+      -- Appearance
+      'onsails/lspkind-nvim',
+    },
+  },
 
   --
   -- Interactive filter
   --
-  vim.fn['dein#add']('nvim-telescope/telescope.nvim')
-  vim.fn['dein#add']('nvim-telescope/telescope-fzf-native.nvim', {
-    build = 'make',
-  })
-  vim.fn['dein#add']('nvim-telescope/telescope-file-browser.nvim')
-  vim.fn['dein#add']('nvim-telescope/telescope-ui-select.nvim')
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+      },
+      'nvim-telescope/telescope-file-browser.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+    },
+  },
 
   --
   -- Tree-sitter
   --
-  vim.fn['dein#add']('nvim-treesitter/nvim-treesitter', {
-    hook_post_update = 'TSUpdate',
-  })
-  vim.fn['dein#add']('nvim-treesitter/playground')
-  vim.fn['dein#add']('nvim-treesitter/nvim-treesitter-refactor')
-  vim.fn['dein#add']('nvim-treesitter/nvim-treesitter-context')
-  vim.fn['dein#add']('nvim-treesitter/nvim-treesitter-textobjects')
-  vim.fn['dein#add']('p00f/nvim-ts-rainbow')
-  vim.fn['dein#add']('andymass/vim-matchup')
-  vim.fn['dein#add']('windwp/nvim-ts-autotag')
-  vim.fn['dein#add']('JoosepAlviste/nvim-ts-context-commentstring')
-  vim.fn['dein#add']('lewis6991/spellsitter.nvim')
-  vim.fn['dein#add']('windwp/nvim-autopairs')
-  vim.fn['dein#add']('mfussenegger/nvim-treehopper')
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+  },
+  {
+    'nvim-treesitter/playground',
+    cmd = {
+      'TSPlaygroundToggle',
+      'TSHighlightCapturesUnderCursor',
+      'TSNodeUnderCursor',
+    }
+  },
+  { 'nvim-treesitter/nvim-treesitter-refactor', lazy = true },
+  { 'nvim-treesitter/nvim-treesitter-context', lazy = true },
+  { 'nvim-treesitter/nvim-treesitter-textobjects', lazy = true },
+  { 'p00f/nvim-ts-rainbow', lazy = true },
+  {
+    'andymass/vim-matchup',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    event = 'InsertEnter',
+  },
+  'JoosepAlviste/nvim-ts-context-commentstring',
+  'lewis6991/spellsitter.nvim',
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+  },
+  'mfussenegger/nvim-treehopper',
 
   --
   -- Filetype-specific plugins
   --
   -- Gentoo
-  vim.fn['dein#add']('gentoo/gentoo-syntax')  -- ftdetect, ftplugin, indent, plugin, syntax
+  'gentoo/gentoo-syntax',  -- ftdetect, ftplugin, indent, plugin, syntax
 
   -- Git
-  vim.fn['dein#add']('jreybert/vimagit')
-  vim.fn['dein#add']('itchyny/vim-gitbranch')
-  vim.fn['dein#add']('nvim-lua/plenary.nvim')  -- Required by: gitsigns.nvim, telescope.nvim
-  vim.fn['dein#add']('lewis6991/gitsigns.nvim')
-  vim.fn['dein#add']('lambdalisue/gina.vim', {
-    on_cmd = {
+  {
+    'jreybert/vimagit',
+    cmd = {
+      'Magit',
+    },
+  },
+  'itchyny/vim-gitbranch',
+  {
+    'lewis6991/gitsigns.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+  },
+  {
+    'lambdalisue/gina.vim',
+    cmd = {
       'Gina',
     },
-  })
-  vim.fn['dein#add']('tpope/vim-fugitive')
-  vim.fn['dein#add']('hotwatermorning/auto-git-diff')
+  },
+  {
+    'tpope/vim-fugitive',
+    cmd = {
+      'Gvdiffsplit',
+    }
+  },
+  'hotwatermorning/auto-git-diff',
 
   -- i3
-  vim.fn['dein#add']('PotatoesMaster/i3-vim-syntax')  -- syntax, ftplugin
+  'PotatoesMaster/i3-vim-syntax',  -- syntax, ftplugin
 
   -- jq
-  vim.fn['dein#add']('vito-c/jq.vim')  -- ftdetect, ftplugin, syntax
-
-  -- nginx
-  vim.fn['dein#add']('nginx/nginx', {
-    rtp = 'contrib/vim',
-  })  -- ftdetect, ftplugin, indent, syntax
+  'vito-c/jq.vim',  -- ftdetect, ftplugin, syntax
 
   -- Text
-  vim.fn['dein#add']('rhysd/vim-grammarous')
+  {
+    'rhysd/vim-grammarous',
+    cmd = {
+    'GrammarousCheck',
+    },
+    keys = {
+      '<Plug>(grammarous-move-to-next-error)',
+      '<Plug>(grammarous-move-to-previous-error)',
+    },
+  },
 
   -- tmux
-  vim.fn['dein#add']('tmux-plugins/vim-tmux')
+  'tmux-plugins/vim-tmux',
 
   -- Web/HTML
-  vim.fn['dein#add']('mattn/emmet-vim', {
-    on_ft = {'html', 'xml', 'php'},
-  })
+  {
+    'mattn/emmet-vim',
+    ft = {'html', 'xml', 'php'},
+  },
 
   -- Markdown
-  vim.fn['dein#add']('godlygeek/tabular', {
-    on_cmd = {
+  {
+    'godlygeek/tabular',
+    cmd = {
       'AddTabularPattern',
       'AddTabularPipeline',
       'Tabularize',
       'GTabularize',
     },
-  })
-  vim.fn['dein#add']('iamcco/markdown-preview.nvim', {
-    on_ft = {'markdown', 'pandoc.markdown', 'rmd'},
+  },
+  {
+    'iamcco/markdown-preview.nvim',
+    ft = {'markdown', 'pandoc.markdown', 'rmd'},
     build = 'sh -c "cd app & yarn install"',
-  })
+  },
 
   -- AsciiDoc
-  vim.fn['dein#add']('mjakl/vim-asciidoc', {
-    on_ft = 'asciidoc',
-  })
+  {
+    'mjakl/vim-asciidoc',
+    ft = 'asciidoc',
+  },
 
   --
-  -- Themes
+  -- Colorschemes
   --
-  vim.fn['dein#add']('yuttie/hydrangea-vim')
-  vim.fn['dein#add']('yuttie/inkstained-vim')
-  vim.fn['dein#add']('yuttie/snowy-vim')
-  vim.fn['dein#add']('yuttie/sublimetext-spacegray.vim')
-  vim.fn['dein#add']('cocopon/iceberg.vim')
-  vim.fn['dein#add']('arcticicestudio/nord-vim', {
-    rev = 'master',
-  })
+  {
+    'yuttie/hydrangea-vim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme hydrangea]])
+    end,
+  },
+  { 'yuttie/inkstained-vim', lazy = true },
+  { 'yuttie/snowy-vim', lazy = true },
+  { 'yuttie/sublimetext-spacegray.vim', lazy = true },
+  { 'cocopon/iceberg.vim', lazy = true },
+  { 'nordtheme/vim', lazy = true },
 
   --
   -- UI
   --
-  vim.fn['dein#add']('nvim-lualine/lualine.nvim')
-  vim.fn['dein#add']('akinsho/bufferline.nvim', { rev = 'dev' })
-  vim.fn['dein#add']('kyazdani42/nvim-web-devicons')
-  vim.fn['dein#add']('folke/lsp-colors.nvim')
+  'nvim-lualine/lualine.nvim',
+  { 'akinsho/bufferline.nvim', branch = 'dev' },
+  { 'kyazdani42/nvim-web-devicons', lazy = true },
+  'folke/lsp-colors.nvim',
+})
 
-  -- End of plugin list
-  vim.fn['dein#end']()
-  vim.fn['dein#save_state']()
-end
-
--- Required:
-vim.cmd('filetype plugin indent on')
-vim.cmd('syntax enable')
-
--- Personal access token for GitHub
-do
-  local io = require('io')
-  local file = io.open(vim.fn.expand('~/.config/nvim/.github_api_token'), 'r')
-  vim.g['dein#install_github_api_token'] = file:read('*a'):match('^%s*(.-)%s*$')
-  file:close()
-end
-
--- If you want to install not installed plugins on startup.
-if vim.fn['dein#check_install']() == 1 then
-  vim.fn['dein#install']()
-end
-
--- End dein Scripts-------------------------
 -- }}}
 
 
@@ -855,7 +916,7 @@ wk.register({
     name = 'git',
     ['<C-g>'] = { 'g<C-g>',                                       'Count words',           noremap = true, silent = true },
     c = { ':Gina commit -v --opener="topleft vsplit"<CR>',        'Commit',                noremap = true, silent = true },
-    d = { ':Gvdiff<CR>',                                          'Diff',                  noremap = true, silent = true },
+    d = { ':Gvdiffsplit<CR>',                                     'Diff',                  noremap = true, silent = true },
     m = { ':Magit<CR>',                                           'Magit',                 noremap = true, silent = true },
     ['<C-n>'] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", 'Next hunk',             expr = true },
     ['<C-p>'] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", 'Previous hunk',         expr = true },
@@ -882,7 +943,7 @@ wk.register({
 }, { mode = 'n', prefix = '<Space>' })
 wk.register({
   c = { ':Gina commit -v --opener="topleft vsplit"<CR>', 'Commit',                       noremap = true, silent = true },
-  d = { ':Gvdiff<CR>',                                   'Diff',                         noremap = true, silent = true },
+  d = { ':Gvdiffsplit<CR>',                              'Diff',                         noremap = true, silent = true },
   m = { ':Magit<CR>',                                    'Magit',                        noremap = true, silent = true },
   ['<C-n>'] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", 'Next hunk',             expr = true },
   ['<C-p>'] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", 'Previous hunk',         expr = true },
