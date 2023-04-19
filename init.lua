@@ -223,6 +223,15 @@ require('lazy').setup({
   {
     'phaazon/hop.nvim',
     branch = 'v1.3',
+    cmd = {
+      'HopWord',
+      'HopLine',
+    },
+    config = function()
+      require'hop'.setup {
+        multi_windows = true,
+      }
+    end,
   },
 
   --
@@ -1466,13 +1475,6 @@ vim.api.nvim_set_keymap('n', 'sd', '<Plug>(operator-surround-delete)a', { silent
 vim.api.nvim_set_keymap('n', 'sc', '<Plug>(operator-surround-replace)a', { silent = true })
 vim.api.nvim_set_keymap('n', 'sD', '<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)', { silent = true })
 vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)', { silent = true })
--- }}}
-
-
--- {{{ phaazon/hop.nvim
-require'hop'.setup {
-  multi_windows = true,
-}
 -- }}}
 
 
