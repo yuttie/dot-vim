@@ -291,8 +291,21 @@ require('lazy').setup({
   --
   -- File
   --
-  'lambdalisue/suda.vim',
-  'Shougo/vinarise',
+  {
+    'lambdalisue/suda.vim',
+    cmd = {
+      'SudaRead',
+      'SudaWrite',
+    },
+  },
+  {
+    'Shougo/vinarise',
+    cmd = {
+      'Vinarise',
+      'VinarisePluginDump',
+      'VinarisePluginViewBitmapView',
+    },
+  },
   {
     'nvim-tree/nvim-tree.lua',
     cmd = {
