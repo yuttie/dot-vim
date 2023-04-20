@@ -50,7 +50,12 @@ require('lazy').setup({
       '<Plug>(textobj-anyblock-a)',
     },
   },
-  'simnalamburt/vim-mundo',
+  {
+    'simnalamburt/vim-mundo',
+    cmd = {
+      'MundoToggle',
+    },
+  },
   'mg979/vim-visual-multi',
   {
     'numToStr/Comment.nvim',
@@ -207,7 +212,10 @@ require('lazy').setup({
   --
   -- Text Formatting
   --
-  'dkarter/bullets.vim',
+  {
+    'dkarter/bullets.vim',
+    ft = { 'markdown', 'text', 'gitcommit' },
+  },
   'tpope/vim-repeat',
   {
     'junegunn/vim-easy-align',
