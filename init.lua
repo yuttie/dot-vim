@@ -993,7 +993,6 @@ require('lazy').setup({
       }
     end,
   },
-  'folke/lsp-colors.nvim',
 })
 
 -- }}}
