@@ -467,6 +467,7 @@ require('lazy').setup({
     event = 'InsertEnter',
     dependencies = {
       -- Sources
+      'neovim/nvim-lspconfig',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-buffer',
