@@ -374,7 +374,7 @@ require('lazy').setup({
   --
   {
     'neovim/nvim-lspconfig',
-    lazy = true,
+    lazy = false,  -- This should be false to ensure that a language server is launched when a buffer is opened
     config = function()
       local lspconfig = require('lspconfig')
       local util = require('lspconfig/util')
