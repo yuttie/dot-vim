@@ -1082,57 +1082,57 @@ require('commands')
 
 -- {{{ Mappings
 -- insert
-vim.api.nvim_set_keymap('i', '<C-s>', '<C-d>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true })
+vim.keymap.set('i', '<C-s>', '<C-d>')
+vim.keymap.set('i', '<C-c>', '<Esc>')
 
 -- insert and command line
-vim.api.nvim_set_keymap('!', '<C-a>', '<Home>', { noremap = true })
-vim.api.nvim_set_keymap('!', '<C-e>', '<End>', { noremap = true })
-vim.api.nvim_set_keymap('!', '<C-b>', '<Left>', { noremap = true })
-vim.api.nvim_set_keymap('!', '<C-f>', '<Right>', { noremap = true })
-vim.api.nvim_set_keymap('!', '<C-d>', '<Del>', { noremap = true })
-vim.api.nvim_set_keymap('!', '<M-f>', '<S-Right>', { noremap = true })
-vim.api.nvim_set_keymap('!', '<M-b>', '<S-Left>', { noremap = true })
+vim.keymap.set('!', '<C-a>', '<Home>')
+vim.keymap.set('!', '<C-e>', '<End>')
+vim.keymap.set('!', '<C-b>', '<Left>')
+vim.keymap.set('!', '<C-f>', '<Right>')
+vim.keymap.set('!', '<C-d>', '<Del>')
+vim.keymap.set('!', '<M-f>', '<S-Right>')
+vim.keymap.set('!', '<M-b>', '<S-Left>')
 
 -- normal
-vim.api.nvim_set_keymap('n', 'j',   'gj', { noremap = true })
-vim.api.nvim_set_keymap('n', 'k',   'gk', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gj',  'j', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gk',  'k', { noremap = true })
-vim.api.nvim_set_keymap('n', 'P',   'Pg;', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gc',  '`[v`]', { noremap = true })
+vim.keymap.set('n', 'j',   'gj')
+vim.keymap.set('n', 'k',   'gk')
+vim.keymap.set('n', 'gj',  'j')
+vim.keymap.set('n', 'gk',  'k')
+vim.keymap.set('n', 'P',   'Pg;')
+vim.keymap.set('n', 'gc',  '`[v`]')
 
-vim.api.nvim_set_keymap('n', '<M-h>', '<C-w>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<M-l>', '<C-w>l', { noremap = true })
-vim.api.nvim_set_keymap('n', '<M-k>', '<C-w>k', { noremap = true })
-vim.api.nvim_set_keymap('n', '<M-j>', '<C-w>j', { noremap = true })
+vim.keymap.set('n', '<M-h>', '<C-w>h')
+vim.keymap.set('n', '<M-l>', '<C-w>l')
+vim.keymap.set('n', '<M-k>', '<C-w>k')
+vim.keymap.set('n', '<M-j>', '<C-w>j')
 
-vim.api.nvim_set_keymap('n', '<C-Left>',  '<C-w>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-Up>',    '<C-w>k', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-Down>',  '<C-w>j', { noremap = true })
+vim.keymap.set('n', '<C-Left>',  '<C-w>h')
+vim.keymap.set('n', '<C-Right>', '<C-w>l')
+vim.keymap.set('n', '<C-Up>',    '<C-w>k')
+vim.keymap.set('n', '<C-Down>',  '<C-w>j')
 
-vim.api.nvim_set_keymap('n', '<S-Left>',  '<C-w>><CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-Right>', '<C-w><<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-Up>',    '<C-w>-<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-Down>',  '<C-w>+<CR>', { noremap = true })
+vim.keymap.set('n', '<S-Left>',  '<C-w>><CR>')
+vim.keymap.set('n', '<S-Right>', '<C-w><<CR>')
+vim.keymap.set('n', '<S-Up>',    '<C-w>-<CR>')
+vim.keymap.set('n', '<S-Down>',  '<C-w>+<CR>')
 
-vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'N', 'Nzz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-Tab>',   'gt', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-S-Tab>', 'gT', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-PageDown>', ':tabmove +1<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-PageUp>',   ':tabmove -1<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-i>', '<C-g>', { noremap = true })
+vim.keymap.set('n', 'n', 'nzz', { silent = true })
+vim.keymap.set('n', 'N', 'Nzz', { silent = true })
+vim.keymap.set('n', '<C-Tab>',   'gt')
+vim.keymap.set('n', '<C-S-Tab>', 'gT')
+vim.keymap.set('n', '<S-PageDown>', ':tabmove +1<CR>', { silent = true })
+vim.keymap.set('n', '<S-PageUp>',   ':tabmove -1<CR>', { silent = true })
+vim.keymap.set('n', '<C-s>', ':w<CR>')
+vim.keymap.set('n', '<C-i>', '<C-g>')
 
-vim.api.nvim_set_keymap('n', '<F8>',  ":split | execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') | terminal<CR>", { noremap = true })
+vim.keymap.set('n', '<F8>',  ":split | execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') | terminal<CR>")
 
 -- command
-vim.api.nvim_set_keymap('c', '<C-x>', "<C-r>=expand('%:p')<CR>", { noremap = true })
+vim.keymap.set('c', '<C-x>', "<C-r>=expand('%:p')<CR>")
 
 -- terminal
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 vim.cmd [=[
 " }}}
@@ -1312,22 +1312,22 @@ require("indent_blankline").setup {
 
 
 -- {{{ comfortable-motion.vim
-vim.api.nvim_set_keymap('n', '<C-d>', ':call comfortable_motion#flick(100)<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-u>', ':call comfortable_motion#flick(-100)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-d>', ':call comfortable_motion#flick(100)<CR>', { silent = true })
+vim.keymap.set('n', '<C-u>', ':call comfortable_motion#flick(-100)<CR>', { silent = true })
 
-vim.api.nvim_set_keymap('n', '<C-f>',      ':call comfortable_motion#flick(200)<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-b>',      ':call comfortable_motion#flick(-200)<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<PageDown>', ':call comfortable_motion#flick(200)<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<PageUp>',   ':call comfortable_motion#flick(-200)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-f>',      ':call comfortable_motion#flick(200)<CR>', { silent = true })
+vim.keymap.set('n', '<C-b>',      ':call comfortable_motion#flick(-200)<CR>', { silent = true })
+vim.keymap.set('n', '<PageDown>', ':call comfortable_motion#flick(200)<CR>', { silent = true })
+vim.keymap.set('n', '<PageUp>',   ':call comfortable_motion#flick(-200)<CR>', { silent = true })
 
-vim.api.nvim_set_keymap('', '<ScrollWheelDown>', ':call comfortable_motion#flick(40)<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('', '<ScrollWheelUp>',   ':call comfortable_motion#flick(-40)<CR>', { noremap = true, silent = true })
+vim.keymap.set('', '<ScrollWheelDown>', ':call comfortable_motion#flick(40)<CR>', { silent = true })
+vim.keymap.set('', '<ScrollWheelUp>',   ':call comfortable_motion#flick(-40)<CR>', { silent = true })
 -- }}}
 
 
 -- {{{ vim-expand-region
-vim.api.nvim_set_keymap('v', '+', '<Plug>(expand_region_expand)', {})
-vim.api.nvim_set_keymap('v', '-', '<Plug>(expand_region_shrink)', {})
+vim.keymap.set('v', '+', '<Plug>(expand_region_expand)', {})
+vim.keymap.set('v', '-', '<Plug>(expand_region_shrink)', {})
 -- }}}
 
 
@@ -1515,28 +1515,28 @@ vim.g.floaterm_width = 0.8
 vim.g.floaterm_height = 0.8
 vim.cmd('autocmd MyAutoCmds User FloatermOpen set winblend=10')
 -- Toggle
-vim.api.nvim_set_keymap('n', '<A-t>',  '<CMD>FloatermToggle<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<A-t>',  '<C-\\><C-n><CMD>FloatermToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-t>',  '<CMD>FloatermToggle<CR>', { silent = true })
+vim.keymap.set('t', '<A-t>',  '<C-\\><C-n><CMD>FloatermToggle<CR>', { silent = true })
 -- New
-vim.api.nvim_set_keymap('n', '<A-c>',  '<CMD>FloatermNew<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<A-c>',  '<C-\\><C-n><CMD>FloatermNew<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-c>',  '<CMD>FloatermNew<CR>', { silent = true })
+vim.keymap.set('t', '<A-c>',  '<C-\\><C-n><CMD>FloatermNew<CR>', { silent = true })
 -- Kill
-vim.api.nvim_set_keymap('n', '<A-x>',  '<CMD>FloatermKill<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<A-x>',  '<C-\\><C-n><CMD>FloatermKill<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-x>',  '<CMD>FloatermKill<CR>', { silent = true })
+vim.keymap.set('t', '<A-x>',  '<C-\\><C-n><CMD>FloatermKill<CR>', { silent = true })
 -- Previous
-vim.api.nvim_set_keymap('n', '<A-p>',  '<CMD>FloatermPrev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<A-p>',  '<C-\\><C-n><CMD>FloatermPrev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-p>',  '<CMD>FloatermPrev<CR>', { silent = true })
+vim.keymap.set('t', '<A-p>',  '<C-\\><C-n><CMD>FloatermPrev<CR>', { silent = true })
 -- Next
-vim.api.nvim_set_keymap('n', '<A-n>',  '<CMD>FloatermNext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<A-n>',  '<C-\\><C-n><CMD>FloatermNext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-n>',  '<CMD>FloatermNext<CR>', { silent = true })
+vim.keymap.set('t', '<A-n>',  '<C-\\><C-n><CMD>FloatermNext<CR>', { silent = true })
 -- }}}
 
 
 -- {{{ haya14busa/vim-asterisk
-vim.api.nvim_set_keymap('', '*',  '<Plug>(asterisk-z*)', {})
-vim.api.nvim_set_keymap('', '#',  '<Plug>(asterisk-z#)', {})
-vim.api.nvim_set_keymap('', 'g*', '<Plug>(asterisk-gz*)', {})
-vim.api.nvim_set_keymap('', 'g#', '<Plug>(asterisk-gz#)', {})
+vim.keymap.set('', '*',  '<Plug>(asterisk-z*)', {})
+vim.keymap.set('', '#',  '<Plug>(asterisk-z#)', {})
+vim.keymap.set('', 'g*', '<Plug>(asterisk-gz*)', {})
+vim.keymap.set('', 'g#', '<Plug>(asterisk-gz#)', {})
 vim.g['asterisk#keeppos'] = 1
 -- }}}
 
@@ -1547,49 +1547,49 @@ vim.g.mw_no_mappings = 1
 
 
 -- {{{ kana/vim-operator-replace
-vim.api.nvim_set_keymap('n', 'pp', 'p', { noremap = true })
-vim.api.nvim_set_keymap('n', 'p', '<Plug>(operator-replace)', {})
+vim.keymap.set('n', 'pp', 'p')
+vim.keymap.set('n', 'p', '<Plug>(operator-replace)')
 -- }}}
 
 
 -- {{{ rhysd/vim-operator-surround
-vim.api.nvim_set_keymap('n', 'sa', '<Plug>(operator-surround-append)', { silent = true })
-vim.api.nvim_set_keymap('v', 'sa', '<Plug>(operator-surround-append)', { silent = true })
-vim.api.nvim_set_keymap('n', 'sd', '<Plug>(operator-surround-delete)a', { silent = true })
-vim.api.nvim_set_keymap('n', 'sc', '<Plug>(operator-surround-replace)a', { silent = true })
-vim.api.nvim_set_keymap('n', 'sD', '<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)', { silent = true })
-vim.api.nvim_set_keymap('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)', { silent = true })
+vim.keymap.set('n', 'sa', '<Plug>(operator-surround-append)', { silent = true })
+vim.keymap.set('v', 'sa', '<Plug>(operator-surround-append)', { silent = true })
+vim.keymap.set('n', 'sd', '<Plug>(operator-surround-delete)a', { silent = true })
+vim.keymap.set('n', 'sc', '<Plug>(operator-surround-replace)a', { silent = true })
+vim.keymap.set('n', 'sD', '<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)', { silent = true })
+vim.keymap.set('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)', { silent = true })
 -- }}}
 
 
 -- {{{ ggandor/lightspeed.nvim
-vim.api.nvim_set_keymap('n', 'f', '<Plug>Lightspeed_f', { silent = true })
-vim.api.nvim_set_keymap('n', 'F', '<Plug>Lightspeed_F', { silent = true })
-vim.api.nvim_set_keymap('x', 'f', '<Plug>Lightspeed_f', { silent = true })
-vim.api.nvim_set_keymap('x', 'F', '<Plug>Lightspeed_F', { silent = true })
-vim.api.nvim_set_keymap('o', 'f', '<Plug>Lightspeed_f', { silent = true })
-vim.api.nvim_set_keymap('o', 'F', '<Plug>Lightspeed_F', { silent = true })
+vim.keymap.set('n', 'f', '<Plug>Lightspeed_f', { silent = true })
+vim.keymap.set('n', 'F', '<Plug>Lightspeed_F', { silent = true })
+vim.keymap.set('x', 'f', '<Plug>Lightspeed_f', { silent = true })
+vim.keymap.set('x', 'F', '<Plug>Lightspeed_F', { silent = true })
+vim.keymap.set('o', 'f', '<Plug>Lightspeed_f', { silent = true })
+vim.keymap.set('o', 'F', '<Plug>Lightspeed_F', { silent = true })
 
-vim.api.nvim_set_keymap('n', 't', '<Plug>Lightspeed_t', { silent = true })
-vim.api.nvim_set_keymap('n', 'T', '<Plug>Lightspeed_T', { silent = true })
-vim.api.nvim_set_keymap('x', 't', '<Plug>Lightspeed_t', { silent = true })
-vim.api.nvim_set_keymap('x', 'T', '<Plug>Lightspeed_T', { silent = true })
-vim.api.nvim_set_keymap('o', 't', '<Plug>Lightspeed_t', { silent = true })
-vim.api.nvim_set_keymap('o', 'T', '<Plug>Lightspeed_T', { silent = true })
+vim.keymap.set('n', 't', '<Plug>Lightspeed_t', { silent = true })
+vim.keymap.set('n', 'T', '<Plug>Lightspeed_T', { silent = true })
+vim.keymap.set('x', 't', '<Plug>Lightspeed_t', { silent = true })
+vim.keymap.set('x', 'T', '<Plug>Lightspeed_T', { silent = true })
+vim.keymap.set('o', 't', '<Plug>Lightspeed_t', { silent = true })
+vim.keymap.set('o', 'T', '<Plug>Lightspeed_T', { silent = true })
 
-vim.api.nvim_set_keymap('n', ';', '<Plug>Lightspeed_;_ft', { silent = true })
-vim.api.nvim_set_keymap('x', ';', '<Plug>Lightspeed_;_ft', { silent = true })
-vim.api.nvim_set_keymap('o', ';', '<Plug>Lightspeed_;_ft', { silent = true })
+vim.keymap.set('n', ';', '<Plug>Lightspeed_;_ft', { silent = true })
+vim.keymap.set('x', ';', '<Plug>Lightspeed_;_ft', { silent = true })
+vim.keymap.set('o', ';', '<Plug>Lightspeed_;_ft', { silent = true })
 
-vim.api.nvim_set_keymap('n', ',', '<Plug>Lightspeed_,_ft', { silent = true })
-vim.api.nvim_set_keymap('x', ',', '<Plug>Lightspeed_,_ft', { silent = true })
-vim.api.nvim_set_keymap('o', ',', '<Plug>Lightspeed_,_ft', { silent = true })
+vim.keymap.set('n', ',', '<Plug>Lightspeed_,_ft', { silent = true })
+vim.keymap.set('x', ',', '<Plug>Lightspeed_,_ft', { silent = true })
+vim.keymap.set('o', ',', '<Plug>Lightspeed_,_ft', { silent = true })
 -- }}}
 
 
 -- {{{ open-browser.vim
-vim.api.nvim_set_keymap('n', 'gw', '<Plug>(openbrowser-smart-search)', {})
-vim.api.nvim_set_keymap('v', 'gw', '<Plug>(openbrowser-smart-search)', {})
+vim.keymap.set('n', 'gw', '<Plug>(openbrowser-smart-search)', {})
+vim.keymap.set('v', 'gw', '<Plug>(openbrowser-smart-search)', {})
 -- }}}
 
 
@@ -1676,7 +1676,7 @@ end
 
 
 -- {{{ rhysd/vim-grammarous
-vim.api.nvim_set_keymap('n', '<F5>', '<Plug>(grammarous-move-to-next-error)', {})
+vim.keymap.set('n', '<F5>', '<Plug>(grammarous-move-to-next-error)', {})
 -- }}}
 
 
