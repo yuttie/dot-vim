@@ -384,19 +384,19 @@ require('lazy').setup({
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = bufnr, silent = true }
-        vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-        vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-        vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-        vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-        vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-        vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-        vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-        vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-        vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-        vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-        vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-        vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-        vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+        vim.keymap.set('n', '<C-k>', function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set('n', 'gf', function() vim.lsp.buf.formatting() end, opts)
+        vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
+        vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
+        vim.keymap.set('n', 'gt', function() vim.lsp.buf.type_definition() end, opts)
+        vim.keymap.set('n', 'gn', function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set('n', 'ga', function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set('n', 'ge', function() vim.diagnostic.open_float() end, opts)
+        vim.keymap.set('n', 'g]', function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set('n', 'g[', function() vim.diagnostic.goto_prev() end, opts)
       end
 
       local path = util.path
