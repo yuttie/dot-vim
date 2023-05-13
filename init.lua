@@ -1382,9 +1382,9 @@ wk.register({
   },
   P = {
     name = 'plugin',
-    P = { ':call dein#check_update(v:true)<CR>', 'Update',  noremap = true, silent = true },
-    i = { ':call dein#install()<CR>',            'Install', noremap = true, silent = true },
-    c = { ':echo dein#check_clean() <Bar> call map(dein#check_clean(), "delete(v:val, \'rf\')") <Bar> call dein#recache_runtimepath() <Bar> echo "Cleaned up."<CR>', 'Clean', noremap = true, silent = true },
+    P = { function() require("lazy").sync() end,    'Update',  noremap = true, silent = true },
+    i = { function() require("lazy").install() end, 'Install', noremap = true, silent = true },
+    c = { function() require("lazy").clean() end,   'Clean',   noremap = true, silent = true },
   },
   f = {
     name = 'file',
