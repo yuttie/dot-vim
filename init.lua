@@ -326,7 +326,26 @@ require('lazy').setup({
   --
   'norcalli/nvim-colorizer.lua',
   'ntpeters/vim-better-whitespace',
-  'lukas-reineke/indent-blankline.nvim',
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {
+      debounce = 200,
+      indent = {
+        char = '┆',
+        smart_indent_cap = true,
+      },
+      scope = {
+        enabled = ture,
+        char = '│',
+        show_start = true,
+        show_end = true,
+        highlight = 'Function',
+        include = {},
+        exclude = {},
+      },
+    },
+  },
   'yuttie/comfortable-motion.vim',
   {
     'folke/which-key.nvim',
@@ -1324,14 +1343,6 @@ vim.opt.listchars:append({ eol = '﬋' })  -- Alternatives: '⏎'
 vim.opt.listchars:remove('nbsp')
 vim.opt.listchars:remove('trail')
 
-require("indent_blankline").setup {
-  -- for example, context is off by default, use this to turn it on
-  show_current_context = true,
-  show_current_context_start = true,
-  show_end_of_line = true,
-  space_char_blankline = " ",
-  use_treesitter = true,
-}
 -- }}}
 
 
