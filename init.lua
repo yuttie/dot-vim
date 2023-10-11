@@ -326,26 +326,7 @@ require('lazy').setup({
   --
   'norcalli/nvim-colorizer.lua',
   'ntpeters/vim-better-whitespace',
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {
-      debounce = 200,
-      indent = {
-        char = '┆',
-        smart_indent_cap = true,
-      },
-      scope = {
-        enabled = ture,
-        char = '│',
-        show_start = true,
-        show_end = true,
-        highlight = 'Function',
-        include = {},
-        exclude = {},
-      },
-    },
-  },
+  'lukas-reineke/indent-blankline.nvim',
   'yuttie/comfortable-motion.vim',
   {
     'folke/which-key.nvim',
@@ -1342,6 +1323,32 @@ vim.opt.list = true
 vim.opt.listchars:append({ eol = '﬋' })  -- Alternatives: '⏎'
 vim.opt.listchars:remove('nbsp')
 vim.opt.listchars:remove('trail')
+
+do
+  local hooks = require('ibl.hooks')
+  -- create the highlight groups in the highlight setup hook, so they are reset
+  -- every time the colorscheme changes
+  hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, 'IndentBlanklineScope', { fg = '#a8d544' })
+  end)
+end
+
+require('ibl').setup {
+  debounce = 200,
+  indent = {
+    char = '┆',
+    smart_indent_cap = true,
+  },
+  scope = {
+    enabled = ture,
+    char = '│',
+    show_start = true,
+    show_end = true,
+    highlight = 'IndentBlanklineScope',
+    include = {},
+    exclude = {},
+  },
+}
 
 -- }}}
 
