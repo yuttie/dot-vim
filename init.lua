@@ -996,7 +996,7 @@ require('lazy').setup({
   --
   {
     'yuttie/hydrangea-vim',
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd([[colorscheme hydrangea]])
