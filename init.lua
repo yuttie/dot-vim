@@ -1115,7 +1115,7 @@ vim.keymap.set('n', 'j',   'gj')
 vim.keymap.set('n', 'k',   'gk')
 vim.keymap.set('n', 'gj',  'j')
 vim.keymap.set('n', 'gk',  'k')
-vim.keymap.set('n', 'P',   'Pg;')
+vim.keymap.set('n', 'PP',   'Pg;')
 vim.keymap.set('n', 'gc',  '`[v`]')
 
 vim.keymap.set('n', '<M-h>', '<C-w>h')
@@ -1581,8 +1581,7 @@ vim.g.mw_no_mappings = 1
 
 
 -- {{{ kana/vim-operator-replace
-vim.keymap.set('n', 'pp', 'p')
-vim.keymap.set('n', 'p', '<Plug>(operator-replace)')
+vim.keymap.set('n', 'P', '<Plug>(operator-replace)')
 -- }}}
 
 
