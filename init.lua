@@ -327,6 +327,14 @@ require('lazy').setup({
   'norcalli/nvim-colorizer.lua',
   'ntpeters/vim-better-whitespace',
   'lukas-reineke/indent-blankline.nvim',
+  {
+    'lukas-reineke/headlines.nvim',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('headlines').setup {
+      }
+    end,
+  },
   'yuttie/comfortable-motion.vim',
   {
     'folke/which-key.nvim',
