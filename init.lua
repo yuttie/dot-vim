@@ -1020,7 +1020,7 @@ require('lazy').setup({
   -- UI
   --
   'nvim-lualine/lualine.nvim',
-  { 'akinsho/bufferline.nvim', branch = 'dev' },
+  'akinsho/bufferline.nvim',
   {
     'kyazdani42/nvim-web-devicons',
     lazy = true,
@@ -1254,6 +1254,7 @@ require('lualine').setup {
 require('bufferline').setup {
   options = {
     mode = 'tabs',
+    style_preset = require('bufferline').style_preset.no_italic,
     themable = true,
     always_show_bufferline = true,
     separator_style = { '|', '|' },
@@ -1273,29 +1274,6 @@ require('bufferline').setup {
       return buf_a.ordinal < buf_b.ordinal
     end,
   },
-  highlights = function(config)
-    local hl = {}
-
-    for name, tbl in pairs(config.highlights) do
-      local tbl_copy = {}
-      for k, v in pairs(tbl) do
-        -- Modify gui to remove italic
-        if k == 'gui' then
-          local parts = vim.split(v, ',')
-          for _, part in pairs(parts) do
-            if part ~= 'italic' then
-              tbl_copy['gui'] = part
-            end
-          end
-        else
-          tbl_copy[k] = v
-        end
-      end
-      hl[name] = tbl_copy
-    end
-
-    return hl
-  end,
 }
 -- }}}
 
