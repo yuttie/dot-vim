@@ -1007,10 +1007,12 @@ require('lazy').setup({
   --
   {
     'yuttie/hydrangea-vim',
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme hydrangea]])
+      vim.cmd [=[
+      colorscheme hydrangea_dark_night
+      ]=]
     end,
   },
   { 'yuttie/inkstained-vim', lazy = true },
@@ -1078,8 +1080,6 @@ set guicursor=n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:
 
 " Switch syntax highlighting on
 syntax on
-set background=dark
-colorscheme hydrangea
 
 function! s:my_colorscheme_adjustments() abort
   highlight SpellBad term=underline cterm=undercurl gui=undercurl
