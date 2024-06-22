@@ -1370,6 +1370,8 @@ wk.register({
     [':'] = { '<cmd>Telescope commands<CR>',    'Commands',     noremap = true, silent = true },
     k     = { '<cmd>Telescope keymaps<CR>',     'Keymaps',      noremap = true, silent = true },
     c     = { '<cmd>Telescope colorscheme<CR>', 'Colorschemes', noremap = true, silent = true },
+    i     = { '<cmd>Inspect<CR>',               'Inspect',      noremap = true, silent = true },
+    I     = { '<cmd>Inspect!<CR>',              'Inspect!',     noremap = true, silent = true },
   },
   h = {
     name = 'highlight',
