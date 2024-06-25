@@ -1425,6 +1425,7 @@ wk.register({
   },
   t = {
     name = 'toggle',
+    c = { '<cmd>TSContextToggle<CR>',               'TreeSitter context',        noremap = true, silent = true },
     d = { (function()
              local enabled = true
              return function()
