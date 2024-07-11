@@ -606,6 +606,13 @@ require('lazy').setup({
       })
     end,
   },
+  -- Diagnostic virtual text
+  {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    config = function()
+      require('lsp_lines').setup()
+    end,
+  },
   -- Status
   {
     'nvim-lua/lsp-status.nvim',
@@ -1697,7 +1704,7 @@ require('gitsigns').setup {
 -- Configure diagnostic
 vim.diagnostic.config({
   underline = true,
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
   float = {
     border = 'rounded',
