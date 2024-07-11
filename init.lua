@@ -1689,9 +1689,12 @@ require('gitsigns').setup {
 
 -- Configure diagnostic
 vim.diagnostic.config({
+  underline = true,
   virtual_text = true,
   signs = true,
-  underline = true,
+  float = {
+    border = 'rounded',
+  },
   update_in_insert = false,
   severity_sort = true,
 })
