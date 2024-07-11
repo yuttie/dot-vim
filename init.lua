@@ -471,6 +471,13 @@ require('lazy').setup({
           on_attach = on_attach,
         }
       end
+
+      -- Add borders around hover float window
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+        vim.lsp.handlers.hover, {
+          border = 'rounded',
+        }
+      )
     end,
   },
   -- Auto-completion
