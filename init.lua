@@ -1438,8 +1438,8 @@ wk.register({
   d = {
     name = 'diagnostic',
     d = { '<cmd>lua vim.diagnostic.open_float()<CR>', 'Show diagnostics in floating window', noremap = true, silent = true },
-    p = { '<cmd>lua vim.diagnostic.goto_prev()<CR>',  'Previous',                            noremap = true, silent = true },
-    n = { '<cmd>lua vim.diagnostic.goto_next()<CR>',  'Next',                                noremap = true, silent = true },
+    p = { '<cmd>lua vim.diagnostic.goto_prev({ severity = { min = vim.diagnostic.severity.ERROR }, wrap = false })<CR>',  'Previous', noremap = true, silent = true },
+    n = { '<cmd>lua vim.diagnostic.goto_next({ severity = { min = vim.diagnostic.severity.ERROR }, wrap = false })<CR>',  'Next',     noremap = true, silent = true },
     l = { '<cmd>lua vim.diagnostic.setloclist()<CR>', 'Show list',                           noremap = true, silent = true },
   },
   t = {
