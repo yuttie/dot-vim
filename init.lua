@@ -340,7 +340,12 @@ require('lazy').setup({
     'folke/which-key.nvim',
     lazy = true,
   },
-  'rcarriga/nvim-notify',
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require('notify')
+    end,
+  },
   {
     'sindrets/winshift.nvim',
     config = function()
