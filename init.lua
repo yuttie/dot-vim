@@ -1106,7 +1106,7 @@ if (has("termguicolors"))
 endif
 
 " Change the cursor sahpe
-set guicursor=n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:hor20-Cursor/lCursor
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon370
 
 " Switch syntax highlighting on
 syntax on
