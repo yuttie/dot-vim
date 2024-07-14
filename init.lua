@@ -326,7 +326,10 @@ require('lazy').setup({
   --
   'norcalli/nvim-colorizer.lua',
   'ntpeters/vim-better-whitespace',
-  'lukas-reineke/indent-blankline.nvim',
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+  },
   {
     'lukas-reineke/headlines.nvim',
     dependencies = 'nvim-treesitter/nvim-treesitter',
