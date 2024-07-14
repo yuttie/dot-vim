@@ -20,7 +20,6 @@ return {
       'MundoToggle',
     },
   },
-  'mg979/vim-visual-multi',
   {
     'numToStr/Comment.nvim',
     lazy = true,
