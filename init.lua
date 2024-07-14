@@ -328,7 +328,29 @@ require('lazy').setup({
   'ntpeters/vim-better-whitespace',
   {
     'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
+    config = function()
+      vim.opt.list = true
+      vim.opt.listchars:append({ eol = '﬋' })  -- Alternatives: '⏎'
+      vim.opt.listchars:remove('nbsp')
+      vim.opt.listchars:remove('trail')
+
+      require('ibl').setup {
+        debounce = 200,
+        indent = {
+          char = '┆',
+          smart_indent_cap = true,
+        },
+        scope = {
+          enabled = ture,
+          char = '│',
+          show_start = true,
+          show_end = true,
+          highlight = 'Function',
+          include = {},
+          exclude = {},
+        },
+      }
+    end,
   },
   {
     'lukas-reineke/headlines.nvim',
@@ -1417,32 +1439,6 @@ vim.g.better_whitespace_filetypes_blacklist = {
   'help',
   'markdown',
 }
--- }}}
-
-
--- {{{ lukas-reineke/indent-blankline.nvim
-vim.opt.list = true
-vim.opt.listchars:append({ eol = '﬋' })  -- Alternatives: '⏎'
-vim.opt.listchars:remove('nbsp')
-vim.opt.listchars:remove('trail')
-
-require('ibl').setup {
-  debounce = 200,
-  indent = {
-    char = '┆',
-    smart_indent_cap = true,
-  },
-  scope = {
-    enabled = ture,
-    char = '│',
-    show_start = true,
-    show_end = true,
-    highlight = 'Function',
-    include = {},
-    exclude = {},
-  },
-}
-
 -- }}}
 
 
