@@ -29,11 +29,16 @@ return {
   },
   {
     'lukas-reineke/headlines.nvim',
-    dependencies = 'nvim-treesitter/nvim-treesitter',
-    config = function()
-      require('headlines').setup {
-      }
-    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    opts = {},
+    ft = {
+      'markdown',
+      'rmd',
+      'norg',
+      'org',
+    },
   },
   'yuttie/comfortable-motion.vim',
   {
