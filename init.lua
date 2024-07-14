@@ -1426,15 +1426,6 @@ vim.opt.listchars:append({ eol = '﬋' })  -- Alternatives: '⏎'
 vim.opt.listchars:remove('nbsp')
 vim.opt.listchars:remove('trail')
 
-do
-  local hooks = require('ibl.hooks')
-  -- create the highlight groups in the highlight setup hook, so they are reset
-  -- every time the colorscheme changes
-  hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    vim.api.nvim_set_hl(0, 'IndentBlanklineScope', { fg = '#a8d544' })
-  end)
-end
-
 require('ibl').setup {
   debounce = 200,
   indent = {
@@ -1446,7 +1437,7 @@ require('ibl').setup {
     char = '│',
     show_start = true,
     show_end = true,
-    highlight = 'IndentBlanklineScope',
+    highlight = 'Function',
     include = {},
     exclude = {},
   },
