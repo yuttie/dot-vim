@@ -250,6 +250,16 @@ return {
     dependencies = {
       'lewis6991/gitsigns.nvim',
     },
+    event = {
+      'BufWinEnter',
+      'TabEnter',
+      'TermEnter',
+      'WinEnter',
+      'CmdwinLeave',
+      'TextChanged',
+      'VimResized',
+      'WinScrolled',
+    },
     config = function()
       require('scrollbar').setup()
       require('scrollbar.handlers.gitsigns').setup()
