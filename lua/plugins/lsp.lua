@@ -53,7 +53,7 @@ return {
       -- * dockerls:      yarn global add dockerfile-language-server-nodejs
       -- * eslint:        yarn global add vscode-langservers-extracted
       -- * html:          yarn global add vscode-langservers-extracted
-      -- * rust_analyzer: curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+      -- * rust_analyzer: rustup component add rust-analyzer
       -- * sqlls:         yarn global add sql-language-server
       -- * texlab:        cargo install --git https://github.com/latex-lsp/texlab.git --locked
       -- * tsserver:      yarn global add typescript-language-server
