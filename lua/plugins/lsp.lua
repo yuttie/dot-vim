@@ -46,6 +46,9 @@ return {
 
       -- Servers
       -- * pyright:       yarn global add pyright
+      -- * jedi_language_server: pipx install jedi-language-server
+      -- * pylsp:         pipx install python-lsp-server
+      -- * pylyzer:       cargo install pylyzer --locked
       -- * bashls:        yarn global add bash-language-server
       -- * ccls:          emerge dev-util/ccls, pacman -S community/ccls
       -- * cssls:         yarn global add vscode-langservers-extracted
