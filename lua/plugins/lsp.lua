@@ -26,9 +26,8 @@ return {
         vim.keymap.set('n', 'g[', function() vim.diagnostic.goto_prev() end, opts)
       end
 
-      local path = util.path
-
       local function get_python_path(workspace)
+        local path = util.path
         -- Use activated virtualenv.
         if vim.env.VIRTUAL_ENV then
           return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
@@ -60,22 +59,13 @@ return {
       -- * vimls:         yarn global add vim-language-server
       -- * vuels:         yarn global add vls
 
-      -- pyright
-      lspconfig['pyright'].setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        before_init = function(_, config)
-          config.settings.python.pythonPath = get_python_path(config.root_dir)
-        end,
-      }
-
-      -- Other servers
       local servers = {
         'bashls',
         'ccls',
         'cssls',
         'dockerls',
         'eslint',
+        'pyright',
         'html',
         'rust_analyzer',
         'sqlls',
@@ -85,10 +75,20 @@ return {
         'vuels',
       }
       for _, server in ipairs(servers) do
-        lspconfig[server].setup {
-          capabilities = capabilities,
-          on_attach = on_attach,
-        }
+        if server == 'pyright' then
+          lspconfig[server].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            before_init = function(_, config)
+              config.settings.python.pythonPath = get_python_path(config.root_dir)
+            end,
+          }
+        else
+          lspconfig[server].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+          }
+        end
       end
 
       -- Add borders around hover float window
@@ -251,5 +251,4 @@ return {
       lsp_status.register_progress()
     end,
   },
-
 }
