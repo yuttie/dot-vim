@@ -105,7 +105,7 @@ return {
   -- Auto-completion
   {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    event = 'VeryLazy',
     dependencies = {
       -- Sources
       'neovim/nvim-lspconfig',
