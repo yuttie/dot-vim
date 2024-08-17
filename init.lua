@@ -104,7 +104,7 @@ autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
 -- ==============================================================================
 
 -- {{{ Neovide
-vim.opt.guifont = 'monospace:h10'
+vim.opt.guifont = 'monospace:h13'
 vim.g.neovide_cursor_animation_length = 0.03
 vim.g.neovide_cursor_trail_length = 0.5
 vim.g.neovide_cursor_vfx_mode = "railgun"
