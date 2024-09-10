@@ -254,4 +254,9 @@ return {
       lsp_status.register_progress()
     end,
   },
+  -- Navigation
+  {
+    'SmiteshP/nvim-navic',
+    lazy = true,
+  },
 }

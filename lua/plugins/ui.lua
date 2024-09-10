@@ -267,6 +267,9 @@ return {
   },
   {
     'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+    },
     opts = {
       options = {
         icons_enabled = true,
@@ -278,21 +281,43 @@ return {
       },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'filename'},
-        lualine_c = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {'branch'},
+        lualine_c = {},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
       },
       inactive_sections = {
         lualine_a = {'mode'},
-        lualine_b = {'filename'},
-        lualine_c = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {'branch'},
+        lualine_c = {},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
       },
       tabline = {
+      },
+      winbar = {
+        lualine_b = {
+          {
+            'navic',
+            color_correction = nil,
+            navic_opts = nil,
+          },
+        },
+        lualine_x = {'diagnostics', 'diff'},
+        lualine_y = {'%f'},
+      },
+      inactive_winbar = {
+        lualine_b = {
+          {
+            'navic',
+            color_correction = nil,
+            navic_opts = nil,
+          },
+        },
+        lualine_x = {'diagnostics', 'diff'},
+        lualine_y = {'%f'},
       },
       extensions = {},
     },
