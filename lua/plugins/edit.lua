@@ -70,9 +70,6 @@ return {
   'chrisbra/NrrwRgn',
   {
     'hoschi/yode-nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
     cmd = {
       'YodeCreateSeditorReplace',
     },
