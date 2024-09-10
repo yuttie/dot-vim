@@ -2,6 +2,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    event = 'BufRead',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-refactor',
       'nvim-treesitter/nvim-treesitter-textobjects',
