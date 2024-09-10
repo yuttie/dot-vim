@@ -2,6 +2,13 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-refactor',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'andymass/vim-matchup',
+      'windwp/nvim-ts-autotag',
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
     config = function()
       require'nvim-treesitter.configs'.setup {
         -- One of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -141,7 +148,6 @@ return {
       'TSNodeUnderCursor',
     }
   },
-  { 'nvim-treesitter/nvim-treesitter-refactor', lazy = true },
   {
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
@@ -227,22 +233,13 @@ return {
       }
     end,
   },
-  { 'nvim-treesitter/nvim-treesitter-textobjects', lazy = true },
   { 'HiPhish/rainbow-delimiters.nvim', lazy = true },
   {
     'andymass/vim-matchup',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-    },
     config = function()
       vim.g.matchup_delim_nomids = 1
     end,
   },
-  {
-    'windwp/nvim-ts-autotag',
-    event = 'InsertEnter',
-  },
-  { 'JoosepAlviste/nvim-ts-context-commentstring', lazy = true },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
