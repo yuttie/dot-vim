@@ -8,7 +8,6 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'andymass/vim-matchup',
       'windwp/nvim-ts-autotag',
-      'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function()
       require'nvim-treesitter.configs'.setup {
@@ -134,10 +133,6 @@ return {
         autotag = {
           enable = true,
         },
-
-        context_commentstring = {
-          enable = true,
-        },
       }
     end,
   },
@@ -256,5 +251,12 @@ return {
       { 'm', ":<C-U>lua require('tsht').nodes()<CR>", mode = 'o', silent = true },
       { 'm', ":lua require('tsht').nodes()<CR>", mode = 'v', silent = true, noremap = true },
     },
+  },
+  {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    config = function()
+      vim.g.skip_ts_context_commentstring_module = true
+      require('ts_context_commentstring').setup {}
+    end,
   },
 }
