@@ -199,6 +199,13 @@ return {
     },
   },
   {
+    'mrded/nvim-lsp-notify',
+    dependencies = {
+      'rcarriga/nvim-notify',
+    },
+    config = true,
+  },
+  {
     'rcarriga/nvim-notify',
     config = function()
       vim.notify = require('notify')
