@@ -8,6 +8,10 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local on_attach = function(client, bufnr)
+        -- Disable certain capabilities of ruff in favor of other LSP servers
+        if client.name == 'ruff' then
+          client.server_capabilities.hoverProvider = false
+        end
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = bufnr, silent = true }
@@ -49,6 +53,7 @@ return {
       -- * jedi_language_server: pipx install jedi-language-server
       -- * pylsp:         pipx install python-lsp-server
       -- * pylyzer:       cargo install pylyzer --locked
+      -- * ruff:          pipx install ruff
       -- * bashls:        yarn global add bash-language-server
       -- * ccls:          emerge dev-util/ccls, pacman -S community/ccls
       -- * cssls:         yarn global add vscode-langservers-extracted
@@ -69,6 +74,7 @@ return {
         'dockerls',
         'eslint',
         'pyright',
+        'ruff',
         'html',
         'rust_analyzer',
         'sqlls',
