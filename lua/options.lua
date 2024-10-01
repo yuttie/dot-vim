@@ -82,6 +82,7 @@ vim.opt.ambiwidth = 'single'
 -- 26 various
 vim.cmd('set sessionoptions&')
 vim.opt.lazyredraw = true
+vim.opt.swapfile = false
 vim.opt.pumblend = 10
 vim.opt.diffopt = { 'internal', 'filler', 'closeoff', 'indent-heuristic', 'algorithm:histogram', 'followwrap', 'linematch:60' }
 vim.opt.spelllang = { 'en_us', 'cjk' }
