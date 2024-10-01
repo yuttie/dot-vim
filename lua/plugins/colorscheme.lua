@@ -1,5 +1,5 @@
-local selected_plugin = 'EdenEast/nightfox.nvim'
-local selected_colorscheme = 'dawnfox'
+local selected_plugin = 'yuttie/hydrangea-vim'
+local selected_colorscheme = 'hydrangea_bright_night'
 
 local plugins = {
   { 'yuttie/hydrangea-vim', branch = 'develop' },
