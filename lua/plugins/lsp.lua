@@ -167,6 +167,7 @@ return {
         completion = {
           keyword_length = 0,
         },
+        preselect = cmp.PreselectMode.None,
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
