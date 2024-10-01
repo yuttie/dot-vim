@@ -133,6 +133,36 @@ return {
         winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
       }
 
+      ---@type cmp.ComparatorFunction
+      deprioritize_snippets = function(entry1, entry2)
+        local types = require('cmp.types')
+        local kind1 = entry1:get_kind() --- @type lsp.CompletionItemKind | number
+        local kind2 = entry2:get_kind() --- @type lsp.CompletionItemKind | number
+        -- Lower the priority of snippets
+        kind1 = kind1 == types.lsp.CompletionItemKind.Snippet and 100 or 0
+        kind2 = kind2 == types.lsp.CompletionItemKind.Snippet and 100 or 0
+        local diff = kind1 - kind2
+        if diff < 0 then
+          return true
+        elseif diff > 0 then
+          return false
+        end
+        return nil
+      end
+
+      ---@type cmp.ComparatorFunction
+      sort_by_label = function(entry1, entry2)
+        if entry1.completion_item.label and entry2.completion_item.label then
+          local diff = vim.stricmp(entry1.completion_item.label, entry2.completion_item.label)
+          if diff < 0 then
+            return true
+          elseif diff > 0 then
+            return false
+          end
+        end
+        return nil
+      end
+
       cmp.setup({
         completion = {
           keyword_length = 0,
@@ -179,6 +209,23 @@ return {
         }, {
           { name = 'buffer' },
         }),
+        sorting = {
+          priority_weight = 0,  -- Disable score adjustment by source priority and source index
+          comparators = {
+            -- 1. Sort based on how the input matches
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,  -- Matching score (see https://github.com/hrsh7th/nvim-cmp/blob/ae644feb7b67bf1ce4260c231d1d4300b19c6f30/lua/cmp/matcher.lua)
+            -- 2. Sort based on the type and content of the matched string
+            deprioritize_snippets,
+            cmp.config.compare.kind,
+            sort_by_label,
+            cmp.config.compare.sort_text,  -- Text provided by an LSP server for sorting
+            -- 3. Sort based on where the matched string is used
+            cmp.config.compare.scopes,
+            cmp.config.compare.locality,
+          },
+        },
         formatting = {
           fields = { 'kind', 'abbr', 'menu' },
           format = function(entry, vim_item)
