@@ -5,7 +5,8 @@ return {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       vim.opt.list = true
-      vim.opt.listchars:append({ eol = '﬋' })  -- Alternatives: '⏎'
+      -- Enabling the following line break alignments and make neovim left garbage on screen
+      -- vim.opt.listchars:append({ eol = '﬋' })  -- Alternatives: '⏎'
       vim.opt.listchars:remove('nbsp')
       vim.opt.listchars:remove('trail')
 
