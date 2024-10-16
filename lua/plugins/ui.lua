@@ -314,7 +314,14 @@ return {
           },
         },
         lualine_x = {'diagnostics', 'diff'},
-        lualine_y = {'%f'},
+        lualine_y = {
+          {
+            'filename',
+            file_status = true,
+            newfile_status = true,
+            path = 1,
+          }
+        },
       },
       inactive_winbar = {
         lualine_b = {
@@ -325,7 +332,14 @@ return {
           },
         },
         lualine_x = {'diagnostics', 'diff'},
-        lualine_y = {'%f'},
+        lualine_y = {
+          {
+            'filename',
+            file_status = true,
+            newfile_status = true,
+            path = 1,
+          }
+        },
       },
       extensions = {},
     },
