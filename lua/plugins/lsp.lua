@@ -273,7 +273,6 @@ return {
             sort_by_label,
             cmp.config.compare.sort_text,  -- Text provided by an LSP server for sorting
             -- 3. Sort based on where the matched string is used
-            cmp.config.compare.scopes,
             cmp.config.compare.locality,
           },
         },
