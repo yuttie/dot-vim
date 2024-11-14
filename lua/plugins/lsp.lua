@@ -272,6 +272,9 @@ return {
             cmp.config.compare.kind,
             sort_by_label,
             cmp.config.compare.sort_text,  -- Text provided by an LSP server for sorting
+            -- 3. Sort based on where the matched string is used
+            -- cmp.config.compare.scopes,  -- Disabled due to a few seconds of freezing when switching modes while editing large files.  See https://github.com/hrsh7th/nvim-cmp/issues/1681
+            -- cmp.config.compare.locality,  -- Disabled due to potential performance issues.  See https://github.com/hrsh7th/nvim-cmp/issues/1841
           },
         },
         formatting = {
