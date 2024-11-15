@@ -134,6 +134,9 @@ return {
     config = function()
       local cmp = require'cmp'
 
+      -- Limit the completion menu height
+      vim.opt.pumheight = 10
+
       local cmp_window_config = {
         winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
         col_offset = -3,
