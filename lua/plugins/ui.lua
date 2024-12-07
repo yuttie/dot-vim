@@ -209,7 +209,13 @@ return {
   {
     'rcarriga/nvim-notify',
     config = function()
-      vim.notify = require('notify')
+      local notify = require('notify')
+      vim.notify = notify
+      notify.setup({
+        render = 'default',
+        stages = 'fade_in_slide_out',
+        timeout = 3000,
+      })
     end,
   },
   {
