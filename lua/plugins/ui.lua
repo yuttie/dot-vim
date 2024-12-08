@@ -75,7 +75,7 @@ return {
           { "<Space>cc", require('Comment.api').call('toggle.linewise.current', 'g@$'), desc = "Toggle current line", expr = true, replace_keycodes = false },
           { "<Space>d", group = "diagnostic" },
           { "<Space>dd", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Show diagnostics in floating window", remap = false },
-          { "<Space>dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", desc = "Show list", remap = false },
+          { "<Space>dl", "<cmd>Telescope diagnostics<CR>", desc = "[Telescope] Show diagnostics", remap = false },
           { "<Space>dn", "<cmd>lua vim.diagnostic.goto_next({ severity = { min = vim.diagnostic.severity.ERROR }, wrap = false })<CR>", desc = "Next", remap = false },
           { "<Space>dp", "<cmd>lua vim.diagnostic.goto_prev({ severity = { min = vim.diagnostic.severity.ERROR }, wrap = false })<CR>", desc = "Previous", remap = false },
           { "<Space>f", group = "file" },
