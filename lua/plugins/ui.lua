@@ -199,30 +199,30 @@ return {
       },
     },
   },
-  {
-    'mrded/nvim-lsp-notify',
-    dependencies = {
-      'rcarriga/nvim-notify',
-    },
-    config = true,
-  },
-  {
-    'rcarriga/nvim-notify',
-    config = function()
-      local notify = require('notify')
-      vim.notify = notify
-      notify.setup({
-        render = 'default',
-        stages = 'fade_in_slide_out',
-        timeout = 3000,
-        on_open = function(win)
-          -- https://www.reddit.com/r/neovim/comments/1e3smnu/how_to_stop_nvimnoice_nvimnotify_really_from/
-          -- https://github.com/gennaro-tedesco/dotfiles/blob/f109c209959b1fba470917e3b9b8599ea0b141f1/nvim/lua/plugins/notify.lua#L21-L23
-          vim.api.nvim_win_set_config(win, { focusable = false })
-        end,
-      })
-    end,
-  },
+  -- {
+  --   'mrded/nvim-lsp-notify',
+  --   dependencies = {
+  --     'rcarriga/nvim-notify',
+  --   },
+  --   config = true,
+  -- },
+  -- {
+  --   'rcarriga/nvim-notify',
+  --   config = function()
+  --     local notify = require('notify')
+  --     vim.notify = notify
+  --     notify.setup({
+  --       render = 'default',
+  --       stages = 'fade_in_slide_out',
+  --       timeout = 3000,
+  --       on_open = function(win)
+  --         -- https://www.reddit.com/r/neovim/comments/1e3smnu/how_to_stop_nvimnoice_nvimnotify_really_from/
+  --         -- https://github.com/gennaro-tedesco/dotfiles/blob/f109c209959b1fba470917e3b9b8599ea0b141f1/nvim/lua/plugins/notify.lua#L21-L23
+  --         vim.api.nvim_win_set_config(win, { focusable = false })
+  --       end,
+  --     })
+  --   end,
+  -- },
   {
     'sindrets/winshift.nvim',
     config = function()
