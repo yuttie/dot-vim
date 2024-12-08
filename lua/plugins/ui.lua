@@ -46,6 +46,8 @@ return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     opts = {
+      preset = 'modern',
+      delay = 300,
       spec = {
         {
           { "<Space><Space>", "<cmd>HopWord<CR>", desc = "" },
