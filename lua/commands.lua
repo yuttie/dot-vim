@@ -16,3 +16,7 @@ for name, enc in pairs(encodings) do
 end
 
 vim.api.nvim_create_user_command('Hitest', 'source $VIMRUNTIME/syntax/hitest.vim', {})
+
+vim.api.nvim_create_user_command('HtmlEscape',
+  '%!python -c "import html, sys; print(html.escape(sys.stdin.read()))"',
+  {})
