@@ -336,6 +336,11 @@ return {
     config = function()
       require('lsp_lines').setup()
 
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = { only_current_line = true },
+      })
+
       -- Disable it in lazy.nvim's window
       vim.api.nvim_create_autocmd('WinEnter', {
         callback = function()
