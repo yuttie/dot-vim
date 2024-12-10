@@ -1,10 +1,18 @@
-vim.cmd [=[
-command! -nargs=? -bang Cp932 edit<bang> ++enc=cp932 <args>
-command! -nargs=? -bang Eucjp edit<bang> ++enc=euc-jp <args>
-command! -nargs=? -bang Sjis  edit<bang> ++enc=sjis <args>
-command! -nargs=? -bang Utf8  edit<bang> ++enc=utf-8 <args>
-command! -nargs=? -bang Utf16 edit<bang> ++enc=utf-16 <args>
-command! -nargs=? -bang Jis   edit<bang> ++enc=iso-2022-jp <args>
-command! -nargs=1 -complete=file Rename saveas <args> | call delete(expand('#'))
-command! Hitest source $VIMRUNTIME/syntax/hitest.vim
-]=]
+local encodings = {
+  Cp932 = 'cp932',
+  Eucjp = 'euc-jp',
+  Sjis  = 'sjis',
+  Utf8  = 'utf-8',
+  Utf16 = 'utf-16',
+  Jis   = 'iso-2022-jp',
+}
+
+for name, enc in pairs(encodings) do
+  vim.api.nvim_create_user_command(name,
+    function(opts)
+      vim.cmd(string.format('edit%s ++enc=%s %s', opts.bang and '!' or '', enc, opts.args))
+    end,
+    { nargs = '?', bang = true })
+end
+
+vim.api.nvim_create_user_command('Hitest', 'source $VIMRUNTIME/syntax/hitest.vim', {})
