@@ -1,5 +1,4 @@
 vim.cmd [=[
-command! ReloadVimrc source $MYVIMRC
 command! -nargs=? -bang Cp932 edit<bang> ++enc=cp932 <args>
 command! -nargs=? -bang Eucjp edit<bang> ++enc=euc-jp <args>
 command! -nargs=? -bang Sjis  edit<bang> ++enc=sjis <args>
