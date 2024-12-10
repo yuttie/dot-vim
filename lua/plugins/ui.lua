@@ -50,7 +50,7 @@ return {
       delay = 300,
       spec = {
         {
-          { "<Space><Space>", "<cmd>HopWord<CR>", desc = "" },
+          { "<Space><Space>", "<cmd>HopWord<CR>" },
           { "<Space>?", group = "help" },
           { "<Space>?:", "<cmd>Telescope commands<CR>", desc = "Commands", remap = false },
           { "<Space>??", "<cmd>Telescope help_tags<CR>", desc = "Help tags", remap = false },
@@ -167,8 +167,8 @@ return {
         },
         {
           mode = { "x" },
-          { "<Space><Space>l", "<cmd>HopLine<CR>", desc = "" },
-          { "<Space><Space>w", "<cmd>HopWord<CR>", desc = "" },
+          { "<Space><Space>l", "<cmd>HopLine<CR>" },
+          { "<Space><Space>w", "<cmd>HopWord<CR>" },
           { "<Space>S", "<cmd>split<CR><ESC><C-w>jgv:YodeCreateSeditorReplace<CR>", desc = "Focus on selection (horizontal split, below)", remap = false },
           { "<Space>V", "<cmd>vsplit<CR><ESC><C-w>lgv:YodeCreateSeditorReplace<CR>", desc = "Focus on selection (vertical split, right)", remap = false },
           { "<Space>a", "<Plug>(EasyAlign)", desc = "EasyAlign" },
@@ -186,8 +186,8 @@ return {
         },
         {
           mode = { "o" },
-          { "<Space><Space>l", "<cmd>HopLine<CR>", desc = "" },
-          { "<Space><Space>w", "<cmd>HopWord<CR>", desc = "" },
+          { "<Space><Space>l", "<cmd>HopLine<CR>" },
+          { "<Space><Space>w", "<cmd>HopWord<CR>" },
         },
       },
     },
