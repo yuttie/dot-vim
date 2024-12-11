@@ -58,6 +58,7 @@ return {
           { "<Space>?c", "<cmd>Telescope colorscheme<CR>", desc = "Colorschemes", remap = false },
           { "<Space>?i", "<cmd>Inspect<CR>", desc = "Inspect", remap = false },
           { "<Space>?k", "<cmd>Telescope keymaps<CR>", desc = "Keymaps", remap = false },
+          { "<Space>?<Space>", function() require('which-key').show({ global = false }) end, desc = 'Buffer Local Keymaps (which-key)', remap = false },
           { "<Space>G", group = "grammarous" },
           { "<Space>GG", ":GrammarousCheck<CR>", desc = "Grammarous check", remap = false },
           { "<Space>Gn", "<Plug>(grammarous-move-to-next-error)", desc = "Next error" },
