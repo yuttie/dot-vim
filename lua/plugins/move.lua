@@ -16,5 +16,10 @@ return {
         multi_windows = true,
       }
     end,
+    keys = {
+          { mode = { "n" }, "<Space><Space>", "<cmd>HopCamelCase<CR>", desc = "HopCamelCase" },
+          { mode = { "x", "o" }, "<Space><Space>l", "<cmd>HopLine<CR>", desc = "HopLine" },
+          { mode = { "x", "o" }, "<Space><Space>w", "<cmd>HopCamelCase<CR>", desc = "HopCamelCase" },
+    },
   },
 }
