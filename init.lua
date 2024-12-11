@@ -392,6 +392,7 @@ vim.diagnostic.config({
   },
   update_in_insert = false,
   severity_sort = true,
+  virtual_lines = false,
 })
 require('filter-diagnostics').set_level('virtual_lines', vim.diagnostic.severity.ERROR)
 
