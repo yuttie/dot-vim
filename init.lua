@@ -394,7 +394,6 @@ vim.diagnostic.config({
   severity_sort = true,
   virtual_lines = false,
 })
-require('filter-diagnostics').set_level('virtual_lines', vim.diagnostic.severity.ERROR)
 
 
 -- {{{ rhysd/vim-grammarous
