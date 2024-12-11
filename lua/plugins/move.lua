@@ -1,5 +1,10 @@
 return {
-  'ggandor/leap.nvim',
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').create_default_mappings()
+    end,
+  },
   {
     'phaazon/hop.nvim',
     branch = 'v1.3',
