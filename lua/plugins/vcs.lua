@@ -7,7 +7,11 @@ return {
     },
   },
   'itchyny/vim-gitbranch',
-  'lewis6991/gitsigns.nvim',
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+    },
+  },
   {
     'lambdalisue/gina.vim',
     cmd = {
