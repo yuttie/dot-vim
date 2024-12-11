@@ -130,22 +130,7 @@ return {
           { "<Space>t", group = "toggle" },
           { "<Space>t<Space>", ":setl list! | setl list?<CR>", desc = "Visibility of whitespaces", remap = false },
           { "<Space>tc", "<cmd>TSContextToggle<CR>", desc = "TreeSitter context", remap = false },
-          {
-            "<Space>td",
-            (function()
-              local enabled = true
-              return function()
-                if enabled then
-                  enabled = false
-                  vim.diagnostic.disable(0)  -- 0 means a current buffer
-                else
-                  enabled = true
-                  vim.diagnostic.enable(0)  -- 0 means a current buffer
-                end
-              end
-            end)(),
-            desc = "Diagnostics", remap = false
-          },
+          { "<Space>td", function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, desc = "Diagnostics", remap = false },
           { "<Space>ti", ":IndentBlanklineToggle<CR>", desc = "Indent line", remap = false },
           { "<Space>tn", ":setl number! | setl number?<CR>", desc = "Line number", remap = false },
           { "<Space>tr", ":TSBufToggle rainbow<CR>", desc = "Rainbow", remap = false },
