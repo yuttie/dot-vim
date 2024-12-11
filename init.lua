@@ -373,8 +373,12 @@ vim.g.GPGPreferSymmetric = 1
 
 -- Configure diagnostic
 vim.diagnostic.config({
-  underline = true,
-  virtual_text = false,
+  underline = false,
+  virtual_text = {
+    format = function(diagnostic)
+      return string.format('%s [%s: %s]', diagnostic.message, diagnostic.source, diagnostic.code)
+    end,
+  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = ' ',
