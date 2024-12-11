@@ -1,5 +1,5 @@
 return {
-  'ggandor/lightspeed.nvim',
+  'ggandor/leap.nvim',
   {
     'phaazon/hop.nvim',
     branch = 'v1.3',
