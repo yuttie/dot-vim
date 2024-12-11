@@ -6,8 +6,7 @@ return {
     end,
   },
   {
-    'phaazon/hop.nvim',
-    branch = 'v1.3',
+    'smoka7/hop.nvim',
     cmd = {
       'HopCamelCase',
       'HopLine',
