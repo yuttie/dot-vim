@@ -35,8 +35,6 @@ vim.g.loaded_matchparen = 1
 vim.g.loaded_matchit = 1
 -- Prevent default plugins from setting default keymaps
 vim.g.omni_sql_no_default_maps = 1
--- Prevent plugins from setting default keymaps
-vim.g.lightspeed_no_default_keymaps = 1
 
 -- Setup lazy.nvim
 require('lazy').setup({
@@ -354,31 +352,6 @@ vim.keymap.set('n', 'sd', '<Plug>(operator-surround-delete)a', { silent = true }
 vim.keymap.set('n', 'sc', '<Plug>(operator-surround-replace)a', { silent = true })
 vim.keymap.set('n', 'sD', '<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)', { silent = true })
 vim.keymap.set('n', 'sC', '<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)', { silent = true })
--- }}}
-
-
--- {{{ ggandor/lightspeed.nvim
-vim.keymap.set('n', 'f', '<Plug>Lightspeed_f', { silent = true })
-vim.keymap.set('n', 'F', '<Plug>Lightspeed_F', { silent = true })
-vim.keymap.set('x', 'f', '<Plug>Lightspeed_f', { silent = true })
-vim.keymap.set('x', 'F', '<Plug>Lightspeed_F', { silent = true })
-vim.keymap.set('o', 'f', '<Plug>Lightspeed_f', { silent = true })
-vim.keymap.set('o', 'F', '<Plug>Lightspeed_F', { silent = true })
-
-vim.keymap.set('n', 't', '<Plug>Lightspeed_t', { silent = true })
-vim.keymap.set('n', 'T', '<Plug>Lightspeed_T', { silent = true })
-vim.keymap.set('x', 't', '<Plug>Lightspeed_t', { silent = true })
-vim.keymap.set('x', 'T', '<Plug>Lightspeed_T', { silent = true })
-vim.keymap.set('o', 't', '<Plug>Lightspeed_t', { silent = true })
-vim.keymap.set('o', 'T', '<Plug>Lightspeed_T', { silent = true })
-
-vim.keymap.set('n', ';', '<Plug>Lightspeed_;_ft', { silent = true })
-vim.keymap.set('x', ';', '<Plug>Lightspeed_;_ft', { silent = true })
-vim.keymap.set('o', ';', '<Plug>Lightspeed_;_ft', { silent = true })
-
-vim.keymap.set('n', ',', '<Plug>Lightspeed_,_ft', { silent = true })
-vim.keymap.set('x', ',', '<Plug>Lightspeed_,_ft', { silent = true })
-vim.keymap.set('o', ',', '<Plug>Lightspeed_,_ft', { silent = true })
 -- }}}
 
 
