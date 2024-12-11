@@ -4,7 +4,7 @@ return {
     'phaazon/hop.nvim',
     branch = 'v1.3',
     cmd = {
-      'HopWord',
+      'HopCamelCase',
       'HopLine',
     },
     config = function()
