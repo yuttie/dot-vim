@@ -47,11 +47,6 @@ autocmd MyAutoCmds FileType python setlocal shiftwidth=4
 " }}}
 
 
-" {{{ YAML
-autocmd MyAutoCmds FileType yaml setlocal shiftwidth=2
-" }}}
-
-
 " {{{ Elm
 autocmd MyAutoCmds FileType elm setlocal shiftwidth=2
 " }}}
