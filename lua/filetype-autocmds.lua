@@ -30,7 +30,7 @@ autocmd MyAutoCmds FileType tex setlocal wrap
 
 
 " {{{ Shell Scripts
-autocmd MyAutoCmds FileType sh,csh,tcsh,zsh setlocal shiftwidth=2
+autocmd MyAutoCmds FileType sh,zsh setlocal shiftwidth=2
 " }}}
 
 
