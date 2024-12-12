@@ -1,6 +1,6 @@
 vim.cmd [=[
 " {{{ Crystal
-autocmd MyAutoCmds FileType crystal setlocal shiftwidth=2
+autocmd MyAutoCmds FileType crystal setlocal shiftwidth=2  " Rationale: Official coding style guide specifies 2 spaces
 " }}}
 
 
@@ -38,12 +38,12 @@ autocmd MyAutoCmds FileType ruby,eruby setlocal shiftwidth=2
 autocmd MyAutoCmds FileType python setlocal tabstop=8
 autocmd MyAutoCmds FileType python setlocal expandtab
 autocmd MyAutoCmds FileType python setlocal softtabstop=4
-autocmd MyAutoCmds FileType python setlocal shiftwidth=4
+autocmd MyAutoCmds FileType python setlocal shiftwidth=4  " Rationale: PEP 8: Use 4 spaces per indentation level.
 " }}}
 
 
 " {{{ Elm
-autocmd MyAutoCmds FileType elm setlocal shiftwidth=2
+autocmd MyAutoCmds FileType elm setlocal shiftwidth=2  " Rationale: Official documentation uses 2 spaces
 " }}}
 
 
