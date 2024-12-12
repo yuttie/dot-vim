@@ -6,6 +6,7 @@ autocmd MyAutoCmds FileType crystal setlocal shiftwidth=2
 
 " {{{ fish
 autocmd MyAutoCmds FileType fish setlocal foldmethod=expr
+autocmd MyAutoCmds FileType fish setlocal shiftwidth=4  " Rationale: `fish_indent` uses 4 spaces
 " }}}
 
 
@@ -29,7 +30,7 @@ autocmd MyAutoCmds FileType tex setlocal wrap
 
 
 " {{{ Shell Scripts
-autocmd MyAutoCmds FileType sh,csh,fish,tcsh,zsh setlocal shiftwidth=2
+autocmd MyAutoCmds FileType sh,csh,tcsh,zsh setlocal shiftwidth=2
 " }}}
 
 
