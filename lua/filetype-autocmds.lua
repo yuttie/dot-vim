@@ -17,11 +17,6 @@ autocmd MyAutoCmds FileType help setl conceallevel=0
 " "}}}"
 
 
-" {{{ Lua
-autocmd MyAutoCmds FileType lua setlocal shiftwidth=2
-" }}}
-
-
 " {{{ TeX
 autocmd MyAutoCmds FileType tex setlocal shiftwidth=2
 autocmd MyAutoCmds FileType bib setlocal shiftwidth=2
