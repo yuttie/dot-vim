@@ -63,7 +63,7 @@ return {
       -- * rust_analyzer: rustup component add rust-analyzer
       -- * sqlls:         yarn global add sql-language-server
       -- * texlab:        cargo install --git https://github.com/latex-lsp/texlab.git --locked
-      -- * ts_ls:         yarn global add typescript-language-server
+      -- * ts_ls:         yarn global add typescript typescript-language-server
       -- * vimls:         yarn global add vim-language-server
       -- * vuels:         yarn global add vls
 
