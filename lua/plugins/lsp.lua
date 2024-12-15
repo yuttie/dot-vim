@@ -49,6 +49,7 @@ return {
       end
 
       -- Servers
+      -- * basedpyright:  pipx install basedpyright
       -- * pyright:       yarn global add pyright
       -- * jedi_language_server: pipx install jedi-language-server
       -- * pylsp:         pipx install python-lsp-server
@@ -73,7 +74,7 @@ return {
         'cssls',
         'dockerls',
         'eslint',
-        'pyright',
+        'basedpyright',
         'ruff',
         'html',
         'rust_analyzer',
@@ -84,11 +85,12 @@ return {
         'vuels',
       }
       for _, server in ipairs(servers) do
-        if server == 'pyright' then
+        if server == 'pyright' or server == 'basedpyright' then
           lspconfig[server].setup {
             capabilities = capabilities,
             on_attach = on_attach,
-            before_init = function(_, config)
+            before_init = function(_, config)  -- FIXME Do I still need this?
+              config.settings.python = config.settings.python or {}
               config.settings.python.pythonPath = get_python_path(config.root_dir)
             end,
           }
