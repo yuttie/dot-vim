@@ -30,6 +30,8 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 --vim.g.mapleader = " "
 --vim.g.maplocalleader = "\\"
+-- Setup options
+require('options')
 -- Prevent default plugins from being loaded
 vim.g.loaded_matchparen = 1
 vim.g.loaded_matchit = 1
@@ -59,9 +61,6 @@ require('lazy').setup({
 
 -- Disable syntax highlighting to use treesitter instead
 vim.cmd('syntax off')
-
-
-require('options')
 
 
 -- Autocommand group
