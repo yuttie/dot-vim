@@ -1,6 +1,3 @@
-local selected_plugin = 'yuttie/hydrangea-vim'
-local selected_colorscheme = 'hydrangea_bright_night'
-
 local plugins = {
   { 'yuttie/hydrangea-vim', branch = 'develop' },
   { 'yuttie/inkstained-vim' },
@@ -10,18 +7,16 @@ local plugins = {
   { 'nordtheme/vim' },
   { 'RRethy/base16-nvim' },
   { 'EdenEast/nightfox.nvim' },
+  {
+    'folke/tokyonight.nvim',
+    opts = {},
+  },
 }
 
+-- Set common fields for colorschemes
 for _, plugin in ipairs(plugins) do
-  if plugin[1] == selected_plugin then
-    plugin.lazy = false
-    plugin.priority = 1000
-    plugin.config = function()
-      vim.cmd(string.format('colorscheme %s', selected_colorscheme))
-    end
-  else
-    plugin.lazy = true
-  end
+  plugin.lazy = false
+  plugin.priority = 1000
 end
 
 return plugins
