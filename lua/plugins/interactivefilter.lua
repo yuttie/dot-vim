@@ -1,27 +1,13 @@
 return {
   {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    lazy = true,
-  },
-  {
-    'nvim-telescope/telescope-file-browser.nvim',
-    lazy = true,
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    lazy = true,
-  },
-  {
-    'nvim-telescope/telescope-live-grep-args.nvim',
-    lazy = true,
-  },
-  {
-    'nvim-telescope/telescope-bibtex.nvim',
-    lazy = true,
-  },
-  {
     'nvim-telescope/telescope.nvim',
+    dependencies = {
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      { 'nvim-telescope/telescope-file-browser.nvim' },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
+      { 'nvim-telescope/telescope-live-grep-args.nvim' },
+      { 'nvim-telescope/telescope-bibtex.nvim' },
+    },
     cmd = {
       'Telescope',
     },
