@@ -14,13 +14,13 @@ local plugins = {
 
 for _, plugin in ipairs(plugins) do
   if plugin[1] == selected_plugin then
-    plugin['lazy'] = false
-    plugin['priority'] = 1000
-    plugin['config'] = function()
+    plugin.lazy = false
+    plugin.priority = 1000
+    plugin.config = function()
       vim.cmd(string.format('colorscheme %s', selected_colorscheme))
     end
   else
-    plugin['lazy'] = true
+    plugin.lazy = true
   end
 end
 
