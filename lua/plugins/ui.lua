@@ -240,16 +240,16 @@ return {
     end,
     keys = {
       -- Start Win-Move mode:
-      { '<C-W><C-M>', '<Cmd>WinShift<CR>', noremap = true },
-      { '<C-W>m', '<Cmd>WinShift<CR>', noremap = true },
+      { '<C-W><C-M>', '<Cmd>WinShift<CR>' },
+      { '<C-W>m', '<Cmd>WinShift<CR>' },
       -- Swap two windows:
-      { '<C-W>X', '<Cmd>WinShift swap<CR>', noremap = true },
+      { '<C-W>X', '<Cmd>WinShift swap<CR>' },
       -- If you don't want to use Win-Move mode you can create mappings for calling the
       -- move commands directly:
-      { '<C-M-H>', '<Cmd>WinShift left<CR>', noremap = true },
-      { '<C-M-J>', '<Cmd>WinShift down<CR>', noremap = true },
-      { '<C-M-K>', '<Cmd>WinShift up<CR>', noremap = true },
-      { '<C-M-L>', '<Cmd>WinShift right<CR>', noremap = true },
+      { '<C-M-H>', '<Cmd>WinShift left<CR>' },
+      { '<C-M-J>', '<Cmd>WinShift down<CR>' },
+      { '<C-M-K>', '<Cmd>WinShift up<CR>' },
+      { '<C-M-L>', '<Cmd>WinShift right<CR>' },
     },
   },
   -- {
