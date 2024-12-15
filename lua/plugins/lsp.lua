@@ -232,7 +232,7 @@ return {
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
-          -- ['<C-e>'] = cmp.mapping.abort(),
+          ['<C-e>'] = cmp.mapping.abort(),
           -- Workaround for cmp-nvim-lsp-signature-help
           -- Borrowed from https://github.com/hrsh7th/cmp-nvim-lsp-signature-help/issues/13#issuecomment-1157496673
           ['<CR>'] = function(fallback)
