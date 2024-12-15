@@ -13,6 +13,14 @@ return {
     lazy = true,
   },
   {
+    'nvim-telescope/telescope-live-grep-args.nvim',
+    lazy = true,
+  },
+  {
+    'nvim-telescope/telescope-bibtex.nvim',
+    lazy = true,
+  },
+  {
     'nvim-telescope/telescope.nvim',
     cmd = {
       'Telescope',
@@ -37,6 +45,8 @@ return {
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('ui-select')
       require('telescope').load_extension('file_browser')
+      require('telescope').load_extension('live_grep_args')
+      require('telescope').load_extension('bibtex')
     end,
   },
 }
