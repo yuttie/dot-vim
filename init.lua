@@ -119,7 +119,7 @@ vim.keymap.set('n', '<C-Tab>',   'gt')
 vim.keymap.set('n', '<C-S-Tab>', 'gT')
 vim.keymap.set('n', '<S-PageDown>', ':tabmove +1<CR>', { silent = true })
 vim.keymap.set('n', '<S-PageUp>',   ':tabmove -1<CR>', { silent = true })
-vim.keymap.set('n', '<C-s>', ':w<CR>')
+vim.keymap.set('n', '<C-s>', ':w<CR>', { silent = true })
 vim.keymap.set('n', '<C-i>', '<C-g>')
 
 vim.keymap.set('n', '<F8>',  ":split | execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') | terminal<CR>")
