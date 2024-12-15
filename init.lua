@@ -122,8 +122,6 @@ vim.keymap.set('n', '<S-PageUp>',   ':tabmove -1<CR>', { silent = true })
 vim.keymap.set('n', '<C-s>', ':w<CR>', { silent = true })
 vim.keymap.set('n', '<C-i>', '<C-g>')
 
-vim.keymap.set('n', '<F8>',  ":split | execute 'lcd' fnamemodify(resolve(expand('%:p')), ':h') | terminal<CR>")
-
 -- command
 vim.keymap.set('c', '<C-x>', "<C-r>=expand('%:p')<CR>")
 
