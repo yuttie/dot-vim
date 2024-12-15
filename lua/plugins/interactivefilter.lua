@@ -26,7 +26,8 @@ return {
       'Telescope',
     },
     config = function()
-      require('telescope').setup{
+      local telescope = require('telescope')
+      telescope.setup{
         defaults = {
           -- Default configuration for telescope goes here:
           -- config_key = value,
@@ -57,11 +58,11 @@ return {
       }
       -- To get fzf loaded and working with telescope, you need to call
       -- load_extension, somewhere after setup function:
-      require('telescope').load_extension('fzf')
-      require('telescope').load_extension('ui-select')
-      require('telescope').load_extension('file_browser')
-      require('telescope').load_extension('live_grep_args')
-      require('telescope').load_extension('bibtex')
+      telescope.load_extension('fzf')
+      telescope.load_extension('ui-select')
+      telescope.load_extension('file_browser')
+      telescope.load_extension('live_grep_args')
+      telescope.load_extension('bibtex')
     end,
   },
 }
