@@ -40,12 +40,10 @@ vim.g.omni_sql_no_default_maps = 1
 
 -- Setup lazy.nvim
 require('lazy').setup({
-  -- highlight-start
   spec = {
     -- import your plugins
     { import = "plugins" },
   },
-  -- highlight-end
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
