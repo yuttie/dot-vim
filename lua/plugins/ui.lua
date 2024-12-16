@@ -101,7 +101,7 @@ return {
           { "<Space>dp", "<cmd>lua vim.diagnostic.goto_prev({ severity = { min = vim.diagnostic.severity.ERROR }, wrap = false })<CR>", desc = "Previous" },
           { "<Space>f", group = "file" },
           { "<Space>fF", "<cmd>Telescope find_files cwd=~/<CR>", desc = "[Telescope] Files" },
-          { "<Space>fR", ":Rename<Space>", desc = "Start renaming current file" },
+          { "<Space>fR", function() Snacks.rename.rename_file() end, desc = "Rename current file" },
           { "<Space>fS", ":wa<CR>", desc = "Save all" },
           { "<Space>ff", "<cmd>Telescope find_files no_ignore=true<CR>", desc = "[Telescope] Files" },
           { "<Space>fr", "<cmd>Telescope oldfiles<CR>", desc = "[Telescope] Recently opened files" },
