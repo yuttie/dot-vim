@@ -233,20 +233,6 @@ vim.g.better_whitespace_filetypes_blacklist = {
 -- }}}
 
 
--- {{{ comfortable-motion.vim
-vim.keymap.set('n', '<C-d>', ':call comfortable_motion#flick(100)<CR>', { silent = true })
-vim.keymap.set('n', '<C-u>', ':call comfortable_motion#flick(-100)<CR>', { silent = true })
-
-vim.keymap.set('n', '<C-f>',      ':call comfortable_motion#flick(200)<CR>', { silent = true })
-vim.keymap.set('n', '<C-b>',      ':call comfortable_motion#flick(-200)<CR>', { silent = true })
-vim.keymap.set('n', '<PageDown>', ':call comfortable_motion#flick(200)<CR>', { silent = true })
-vim.keymap.set('n', '<PageUp>',   ':call comfortable_motion#flick(-200)<CR>', { silent = true })
-
-vim.keymap.set('', '<ScrollWheelDown>', ':call comfortable_motion#flick(40)<CR>', { silent = true })
-vim.keymap.set('', '<ScrollWheelUp>',   ':call comfortable_motion#flick(-40)<CR>', { silent = true })
--- }}}
-
-
 -- {{{ vim-expand-region
 vim.keymap.set('v', '+', '<Plug>(expand_region_expand)', {})
 vim.keymap.set('v', '-', '<Plug>(expand_region_shrink)', {})
