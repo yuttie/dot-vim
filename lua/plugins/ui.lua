@@ -43,6 +43,7 @@ return {
   },
   {
     'yuttie/comfortable-motion.vim',
+    enabled = false,
     keys = {
       { '<C-d>', ':call comfortable_motion#flick(100)<CR>', 'n', { silent = true } },
       { '<C-u>', ':call comfortable_motion#flick(-100)<CR>', 'n', { silent = true } },
@@ -55,6 +56,10 @@ return {
       { '<ScrollWheelDown>', ':call comfortable_motion#flick(40)<CR>', '', { silent = true } },
       { '<ScrollWheelUp>',   ':call comfortable_motion#flick(-40)<CR>', '', { silent = true } },
     },
+  },
+  {
+    'echasnovski/mini.animate',
+    opts = {},
   },
   {
     'folke/which-key.nvim',
