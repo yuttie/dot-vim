@@ -88,7 +88,7 @@ return {
           { "<Space>a", "<Plug>(EasyAlign)", desc = "EasyAlign" },
           { "<Space>b", group = "buffer" },
           { "<Space>bb", "<cmd>Telescope buffers<CR>", desc = "[Telescope] Buffers" },
-          { "<Space>bd", ":bd<CR>", desc = "Delete" },
+          { "<Space>bd", function() Snacks.bufdelete.delete() end, desc = "Delete" },
           { "<Space>bn", ":bn<CR>", desc = "Next" },
           { "<Space>bp", ":bp<CR>", desc = "Previous" },
           { "<Space>c", group = "comment" },
