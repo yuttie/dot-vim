@@ -1,4 +1,4 @@
-vim.cmd [=[
+vim.cmd([=[
 " {{{ fish
 autocmd MyAutoCmds FileType fish setlocal foldmethod=expr
 " }}}
@@ -26,4 +26,4 @@ autocmd MyAutoCmds FileType python setlocal softtabstop=4
 " {{{ Vim
 autocmd MyAutoCmds FileType vim setlocal keywordprg=:help
 " }}}
-]=]
+]=])

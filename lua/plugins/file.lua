@@ -1,31 +1,30 @@
 return {
-  {
-    'lambdalisue/suda.vim',
-    cmd = {
-      'SudaRead',
-      'SudaWrite',
+    {
+        "lambdalisue/suda.vim",
+        cmd = {
+            "SudaRead",
+            "SudaWrite",
+        },
     },
-  },
-  {
-    'Shougo/vinarise',
-    cmd = {
-      'Vinarise',
-      'VinarisePluginDump',
-      'VinarisePluginViewBitmapView',
+    {
+        "Shougo/vinarise",
+        cmd = {
+            "Vinarise",
+            "VinarisePluginDump",
+            "VinarisePluginViewBitmapView",
+        },
     },
-  },
-  {
-    'nvim-tree/nvim-tree.lua',
-    cmd = {
-      'NvimTreeToggle',
+    {
+        "nvim-tree/nvim-tree.lua",
+        cmd = {
+            "NvimTreeToggle",
+        },
+        config = function()
+            require("nvim-tree").setup({})
+        end,
     },
-    config = function()
-      require('nvim-tree').setup {
-      }
-    end,
-  },
-  {
-    'jamessan/vim-gnupg',
-    branch = 'main',
-  },
+    {
+        "jamessan/vim-gnupg",
+        branch = "main",
+    },
 }
