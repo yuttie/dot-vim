@@ -283,7 +283,6 @@ return {
                     { name = "nvim_lsp" },
                     { name = "nvim_lsp_signature_help" },
                     { name = "vsnip" }, -- For vsnip users.
-                    { name = "spell" },
                     { name = "emoji" },
                 }, {
                     { name = "buffer" },
@@ -347,7 +346,6 @@ return {
                     { name = "nvim_lsp" },
                     { name = "nvim_lsp_signature_help" },
                     { name = "vsnip" }, -- For vsnip users.
-                    { name = "spell" },
                     { name = "emoji" },
                 }, {
                     { name = "buffer" },
