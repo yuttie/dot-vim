@@ -43,7 +43,6 @@ return {
     },
     {
         "yuttie/comfortable-motion.vim",
-        enabled = false,
         keys = {
             { "<C-d>", ":call comfortable_motion#flick(100)<CR>", "n", { silent = true } },
             { "<C-u>", ":call comfortable_motion#flick(-100)<CR>", "n", { silent = true } },
