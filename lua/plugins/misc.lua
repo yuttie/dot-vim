@@ -13,12 +13,6 @@ return {
             bigfile = { enabled = true },
             notifier = { enabled = true },
             quickfile = { enabled = true },
-            scroll = {
-                animate = {
-                    duration = { step = 12, total = 200 },
-                    easing = "outCubic",
-                },
-            },
             statuscolumn = { enabled = true },
             words = { enabled = true },
         },
