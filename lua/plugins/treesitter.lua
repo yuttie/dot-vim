@@ -46,7 +46,7 @@ return {
 
                 indent = {
                     enable = true,
-                    disable = { "python" }, -- NOTE Temporarily disabled because it doesn't work.
+                    disable = {},
                 },
 
                 refactor = {
