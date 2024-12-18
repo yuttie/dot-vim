@@ -44,16 +44,16 @@ return {
     {
         "yuttie/comfortable-motion.vim",
         keys = {
-            { "<C-d>", ":call comfortable_motion#flick(100)<CR>", "n", { silent = true } },
-            { "<C-u>", ":call comfortable_motion#flick(-100)<CR>", "n", { silent = true } },
+            { "<C-d>", ":call comfortable_motion#flick(50)<CR>", "n", { silent = true } },
+            { "<C-u>", ":call comfortable_motion#flick(-50)<CR>", "n", { silent = true } },
 
-            { "<C-f>", ":call comfortable_motion#flick(200)<CR>", "n", { silent = true } },
-            { "<C-b>", ":call comfortable_motion#flick(-200)<CR>", "n", { silent = true } },
-            { "<PageDown>", ":call comfortable_motion#flick(200)<CR>", "n", { silent = true } },
-            { "<PageUp>", ":call comfortable_motion#flick(-200)<CR>", "n", { silent = true } },
+            { "<C-f>", ":call comfortable_motion#flick(100)<CR>", "n", { silent = true } },
+            { "<C-b>", ":call comfortable_motion#flick(-100)<CR>", "n", { silent = true } },
+            { "<PageDown>", ":call comfortable_motion#flick(100)<CR>", "n", { silent = true } },
+            { "<PageUp>", ":call comfortable_motion#flick(-100)<CR>", "n", { silent = true } },
 
-            { "<ScrollWheelDown>", ":call comfortable_motion#flick(40)<CR>", "", { silent = true } },
-            { "<ScrollWheelUp>", ":call comfortable_motion#flick(-40)<CR>", "", { silent = true } },
+            { "<ScrollWheelDown>", ":call comfortable_motion#flick(10)<CR>", "", { silent = true } },
+            { "<ScrollWheelUp>", ":call comfortable_motion#flick(-10)<CR>", "", { silent = true } },
         },
     },
     {
