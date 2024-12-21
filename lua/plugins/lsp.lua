@@ -57,6 +57,13 @@ return {
                     return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
                 end
 
+                -- Use .venv directory in the workspace
+                local match = vim.fn.glob(path.join(workspace, ".venv"))
+                if match ~= "" then
+                    local venv = path.join(workspace, ".venv")
+                    return path.join(venv, "bin", "python")
+                end
+
                 -- Use virtualenv managed by poetry.
                 local match = vim.fn.glob(path.join(workspace, "poetry.lock"))
                 if match ~= "" then
