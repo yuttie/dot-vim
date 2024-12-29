@@ -6,8 +6,13 @@ return {
             local lspconfig = require("lspconfig")
             local util = require("lspconfig/util")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local navic = require("nvim-navic")
 
             local on_attach = function(client, bufnr)
+                -- SmiteshP/nvim-navic
+                if client.server_capabilities.documentSymbolProvider then
+                    navic.attach(client, bufnr)
+                end
                 -- Disable certain capabilities of ruff in favor of other LSP servers
                 if client.name == "ruff" then
                     client.server_capabilities.hoverProvider = false
