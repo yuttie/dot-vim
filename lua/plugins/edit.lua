@@ -154,10 +154,4 @@ return {
             "<Plug>(expand_region_shrink)",
         },
     },
-    {
-        "smjonas/inc-rename.nvim",
-        config = function()
-            require("inc_rename").setup()
-        end,
-    },
 }
