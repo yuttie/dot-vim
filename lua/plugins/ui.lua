@@ -159,6 +159,7 @@ return {
                     },
                     { "<Space>fS", ":wa<CR>", desc = "Save all" },
                     { "<Space>ff", "<cmd>Telescope find_files no_ignore=true<CR>", desc = "[Telescope] Files" },
+                    { "<Space>fp", "1<C-g>", desc = "Print current file name with full path" },
                     { "<Space>fr", "<cmd>Telescope oldfiles<CR>", desc = "[Telescope] Recently opened files" },
                     { "<Space>fs", ":w<CR>", desc = "Save" },
                     { "<Space>ft", ":NvimTreeToggle<CR>", desc = "Toggle tree view" },
