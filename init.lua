@@ -296,7 +296,11 @@ vim.diagnostic.config({
     underline = false,
     virtual_text = {
         format = function(diagnostic)
-            return string.format("%s [%s: %s]", diagnostic.message, diagnostic.source, diagnostic.code)
+            if diagnostic.source == nil then
+                return string.format("%s", diagnostic.message)
+            else
+                return string.format("%s [%s: %s]", diagnostic.message, diagnostic.source, diagnostic.code)
+            end
         end,
     },
     signs = {
