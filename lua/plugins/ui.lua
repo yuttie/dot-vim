@@ -29,19 +29,6 @@ return {
         end,
     },
     {
-        "lukas-reineke/headlines.nvim",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        opts = {},
-        ft = {
-            "markdown",
-            "rmd",
-            "norg",
-            "org",
-        },
-    },
-    {
         "yuttie/comfortable-motion.vim",
         keys = {
             { "<C-d>", ":call comfortable_motion#flick(50)<CR>", "n", silent = true },
