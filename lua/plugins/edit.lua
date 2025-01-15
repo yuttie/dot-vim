@@ -1,5 +1,15 @@
 return {
     {
+        "Myzel394/easytables.nvim",
+        ft = "markdown",
+        opts = {},
+    },
+    {
+        "SCJangra/table-nvim",
+        ft = "markdown",
+        opts = {},
+    },
+    {
         "kana/vim-operator-replace",
         dependencies = {
             "kana/vim-operator-user",
