@@ -440,6 +440,7 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = {
             "SmiteshP/nvim-navic",
+            "folke/noice.nvim",
         },
         opts = {
             options = {
@@ -453,7 +454,12 @@ return {
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "branch" },
-                lualine_c = {},
+                lualine_c = {
+                    {
+                        require("noice").api.statusline.mode.get,
+                        cond = require("noice").api.statusline.mode.has,
+                    },
+                },
                 lualine_x = { "encoding", "fileformat", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { "location" },
