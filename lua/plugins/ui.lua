@@ -443,75 +443,77 @@ return {
             "SmiteshP/nvim-navic",
             "folke/noice.nvim",
         },
-        opts = {
-            options = {
-                icons_enabled = true,
-                theme = "auto",
-                component_separators = { left = "", right = "" },
-                section_separators = { left = "", right = "" },
-                disabled_filetypes = {},
-                always_divide_middle = true,
-            },
-            sections = {
-                lualine_a = { "mode" },
-                lualine_b = { "branch" },
-                lualine_c = {
-                    {
-                        require("noice").api.statusline.mode.get,
-                        cond = require("noice").api.statusline.mode.has,
+        config = function()
+            require('lualine').setup({
+                options = {
+                    icons_enabled = true,
+                    theme = "auto",
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
+                    disabled_filetypes = {},
+                    always_divide_middle = true,
+                },
+                sections = {
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch" },
+                    lualine_c = {
+                        {
+                            require("noice").api.statusline.mode.get,
+                            cond = require("noice").api.statusline.mode.has,
+                        },
+                    },
+                    lualine_x = { "encoding", "fileformat", "filetype" },
+                    lualine_y = { "progress" },
+                    lualine_z = { "location" },
+                },
+                inactive_sections = {
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch" },
+                    lualine_c = {},
+                    lualine_x = { "encoding", "fileformat", "filetype" },
+                    lualine_y = { "progress" },
+                    lualine_z = { "location" },
+                },
+                tabline = {},
+                winbar = {
+                    lualine_b = {
+                        {
+                            "navic",
+                            color_correction = nil,
+                            navic_opts = nil,
+                        },
+                    },
+                    lualine_x = { "diagnostics", "diff" },
+                    lualine_y = {
+                        {
+                            "filename",
+                            file_status = true,
+                            newfile_status = true,
+                            path = 1,
+                        },
                     },
                 },
-                lualine_x = { "encoding", "fileformat", "filetype" },
-                lualine_y = { "progress" },
-                lualine_z = { "location" },
-            },
-            inactive_sections = {
-                lualine_a = { "mode" },
-                lualine_b = { "branch" },
-                lualine_c = {},
-                lualine_x = { "encoding", "fileformat", "filetype" },
-                lualine_y = { "progress" },
-                lualine_z = { "location" },
-            },
-            tabline = {},
-            winbar = {
-                lualine_b = {
-                    {
-                        "navic",
-                        color_correction = nil,
-                        navic_opts = nil,
+                inactive_winbar = {
+                    lualine_b = {
+                        {
+                            "navic",
+                            color_correction = nil,
+                            navic_opts = nil,
+                        },
+                    },
+                    lualine_x = { "diagnostics", "diff" },
+                    lualine_y = {
+                        {
+                            "filename",
+                            file_status = true,
+                            newfile_status = true,
+                            path = 1,
+                        },
                     },
                 },
-                lualine_x = { "diagnostics", "diff" },
-                lualine_y = {
-                    {
-                        "filename",
-                        file_status = true,
-                        newfile_status = true,
-                        path = 1,
-                    },
-                },
-            },
-            inactive_winbar = {
-                lualine_b = {
-                    {
-                        "navic",
-                        color_correction = nil,
-                        navic_opts = nil,
-                    },
-                },
-                lualine_x = { "diagnostics", "diff" },
-                lualine_y = {
-                    {
-                        "filename",
-                        file_status = true,
-                        newfile_status = true,
-                        path = 1,
-                    },
-                },
-            },
-            extensions = {},
-        },
+                extensions = {},
+            })
+        end,
     },
     "akinsho/bufferline.nvim",
     {
