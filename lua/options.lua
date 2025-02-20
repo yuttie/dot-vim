@@ -21,6 +21,15 @@ vim.opt.hidden = true -- You can change buffer without saving.
 vim.opt.laststatus = 3 -- Always show status lines.
 vim.opt.showcmd = true
 vim.opt.cmdheight = 2
+vim.opt.fillchars:append({
+    horiz = '━',
+    horizup = '┻',
+    horizdown = '┳',
+    vert = '┃',
+    vertleft = '┫',
+    vertright = '┣',
+    verthoriz = '╋',
+})
 
 -- 7 multiple tab pages
 vim.opt.showtabline = 2
