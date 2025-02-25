@@ -91,7 +91,6 @@ return {
                         end,
                         desc = "Install",
                     },
-                    { "<Space>a", "<Plug>(EasyAlign)", desc = "EasyAlign" },
                     { "<Space>b", group = "buffer" },
                     { "<Space>bb", "<cmd>Telescope buffers<CR>", desc = "[Telescope] Buffers" },
                     {
@@ -292,7 +291,6 @@ return {
                         "<cmd>vsplit<CR><ESC><C-w>lgv:YodeCreateSeditorReplace<CR>",
                         desc = "Focus on selection (vertical split, right)",
                     },
-                    { "<Space>a", "<Plug>(EasyAlign)", desc = "EasyAlign" },
                     {
                         "<Space>c",
                         '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',

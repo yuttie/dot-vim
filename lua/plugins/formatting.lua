@@ -10,7 +10,7 @@ return {
             "EasyAlign",
         },
         keys = {
-            "<Plug>(EasyAlign)",
+            { mode = { "n", "x" }, "<Space>a", "<Plug>(EasyAlign)", desc = "EasyAlign" },
         },
     },
 }
