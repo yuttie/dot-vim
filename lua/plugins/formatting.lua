@@ -6,6 +6,9 @@ return {
     "tpope/vim-repeat",
     {
         "junegunn/vim-easy-align",
+        cmd = {
+            "EasyAlign",
+        },
         keys = {
             "<Plug>(EasyAlign)",
         },
