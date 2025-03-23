@@ -1,5 +1,10 @@
 return {
     {
+        "echasnovski/mini.splitjoin",
+        version = false,
+        opts = {},
+    },
+    {
         "Myzel394/easytables.nvim",
         ft = "markdown",
         opts = {},
