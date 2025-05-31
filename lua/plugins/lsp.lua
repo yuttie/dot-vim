@@ -79,23 +79,23 @@ return {
 
             -- Servers
             -- * basedpyright:  pipx install basedpyright
-            -- * pyright:       yarn global add pyright
+            -- * pyright:       npm install -g pyright
             -- * jedi_language_server: pipx install jedi-language-server
             -- * pylsp:         pipx install python-lsp-server
             -- * pylyzer:       cargo install pylyzer --locked
             -- * ruff:          pipx install ruff
-            -- * bashls:        yarn global add bash-language-server
+            -- * bashls:        npm install -g bash-language-server
             -- * ccls:          emerge dev-util/ccls, pacman -S community/ccls
-            -- * cssls:         yarn global add vscode-langservers-extracted
-            -- * dockerls:      yarn global add dockerfile-language-server-nodejs
-            -- * eslint:        yarn global add vscode-langservers-extracted
-            -- * html:          yarn global add vscode-langservers-extracted
+            -- * cssls:         npm install -g vscode-langservers-extracted
+            -- * dockerls:      npm install -g dockerfile-language-server-nodejs
+            -- * eslint:        npm install -g vscode-langservers-extracted
+            -- * html:          npm install -g vscode-langservers-extracted
             -- * rust_analyzer: rustup component add rust-analyzer
-            -- * sqlls:         yarn global add sql-language-server
+            -- * sqlls:         npm install -g sql-language-server
             -- * texlab:        cargo install --git https://github.com/latex-lsp/texlab.git --locked
-            -- * ts_ls:         yarn global add typescript typescript-language-server
-            -- * vimls:         yarn global add vim-language-server
-            -- * vuels:         yarn global add vls
+            -- * ts_ls:         npm install -g typescript typescript-language-server
+            -- * vimls:         npm install -g vim-language-server
+            -- * vuels:         npm install -g vls
 
             local servers = {
                 "bashls",
