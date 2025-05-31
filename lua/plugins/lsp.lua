@@ -94,8 +94,10 @@ return {
             -- * sqlls:         npm install -g sql-language-server
             -- * texlab:        cargo install --git https://github.com/latex-lsp/texlab.git --locked
             -- * ts_ls:         npm install -g typescript typescript-language-server
+            --                  For adding Vue support to this server, also run `npm install -g @vue/typescript-plugin@2`
             -- * vimls:         npm install -g vim-language-server
-            -- * vuels:         npm install -g vls
+            -- * vue_ls:        npm install -g @vue/language-server@2 (v3 dropped Vue 2 support, see https://github.com/vuejs/language-tools/pull/5365)
+            --                  https://github.com/vuejs/language-tools/blob/424e93769af297f636e865bbaa5d730d42c88e1c/extensions/vscode/README.md?plain=1#L19
 
             local servers = {
                 "bashls",
@@ -111,7 +113,7 @@ return {
                 "texlab",
                 "ts_ls",
                 "vimls",
-                "vuels",
+                "vue_ls",
             }
             for _, server in ipairs(servers) do
                 if server == "pyright" or server == "basedpyright" then
@@ -123,6 +125,24 @@ return {
                             config.settings.python = config.settings.python or {}
                             config.settings.python.pythonPath = get_python_path(config.root_dir)
                         end,
+                    })
+                elseif server == "ts_ls" then
+                    vim.lsp.enable(server)
+                    vim.lsp.config(server, {
+                        init_options = {
+                            plugins = {
+                                {
+                                    name = "@vue/typescript-plugin",
+                                    location = vim.fn.expand("~/.npm-packages/lib64/node_modules/@vue/typescript-plugin"),
+                                    languages = { "javascript", "typescript", "vue" },
+                                },
+                            },
+                        },
+                        filetypes = {
+                            "javascript",
+                            "typescript",
+                            "vue",
+                        },
                     })
                 else
                     vim.lsp.enable(server)
