@@ -115,7 +115,8 @@ return {
             }
             for _, server in ipairs(servers) do
                 if server == "pyright" or server == "basedpyright" then
-                    lspconfig[server].setup({
+                    vim.lsp.enable(server)
+                    vim.lsp.config(server, {
                         capabilities = capabilities,
                         on_attach = on_attach,
                         before_init = function(_, config) -- FIXME Do I still need this?
@@ -124,7 +125,8 @@ return {
                         end,
                     })
                 else
-                    lspconfig[server].setup({
+                    vim.lsp.enable(server)
+                    vim.lsp.config(server, {
                         capabilities = capabilities,
                         on_attach = on_attach,
                     })
