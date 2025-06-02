@@ -127,13 +127,14 @@ return {
                         end,
                     })
                 elseif server == "ts_ls" then
+                    local npm_root = vim.fn.system("npm root -g"):gsub("\n", "")
                     vim.lsp.enable(server)
                     vim.lsp.config(server, {
                         init_options = {
                             plugins = {
                                 {
                                     name = "@vue/typescript-plugin",
-                                    location = vim.fn.expand("~/.npm-packages/lib64/node_modules/@vue/typescript-plugin"),
+                                    location = npm_root .. "/@vue/typescript-plugin",
                                     languages = { "javascript", "typescript", "vue" },
                                 },
                             },
