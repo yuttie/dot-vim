@@ -235,7 +235,6 @@ autocmd MyAutoCmds TextYankPost * silent! lua vim.highlight.on_yank { timeout = 
 -- {{{ voldikss/vim-floaterm
 vim.g.floaterm_width = 0.8
 vim.g.floaterm_height = 0.8
-vim.cmd("autocmd MyAutoCmds User FloatermOpen set winblend=10")
 -- Toggle
 vim.keymap.set("n", "<A-t>", "<CMD>FloatermToggle<CR>", { silent = true })
 vim.keymap.set("t", "<A-t>", "<C-\\><C-n><CMD>FloatermToggle<CR>", { silent = true })
