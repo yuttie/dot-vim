@@ -14,7 +14,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.breakindent = true
 vim.opt.breakindentopt = { "shift:0" }
-vim.opt.showbreak = ">> "
+vim.opt.showbreak = ">>"
 
 -- 6 multiple windows
 vim.opt.hidden = true -- You can change buffer without saving.
