@@ -234,7 +234,7 @@ return {
                     },
                     { "<Space>t", group = "toggle" },
                     { "<Space>t<Space>", ":setl list! | setl list?<CR>", desc = "Visibility of whitespaces" },
-                    { "<Space>tc", "<cmd>TSContextToggle<CR>", desc = "TreeSitter context" },
+                    { "<Space>tc", "<cmd>TSContext toggle<CR>", desc = "TreeSitter context" },
                     {
                         "<Space>td",
                         function()
