@@ -274,6 +274,13 @@ return {
                         desc = "Diagnostics",
                     },
                     { "<Space>tD", require("lsp_lines").toggle, desc = "lsp_lines" },
+                    {
+                        "<Space>th",
+                        function()
+                            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+                        end,
+                        desc = "Inlay hint (LSP)",
+                    },
                     { "<Space>ti", ":IndentBlanklineToggle<CR>", desc = "Indent line" },
                     { "<Space>tn", ":setl number! | setl number?<CR>", desc = "Line number" },
                     { "<Space>tr", ":TSBufToggle rainbow<CR>", desc = "Rainbow" },
