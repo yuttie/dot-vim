@@ -3,79 +3,53 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false, -- This should be false to ensure that a language server is launched when a buffer is opened
         config = function()
-            local lspconfig = require("lspconfig")
-            local util = require("lspconfig/util")
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local navic = require("nvim-navic")
-
-            local on_attach = function(client, bufnr)
-                -- SmiteshP/nvim-navic
-                if client.server_capabilities.documentSymbolProvider then
-                    navic.attach(client, bufnr)
-                end
-                -- Disable certain capabilities of ruff in favor of other LSP servers
-                if client.name == "ruff" then
-                    client.server_capabilities.hoverProvider = false
-                end
-                -- Mappings.
-                -- See `:help vim.lsp.*` for documentation on any of the below functions
-                local opts = { buffer = bufnr, silent = true }
-                vim.keymap.set("n", "K", function()
-                    vim.lsp.buf.hover()
-                end, opts)
-                vim.keymap.set({ "n", "i" }, "<C-k>", function()
-                    vim.lsp.buf.signature_help()
-                end, opts)
-                vim.keymap.set("n", "gr", function()
-                    vim.lsp.buf.references()
-                end, opts)
-                vim.keymap.set("n", "gd", function()
-                    vim.lsp.buf.definition()
-                end, opts)
-                vim.keymap.set("n", "gi", function()
-                    vim.lsp.buf.incoming_calls()
-                end, opts)
-                vim.keymap.set("n", "go", function()
-                    vim.lsp.buf.incoming_calls()
-                end, opts)
-                vim.keymap.set("n", "gI", function()
-                    vim.lsp.buf.implementation()
-                end, opts)
-                vim.keymap.set("n", "gD", function()
-                    vim.lsp.buf.type_definition()
-                end, opts)
-                vim.keymap.set("n", "ga", function()
-                    vim.lsp.buf.code_action()
-                end, opts)
-                vim.keymap.set("n", "gh", function()
-                    vim.lsp.buf.typehierarchy()
-                end, opts)
-            end
-
-            local function get_python_path(workspace)
-                local path = util.path
-                -- Use activated virtualenv.
-                if vim.env.VIRTUAL_ENV then
-                    return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
-                end
-
-                -- Use .venv directory in the workspace
-                local match = vim.fn.glob(path.join(workspace, ".venv"))
-                if match ~= "" then
-                    local venv = path.join(workspace, ".venv")
-                    return path.join(venv, "bin", "python")
-                end
-
-                -- Use virtualenv managed by poetry.
-                local match = vim.fn.glob(path.join(workspace, "poetry.lock"))
-                if match ~= "" then
-                    local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
-                    return path.join(venv, "bin", "python")
-                end
-
-                -- Fallback to system Python.
-                return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
-            end
+            -- Common settings
+            vim.lsp.config("*", {
+                capabilities = require("cmp_nvim_lsp").default_capabilities(),
+                on_attach = function(client, bufnr)
+                    -- SmiteshP/nvim-navic
+                    if client.server_capabilities.documentSymbolProvider then
+                        require("nvim-navic").attach(client, bufnr)
+                    end
+                    -- Disable certain capabilities of ruff in favor of other LSP servers
+                    if client.name == "ruff" then
+                        client.server_capabilities.hoverProvider = false
+                    end
+                    -- Mappings.
+                    -- See `:help vim.lsp.*` for documentation on any of the below functions
+                    local opts = { buffer = bufnr, silent = true }
+                    vim.keymap.set("n", "K", function()
+                        vim.lsp.buf.hover()
+                    end, opts)
+                    vim.keymap.set({ "n", "i" }, "<C-k>", function()
+                        vim.lsp.buf.signature_help()
+                    end, opts)
+                    vim.keymap.set("n", "gr", function()
+                        vim.lsp.buf.references()
+                    end, opts)
+                    vim.keymap.set("n", "gd", function()
+                        vim.lsp.buf.definition()
+                    end, opts)
+                    vim.keymap.set("n", "gi", function()
+                        vim.lsp.buf.incoming_calls()
+                    end, opts)
+                    vim.keymap.set("n", "go", function()
+                        vim.lsp.buf.incoming_calls()
+                    end, opts)
+                    vim.keymap.set("n", "gI", function()
+                        vim.lsp.buf.implementation()
+                    end, opts)
+                    vim.keymap.set("n", "gD", function()
+                        vim.lsp.buf.type_definition()
+                    end, opts)
+                    vim.keymap.set("n", "ga", function()
+                        vim.lsp.buf.code_action()
+                    end, opts)
+                    vim.keymap.set("n", "gh", function()
+                        vim.lsp.buf.typehierarchy()
+                    end, opts)
+                end,
+            })
 
             -- Servers
             -- * basedpyright:  pipx install basedpyright
@@ -116,42 +90,7 @@ return {
                 "vue_ls",
             }
             for _, server in ipairs(servers) do
-                if server == "pyright" or server == "basedpyright" then
-                    vim.lsp.enable(server)
-                    vim.lsp.config(server, {
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                        before_init = function(_, config) -- FIXME Do I still need this?
-                            config.settings.python = config.settings.python or {}
-                            config.settings.python.pythonPath = get_python_path(config.root_dir)
-                        end,
-                    })
-                elseif server == "ts_ls" then
-                    local npm_root = vim.fn.system("npm root -g"):gsub("\n", "")
-                    vim.lsp.enable(server)
-                    vim.lsp.config(server, {
-                        init_options = {
-                            plugins = {
-                                {
-                                    name = "@vue/typescript-plugin",
-                                    location = npm_root .. "/@vue/typescript-plugin",
-                                    languages = { "javascript", "typescript", "vue" },
-                                },
-                            },
-                        },
-                        filetypes = {
-                            "javascript",
-                            "typescript",
-                            "vue",
-                        },
-                    })
-                else
-                    vim.lsp.enable(server)
-                    vim.lsp.config(server, {
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                    })
-                end
+                vim.lsp.enable(server)
             end
 
             -- Add borders around hover float window
