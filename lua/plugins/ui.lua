@@ -228,9 +228,40 @@ return {
                     },
                     { "<Space>sg", "<cmd>Telescope live_grep<CR>", desc = "[Telescope] Live grep" },
                     {
-                        "<Space>ss",
-                        "<cmd>Telescope lsp_document_symbols<CR>",
-                        desc = "[Telescope] LSP document symbols",
+                        "<Space>st",
+                        function()
+                            require("telescope.builtin").lsp_document_symbols({
+                                symbols = { "Class", "Enum", "Interface", "Struct" },
+                            })
+                        end,
+                        desc = "[Telescope] LSP document type-like symbols",
+                    },
+                    {
+                        "<Space>sT",
+                        function()
+                            require("telescope.builtin").lsp_workspace_symbols({
+                                symbols = { "Class", "Enum", "Interface", "Struct" },
+                            })
+                        end,
+                        desc = "[Telescope] LSP workspace type-like symbols",
+                    },
+                    {
+                        "<Space>sf",
+                        function()
+                            require("telescope.builtin").lsp_document_symbols({
+                                symbols = { "Function", "Method", "Constructor" },
+                            })
+                        end,
+                        desc = "[Telescope] LSP document function-like symbols",
+                    },
+                    {
+                        "<Space>sF",
+                        function()
+                            require("telescope.builtin").lsp_workspace_symbols({
+                                symbols = { "Function", "Method", "Constructor" },
+                            })
+                        end,
+                        desc = "[Telescope] LSP workspace function-like symbols",
                     },
                     { "<Space>t", group = "toggle" },
                     { "<Space>t<Space>", ":setl list! | setl list?<CR>", desc = "Visibility of whitespaces" },
