@@ -13,7 +13,7 @@ return {
         },
         config = function()
             require("hop").setup({
-                multi_windows = true,
+                multi_windows = false,
             })
         end,
         keys = {
