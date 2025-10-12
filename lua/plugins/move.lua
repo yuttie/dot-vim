@@ -13,6 +13,8 @@ return {
         },
         config = function()
             require("hop").setup({
+                -- keys = 'asdghklqwertyuiopzxcvbnmfj',  -- QWERTY
+                keys = "aoeidtn',.pyfgcrl;qjkxbmuh",  -- Dvorak
                 multi_windows = false,
             })
         end,
