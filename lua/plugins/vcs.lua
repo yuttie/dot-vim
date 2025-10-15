@@ -7,6 +7,7 @@ return {
         },
     },
     "itchyny/vim-gitbranch",
+    "sindrets/diffview.nvim",
     {
         "lewis6991/gitsigns.nvim",
         opts = {},
