@@ -68,7 +68,8 @@ require("commands")
 
 -- {{{ Mappings
 -- insert
-vim.keymap.set("i", "<C-s>", "<C-d>")
+vim.keymap.set("i", "<Tab>", "<C-t>")
+vim.keymap.set("i", "<S-Tab>", "<C-d>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- insert and command line
