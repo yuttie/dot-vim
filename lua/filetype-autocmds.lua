@@ -11,6 +11,11 @@ autocmd MyAutoCmds FileType help setl conceallevel=0
 " "}}}"
 
 
+" {{{ SCSS
+autocmd MyAutoCmds FileType scss setl shiftwidth=4
+" }}}
+
+
 " {{{ TeX
 autocmd MyAutoCmds FileType tex setlocal wrap
 " }}}
