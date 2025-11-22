@@ -1,8 +1,8 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         build = ":TSUpdate",
-        event = "BufRead",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-refactor",
             "nvim-treesitter/nvim-treesitter-textobjects",
@@ -164,7 +164,7 @@ return {
             })
         end,
     },
-    { "HiPhish/rainbow-delimiters.nvim", lazy = true },
+    { "HiPhish/rainbow-delimiters.nvim" },
     {
         "andymass/vim-matchup",
         config = function()
