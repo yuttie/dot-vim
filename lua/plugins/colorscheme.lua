@@ -3,14 +3,14 @@ local plugins = {
     { "yuttie/inkstained-vim" },
     { "yuttie/snowy-vim" },
     { "yuttie/sublimetext-spacegray.vim" },
-    { "cocopon/iceberg.vim" },
-    { "nordtheme/vim" },
-    { "RRethy/base16-nvim" },
-    { "EdenEast/nightfox.nvim" },
-    {
-        "folke/tokyonight.nvim",
-        opts = {},
-    },
+    -- Ordered by my preference:
+    { "vague-theme/vague.nvim" },  -- vague
+    { "ramojus/mellifluous.nvim" },  -- mellifluous
+    { "thesimonho/kanagawa-paper.nvim" },  -- kanagawa-paper
+    { "EdenEast/nightfox.nvim" },  -- nordfox
+    { "jacoborus/tender.vim" },  -- tender
+    { "AlexvZyl/nordic.nvim" },  -- nordic
+    { "dgox16/oldworld.nvim" },  -- oldworld
 }
 
 -- Set common fields for colorschemes
