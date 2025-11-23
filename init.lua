@@ -48,7 +48,7 @@ autocmd MyAutoCmds VimEnter * call s:my_colorscheme_adjustments()
 autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
 ]=])
 
-vim.cmd([[colorscheme vague ]])
+vim.cmd([[colorscheme mellifluous ]])
 
 -- }}}
 
