@@ -93,8 +93,17 @@ vim.cmd("set sessionoptions&")
 vim.opt.lazyredraw = false
 vim.opt.swapfile = false
 vim.opt.pumblend = 10
-vim.opt.diffopt =
-    { "internal", "filler", "closeoff", "indent-heuristic", "algorithm:histogram", "followwrap", "linematch:60" }
+vim.opt.diffopt = {
+    -- Default options
+    "internal",
+    "filler",
+    "closeoff",
+    "indent-heuristic",
+    -- "inline:char",  -- Neovim 0.12 is required
+    "linematch:60",  -- Default value was 40
+    -- My addition
+    "algorithm:histogram",
+}
 vim.opt.spelllang = { "en_us", "cjk" }
 
 -- Enable mouse
