@@ -1,5 +1,4 @@
 return {
-    "lambdalisue/vim-unified-diff",
     {
         "AndrewRadev/linediff.vim",
         cmd = {
