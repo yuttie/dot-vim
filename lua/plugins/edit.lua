@@ -15,9 +15,13 @@ return {
         opts = {},
     },
     {
-        "kana/vim-operator-replace",
-        dependencies = {
-            "kana/vim-operator-user",
+        "gbprod/substitute.nvim",
+        opts = {},
+        keys = {
+            { "s",  function() require('substitute').operator() end, mode = "n", noremap = true },
+            { "ss", function() require('substitute').line()     end, mode = "n", noremap = true },
+            { "S",  function() require('substitute').eol()      end, mode = "n", noremap = true },
+            { "s",  function() require('substitute').visual()   end, mode = "x", noremap = true },
         },
     },
     {

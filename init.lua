@@ -265,10 +265,6 @@ vim.g["asterisk#keeppos"] = 1
 vim.g.mw_no_mappings = 1
 -- }}}
 
--- {{{ kana/vim-operator-replace
-vim.keymap.set("n", "P", "<Plug>(operator-replace)")
--- }}}
-
 -- {{{ open-browser.vim
 vim.keymap.set("n", "gw", "<Plug>(openbrowser-smart-search)", {})
 vim.keymap.set("v", "gw", "<Plug>(openbrowser-smart-search)", {})
