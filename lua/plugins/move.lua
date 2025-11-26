@@ -1,27 +1,15 @@
 return {
     {
-        "ggandor/leap.nvim",
-        config = function()
-            require("leap").create_default_mappings()
-        end,
-    },
-    {
-        "smoka7/hop.nvim",
-        cmd = {
-            "HopCamelCase",
-            "HopLine",
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        ---@type Flash.Config
+        opts = {
+            labels = "aoeidtn',.pyfgcrl;qjkxbmuh",  -- Dvorak
         },
-        config = function()
-            require("hop").setup({
-                -- keys = 'asdghklqwertyuiopzxcvbnmfj',  -- QWERTY
-                keys = "aoeidtn',.pyfgcrl;qjkxbmuh",  -- Dvorak
-                multi_windows = false,
-            })
-        end,
         keys = {
-            { mode = { "n" }, "<Space><Space>", "<cmd>HopCamelCase<CR>", desc = "HopCamelCase" },
-            { mode = { "x", "o" }, "<Space><Space>l", "<cmd>HopLine<CR>", desc = "HopLine" },
-            { mode = { "x", "o" }, "<Space><Space>w", "<cmd>HopCamelCase<CR>", desc = "HopCamelCase" },
+            { "<Space><Space>", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+            { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+            { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
         },
     },
 }
