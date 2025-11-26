@@ -5,12 +5,8 @@ return {
     },
     "tpope/vim-repeat",
     {
-        "junegunn/vim-easy-align",
-        cmd = {
-            "EasyAlign",
-        },
-        keys = {
-            { mode = { "n", "x" }, "<Space>a", "<Plug>(EasyAlign)", desc = "EasyAlign" },
-        },
+        "nvim-mini/mini.align",
+        version = false,
+        opts = {},
     },
 }
