@@ -3,6 +3,9 @@ return {
     "ntpeters/vim-better-whitespace",
     {
         "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
         config = function()
             vim.opt.list = true
             -- Enabling the following line break alignments and make neovim left garbage on screen
