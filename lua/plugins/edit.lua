@@ -162,6 +162,11 @@ return {
         opts = {},
     },
     {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
+    {
         "terryma/vim-expand-region",
         keys = {
             "<Plug>(expand_region_expand)",
