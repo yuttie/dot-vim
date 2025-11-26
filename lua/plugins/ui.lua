@@ -1,5 +1,10 @@
 return {
     {
+        "shortcuts/no-neck-pain.nvim",
+        version = "*",
+        opts = {},
+    },
+    {
         "Bekaboo/dropbar.nvim",
         -- optional, but required for fuzzy finder support
         dependencies = {
