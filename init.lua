@@ -269,15 +269,6 @@ vim.g.mw_no_mappings = 1
 vim.keymap.set("n", "P", "<Plug>(operator-replace)")
 -- }}}
 
--- {{{ rhysd/vim-operator-surround
-vim.keymap.set("n", "sa", "<Plug>(operator-surround-append)", { silent = true })
-vim.keymap.set("v", "sa", "<Plug>(operator-surround-append)", { silent = true })
-vim.keymap.set("n", "sd", "<Plug>(operator-surround-delete)a", { silent = true })
-vim.keymap.set("n", "sc", "<Plug>(operator-surround-replace)a", { silent = true })
-vim.keymap.set("n", "sD", "<Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)", { silent = true })
-vim.keymap.set("n", "sC", "<Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)", { silent = true })
--- }}}
-
 -- {{{ open-browser.vim
 vim.keymap.set("n", "gw", "<Plug>(openbrowser-smart-search)", {})
 vim.keymap.set("v", "gw", "<Plug>(openbrowser-smart-search)", {})

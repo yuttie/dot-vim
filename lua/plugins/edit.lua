@@ -152,15 +152,10 @@ return {
         end,
     },
     {
-        "rhysd/vim-operator-surround",
-        dependencies = {
-            "kana/vim-operator-user",
-        },
-        keys = {
-            "<Plug>(operator-surround-append)",
-            "<Plug>(operator-surround-delete)",
-            "<Plug>(operator-surround-replace)",
-        },
+        "kylechui/nvim-surround",
+        version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        opts = {},
     },
     {
         "terryma/vim-expand-region",
