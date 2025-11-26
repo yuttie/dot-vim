@@ -25,13 +25,9 @@ return {
         },
     },
     {
-        "rhysd/vim-textobj-anyblock",
-        dependencies = {
-            "kana/vim-textobj-user",
-        },
-        keys = {
-            "<Plug>(textobj-anyblock-a)",
-        },
+        "nvim-mini/mini.ai",
+        version = false,
+        opts = {},
     },
     {
         "simnalamburt/vim-mundo",
