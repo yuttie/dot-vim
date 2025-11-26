@@ -7,10 +7,6 @@ return {
             vim.lsp.config("*", {
                 capabilities = require("cmp_nvim_lsp").default_capabilities(),
                 on_attach = function(client, bufnr)
-                    -- SmiteshP/nvim-navic
-                    if client.server_capabilities.documentSymbolProvider then
-                        require("nvim-navic").attach(client, bufnr)
-                    end
                     -- Disable certain capabilities of ruff in favor of other LSP servers
                     if client.name == "ruff" then
                         client.server_capabilities.hoverProvider = false
@@ -340,10 +336,5 @@ return {
             --   end,
             -- })
         end,
-    },
-    -- Navigation
-    {
-        "SmiteshP/nvim-navic",
-        lazy = true,
     },
 }

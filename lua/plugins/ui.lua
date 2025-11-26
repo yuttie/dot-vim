@@ -1,4 +1,16 @@
 return {
+    {
+        "Bekaboo/dropbar.nvim",
+        -- optional, but required for fuzzy finder support
+        dependencies = {
+            "nvim-telescope/telescope-fzf-native.nvim",
+        },
+        opts = {},
+        lazy = false,
+        keys = {
+            { mode = "n", "<space>ss", function() require("dropbar.api").pick() end, desc = "Pick symbols in winbar" },
+        },
+    },
     "norcalli/nvim-colorizer.lua",
     "ntpeters/vim-better-whitespace",
     {
@@ -495,7 +507,6 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
-            "SmiteshP/nvim-navic",
             "folke/noice.nvim",
         },
         config = function()
@@ -530,42 +541,8 @@ return {
                     lualine_z = { "location" },
                 },
                 tabline = {},
-                winbar = {
-                    lualine_b = {
-                        {
-                            "navic",
-                            color_correction = nil,
-                            navic_opts = nil,
-                        },
-                    },
-                    lualine_x = { "diagnostics", "diff" },
-                    lualine_y = {
-                        {
-                            "filename",
-                            file_status = true,
-                            newfile_status = true,
-                            path = 1,
-                        },
-                    },
-                },
-                inactive_winbar = {
-                    lualine_b = {
-                        {
-                            "navic",
-                            color_correction = nil,
-                            navic_opts = nil,
-                        },
-                    },
-                    lualine_x = { "diagnostics", "diff" },
-                    lualine_y = {
-                        {
-                            "filename",
-                            file_status = true,
-                            newfile_status = true,
-                            path = 1,
-                        },
-                    },
-                },
+                winbar = {},
+                inactive_winbar = {},
                 extensions = {},
             })
         end,
