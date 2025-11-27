@@ -19,6 +19,13 @@ return {
     "norcalli/nvim-colorizer.lua",
     "ntpeters/vim-better-whitespace",
     {
+        "nvim-mini/mini.indentscope",
+        version = false,
+        opts = {
+            symbol = '│',
+        },
+    },
+    {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         ---@module "ibl"
@@ -37,7 +44,7 @@ return {
                     smart_indent_cap = true,
                 },
                 scope = {
-                    enabled = true,
+                    enabled = false,
                     char = "│",
                     show_start = true,
                     show_end = true,
