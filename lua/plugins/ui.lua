@@ -37,7 +37,7 @@ return {
                     smart_indent_cap = true,
                 },
                 scope = {
-                    enabled = ture,
+                    enabled = true,
                     char = "│",
                     show_start = true,
                     show_end = true,
