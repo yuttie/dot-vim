@@ -90,7 +90,6 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "gj", "j")
 vim.keymap.set("n", "gk", "k")
-vim.keymap.set("n", "PP", "Pg;")
 vim.keymap.set("n", "gc", "`[v`]")
 
 vim.keymap.set("n", "<M-h>", "<C-w>h")
