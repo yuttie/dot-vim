@@ -571,6 +571,8 @@ return {
     },
     {
         "sphamba/smear-cursor.nvim",
-        opts = {},
+        opts = {
+            legacy_computing_symbols_support = true,
+        },
     },
 }
