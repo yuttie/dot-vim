@@ -107,8 +107,6 @@ vim.keymap.set("n", "<S-Right>", "<C-w><<CR>")
 vim.keymap.set("n", "<S-Up>", "<C-w>-<CR>")
 vim.keymap.set("n", "<S-Down>", "<C-w>+<CR>")
 
-vim.keymap.set("n", "n", "nzz", { silent = true })
-vim.keymap.set("n", "N", "Nzz", { silent = true })
 vim.keymap.set("n", "<C-Tab>", "gt")
 vim.keymap.set("n", "<C-S-Tab>", "gT")
 vim.keymap.set("n", "<S-PageDown>", ":tabmove +1<CR>", { silent = true })
