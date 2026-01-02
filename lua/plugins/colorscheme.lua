@@ -4,7 +4,12 @@ local plugins = {
     { "yuttie/snowy-vim" },
     { "yuttie/sublimetext-spacegray.vim" },
     -- Ordered by my preference:
-    { "ramojus/mellifluous.nvim" },  -- mellifluous
+    {
+        "ramojus/mellifluous.nvim",
+        opts = {
+            colorset = "mellifluous",
+        },
+    },  -- mellifluous
     { "vague-theme/vague.nvim" },  -- vague
     { "thesimonho/kanagawa-paper.nvim" },  -- kanagawa-paper
     { "EdenEast/nightfox.nvim" },  -- nordfox
