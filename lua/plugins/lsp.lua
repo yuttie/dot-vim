@@ -281,7 +281,9 @@ return {
                         kind.kind = " " .. strings[1] .. " "
                         kind.abbr = kind.abbr .. " "
                         if kind.menu ~= nil then
-                            kind.menu = "[" .. strings[2] .. "]"
+                            if strings[2] ~= nil then
+                                kind.menu = "[" .. strings[2] .. "]"
+                            end
                         else
                             kind.menu = "[" .. entry.source.name .. "]"
                         end
