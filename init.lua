@@ -90,7 +90,7 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "gj", "j")
 vim.keymap.set("n", "gk", "k")
-vim.keymap.set("n", "gc", "`[v`]")
+vim.keymap.set("n", "gV", "`[v`]")  -- re-select the last changed/yanked text
 
 vim.keymap.set("n", "<M-h>", "<C-w>h")
 vim.keymap.set("n", "<M-l>", "<C-w>l")
