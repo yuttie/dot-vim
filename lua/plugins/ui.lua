@@ -129,21 +129,6 @@ return {
                     },
                     { "<Space>bn", ":bn<CR>", desc = "Next" },
                     { "<Space>bp", ":bp<CR>", desc = "Previous" },
-                    { "<Space>c", group = "comment" },
-                    {
-                        "<Space>c",
-                        require("Comment.api").call("toggle.linewise", "g@"),
-                        desc = "Comment out/in line-wise",
-                        expr = true,
-                        replace_keycodes = false,
-                    },
-                    {
-                        "<Space>cc",
-                        require("Comment.api").call("toggle.linewise.current", "g@$"),
-                        desc = "Comment out/in current line",
-                        expr = true,
-                        replace_keycodes = false,
-                    },
                     { "<Space>d", group = "diagnostic" },
                     {
                         "<Space>dd",
@@ -358,11 +343,6 @@ return {
                         "<Space>V",
                         "<cmd>vsplit<CR><ESC><C-w>lgv:YodeCreateSeditorReplace<CR>",
                         desc = "Focus on selection (vertical split, right)",
-                    },
-                    {
-                        "<Space>c",
-                        '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-                        desc = "Comment out/in line-wise",
                     },
                     { "<Space>g", group = "git" },
                     { "<Space>gr", "<cmd>Gitsigns reset_hunk<CR>", desc = "Reset hunk" },
