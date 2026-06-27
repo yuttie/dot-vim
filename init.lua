@@ -119,11 +119,11 @@ vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p')<CR>")
 -- terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
+-- }}}
+
+
+-- {{{ Template insertion
 vim.cmd([=[
-" }}}
-
-
-" {{{ Template insertion
 let template_dir = "~/.config/nvim/template"
 function! InsertTemplate()
   if expand("%:t") == "NOTE"
@@ -156,8 +156,8 @@ function! FillTemplatePlaceHolders()
 endfunction
 
 autocmd MyAutoCmds BufNewFile * call InsertTemplate()
-" }}}
 ]=])
+-- }}}
 
 -- {{{ norcalli/nvim-colorizer.lua
 require("colorizer").setup({
