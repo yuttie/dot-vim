@@ -12,7 +12,7 @@ require("config.lazy")
 -- }}}
 
 -- Disable syntax highlighting to use treesitter instead
-vim.cmd("syntax off")
+vim.cmd.syntax("off")
 
 -- Autocommand group
 vim.api.nvim_create_augroup("MyAutoCmds", {})
@@ -48,7 +48,7 @@ autocmd MyAutoCmds VimEnter * call s:my_colorscheme_adjustments()
 autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
 ]=])
 
-vim.cmd([[colorscheme rose-pine]])
+vim.cmd.colorscheme("rose-pine")
 require("colorscheme_cycle")
 -- }}}
 
