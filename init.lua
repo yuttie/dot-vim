@@ -49,7 +49,7 @@ autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
 ]=])
 
 vim.cmd([[colorscheme rose-pine]])
-
+require("colorscheme_cycle")
 -- }}}
 
 -- Extensions                                                                 {{{
