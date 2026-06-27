@@ -15,7 +15,7 @@ require("config.lazy")
 vim.cmd.syntax("off")
 
 -- Autocommand group
-vim.api.nvim_create_augroup("MyAutoCmds", {})
+vim.api.nvim_create_augroup("MyAutoCmds", { clear = true })
 
 vim.cmd([=[
 " Reset ibus-skk to the direct input mode when leave the insert mode
