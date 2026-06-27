@@ -160,7 +160,14 @@ return {
                     { "<Space>fp", "1<C-g>", desc = "Print current file name with full path" },
                     { "<Space>fr", "<cmd>Telescope oldfiles<CR>", desc = "[Telescope] Recently opened files" },
                     { "<Space>fs", ":w<CR>", desc = "Save" },
-                    { "<Space>ft", ":NvimTreeToggle<CR>", desc = "Toggle tree view" },
+                    {
+                        "<Space>ft",
+                        function()
+                            local tmp = vim.fn.tempname()
+                            vim.cmd.edit(tmp)
+                        end,
+                        desc = "Open a temp file",
+                    },
                     { "<Space>fv", group = "vim" },
                     { "<Space>fvR", ":source $MYVIMRC<CR>", desc = "Reload $MYVIMRC" },
                     { "<Space>fvi", ":tab vsplit $MYVIMRC | lcd %:h<CR>", desc = "Open $MYVIMRC" },
@@ -296,6 +303,7 @@ return {
                         end,
                         desc = "Inlay hint (LSP)",
                     },
+                    { "<Space>tf", ":NvimTreeToggle<CR>", desc = "Toggle tree view" },
                     { "<Space>ti", ":IndentBlanklineToggle<CR>", desc = "Indent line" },
                     { "<Space>tn", ":setl number! | setl number?<CR>", desc = "Line number" },
                     { "<Space>tr", ":TSBufToggle rainbow<CR>", desc = "Rainbow" },
