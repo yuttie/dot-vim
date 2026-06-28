@@ -42,7 +42,12 @@ set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon370
 syntax on
 
 function! s:my_colorscheme_adjustments() abort
-  highlight SpellBad term=underline cterm=undercurl gui=undercurl
+    highlight SpellBad term=underline cterm=undercurl gui=undercurl
+    if &background ==# 'dark'
+        highlight MatchParen ctermfg=white guifg=white
+    else
+        highlight MatchParen ctermfg=black guifg=black
+    endif
 endfunction
 autocmd MyAutoCmds VimEnter * call s:my_colorscheme_adjustments()
 autocmd MyAutoCmds ColorScheme * call s:my_colorscheme_adjustments()
