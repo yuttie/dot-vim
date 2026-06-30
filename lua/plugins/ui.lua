@@ -510,6 +510,14 @@ return {
             "folke/noice.nvim",
         },
         config = function()
+            local function get_word_count()
+                local counts = vim.fn.wordcount()
+                if counts.visual_words then
+                    return tostring(counts.visual_words) .. " words, " .. tostring(counts.visual_chars) .. " chars"
+                else
+                    return tostring(counts.words) .. " words, " .. tostring(counts.chars) .. " chars"
+                end
+            end
             require('lualine').setup({
                 options = {
                     icons_enabled = true,
@@ -523,6 +531,7 @@ return {
                     lualine_a = { "mode" },
                     lualine_b = { "branch" },
                     lualine_c = {
+                        get_word_count,
                         {
                             require("noice").api.statusline.mode.get,
                             cond = require("noice").api.statusline.mode.has,
